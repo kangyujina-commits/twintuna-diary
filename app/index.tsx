@@ -1,16 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   View,
   Text,
   TouchableOpacity,
+  TextInput,
   StyleSheet,
   SafeAreaView,
   ScrollView,
 } from 'react-native'
 import { useRouter } from 'expo-router'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useDiary } from '../src/context/DiaryContext'
 
 const DAYS = ['일', '월', '화', '수', '목', '금', '토']
+const APP_NAME_KEY = '@twintuna_diary:appName'
+const DEFAULT_NAME = 'TwinTuna_Diary'
 
 function getDaysInMonth(year: number, month: number) {
   return new Date(year, month + 1, 0).getDate()
@@ -32,6 +36,24 @@ export default function CalendarScreen() {
   const [year, setYear] = useState(today.getFullYear())
   const [month, setMonth] = useState(today.getMonth())
 
+  const [appName, setAppName] = useState(DEFAULT_NAME)
+  const [editingName, setEditingName] = useState(false)
+  const [nameInput, setNameInput] = useState(DEFAULT_NAME)
+
+  useEffect(() => {
+    AsyncStorage.getItem(APP_NAME_KEY).then((saved) => {
+      if (saved) { setAppName(saved); setNameInput(saved) }
+    })
+  }, [])
+
+  function saveName() {
+    const trimmed = nameInput.trim() || DEFAULT_NAME
+    setAppName(trimmed)
+    setNameInput(trimmed)
+    AsyncStorage.setItem(APP_NAME_KEY, trimmed)
+    setEditingName(false)
+  }
+
   const daysInMonth = getDaysInMonth(year, month)
   const firstDay = getFirstDayOfWeek(year, month)
   const todayStr = toDateString(today.getFullYear(), today.getMonth(), today.getDate())
@@ -45,12 +67,10 @@ export default function CalendarScreen() {
     else setMonth((m) => m + 1)
   }
 
-  // Build calendar grid cells (null = empty padding)
   const cells: (number | null)[] = [
     ...Array(firstDay).fill(null),
     ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
   ]
-  // Pad to full weeks
   while (cells.length % 7 !== 0) cells.push(null)
 
   return (
@@ -58,7 +78,30 @@ export default function CalendarScreen() {
       <ScrollView contentContainerStyle={styles.scroll}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.appTitle}>TwinTuna_Diary</Text>
+          {editingName ? (
+            <View style={styles.nameEditRow}>
+              <TextInput
+                style={styles.nameInput}
+                value={nameInput}
+                onChangeText={setNameInput}
+                autoFocus
+                selectTextOnFocus
+                returnKeyType="done"
+                onSubmitEditing={saveName}
+                maxLength={30}
+              />
+              <TouchableOpacity onPress={saveName} style={styles.nameConfirmBtn}>
+                <Text style={styles.nameConfirmTxt}>완료</Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <TouchableOpacity onLongPress={() => { setNameInput(appName); setEditingName(true) }} activeOpacity={0.8}>
+              <Text style={styles.appTitle}>{appName}</Text>
+            </TouchableOpacity>
+          )}
+          {!editingName && (
+            <Text style={styles.nameHint}>길게 눌러서 이름 변경</Text>
+          )}
         </View>
 
         {/* Month nav */}
@@ -112,12 +155,8 @@ export default function CalendarScreen() {
                 >
                   {day}
                 </Text>
-                {entry?.mood && (
-                  <Text style={styles.icon}>{entry.mood}</Text>
-                )}
-                {entry?.weather && (
-                  <Text style={styles.icon}>{entry.weather}</Text>
-                )}
+                {entry?.mood && <Text style={styles.icon}>{entry.mood}</Text>}
+                {entry?.weather && <Text style={styles.icon}>{entry.weather}</Text>}
               </TouchableOpacity>
             )
           })}
@@ -138,9 +177,29 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#fdf6f0' },
   scroll: { paddingBottom: 40 },
 
-  header: { alignItems: 'center', paddingTop: 24, paddingBottom: 8 },
+  header: { alignItems: 'center', paddingTop: 24, paddingBottom: 4 },
   appTitle: { fontSize: 22, fontWeight: '700', color: '#3d2c1e', letterSpacing: 0.5 },
-  subtitle: { fontSize: 13, color: '#a08070', marginTop: 2 },
+  nameHint: { fontSize: 11, color: '#c9b8a8', marginTop: 3 },
+
+  nameEditRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  nameInput: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#3d2c1e',
+    borderBottomWidth: 2,
+    borderBottomColor: '#c9a882',
+    paddingVertical: 2,
+    paddingHorizontal: 4,
+    minWidth: 120,
+    textAlign: 'center',
+  },
+  nameConfirmBtn: {
+    backgroundColor: '#c9a882',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  nameConfirmTxt: { color: '#fff', fontWeight: '700', fontSize: 13 },
 
   monthNav: {
     flexDirection: 'row',
@@ -153,24 +212,10 @@ const styles = StyleSheet.create({
   navArrow: { fontSize: 28, color: '#c9a882', lineHeight: 30 },
   monthLabel: { fontSize: 18, fontWeight: '600', color: '#3d2c1e', minWidth: 120, textAlign: 'center' },
 
-  weekRow: {
-    flexDirection: 'row',
-    paddingHorizontal: 8,
-    paddingBottom: 4,
-  },
-  weekLabel: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#a08070',
-  },
+  weekRow: { flexDirection: 'row', paddingHorizontal: 8, paddingBottom: 4 },
+  weekLabel: { flex: 1, textAlign: 'center', fontSize: 12, fontWeight: '600', color: '#a08070' },
 
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    paddingHorizontal: 8,
-  },
+  grid: { flexDirection: 'row', flexWrap: 'wrap', paddingHorizontal: 8 },
   cell: {
     width: `${100 / 7}%`,
     minHeight: CELL_SIZE,
@@ -178,18 +223,9 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 12,
   },
-  todayCell: {
-    backgroundColor: '#ffe8d2',
-  },
-  dayNum: {
-    fontSize: 13,
-    color: '#5a3e2b',
-    fontWeight: '500',
-  },
-  todayNum: {
-    fontWeight: '700',
-    color: '#c96a30',
-  },
+  todayCell: { backgroundColor: '#ffe8d2' },
+  dayNum: { fontSize: 13, color: '#5a3e2b', fontWeight: '500' },
+  todayNum: { fontWeight: '700', color: '#c96a30' },
   sun: { color: '#e05c5c' },
   sat: { color: '#5b8ee0' },
   icon: { fontSize: 14, lineHeight: 18 },
