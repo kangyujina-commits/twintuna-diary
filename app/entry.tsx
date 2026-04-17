@@ -16,30 +16,34 @@ import * as ImagePicker from 'expo-image-picker'
 import { useDiary, Mood, Weather } from '../src/context/DiaryContext'
 
 const MOODS: { emoji: Mood; label: string }[] = [
-  { emoji: '😄', label: '신나요' },
-  { emoji: '🥰', label: '설레요' },
-  { emoji: '😊', label: '좋아요' },
-  { emoji: '😐', label: '그냥요' },
-  { emoji: '😴', label: '피곤해요' },
-  { emoji: '😢', label: '슬퍼요' },
-  { emoji: '😠', label: '화나요' },
-  { emoji: '😰', label: '불안해요' },
+  { emoji: '😄', label: 'Joy/신나요' },
+  { emoji: '🥰', label: 'Love/설레요' },
+  { emoji: '😊', label: 'Good/좋아요' },
+  { emoji: '😐', label: 'Meh/그냥요' },
+  { emoji: '😴', label: 'Tired/피곤해요' },
+  { emoji: '😢', label: 'Sad/슬퍼요' },
+  { emoji: '😠', label: 'Angry/화나요' },
+  { emoji: '😰', label: 'Anxious/불안해요' },
 ]
 
 const WEATHERS: { emoji: Weather; label: string }[] = [
-  { emoji: '☀️', label: '맑음' },
-  { emoji: '⛅', label: '구름' },
-  { emoji: '🌧️', label: '비' },
-  { emoji: '❄️', label: '눈' },
-  { emoji: '🌩️', label: '번개' },
-  { emoji: '🌈', label: '무지개' },
+  { emoji: '☀️', label: 'Clear/맑음' },
+  { emoji: '⛅', label: 'Cloudy/구름' },
+  { emoji: '🌧️', label: 'Rain/비' },
+  { emoji: '❄️', label: 'Snow/눈' },
+  { emoji: '🌩️', label: 'Storm/번개' },
+  { emoji: '🌈', label: 'Rainbow/무지개' },
 ]
+
+const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const EN_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const KO_DAYS = ['일', '월', '화', '수', '목', '금', '토']
 
 function formatDate(dateStr: string) {
   const [year, month, day] = dateStr.split('-').map(Number)
   const d = new Date(year, month - 1, day)
-  const days = ['일', '월', '화', '수', '목', '금', '토']
-  return `${year}년 ${month}월 ${day}일 (${days[d.getDay()]})`
+  const dow = d.getDay()
+  return `${MONTHS_EN[month - 1]} ${day}, ${year} (${EN_DAYS[dow]}) / ${year}년 ${month}월 ${day}일 (${KO_DAYS[dow]})`
 }
 
 export default function EntryScreen() {
@@ -123,7 +127,7 @@ export default function EntryScreen() {
           <Text style={styles.dateLabel}>{date ? formatDate(date) : ''}</Text>
           {existing && isEditing ? (
             <TouchableOpacity onPress={() => setShowDeleteConfirm(true)} style={styles.editBtn}>
-              <Text style={styles.deleteTxt}>삭제</Text>
+              <Text style={styles.deleteTxt}>Delete / 삭제</Text>
             </TouchableOpacity>
           ) : (
             <View style={{ width: 44 }} />
@@ -133,13 +137,13 @@ export default function EntryScreen() {
         {/* 삭제 확인 */}
         {showDeleteConfirm && (
           <View style={styles.deleteConfirmBar}>
-            <Text style={styles.deleteConfirmTxt}>이 날의 일기를 삭제할까요?</Text>
+            <Text style={styles.deleteConfirmTxt}>Delete this diary? / 이 날의 일기를 삭제할까요?</Text>
             <View style={styles.deleteConfirmBtns}>
               <TouchableOpacity style={styles.deleteConfirmCancel} onPress={() => setShowDeleteConfirm(false)}>
-                <Text style={styles.deleteConfirmCancelTxt}>취소</Text>
+                <Text style={styles.deleteConfirmCancelTxt}>Cancel / 취소</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.deleteConfirmOk} onPress={handleDelete}>
-                <Text style={styles.deleteConfirmOkTxt}>삭제</Text>
+                <Text style={styles.deleteConfirmOkTxt}>Delete / 삭제</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -147,7 +151,7 @@ export default function EntryScreen() {
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           {/* Mood */}
-          <Text style={styles.sectionLabel}>오늘의 기분</Text>
+          <Text style={styles.sectionLabel}>Mood / 오늘의 기분</Text>
           <View style={styles.emojiRow}>
             {MOODS.map((m) => (
               <TouchableOpacity
@@ -171,7 +175,7 @@ export default function EntryScreen() {
           </View>
 
           {/* Weather */}
-          <Text style={styles.sectionLabel}>오늘의 날씨</Text>
+          <Text style={styles.sectionLabel}>Weather / 오늘의 날씨</Text>
           <View style={styles.emojiRow}>
             {WEATHERS.map((w) => (
               <TouchableOpacity
@@ -195,12 +199,12 @@ export default function EntryScreen() {
           </View>
 
           {/* Text */}
-          <Text style={styles.sectionLabel}>오늘 하루</Text>
+          <Text style={styles.sectionLabel}>Today / 오늘 하루</Text>
           {isEditing ? (
             <TextInput
               style={styles.textInput}
               multiline
-              placeholder="오늘은 어떤 하루였나요? ✍️"
+              placeholder="How was your day? / 오늘은 어떤 하루였나요? ✍️"
               placeholderTextColor="#c5a890"
               value={text}
               onChangeText={setText}
@@ -210,13 +214,13 @@ export default function EntryScreen() {
           ) : (
             <View style={styles.textView}>
               <Text style={text ? styles.textContent : styles.textEmpty}>
-                {text || '기록 없음'}
+                {text || 'No entry / 기록 없음'}
               </Text>
             </View>
           )}
 
           {/* Photo */}
-          <Text style={styles.sectionLabel}>사진</Text>
+          <Text style={styles.sectionLabel}>Photo / 사진</Text>
           {photoUris.length > 0 && (
             <View style={styles.photoGrid}>
               {photoUris.map((uri, idx) => (
@@ -239,37 +243,37 @@ export default function EntryScreen() {
               <View style={styles.photoMenuRow}>
                 <TouchableOpacity style={styles.photoMenuBtn} onPress={async () => { setShowPhotoMenu(false); await takePhoto() }} activeOpacity={0.7}>
                   <Text style={styles.photoMenuIcon}>📸</Text>
-                  <Text style={styles.photoMenuTxt}>카메라</Text>
+                  <Text style={styles.photoMenuTxt}>Camera / 카메라</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.photoMenuBtn} onPress={async () => { setShowPhotoMenu(false); await pickPhoto() }} activeOpacity={0.7}>
                   <Text style={styles.photoMenuIcon}>🖼️</Text>
-                  <Text style={styles.photoMenuTxt}>앨범</Text>
+                  <Text style={styles.photoMenuTxt}>Album / 앨범</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.photoMenuBtn, styles.photoMenuCancel]} onPress={() => setShowPhotoMenu(false)} activeOpacity={0.7}>
                   <Text style={styles.photoMenuIcon}>✕</Text>
-                  <Text style={styles.photoMenuTxt}>취소</Text>
+                  <Text style={styles.photoMenuTxt}>Cancel / 취소</Text>
                 </TouchableOpacity>
               </View>
             ) : (
               <TouchableOpacity style={styles.photoAddBtn} onPress={() => setShowPhotoMenu(true)} activeOpacity={0.7}>
                 <Text style={styles.photoAddIcon}>📷</Text>
-                <Text style={styles.photoAddTxt}>사진 추가</Text>
+                <Text style={styles.photoAddTxt}>Add Photo / 사진 추가</Text>
               </TouchableOpacity>
             )
           ) : photoUris.length === 0 ? (
             <View style={styles.photoEmpty}>
-              <Text style={styles.textEmpty}>사진 없음</Text>
+              <Text style={styles.textEmpty}>No photos / 사진 없음</Text>
             </View>
           ) : null}
 
           {/* 버튼 */}
           {!isEditing && existing ? (
             <TouchableOpacity style={styles.editBtnBottom} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
-              <Text style={styles.editBtnTxt}>편집</Text>
+              <Text style={styles.editBtnTxt}>Edit / 편집</Text>
             </TouchableOpacity>
           ) : isEditing ? (
             <TouchableOpacity style={styles.saveBtn} onPress={handleSave} activeOpacity={0.8}>
-              <Text style={styles.saveTxt}>저장하기</Text>
+              <Text style={styles.saveTxt}>Save / 저장하기</Text>
             </TouchableOpacity>
           ) : null}
         </ScrollView>

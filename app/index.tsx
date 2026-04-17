@@ -12,7 +12,8 @@ import { useRouter } from 'expo-router'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useDiary } from '../src/context/DiaryContext'
 
-const DAYS = ['일', '월', '화', '수', '목', '금', '토']
+const DAYS = ['Sun/일', 'Mon/월', 'Tue/화', 'Wed/수', 'Thu/목', 'Fri/금', 'Sat/토']
+const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const APP_NAME_KEY = '@twintuna_diary:appName'
 const DEFAULT_NAME = 'TwinTuna_Diary'
 
@@ -91,7 +92,7 @@ export default function CalendarScreen() {
                 maxLength={30}
               />
               <TouchableOpacity onPress={saveName} style={styles.nameConfirmBtn}>
-                <Text style={styles.nameConfirmTxt}>완료</Text>
+                <Text style={styles.nameConfirmTxt}>Done / 완료</Text>
               </TouchableOpacity>
             </View>
           ) : (
@@ -100,7 +101,7 @@ export default function CalendarScreen() {
             </TouchableOpacity>
           )}
           {!editingName && (
-            <Text style={styles.nameHint}>길게 눌러서 이름 변경</Text>
+            <Text style={styles.nameHint}>Long press to rename / 길게 눌러서 이름 변경</Text>
           )}
         </View>
 
@@ -110,7 +111,7 @@ export default function CalendarScreen() {
             <Text style={styles.navArrow}>‹</Text>
           </TouchableOpacity>
           <Text style={styles.monthLabel}>
-            {year}년 {month + 1}월
+            {MONTHS_EN[month]} / {month + 1}월 {year}
           </Text>
           <TouchableOpacity onPress={nextMonth} style={styles.navBtn}>
             <Text style={styles.navArrow}>›</Text>
@@ -164,7 +165,7 @@ export default function CalendarScreen() {
 
         {/* Legend */}
         <View style={styles.legend}>
-          <Text style={styles.legendText}>날짜를 탭해서 일기를 써보세요 ✏️</Text>
+          <Text style={styles.legendText}>Tap a date to write / 날짜를 탭해서 일기를 써보세요 ✏️</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
   },
   navBtn: { padding: 8 },
   navArrow: { fontSize: 28, color: '#c9a882', lineHeight: 30 },
-  monthLabel: { fontSize: 18, fontWeight: '600', color: '#3d2c1e', minWidth: 120, textAlign: 'center' },
+  monthLabel: { fontSize: 18, fontWeight: '600', color: '#3d2c1e', minWidth: 160, textAlign: 'center' },
 
   weekRow: { flexDirection: 'row', paddingHorizontal: 8, paddingBottom: 4 },
   weekLabel: { flex: 1, textAlign: 'center', fontSize: 12, fontWeight: '600', color: '#a08070' },
