@@ -57,6 +57,7 @@ export default function EntryScreen() {
   const [weather, setWeather] = useState<Weather | undefined>(existing?.weather)
   const [text, setText] = useState(existing?.text ?? '')
   const [photoUris, setPhotoUris] = useState<string[]>(existing?.photo_uris ?? [])
+  const [schedule, setSchedule] = useState(existing?.schedule ?? '')
   const [isEditing, setIsEditing] = useState(!existing)
   const [showPhotoMenu, setShowPhotoMenu] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
@@ -67,6 +68,7 @@ export default function EntryScreen() {
       setWeather(existing.weather)
       setText(existing.text ?? '')
       setPhotoUris(existing.photo_uris ?? [])
+      setSchedule(existing.schedule ?? '')
       setIsEditing(false)
     } else {
       setIsEditing(true)
@@ -103,7 +105,7 @@ export default function EntryScreen() {
 
   function handleSave() {
     if (!date) return
-    upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: photoUris })
+    upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim() })
     setIsEditing(false)
   }
 
@@ -197,6 +199,25 @@ export default function EntryScreen() {
               </TouchableOpacity>
             ))}
           </View>
+
+          {/* Schedule */}
+          <Text style={styles.sectionLabel}>Schedule / 일정</Text>
+          {isEditing ? (
+            <TextInput
+              style={styles.scheduleInput}
+              placeholder="오늘의 일정을 입력하세요 🐈‍⬛"
+              placeholderTextColor="#c5a890"
+              value={schedule}
+              onChangeText={setSchedule}
+              returnKeyType="done"
+            />
+          ) : (
+            <View style={styles.scheduleView}>
+              <Text style={schedule ? styles.scheduleContent : styles.textEmpty}>
+                {schedule || 'No schedule / 일정 없음'}
+              </Text>
+            </View>
+          )}
 
           {/* Text */}
           <Text style={styles.sectionLabel}>Today / 오늘 하루</Text>
@@ -329,6 +350,26 @@ const styles = StyleSheet.create({
   emojiDim: { opacity: 0.4 },
   emojiLabel: { fontSize: 11, color: '#b09080', marginTop: 2 },
   emojiLabelActive: { color: '#8b5e3c', fontWeight: '600' },
+
+  scheduleInput: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    borderWidth: 1.5,
+    borderColor: '#f0e0d0',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 15,
+    color: '#3d2c1e',
+  },
+  scheduleView: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    borderWidth: 1.5,
+    borderColor: '#f0e0d0',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  scheduleContent: { fontSize: 15, color: '#3d2c1e' },
 
   textInput: {
     backgroundColor: '#fff',

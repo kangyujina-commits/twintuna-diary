@@ -11,6 +11,7 @@ export interface DiaryEntry {
   weather?: Weather
   text?: string
   photo_uris?: string[]
+  schedule?: string
 }
 
 interface DiaryContextValue {

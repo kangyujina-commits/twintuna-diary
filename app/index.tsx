@@ -160,7 +160,9 @@ export default function CalendarScreen() {
                   ? <Text style={styles.icon}>{entry.mood}</Text>
                   : entry?.text?.trim()
                     ? <Text style={styles.icon}>✏️</Text>
-                    : null}
+                    : entry?.schedule?.trim()
+                      ? <Text style={styles.icon}>🐈‍⬛</Text>
+                      : null}
                 {entry?.weather
                   ? <Text style={styles.icon}>{entry.weather}</Text>
                   : entry?.photo_uris?.length
