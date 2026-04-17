@@ -32,10 +32,13 @@ function toDateString(year: number, month: number, day: number) {
 
 export default function CalendarScreen() {
   const router = useRouter()
-  const { getEntry, diaryId, connectDiary } = useDiary()
+  const { getEntry, diaryId, isConnected, nickname, setNickname, connectDiary } = useDiary()
   const [showShare, setShowShare] = useState(false)
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
+  const [nicknameInput, setNicknameInput] = useState('')
+
+  useEffect(() => { setNicknameInput(nickname) }, [nickname])
 
   const today = new Date()
   const [year, setYear] = useState(today.getFullYear())
@@ -108,9 +111,13 @@ export default function CalendarScreen() {
             <Text style={styles.nameHint}>Long press to rename / 길게 눌러서 이름 변경</Text>
           )}
           {!editingName && (
-            <TouchableOpacity onPress={() => { setShowShare(true); setConnectMsg('') }} style={styles.shareBtn}>
-              <Text style={styles.shareBtnTxt}>🔗 연결 / Connect</Text>
-            </TouchableOpacity>
+            <View style={styles.statusRow}>
+              {isConnected && <Text style={styles.connectedBadge}>🔗 연결 중</Text>}
+              {nickname ? <Text style={styles.nicknameBadge}>✏️ {nickname}</Text> : null}
+              <TouchableOpacity onPress={() => { setShowShare(true); setConnectMsg('') }} style={styles.shareBtn}>
+                <Text style={styles.shareBtnTxt}>연결 설정</Text>
+              </TouchableOpacity>
+            </View>
           )}
         </View>
 
@@ -118,6 +125,20 @@ export default function CalendarScreen() {
         {showShare && (
           <View style={styles.sharePanel}>
             <Text style={styles.sharePanelTitle}>📎 공유 코드 / Share Code</Text>
+            <View style={styles.nicknameRow}>
+              <Text style={styles.nicknameLabel}>내 이름</Text>
+              <TextInput
+                style={styles.nicknameInput}
+                value={nicknameInput}
+                onChangeText={setNicknameInput}
+                placeholder="닉네임 입력"
+                placeholderTextColor="#c5a890"
+                maxLength={10}
+                returnKeyType="done"
+                onSubmitEditing={() => setNickname(nicknameInput.trim())}
+                onBlur={() => setNickname(nicknameInput.trim())}
+              />
+            </View>
             <View style={styles.myCodeRow}>
               <Text style={styles.myCodeLabel}>내 코드</Text>
               <Text style={styles.myCode}>{diaryId}</Text>
@@ -310,8 +331,15 @@ const styles = StyleSheet.create({
   legend: { alignItems: 'center', marginTop: 20 },
   legendText: { fontSize: 12, color: '#b09080' },
 
-  shareBtn: { marginTop: 8, paddingVertical: 5, paddingHorizontal: 14, borderRadius: 12, backgroundColor: '#fff0e6', borderWidth: 1, borderColor: '#e8c9a8' },
-  shareBtnTxt: { fontSize: 12, color: '#a07050', fontWeight: '600' },
+  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8, flexWrap: 'wrap', justifyContent: 'center' },
+  connectedBadge: { fontSize: 11, color: '#4a9e6b', fontWeight: '700', backgroundColor: '#e8f7ee', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 10 },
+  nicknameBadge: { fontSize: 11, color: '#7a5c3e', backgroundColor: '#fff0e6', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 10 },
+  shareBtn: { paddingVertical: 4, paddingHorizontal: 12, borderRadius: 10, backgroundColor: '#f5e8d8', borderWidth: 1, borderColor: '#e8c9a8' },
+  shareBtnTxt: { fontSize: 11, color: '#a07050', fontWeight: '600' },
+
+  nicknameRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 14, backgroundColor: '#fdf6f0', borderRadius: 12, padding: 10 },
+  nicknameLabel: { fontSize: 12, color: '#a08070', width: 44 },
+  nicknameInput: { flex: 1, fontSize: 15, fontWeight: '600', color: '#3d2c1e', borderBottomWidth: 1.5, borderBottomColor: '#e8c9a8', paddingVertical: 2 },
 
   sharePanel: {
     marginHorizontal: 16,

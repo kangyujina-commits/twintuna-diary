@@ -49,7 +49,7 @@ function formatDate(dateStr: string) {
 export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
-  const { getEntry, upsertEntry, deleteEntry } = useDiary()
+  const { getEntry, upsertEntry, deleteEntry, nickname } = useDiary()
 
   const existing = date ? getEntry(date) : undefined
 
@@ -105,7 +105,7 @@ export default function EntryScreen() {
 
   function handleSave() {
     if (!date) return
-    upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim() })
+    upsertEntry({ id: date, date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim(), author: nickname || undefined })
     setIsEditing(false)
   }
 
@@ -152,6 +152,13 @@ export default function EntryScreen() {
         )}
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+          {/* 작성자 */}
+          {!isEditing && existing?.author && (
+            <View style={styles.authorBadge}>
+              <Text style={styles.authorText}>✍️ {existing.author}</Text>
+            </View>
+          )}
+
           {/* Mood */}
           <Text style={styles.sectionLabel}>Mood / 오늘의 기분</Text>
           <View style={styles.emojiRow}>
@@ -488,4 +495,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e05c5c',
   },
   deleteConfirmOkTxt: { fontSize: 13, color: '#fff', fontWeight: '600' },
+
+  authorBadge: { alignSelf: 'flex-start', backgroundColor: '#fff0e6', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 5, marginBottom: 4 },
+  authorText: { fontSize: 13, color: '#a07050', fontWeight: '600' },
 })
