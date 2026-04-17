@@ -5,11 +5,11 @@ var __BUNDLE_START_TIME__=globalThis.nativePerformanceNow?nativePerformanceNow()
 !(function(r){let l=0,n=!0===r.RN$useAlwaysAvailableJSErrorHandling?r.RN$handleException:(r,l)=>{throw r};const t={setGlobalHandler(r){n=r},getGlobalHandler:()=>n,reportError(r){n&&n(r,!1)},reportFatalError(r){n&&n(r,!0)},applyWithGuard(r,n,e,a,o){try{return l++,r.apply(n,e)}catch(r){t.reportError(r)}finally{l--}return null},applyWithGuardIfNeeded:(r,l,n)=>t.inGuard()?r.apply(l,n):(t.applyWithGuard(r,l,n),null),inGuard:()=>!!l,guard(r,l,n){if('function'!=typeof r)return console.warn('A function must be passed to ErrorUtils.guard, got ',r),null;const e=l??r.name??'<generated guard>';return function(...l){return t.applyWithGuard(r,n??this,l,null,e)}}};r.ErrorUtils=t})('undefined'!=typeof globalThis?globalThis:'undefined'!=typeof global?global:'undefined'!=typeof window?window:this);
 __d(function(g,r,i,a,m,e,d){"use strict";r(d[0])},0,[1]);
 __d(function(g,r,i,a,m,e,d){"use strict";r(d[0])},1,[2]);
-__d(function(g,r,i,a,m,e,d){"use strict";r(d[0]);var n=r(d[1]);(0,r(d[2]).renderRootComponent)(n.App)},2,[3,6,691]);
+__d(function(g,r,i,a,m,e,d){"use strict";r(d[0]);var n=r(d[1]);(0,r(d[2]).renderRootComponent)(n.App)},2,[3,6,703]);
 __d(function(g,r,i,a,m,e,d){"use strict";r(d[0]),r(d[1])},3,[4,5]);
 __d(function(g,r,i,a,m,e,d){},4,[]);
 __d(function(g,r,i,a,m,e,d){const _='undefined'==typeof window;globalThis.__webpack_chunk_load__=_=>g[`${__METRO_GLOBAL_PREFIX__}__loadBundleAsync`](_),globalThis.__webpack_require__=o=>{const t=ErrorUtils.reportFatalError;_&&(ErrorUtils.reportFatalError=_=>{throw _});try{return g[`${__METRO_GLOBAL_PREFIX__}__r`](o)}finally{_&&(ErrorUtils.reportFatalError=t)}}},5,[]);
-__d(function(g,r,i,a,m,e,d){"use strict";var t=r(d[0]),o=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e.App=function(){return t.jsx(c.Head.Provider,{children:t.jsx(u.ExpoRoot,{context:n.ctx})})};const n=r(d[1]),u=(o(r(d[2])),r(d[3])),c=r(d[4]);r(d[5])},6,[7,9,32,660,685,690]);
+__d(function(g,r,i,a,m,e,d){"use strict";var t=r(d[0]),o=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e.App=function(){return t.jsx(c.Head.Provider,{children:t.jsx(u.ExpoRoot,{context:n.ctx})})};const n=r(d[1]),u=(o(r(d[2])),r(d[3])),c=r(d[4]);r(d[5])},6,[7,9,32,660,697,702]);
 __d(function(g,r,i,a,m,e,d){'use strict';m.exports=r(d[0])},7,[8]);
 __d(function(g,r,i,a,m,e,d){
 /**
@@ -23,7 +23,7 @@ __d(function(g,r,i,a,m,e,d){
    */
 "use strict";var n=Symbol.for("react.transitional.element"),t=Symbol.for("react.fragment");function o(t,o,f){var l=null;if(void 0!==f&&(l=""+f),void 0!==o.key&&(l=""+o.key),"key"in o)for(var y in f={},o)"key"!==y&&(f[y]=o[y]);else f=o;return o=f.ref,{$$typeof:n,type:t,key:l,ref:void 0!==o?o:null,props:f}}e.Fragment=t,e.jsx=o,e.jsxs=o},8,[]);
 __d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"ctx",{enumerable:!0,get:function(){return t}});const t=r(d[0])},9,[10]);
-__d(function(g,r,i,a,m,e,d){const t=Object.defineProperties({},{"./_layout.tsx":{enumerable:!0,get:()=>r(d[0])},"./entry.tsx":{enumerable:!0,get:()=>r(d[1])},"./index.tsx":{enumerable:!0,get:()=>r(d[2])}});function n(n){return t[n]}n.keys=function(){return Object.keys(t)},n.resolve=function(t){throw new Error('Unimplemented Metro module context functionality')},m.exports=n},10,[11,679,684]);
+__d(function(g,r,i,a,m,e,d){const t=Object.defineProperties({},{"./_layout.tsx":{enumerable:!0,get:()=>r(d[0])},"./entry.tsx":{enumerable:!0,get:()=>r(d[1])},"./index.tsx":{enumerable:!0,get:()=>r(d[2])}});function n(n){return t[n]}n.keys=function(){return Object.keys(t)},n.resolve=function(t){throw new Error('Unimplemented Metro module context functionality')},m.exports=n},10,[11,691,696]);
 __d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return c}});var t=r(d[0]),n=r(d[1]),s=r(d[2]),u=r(d[3]);function c(){return(0,u.jsxs)(s.DiaryProvider,{children:[(0,u.jsx)(n.StatusBar,{style:"dark"}),(0,u.jsx)(t.Stack,{screenOptions:{headerShown:!1}})]})}},11,[12,669,672,7]);
 __d(function(g,r,i,a,_m,e,d){"use strict";var t=this&&this.__createBinding||(Object.create?function(t,n,o,c){void 0===c&&(c=o);var u=Object.getOwnPropertyDescriptor(n,o);u&&!("get"in u?!n.__esModule:u.writable||u.configurable)||(u={enumerable:!0,get:function(){return n[o]}}),Object.defineProperty(t,c,u)}:function(t,n,o,c){void 0===c&&(c=o),t[c]=n[o]}),n=this&&this.__exportStar||function(n,o){for(var c in n)"default"===c||Object.prototype.hasOwnProperty.call(o,c)||t(o,n,c)};Object.defineProperty(e,"__esModule",{value:!0}),e.Tabs=e.Stack=void 0;var o=r(d[0]);Object.defineProperty(e,"Stack",{enumerable:!0,get:function(){return o.Stack}});var c=r(d[1]);Object.defineProperty(e,"Tabs",{enumerable:!0,get:function(){return c.Tabs}}),n(r(d[2]),e)},12,[13,588,659]);
 __d(function(g,r,i,a,m,e,d){"use strict";var t=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e.Stack=void 0;const u=t(r(d[0]));e.Stack=u.default;const c=r(d[1]);u.default.Screen=c.Screen,e.default=u.default},13,[14,572]);
@@ -772,26 +772,3212 @@ __d(function(g,r,i,a,m,e,d){"use strict";var t=r(d[0]);Object.defineProperty(e,"
 __d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"StatusBar",{enumerable:!0,get:function(){return t.StatusBar}}),Object.defineProperty(e,"setStatusBarStyle",{enumerable:!0,get:function(){return t.setStatusBarStyle}}),Object.defineProperty(e,"setStatusBarHidden",{enumerable:!0,get:function(){return t.setStatusBarHidden}}),Object.defineProperty(e,"setStatusBarBackgroundColor",{enumerable:!0,get:function(){return t.setStatusBarBackgroundColor}}),Object.defineProperty(e,"setStatusBarNetworkActivityIndicatorVisible",{enumerable:!0,get:function(){return t.setStatusBarNetworkActivityIndicatorVisible}}),Object.defineProperty(e,"setStatusBarTranslucent",{enumerable:!0,get:function(){return t.setStatusBarTranslucent}}),Object.defineProperty(e,"StatusBarStyle",{enumerable:!0,get:function(){return n.StatusBarStyle}}),Object.defineProperty(e,"StatusBarAnimation",{enumerable:!0,get:function(){return n.StatusBarAnimation}}),Object.defineProperty(e,"StatusBarProps",{enumerable:!0,get:function(){return n.StatusBarProps}});var t=r(d[0]),n=r(d[1])},669,[670,671]);
 __d(function(g,r,i,a,m,_e,d){"use strict";const t=["style","hideTransitionAnimation","translucent","backgroundColor"];function e(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(_e,'__esModule',{value:!0}),_e.StatusBar=function(e){let{style:u,hideTransitionAnimation:h,translucent:k=!0,backgroundColor:S}=e,B=(0,n.default)(e,t);const b=(0,s.default)(),y=o.default.useMemo(()=>f(u,b),[u,b]);let v=S;k&&!v&&(v='transparent');return(0,c.jsx)(l.default,Object.assign({},B,{translucent:k,barStyle:y,backgroundColor:v,showHideTransition:'none'===h?void 0:h}))},_e.setStatusBarStyle=function(t,e){l.default.setBarStyle(f(t),e)},_e.setStatusBarHidden=function(t,e){l.default.setHidden(t,e)},_e.setStatusBarBackgroundColor=function(t,e){l.default.setBackgroundColor(t,e)},_e.setStatusBarNetworkActivityIndicatorVisible=function(t){l.default.setNetworkActivityIndicatorVisible(t)},_e.setStatusBarTranslucent=function(t){l.default.setTranslucent(t)};var n=e(r(d[0])),o=e(r(d[1])),u=e(r(d[2])),l=e(r(d[3])),s=e(r(d[4])),c=r(d[5]);function f(t="auto",e=u.default?.getColorScheme()??'light'){e||(e='light');let n=t;return'auto'===t?n='light'===e?'dark':'light':'inverted'===t&&(n='light'===e?'light':'dark'),'light'===n?'light-content':'dark-content'}},670,[19,32,460,490,505,7]);
 __d(function(g,r,i,a,m,e,d){},671,[]);
-__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),_e.DiaryProvider=function({children:e}){const[n,f]=(0,t.useState)([]),[l,y]=(0,t.useState)(!1);function _(e){f(t=>{const n='function'==typeof e?e(t):e;return u.default.setItem(o,JSON.stringify(n)),n})}(0,t.useEffect)(()=>{u.default.getItem(o).then(e=>{e&&f(JSON.parse(e)),y(!0)})},[]);return l?(0,s.jsx)(c.Provider,{value:{entries:n,getEntry:e=>n.find(t=>t.date===e),upsertEntry:function(e){_(t=>t.find(t=>t.date===e.date)?t.map(t=>t.date===e.date?Object.assign({},t,e,{id:t.id}):t):[...t,Object.assign({id:Date.now().toString()},e)])},deleteEntry:e=>_(t=>t.filter(t=>t.date!==e))},children:e}):null},_e.useDiary=function(){const e=(0,t.useContext)(c);if(!e)throw new Error('useDiary must be used inside DiaryProvider');return e};var e,t=r(d[0]),n=r(d[1]),u=(e=n)&&e.__esModule?e:{default:e},s=r(d[2]);const o='@twintuna_diary:entries',c=(0,t.createContext)(null)},672,[32,673,7]);
-__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"useAsyncStorage",{enumerable:!0,get:function(){return n.useAsyncStorage}}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return o}});var e,t=r(d[0]),u=(e=t)&&e.__esModule?e:{default:e},n=r(d[1]),o=u.default},673,[674,678]);
-__d(function(g,r,_i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return i}});var e,t=r(d[0]);const o=((e=t)&&e.__esModule?e:{default:e}).default.bind({concatArrays:!0,ignoreUndefined:!0});function n(e,t){const n=window.localStorage.getItem(e);if(n){const l=JSON.parse(n),c=JSON.parse(t),s=JSON.stringify(o(l,c));window.localStorage.setItem(e,s)}else window.localStorage.setItem(e,t)}function l(e,t){return new Promise((o,n)=>{try{const n=e();t?.(null,n),o(n)}catch(e){t?.(e),n(e)}})}function c(e,t,o){return Promise.all(e).then(e=>{const n=o?.(e)??null;return t?.(null,n),Promise.resolve(n)},e=>(t?.(e),Promise.reject(e)))}const s={getItem:(e,t)=>l(()=>window.localStorage.getItem(e),t),setItem:(e,t,o)=>l(()=>window.localStorage.setItem(e,t),o),removeItem:(e,t)=>l(()=>window.localStorage.removeItem(e),t),mergeItem:(e,t,o)=>l(()=>n(e,t),o),clear:e=>l(()=>window.localStorage.clear(),e),getAllKeys:e=>l(()=>{const e=window.localStorage.length,t=[];for(let o=0;o<e;o+=1){const e=window.localStorage.key(o)||"";t.push(e)}return t},e),flushGetRequests:()=>{},multiGet:(e,t)=>c(e.map(e=>s.getItem(e)),t,t=>t.map((t,o)=>[e[o],t])),multiSet:(e,t)=>c(e.map(e=>s.setItem(e[0],e[1])),t),multiRemove:(e,t)=>c(e.map(e=>s.removeItem(e)),t),multiMerge:(e,t)=>c(e.map(e=>s.mergeItem(e[0],e[1])),t)};var i=s},674,[675]);
-__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return u}});var e,t=r(d[0]),u=((e=t)&&e.__esModule?e:{default:e}).default},675,[676]);
-__d(function(g,r,i,a,m,e,d){'use strict';const t=r(d[0]),{hasOwnProperty:n}=Object.prototype,{propertyIsEnumerable:o}=Object,c=(t,n,o)=>Object.defineProperty(t,n,{value:o,writable:!0,enumerable:!0,configurable:!0}),s=this,f={concatArrays:!1,ignoreUndefined:!1},l=t=>{const c=[];for(const o in t)n.call(t,o)&&c.push(o);if(Object.getOwnPropertySymbols){const n=Object.getOwnPropertySymbols(t);for(const s of n)o.call(t,s)&&c.push(s)}return c};function u(n){return Array.isArray(n)?y(n):t(n)?p(n):n}function y(t){const n=t.slice(0,0);return l(t).forEach(o=>{c(n,o,u(t[o]))}),n}function p(t){const n=null===Object.getPrototypeOf(t)?Object.create(null):{};return l(t).forEach(o=>{c(n,o,u(t[o]))}),n}const b=(t,n,o,s)=>(o.forEach(o=>{void 0===n[o]&&s.ignoreUndefined||(o in t&&t[o]!==Object.getPrototypeOf(t)?c(t,o,h(t[o],n[o],s)):c(t,o,u(n[o])))}),t),O=(t,o,s)=>{let f=t.slice(0,0),y=0;return[t,o].forEach(o=>{const p=[];for(let s=0;s<o.length;s++)n.call(o,s)&&(p.push(String(s)),c(f,y++,o===t?o[s]:u(o[s])));f=b(f,o,l(o).filter(t=>!p.includes(t)),s)}),f};function h(n,o,c){return c.concatArrays&&Array.isArray(n)&&Array.isArray(o)?O(n,o,c):t(o)&&t(n)?b(n,o,l(o),c):u(o)}m.exports=function(...n){const o=h(u(f),this!==s&&this||{},f);let c={_:{}};for(const s of n)if(void 0!==s){if(!t(s))throw new TypeError('`'+s+'` is not an Option Object');c=h(c,{_:s},o)}return c._}},676,[677]);
-__d(function(g,r,i,a,m,e,d){'use strict';m.exports=t=>{if('[object Object]'!==Object.prototype.toString.call(t))return!1;const o=Object.getPrototypeOf(t);return null===o||o===Object.prototype}},677,[]);
-__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),_e.useAsyncStorage=function(e){return{getItem:(...t)=>u.default.getItem(e,...t),setItem:(...t)=>u.default.setItem(e,...t),mergeItem:(...t)=>u.default.mergeItem(e,...t),removeItem:(...t)=>u.default.removeItem(e,...t)}};var e,t=r(d[0]),u=(e=t)&&e.__esModule?e:{default:e}},678,[674]);
-__d(function(g,r,_i,_a,_m,_e,_d){"use strict";function e(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return w}});var t=r(_d[0]),o=e(r(_d[1])),l=e(r(_d[2])),n=e(r(_d[3])),i=e(r(_d[4])),d=e(r(_d[5])),a=e(r(_d[6])),s=e(r(_d[7])),c=e(r(_d[8])),u=e(r(_d[9]));r(_d[10]);var f=r(_d[11]),h=(function(e){if(e&&e.__esModule)return e;var t={};return e&&Object.keys(e).forEach(function(o){var l=Object.getOwnPropertyDescriptor(e,o);Object.defineProperty(t,o,l.get?l:{enumerable:!0,get:function(){return e[o]}})}),t.default=e,t})(r(_d[12])),m=r(_d[13]),p=r(_d[14]);const b=[{emoji:'\ud83d\ude04',label:'Joy/\uc2e0\ub098\uc694'},{emoji:'\ud83e\udd70',label:'Love/\uc124\ub808\uc694'},{emoji:'\ud83d\ude0a',label:'Good/\uc88b\uc544\uc694'},{emoji:'\ud83d\ude10',label:'Meh/\uadf8\ub0e5\uc694'},{emoji:'\ud83d\ude34',label:'Tired/\ud53c\uace4\ud574\uc694'},{emoji:'\ud83d\ude22',label:'Sad/\uc2ac\ud37c\uc694'},{emoji:'\ud83d\ude20',label:'Angry/\ud654\ub098\uc694'},{emoji:'\ud83d\ude30',label:'Anxious/\ubd88\uc548\ud574\uc694'}],j=[{emoji:'\u2600\ufe0f',label:'Clear/\ub9d1\uc74c'},{emoji:'\u26c5',label:'Cloudy/\uad6c\ub984'},{emoji:'\ud83c\udf27\ufe0f',label:'Rain/\ube44'},{emoji:'\u2744\ufe0f',label:'Snow/\ub208'},{emoji:'\ud83c\udf29\ufe0f',label:'Storm/\ubc88\uac1c'},{emoji:'\ud83c\udf08',label:'Rainbow/\ubb34\uc9c0\uac1c'}],y=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],x=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],C=['\uc77c','\uc6d4','\ud654','\uc218','\ubaa9','\uae08','\ud1a0'];function S(e){const[t,o,l]=e.split('-').map(Number),n=new Date(t,o-1,l).getDay();return`${y[o-1]} ${l}, ${t} (${x[n]}) / ${t}\ub144 ${o}\uc6d4 ${l}\uc77c (${C[n]})`}function w(){const e=(0,f.useRouter)(),{date:a}=(0,f.useLocalSearchParams)(),{getEntry:y,upsertEntry:x,deleteEntry:C}=(0,m.useDiary)(),w=a?y(a):void 0,[B,v]=(0,t.useState)(w?.mood),[z,k]=(0,t.useState)(w?.weather),[M,R]=(0,t.useState)(w?.text??''),[A,I]=(0,t.useState)(w?.photo_uris??[]),[W,P]=(0,t.useState)(w?.schedule??''),[D,O]=(0,t.useState)(!w),[L,V]=(0,t.useState)(!1),[H,E]=(0,t.useState)(!1);async function _(){const{status:e}=await h.requestMediaLibraryPermissionsAsync();if('granted'!==e)return void Alert.alert('\uad8c\ud55c \ud544\uc694','\uc0ac\uc9c4 \uc811\uadfc \uad8c\ud55c\uc774 \ud544\uc694\ud574\uc694.');const t=await h.launchImageLibraryAsync({mediaTypes:h.MediaTypeOptions.Images,allowsMultipleSelection:!0,quality:.8});t.canceled||I(e=>[...e,...t.assets.map(e=>e.uri)])}async function $(){const{status:e}=await h.requestCameraPermissionsAsync();if('granted'!==e)return void Alert.alert('\uad8c\ud55c \ud544\uc694','\uce74\uba54\ub77c \uad8c\ud55c\uc774 \ud544\uc694\ud574\uc694.');const t=await h.launchCameraAsync({quality:.8});t.canceled||I(e=>[...e,t.assets[0].uri])}return(0,t.useEffect)(()=>{w?(v(w.mood),k(w.weather),R(w.text??''),I(w.photo_uris??[]),P(w.schedule??''),O(!1)):O(!0)},[a]),(0,p.jsx)(s.default,{style:T.safe,children:(0,p.jsxs)(u.default,{style:{flex:1},behavior:void 0,children:[(0,p.jsxs)(o.default,{style:T.header,children:[(0,p.jsx)(n.default,{onPress:()=>e.back(),style:T.backBtn,children:(0,p.jsx)(l.default,{style:T.backArrow,children:"\u2039"})}),(0,p.jsx)(l.default,{style:T.dateLabel,children:a?S(a):''}),w&&D?(0,p.jsx)(n.default,{onPress:()=>E(!0),style:T.editBtn,children:(0,p.jsx)(l.default,{style:T.deleteTxt,children:"Delete / \uc0ad\uc81c"})}):(0,p.jsx)(o.default,{style:{width:44}})]}),H&&(0,p.jsxs)(o.default,{style:T.deleteConfirmBar,children:[(0,p.jsx)(l.default,{style:T.deleteConfirmTxt,children:"Delete this diary? / \uc774 \ub0a0\uc758 \uc77c\uae30\ub97c \uc0ad\uc81c\ud560\uae4c\uc694?"}),(0,p.jsxs)(o.default,{style:T.deleteConfirmBtns,children:[(0,p.jsx)(n.default,{style:T.deleteConfirmCancel,onPress:()=>E(!1),children:(0,p.jsx)(l.default,{style:T.deleteConfirmCancelTxt,children:"Cancel / \ucde8\uc18c"})}),(0,p.jsx)(n.default,{style:T.deleteConfirmOk,onPress:function(){a&&(C(a),e.back())},children:(0,p.jsx)(l.default,{style:T.deleteConfirmOkTxt,children:"Delete / \uc0ad\uc81c"})})]})]}),(0,p.jsxs)(c.default,{contentContainerStyle:T.content,keyboardShouldPersistTaps:"handled",children:[(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Mood / \uc624\ub298\uc758 \uae30\ubd84"}),(0,p.jsx)(o.default,{style:T.emojiRow,children:b.map(e=>(0,p.jsx)(n.default,{style:[T.emojiBtn,B===e.emoji&&T.emojiBtnActive,!D&&B!==e.emoji&&T.emojiBtnDisabled],onPress:()=>D&&v(B===e.emoji?void 0:e.emoji),activeOpacity:D?.7:1,children:(0,p.jsx)(l.default,{style:[T.emojiIcon,!D&&B!==e.emoji&&T.emojiDim],children:e.emoji})},e.emoji))}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Weather / \uc624\ub298\uc758 \ub0a0\uc528"}),(0,p.jsx)(o.default,{style:T.emojiRow,children:j.map(e=>(0,p.jsx)(n.default,{style:[T.emojiBtn,z===e.emoji&&T.emojiBtnActive,!D&&z!==e.emoji&&T.emojiBtnDisabled],onPress:()=>D&&k(z===e.emoji?void 0:e.emoji),activeOpacity:D?.7:1,children:(0,p.jsx)(l.default,{style:[T.emojiIcon,!D&&z!==e.emoji&&T.emojiDim],children:e.emoji})},e.emoji))}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Schedule / \uc77c\uc815"}),D?(0,p.jsx)(i.default,{style:T.scheduleInput,placeholder:"\uc624\ub298\uc758 \uc77c\uc815\uc744 \uc785\ub825\ud558\uc138\uc694 \ud83d\udc08\u200d\u2b1b",placeholderTextColor:"#c5a890",value:W,onChangeText:P,returnKeyType:"done"}):(0,p.jsx)(o.default,{style:T.scheduleView,children:(0,p.jsx)(l.default,{style:W?T.scheduleContent:T.textEmpty,children:W||'No schedule / \uc77c\uc815 \uc5c6\uc74c'})}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Today / \uc624\ub298 \ud558\ub8e8"}),D?(0,p.jsx)(i.default,{style:T.textInput,multiline:!0,placeholder:"How was your day? / \uc624\ub298\uc740 \uc5b4\ub5a4 \ud558\ub8e8\uc600\ub098\uc694? \u270d\ufe0f",placeholderTextColor:"#c5a890",value:M,onChangeText:R,textAlignVertical:"top",autoFocus:!!w}):(0,p.jsx)(o.default,{style:T.textView,children:(0,p.jsx)(l.default,{style:M?T.textContent:T.textEmpty,children:M||'No entry / \uae30\ub85d \uc5c6\uc74c'})}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Photo / \uc0ac\uc9c4"}),A.length>0&&(0,p.jsx)(o.default,{style:T.photoGrid,children:A.map((e,t)=>(0,p.jsxs)(o.default,{style:T.photoThumbContainer,children:[(0,p.jsx)(d.default,{source:{uri:e},style:T.photoThumb,resizeMode:"cover"}),D&&(0,p.jsx)(n.default,{style:T.photoRemoveBtn,onPress:()=>I(e=>e.filter((e,o)=>o!==t)),children:(0,p.jsx)(l.default,{style:T.photoRemoveTxt,children:"\u2715"})})]},e+t))}),D?L?(0,p.jsxs)(o.default,{style:T.photoMenuRow,children:[(0,p.jsxs)(n.default,{style:T.photoMenuBtn,onPress:async()=>{V(!1),await $()},activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoMenuIcon,children:"\ud83d\udcf8"}),(0,p.jsx)(l.default,{style:T.photoMenuTxt,children:"Camera / \uce74\uba54\ub77c"})]}),(0,p.jsxs)(n.default,{style:T.photoMenuBtn,onPress:async()=>{V(!1),await _()},activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoMenuIcon,children:"\ud83d\uddbc\ufe0f"}),(0,p.jsx)(l.default,{style:T.photoMenuTxt,children:"Album / \uc568\ubc94"})]}),(0,p.jsxs)(n.default,{style:[T.photoMenuBtn,T.photoMenuCancel],onPress:()=>V(!1),activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoMenuIcon,children:"\u2715"}),(0,p.jsx)(l.default,{style:T.photoMenuTxt,children:"Cancel / \ucde8\uc18c"})]})]}):(0,p.jsxs)(n.default,{style:T.photoAddBtn,onPress:()=>V(!0),activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoAddIcon,children:"\ud83d\udcf7"}),(0,p.jsx)(l.default,{style:T.photoAddTxt,children:"Add Photo / \uc0ac\uc9c4 \ucd94\uac00"})]}):0===A.length?(0,p.jsx)(o.default,{style:T.photoEmpty,children:(0,p.jsx)(l.default,{style:T.textEmpty,children:"No photos / \uc0ac\uc9c4 \uc5c6\uc74c"})}):null,!D&&w?(0,p.jsx)(n.default,{style:T.editBtnBottom,onPress:()=>O(!0),activeOpacity:.8,children:(0,p.jsx)(l.default,{style:T.editBtnTxt,children:"Edit / \ud3b8\uc9d1"})}):D?(0,p.jsx)(n.default,{style:T.saveBtn,onPress:function(){a&&(x({date:a,mood:B,weather:z,text:M.trim(),photo_uris:A,schedule:W.trim()}),O(!1))},activeOpacity:.8,children:(0,p.jsx)(l.default,{style:T.saveTxt,children:"Save / \uc800\uc7a5\ud558\uae30"})}):null]})]})})}const T=a.default.create({safe:{flex:1,backgroundColor:'#fdf6f0'},header:{flexDirection:'row',alignItems:'center',paddingHorizontal:16,paddingTop:8,paddingBottom:12,borderBottomWidth:1,borderBottomColor:'#f0e0d0'},backBtn:{width:44,height:40,justifyContent:'center'},backArrow:{fontSize:30,color:'#c9a882',lineHeight:34},dateLabel:{flex:1,textAlign:'center',fontSize:15,fontWeight:'600',color:'#3d2c1e'},editBtn:{width:44,alignItems:'flex-end'},deleteTxt:{fontSize:13,color:'#e05c5c'},content:{padding:20,paddingBottom:40},sectionLabel:{fontSize:13,fontWeight:'600',color:'#a08070',marginBottom:10,marginTop:20,textTransform:'uppercase',letterSpacing:.5},emojiRow:{flexDirection:'row',flexWrap:'wrap',gap:8},emojiBtn:{alignItems:'center',paddingHorizontal:10,paddingVertical:8,borderRadius:14,backgroundColor:'#fff',borderWidth:1.5,borderColor:'#f0e0d0',minWidth:60},emojiBtnActive:{borderColor:'#c9a882',backgroundColor:'#fff4ec'},emojiBtnDisabled:{opacity:.3},emojiIcon:{fontSize:22},emojiDim:{opacity:.4},emojiLabel:{fontSize:11,color:'#b09080',marginTop:2},emojiLabelActive:{color:'#8b5e3c',fontWeight:'600'},scheduleInput:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',paddingHorizontal:16,paddingVertical:12,fontSize:15,color:'#3d2c1e'},scheduleView:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',paddingHorizontal:16,paddingVertical:12},scheduleContent:{fontSize:15,color:'#3d2c1e'},textInput:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',padding:16,minHeight:160,fontSize:15,color:'#3d2c1e',lineHeight:24},textView:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',padding:16,minHeight:80},textContent:{fontSize:15,color:'#3d2c1e',lineHeight:24},textEmpty:{fontSize:14,color:'#c5a890'},photoMenuRow:{flexDirection:'row',gap:8},photoMenuBtn:{flex:1,backgroundColor:'#fff',borderRadius:14,borderWidth:1.5,borderColor:'#f0e0d0',paddingVertical:14,alignItems:'center',gap:4},photoMenuCancel:{borderColor:'#f0c0c0',backgroundColor:'#fff8f8'},photoMenuIcon:{fontSize:22},photoMenuTxt:{fontSize:12,color:'#a08070'},photoGrid:{flexDirection:'row',flexWrap:'wrap',gap:8,marginBottom:8},photoThumbContainer:{position:'relative',width:'47%',aspectRatio:1,borderRadius:12,overflow:'hidden'},photoThumb:{width:'100%',height:'100%'},photoRemoveBtn:{position:'absolute',top:10,right:10,backgroundColor:'rgba(0,0,0,0.45)',width:28,height:28,borderRadius:14,alignItems:'center',justifyContent:'center'},photoRemoveTxt:{color:'#fff',fontSize:13,fontWeight:'700'},photoAddBtn:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',borderStyle:'dashed',height:100,alignItems:'center',justifyContent:'center',gap:6},photoAddIcon:{fontSize:28},photoAddTxt:{fontSize:13,color:'#b09080'},photoEmpty:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',padding:16,alignItems:'center'},editBtnBottom:{borderRadius:16,paddingVertical:15,alignItems:'center',marginTop:24,borderWidth:1.5,borderColor:'#c9a882',backgroundColor:'#fff'},editBtnTxt:{fontSize:16,fontWeight:'600',color:'#c9a882',letterSpacing:.5},saveBtn:{backgroundColor:'#c9a882',borderRadius:16,paddingVertical:15,alignItems:'center',marginTop:24},saveTxt:{fontSize:16,fontWeight:'700',color:'#fff',letterSpacing:.5},deleteConfirmBar:{flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingHorizontal:16,paddingVertical:10,backgroundColor:'#fff4f4',borderBottomWidth:1,borderBottomColor:'#f5d0d0'},deleteConfirmTxt:{fontSize:13,color:'#3d2c1e',flex:1},deleteConfirmBtns:{flexDirection:'row',gap:8},deleteConfirmCancel:{paddingHorizontal:14,paddingVertical:6,borderRadius:10,borderWidth:1,borderColor:'#d0b0a0'},deleteConfirmCancelTxt:{fontSize:13,color:'#8b5e3c'},deleteConfirmOk:{paddingHorizontal:14,paddingVertical:6,borderRadius:10,backgroundColor:'#e05c5c'},deleteConfirmOkTxt:{fontSize:13,color:'#fff',fontWeight:'600'}})},679,[32,274,135,477,391,327,148,489,282,480,126,12,680,672,7]);
-__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),_e.getCameraPermissionsAsync=l,_e.getMediaLibraryPermissionsAsync=y,_e.requestCameraPermissionsAsync=f,_e.requestMediaLibraryPermissionsAsync=b,Object.defineProperty(_e,"useMediaLibraryPermissions",{enumerable:!0,get:function(){return P}}),Object.defineProperty(_e,"useCameraPermissions",{enumerable:!0,get:function(){return w}}),_e.getPendingResultAsync=async function(){if(s.default.getPendingResultAsync)return s.default.getPendingResultAsync();return null},_e.launchCameraAsync=async function(e={}){if(!s.default.launchCameraAsync)throw new n.UnavailabilityError('ImagePicker','launchCameraAsync');const t=(0,o.mapDeprecatedOptions)(e);return await s.default.launchCameraAsync(c(t))},_e.launchImageLibraryAsync=async function(e={}){const t=(0,o.mapDeprecatedOptions)(e);if(!s.default.launchImageLibraryAsync)throw new n.UnavailabilityError('ImagePicker','launchImageLibraryAsync');t?.allowsEditing&&t.allowsMultipleSelection&&console.warn("[expo-image-picker] `allowsEditing` is not supported when `allowsMultipleSelection` is enabled and will be ignored.Disable either 'allowsEditing' or 'allowsMultipleSelection' in 'launchImageLibraryAsync' to fix this warning.");return await s.default.launchImageLibraryAsync(t)},Object.defineProperty(_e,"PermissionStatus",{enumerable:!0,get:function(){return n.PermissionStatus}});var e,n=r(d[0]),t=r(d[1]),s=(e=t)&&e.__esModule?e:{default:e},o=r(d[2]),u=r(d[3]);function c(e){const{aspect:t,quality:s,videoMaxDuration:o}=e;if(null!=t){const[e,s]=t;if(e<=0||s<=0)throw new n.CodedError('ERR_INVALID_ARGUMENT',`Invalid aspect ratio values ${e}:${s}. Provide positive numbers.`)}if(s&&(s<0||s>1))throw new n.CodedError('ERR_INVALID_ARGUMENT',`Invalid 'quality' value ${s}. Provide a value between 0 and 1.`);if(o&&o<0)throw new n.CodedError('ERR_INVALID_ARGUMENT',`Invalid 'videoMaxDuration' value ${o}. Provide a non-negative number.`);return e}async function l(){return s.default.getCameraPermissionsAsync()}async function y(e=!1){return s.default.getMediaLibraryPermissionsAsync(e)}async function f(){return s.default.requestCameraPermissionsAsync()}async function b(e=!1){return(0,s.default.requestMediaLibraryPermissionsAsync)(e)}Object.keys(u).forEach(function(e){'default'===e||Object.prototype.hasOwnProperty.call(_e,e)||Object.defineProperty(_e,e,{enumerable:!0,get:function(){return u[e]}})});const P=(0,n.createPermissionHook)({getMethod:e=>y(e?.writeOnly),requestMethod:e=>b(e?.writeOnly)}),w=(0,n.createPermissionHook)({getMethod:l,requestMethod:f})},680,[533,681,683,682]);
-__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return c}});var t=r(d[0]),s=r(d[1]),n=r(d[2]);const o={images:'image/*',videos:'video/mp4,video/quicktime,video/x-m4v,video/*',livePhotos:''};var c={launchImageLibraryAsync:async({mediaTypes:s=['images'],allowsMultipleSelection:n=!1,base64:o=!1})=>t.Platform.isDOMAvailable?await u({mediaTypes:s,allowsMultipleSelection:n,base64:o}):{canceled:!0,assets:null},launchCameraAsync:async({mediaTypes:s=['images'],allowsMultipleSelection:n=!1,base64:o=!1,cameraType:c})=>t.Platform.isDOMAvailable?await u({mediaTypes:s,allowsMultipleSelection:n,capture:c??!0,base64:o}):{canceled:!0,assets:null},getCameraPermissionsAsync:async()=>l(),requestCameraPermissionsAsync:async()=>l(),getMediaLibraryPermissionsAsync:async t=>l(),requestMediaLibraryPermissionsAsync:async t=>l()};function l(){return{status:t.PermissionStatus.GRANTED,expires:'never',granted:!0,canAskAgain:!0}}function u({mediaTypes:t,capture:o=!1,allowsMultipleSelection:c=!1,base64:l}){const u=b((0,n.parseMediaTypes)(t)),h=document.createElement('input');if(h.style.display='none',h.setAttribute('type','file'),h.setAttribute('accept',u),h.setAttribute('id',String(Math.random())),h.setAttribute('data-testid','file-input'),c&&h.setAttribute('multiple','multiple'),o)switch(o){case!0:h.setAttribute('capture','camera');break;case s.CameraType.front:h.setAttribute('capture','user');break;case s.CameraType.back:h.setAttribute('capture','environment')}return document.body.appendChild(h),new Promise(t=>{h.addEventListener('change',async()=>{if(h.files?.length){const s=c?h.files:[h.files[0]];try{const n=await Promise.all(Array.from(s).map(t=>f(t,{base64:l})));t({canceled:!1,assets:n})}catch(s){t(Promise.reject(s))}}else t({canceled:!0,assets:null});document.body.removeChild(h)}),h.addEventListener('cancel',()=>{h.dispatchEvent(new Event('change'))});const s=new MouseEvent('click');h.dispatchEvent(s)})}async function h(t){return new Promise(s=>{const n=new Image;n.onload=()=>{s({width:n.naturalWidth??n.width,height:n.naturalHeight??n.height})},n.onerror=()=>s({width:0,height:0}),n.src=t})}async function p(t){return new Promise(s=>{const n=document.createElement('video');n.preload='metadata',n.onloadedmetadata=()=>{s({width:n.videoWidth,height:n.videoHeight,duration:n.duration})},n.onerror=()=>s({width:0,height:0,duration:0}),n.src=t})}async function y(t){return new Promise((s,n)=>{const o=new FileReader;o.onerror=()=>{n(new Error('Failed to read the selected media because the operation failed.'))},o.onload=t=>{const o=t.target?.result;'string'==typeof o?s(o.split(',')[1]):n(new Error('Failed to read file as base64'))},o.readAsDataURL(t)})}async function f(t,s){const n=t.type,o=URL.createObjectURL(t);try{let c,l;if(n.startsWith('image/'))c=await h(o);else{if(!n.startsWith('video/'))throw new Error(`Unsupported file type: ${n}. Only images and videos are supported.`);c=await p(o)}return s.base64&&(l=await y(t)),Object.assign({uri:o,width:c.width,height:c.height,type:n.startsWith('image/')?'image':'video',mimeType:n,fileName:t.name,fileSize:t.size,file:t},void 0!==c.duration&&{duration:c.duration},l&&{base64:l})}catch(t){throw t}}function b(t){const s=t.filter(t=>'livePhotos'!==t);if(0===s.length)return'image/*';let n='';for(const t of s)n.includes(o[t])||(n=n.concat(',',o[t]));return n}},681,[533,682,683]);
-__d(function(g,r,i,a,m,e,d){"use strict";var t,n,o,u,c,l;Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"MediaTypeOptions",{enumerable:!0,get:function(){return t}}),Object.defineProperty(e,"VideoExportPreset",{enumerable:!0,get:function(){return n}}),Object.defineProperty(e,"UIImagePickerControllerQualityType",{enumerable:!0,get:function(){return o}}),Object.defineProperty(e,"UIImagePickerPresentationStyle",{enumerable:!0,get:function(){return u}}),Object.defineProperty(e,"UIImagePickerPreferredAssetRepresentationMode",{enumerable:!0,get:function(){return c}}),Object.defineProperty(e,"CameraType",{enumerable:!0,get:function(){return l}}),(function(t){t.All="All",t.Videos="Videos",t.Images="Images"})(t||(t={})),(function(t){t[t.Passthrough=0]="Passthrough",t[t.LowQuality=1]="LowQuality",t[t.MediumQuality=2]="MediumQuality",t[t.HighestQuality=3]="HighestQuality",t[t.H264_640x480=4]="H264_640x480",t[t.H264_960x540=5]="H264_960x540",t[t.H264_1280x720=6]="H264_1280x720",t[t.H264_1920x1080=7]="H264_1920x1080",t[t.H264_3840x2160=8]="H264_3840x2160",t[t.HEVC_1920x1080=9]="HEVC_1920x1080",t[t.HEVC_3840x2160=10]="HEVC_3840x2160"})(n||(n={})),(function(t){t[t.High=0]="High",t[t.Medium=1]="Medium",t[t.Low=2]="Low",t[t.VGA640x480=3]="VGA640x480",t[t.IFrame1280x720=4]="IFrame1280x720",t[t.IFrame960x540=5]="IFrame960x540"})(o||(o={})),(function(t){t.FULL_SCREEN="fullScreen",t.PAGE_SHEET="pageSheet",t.FORM_SHEET="formSheet",t.CURRENT_CONTEXT="currentContext",t.OVER_FULL_SCREEN="overFullScreen",t.OVER_CURRENT_CONTEXT="overCurrentContext",t.POPOVER="popover",t.AUTOMATIC="automatic"})(u||(u={})),(function(t){t.Automatic="automatic",t.Compatible="compatible",t.Current="current"})(c||(c={})),(function(t){t.back="back",t.front="front"})(l||(l={}))},682,[]);
-__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),e.parseMediaTypes=n,e.mapDeprecatedOptions=function(s){if(!s.mediaTypes)return s;return Object.assign({},s,{mediaTypes:n(s.mediaTypes??[])})};var s=r(d[0]);function n(n){const p={Images:['images'],Videos:['videos'],All:['images','videos']};return n===s.MediaTypeOptions.Images||n===s.MediaTypeOptions.Videos||n===s.MediaTypeOptions.All?(console.warn('[expo-image-picker] `ImagePicker.MediaTypeOptions` have been deprecated. Use `ImagePicker.MediaType` or an array of `ImagePicker.MediaType` instead.'),p[n]):'string'==typeof n?[n]:n}},683,[682]);
-__d(function(g,r,_i,a,_m,_e,_d){"use strict";function e(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return T}});var t=r(_d[0]),n=e(r(_d[1])),l=e(r(_d[2])),o=e(r(_d[3])),i=e(r(_d[4])),d=e(r(_d[5])),s=e(r(_d[6])),c=e(r(_d[7])),u=r(_d[8]),f=e(r(_d[9])),h=r(_d[10]),m=r(_d[11]);const p=['Sun/\uc77c','Mon/\uc6d4','Tue/\ud654','Wed/\uc218','Thu/\ubaa9','Fri/\uae08','Sat/\ud1a0'],y=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],x='@twintuna_diary:appName',j='TwinTuna_Diary';function w(e,t){return new Date(e,t+1,0).getDate()}function S(e,t){return new Date(e,t,1).getDay()}function b(e,t,n){return`${e}-${String(t+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`}function T(){const e=(0,u.useRouter)(),{getEntry:d}=(0,h.useDiary)(),T=new Date,[z,D]=(0,t.useState)(T.getFullYear()),[C,W]=(0,t.useState)(T.getMonth()),[A,B]=(0,t.useState)(j),[H,I]=(0,t.useState)(!1),[P,L]=(0,t.useState)(j);function M(){const e=P.trim()||j;B(e),L(e),f.default.setItem(x,e),I(!1)}(0,t.useEffect)(()=>{f.default.getItem(x).then(e=>{e&&(B(e),L(e))})},[]);const N=w(z,C),_=S(z,C),k=b(T.getFullYear(),T.getMonth(),T.getDate()),O=[...Array(_).fill(null),...Array.from({length:N},(e,t)=>t+1)];for(;O.length%7!=0;)O.push(null);return(0,m.jsx)(s.default,{style:v.safe,children:(0,m.jsxs)(c.default,{contentContainerStyle:v.scroll,children:[(0,m.jsxs)(n.default,{style:v.header,children:[H?(0,m.jsxs)(n.default,{style:v.nameEditRow,children:[(0,m.jsx)(i.default,{style:v.nameInput,value:P,onChangeText:L,autoFocus:!0,selectTextOnFocus:!0,returnKeyType:"done",onSubmitEditing:M,maxLength:30}),(0,m.jsx)(o.default,{onPress:M,style:v.nameConfirmBtn,children:(0,m.jsx)(l.default,{style:v.nameConfirmTxt,children:"Done / \uc644\ub8cc"})})]}):(0,m.jsx)(o.default,{onLongPress:()=>{L(A),I(!0)},activeOpacity:.8,children:(0,m.jsx)(l.default,{style:v.appTitle,children:A})}),!H&&(0,m.jsx)(l.default,{style:v.nameHint,children:"Long press to rename / \uae38\uac8c \ub20c\ub7ec\uc11c \uc774\ub984 \ubcc0\uacbd"})]}),(0,m.jsxs)(n.default,{style:v.monthNav,children:[(0,m.jsx)(o.default,{onPress:()=>{0===C?(W(11),D(e=>e-1)):W(e=>e-1)},style:v.navBtn,children:(0,m.jsx)(l.default,{style:v.navArrow,children:"\u2039"})}),(0,m.jsxs)(l.default,{style:v.monthLabel,children:[y[C]," / ",C+1,"\uc6d4 ",z]}),(0,m.jsx)(o.default,{onPress:()=>{11===C?(W(0),D(e=>e+1)):W(e=>e+1)},style:v.navBtn,children:(0,m.jsx)(l.default,{style:v.navArrow,children:"\u203a"})})]}),(0,m.jsx)(n.default,{style:v.weekRow,children:p.map((e,t)=>(0,m.jsx)(l.default,{style:[v.weekLabel,0===t&&v.sun,6===t&&v.sat],children:e},e))}),(0,m.jsx)(n.default,{style:v.grid,children:O.map((t,i)=>{if(!t)return(0,m.jsx)(n.default,{style:v.cell},`empty-${i}`);const s=b(z,C,t),c=d(s),u=s===k,f=i%7;return(0,m.jsxs)(o.default,{style:[v.cell,u&&v.todayCell],onPress:()=>e.push({pathname:'/entry',params:{date:s}}),activeOpacity:.7,children:[(0,m.jsx)(l.default,{style:[v.dayNum,0===f&&v.sun,6===f&&v.sat,u&&v.todayNum],children:t}),c?.mood?(0,m.jsx)(l.default,{style:v.icon,children:c.mood}):null,c?.schedule?.trim()?(0,m.jsx)(l.default,{style:v.schedulePreview,numberOfLines:1,ellipsizeMode:"tail",children:c.schedule.trim()}):null]},s)})}),(0,m.jsx)(n.default,{style:v.legend,children:(0,m.jsx)(l.default,{style:v.legendText,children:"Tap a date to write / \ub0a0\uc9dc\ub97c \ud0ed\ud574\uc11c \uc77c\uae30\ub97c \uc368\ubcf4\uc138\uc694 \u270f\ufe0f"})})]})})}const v=d.default.create({safe:{flex:1,backgroundColor:'#fdf6f0'},scroll:{paddingBottom:40},header:{alignItems:'center',paddingTop:24,paddingBottom:4},appTitle:{fontSize:22,fontWeight:'700',color:'#3d2c1e',letterSpacing:.5},nameHint:{fontSize:11,color:'#c9b8a8',marginTop:3},nameEditRow:{flexDirection:'row',alignItems:'center',gap:8},nameInput:{fontSize:20,fontWeight:'700',color:'#3d2c1e',borderBottomWidth:2,borderBottomColor:'#c9a882',paddingVertical:2,paddingHorizontal:4,minWidth:120,textAlign:'center'},nameConfirmBtn:{backgroundColor:'#c9a882',borderRadius:10,paddingHorizontal:12,paddingVertical:6},nameConfirmTxt:{color:'#fff',fontWeight:'700',fontSize:13},monthNav:{flexDirection:'row',alignItems:'center',justifyContent:'center',paddingVertical:12,gap:24},navBtn:{padding:8},navArrow:{fontSize:28,color:'#c9a882',lineHeight:30},monthLabel:{fontSize:18,fontWeight:'600',color:'#3d2c1e',minWidth:160,textAlign:'center'},weekRow:{flexDirection:'row',paddingHorizontal:8,paddingBottom:4},weekLabel:{flex:1,textAlign:'center',fontSize:12,fontWeight:'600',color:'#a08070'},grid:{flexDirection:'row',flexWrap:'wrap',paddingHorizontal:8},cell:{width:"14.285714285714286%",minHeight:48,alignItems:'center',paddingVertical:4,borderRadius:12},todayCell:{backgroundColor:'#ffe8d2'},dayNum:{fontSize:13,color:'#5a3e2b',fontWeight:'500'},todayNum:{fontWeight:'700',color:'#c96a30'},sun:{color:'#e05c5c'},sat:{color:'#5b8ee0'},icon:{fontSize:14,lineHeight:18},schedulePreview:{fontSize:9,color:'#8b6f56',width:'92%',textAlign:'center',lineHeight:12},legend:{alignItems:'center',marginTop:20},legendText:{fontSize:12,color:'#b09080'}})},684,[32,274,135,477,391,148,489,282,12,673,672,7]);
-__d(function(g,r,i,a,_m,e,d){"use strict";var t=this&&this.__createBinding||(Object.create?function(t,n,o,c){void 0===c&&(c=o);var u=Object.getOwnPropertyDescriptor(n,o);u&&!("get"in u?!n.__esModule:u.writable||u.configurable)||(u={enumerable:!0,get:function(){return n[o]}}),Object.defineProperty(t,c,u)}:function(t,n,o,c){void 0===c&&(c=o),t[c]=n[o]}),n=this&&this.__exportStar||function(n,o){for(var c in n)"default"===c||Object.prototype.hasOwnProperty.call(o,c)||t(o,n,c)};Object.defineProperty(e,"__esModule",{value:!0}),n(r(d[0]),e)},685,[686]);
-__d(function(g,r,i,a,m,e,d){"use strict";var t=r(d[0]),n=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e.Head=void 0;const u=r(d[1]),l=(n(r(d[2])),r(d[3]));function o({children:n}){return t.jsx(l.Helmet,{children:n})}e.Head=({children:n})=>(0,u.useIsFocused)()?t.jsx(o,{children:n}):null,e.Head.Provider=l.HelmetProvider},686,[7,17,32,687]);
-__d(function(g,r,_i,a,m,e,d){"use strict";var t=r(d[0]);const s=["children"],n=["children"];var i,o=Object.create,c=Object.defineProperty,l=Object.getOwnPropertyDescriptor,p=Object.getOwnPropertyNames,u=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty,y=(t,s,n,i)=>{if(s&&"object"==typeof s||"function"==typeof s)for(let o of p(s))h.call(t,o)||o===n||c(t,o,{get:()=>s[o],enumerable:!(i=l(s,o))||i.enumerable});return t},b=(t,s,n)=>(n=null!=t?o(u(t)):{},y(!s&&t&&t.__esModule?n:c(n,"default",{value:t,enumerable:!0}),t)),f={};((t,s)=>{for(var n in s)c(t,n,{get:s[n],enumerable:!0})})(f,{Helmet:()=>Oe,HelmetData:()=>ce,HelmetProvider:()=>pe}),m.exports=(i=f,y(c({},"__esModule",{value:!0}),i));var T=b(r(d[1])),O=b(r(d[2])),A=b(r(d[3])),j=b(r(d[1])),C=b(r(d[1])),w=(t=>(t.BASE="base",t.BODY="body",t.HEAD="head",t.HTML="html",t.LINK="link",t.META="meta",t.NOSCRIPT="noscript",t.SCRIPT="script",t.STYLE="style",t.TITLE="title",t.FRAGMENT="Symbol(react.fragment)",t))(w||{}),x={rel:["amphtml","canonical","alternate"]},v={type:["application/ld+json"]},$={charset:"",name:["generator","robots","description"],property:["og:type","og:title","og:url","og:image","og:image:alt","og:description","twitter:url","twitter:title","twitter:description","twitter:image","twitter:image:alt","twitter:card","twitter:site"]},k=Object.values(w),S={accesskey:"accessKey",charset:"charSet",class:"className",contenteditable:"contentEditable",contextmenu:"contextMenu","http-equiv":"httpEquiv",itemprop:"itemProp",tabindex:"tabIndex"},M=Object.entries(S).reduce((t,[s,n])=>(t[n]=s,t),{}),E="data-rh",P="defaultTitle",H="defer",D="encodeSpecialCharacters",L="onChangeClientState",I="titleTemplate",U="prioritizeSeoTags",N=(t,s)=>{for(let n=t.length-1;n>=0;n-=1){const i=t[n];if(Object.prototype.hasOwnProperty.call(i,s))return i[s]}return null},q=t=>{let s=N(t,"title");const n=N(t,I);if(Array.isArray(s)&&(s=s.join("")),n&&s)return n.replace(/%s/g,()=>s);const i=N(t,P);return s||i||void 0},_=t=>N(t,L)||(()=>{}),R=(t,s)=>s.filter(s=>void 0!==s[t]).map(s=>s[t]).reduce((t,s)=>Object.assign({},t,s),{}),z=(t,s)=>s.filter(t=>void 0!==t.base).map(t=>t.base).reverse().reduce((s,n)=>{if(!s.length){const i=Object.keys(n);for(let o=0;o<i.length;o+=1){const c=i[o].toLowerCase();if(-1!==t.indexOf(c)&&n[c])return s.concat(n)}}return s},[]),B=(t,s,n)=>{const i={};return n.filter(s=>{return!!Array.isArray(s[t])||(void 0!==s[t]&&(n=`Helmet: ${t} should be of type "Array". Instead found type "${typeof s[t]}"`,console&&"function"==typeof console.warn&&console.warn(n)),!1);var n}).map(s=>s[t]).reverse().reduce((t,n)=>{const o={};n.filter(t=>{let n;const c=Object.keys(t);for(let i=0;i<c.length;i+=1){const o=c[i],l=o.toLowerCase();-1===s.indexOf(l)||"rel"===n&&"canonical"===t[n].toLowerCase()||"rel"===l&&"stylesheet"===t[l].toLowerCase()||(n=l),-1===s.indexOf(o)||"innerHTML"!==o&&"cssText"!==o&&"itemprop"!==o||(n=o)}if(!n||!t[n])return!1;const l=t[n].toLowerCase();return i[n]||(i[n]={}),o[n]||(o[n]={}),!i[n][l]&&(o[n][l]=!0,!0)}).reverse().forEach(s=>t.push(s));const c=Object.keys(o);for(let t=0;t<c.length;t+=1){const s=c[t],n=Object.assign({},i[s],o[s]);i[s]=n}return t},[]).reverse()},F=(t,s)=>{if(Array.isArray(t)&&t.length)for(let n=0;n<t.length;n+=1){if(t[n][s])return!0}return!1},Y=t=>Array.isArray(t)?t.join(""):t,K=(t,s)=>{const n=Object.keys(t);for(let i=0;i<n.length;i+=1)if(s[n[i]]&&s[n[i]].includes(t[n[i]]))return!0;return!1},G=(t,s)=>Array.isArray(t)?t.reduce((t,n)=>(K(n,s)?t.priority.push(n):t.default.push(n),t),{priority:[],default:[]}):{default:t,priority:[]},W=(t,s)=>Object.assign({},t,{[s]:void 0}),J=["noscript","script","style"],Q=(t,s=!0)=>!1===s?String(t):String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#x27;"),V=t=>Object.keys(t).reduce((s,n)=>{const i=void 0!==t[n]?`${n}="${t[n]}"`:`${n}`;return s?`${s} ${i}`:i},""),X=(t,s,n,i)=>{const o=V(n),c=Y(s);return o?`<${t} ${E}="true" ${o}>${Q(c,i)}</${t}>`:`<${t} ${E}="true">${Q(c,i)}</${t}>`},Z=(t,s,n=!0)=>s.reduce((s,i)=>{const o=i,c=Object.keys(o).filter(t=>!("innerHTML"===t||"cssText"===t)).reduce((t,s)=>{const i=void 0===o[s]?s:`${s}="${Q(o[s],n)}"`;return t?`${t} ${i}`:i},""),l=o.innerHTML||o.cssText||"",p=-1===J.indexOf(t);return`${s}<${t} ${E}="true" ${c}${p?"/>":`>${l}</${t}>`}`},""),ee=(t,s={})=>Object.keys(t).reduce((s,n)=>(s[S[n]||n]=t[n],s),s),te=(t,s,n)=>{const i=ee(n,{key:s,[E]:!0});return[C.default.createElement("title",i,s)]},re=(t,s)=>s.map((s,n)=>{const i={key:n,[E]:!0};return Object.keys(s).forEach(t=>{const n=S[t]||t;if("innerHTML"===n||"cssText"===n){const t=s.innerHTML||s.cssText;i.dangerouslySetInnerHTML={__html:t}}else i[n]=s[t]}),C.default.createElement(t,i)}),se=(t,s,n=!0)=>{switch(t){case"title":return{toComponent:()=>te(0,s.title,s.titleAttributes),toString:()=>X(t,s.title,s.titleAttributes,n)};case"bodyAttributes":case"htmlAttributes":return{toComponent:()=>ee(s),toString:()=>V(s)};default:return{toComponent:()=>re(t,s),toString:()=>Z(t,s,n)}}},ne=({metaTags:t,linkTags:s,scriptTags:n,encode:i})=>{const o=G(t,$),c=G(s,x),l=G(n,v);return{priorityMethods:{toComponent:()=>[...re("meta",o.priority),...re("link",c.priority),...re("script",l.priority)],toString:()=>`${se("meta",o.priority,i)} ${se("link",c.priority,i)} ${se("script",l.priority,i)}`},metaTags:o.default,linkTags:c.default,scriptTags:l.default}},ie=t=>{const{baseTag:s,bodyAttributes:n,encode:i=!0,htmlAttributes:o,noscriptTags:c,styleTags:l,title:p="",titleAttributes:u,prioritizeSeoTags:h}=t;let{linkTags:y,metaTags:b,scriptTags:f}=t,T={toComponent:()=>{},toString:()=>""};return h&&({priorityMethods:T,linkTags:y,metaTags:b,scriptTags:f}=ne(t)),{priority:T,base:se("base",s,i),bodyAttributes:se("bodyAttributes",n,i),htmlAttributes:se("htmlAttributes",o,i),link:se("link",y,i),meta:se("meta",b,i),noscript:se("noscript",c,i),script:se("script",f,i),style:se("style",l,i),title:se("title",{title:p,titleAttributes:u},i)}},oe=[],ae=!("undefined"==typeof window||!window.document||!window.document.createElement),ce=class{instances=[];canUseDOM=ae;value={setHelmet:t=>{this.context.helmet=t},helmetInstances:{get:()=>this.canUseDOM?oe:this.instances,add:t=>{(this.canUseDOM?oe:this.instances).push(t)},remove:t=>{const s=(this.canUseDOM?oe:this.instances).indexOf(t);(this.canUseDOM?oe:this.instances).splice(s,1)}}};constructor(t,s){this.context=t,this.canUseDOM=s||!1,s||(t.helmet=ie({baseTag:[],bodyAttributes:{},encodeSpecialCharacters:!0,htmlAttributes:{},linkTags:[],metaTags:[],noscriptTags:[],scriptTags:[],styleTags:[],title:"",titleAttributes:{}}))}},le=j.default.createContext({}),pe=class t extends j.Component{static canUseDOM=ae;constructor(s){super(s),this.helmetData=new ce(this.props.context||{},t.canUseDOM)}render(){return j.default.createElement(le.Provider,{value:this.helmetData.value},this.props.children)}},ue=r(d[1]),de=b(r(d[4])),he=(t,s)=>{const n=document.head||document.querySelector("head"),i=n.querySelectorAll(`${t}[${E}]`),o=[].slice.call(i),c=[];let l;return s&&s.length&&s.forEach(s=>{const n=document.createElement(t);for(const t in s)if(Object.prototype.hasOwnProperty.call(s,t))if("innerHTML"===t)n.innerHTML=s.innerHTML;else if("cssText"===t)n.styleSheet?n.styleSheet.cssText=s.cssText:n.appendChild(document.createTextNode(s.cssText));else{const i=t,o=void 0===s[i]?"":s[i];n.setAttribute(t,o)}n.setAttribute(E,"true"),o.some((t,s)=>(l=s,n.isEqualNode(t)))?o.splice(l,1):c.push(n)}),o.forEach(t=>t.parentNode?.removeChild(t)),c.forEach(t=>n.appendChild(t)),{oldTags:o,newTags:c}},me=(t,s)=>{const n=document.getElementsByTagName(t)[0];if(!n)return;const i=n.getAttribute(E),o=i?i.split(","):[],c=[...o],l=Object.keys(s);for(const t of l){const i=s[t]||"";n.getAttribute(t)!==i&&n.setAttribute(t,i),-1===o.indexOf(t)&&o.push(t);const l=c.indexOf(t);-1!==l&&c.splice(l,1)}for(let t=c.length-1;t>=0;t-=1)n.removeAttribute(c[t]);o.length===c.length?n.removeAttribute(E):n.getAttribute(E)!==l.join(",")&&n.setAttribute(E,l.join(","))},ge=(t,s)=>{void 0!==t&&document.title!==t&&(document.title=Y(t)),me("title",s)},ye=(t,s)=>{const{baseTag:n,bodyAttributes:i,htmlAttributes:o,linkTags:c,metaTags:l,noscriptTags:p,onChangeClientState:u,scriptTags:h,styleTags:y,title:b,titleAttributes:f}=t;me("body",i),me("html",o),ge(b,f);const T={baseTag:he("base",n),linkTags:he("link",c),metaTags:he("meta",l),noscriptTags:he("noscript",p),scriptTags:he("script",h),styleTags:he("style",y)},O={},A={};Object.keys(T).forEach(t=>{const{newTags:s,oldTags:n}=T[t];s.length&&(O[t]=s),n.length&&(A[t]=T[t].oldTags)}),s&&s(),u(t,O,A)},be=null,fe=t=>{be&&cancelAnimationFrame(be),t.defer?be=requestAnimationFrame(()=>{ye(t,()=>{be=null})}):(ye(t),be=null)},Te=class extends ue.Component{rendered=!1;shouldComponentUpdate(t){return!(0,de.default)(t,this.props)}componentDidUpdate(){this.emitChange()}componentWillUnmount(){const{helmetInstances:t}=this.props.context;t.remove(this),this.emitChange()}emitChange(){const{helmetInstances:t,setHelmet:s}=this.props.context;let n=null;const i=(o=t.get().map(t=>{const s=Object.assign({},t.props);return delete s.context,s}),{baseTag:z(["href"],o),bodyAttributes:R("bodyAttributes",o),defer:N(o,H),encode:N(o,D),htmlAttributes:R("htmlAttributes",o),linkTags:B("link",["rel","href"],o),metaTags:B("meta",["name","charset","http-equiv","property","itemprop"],o),noscriptTags:B("noscript",["innerHTML"],o),onChangeClientState:_(o),scriptTags:B("script",["src","innerHTML"],o),styleTags:B("style",["cssText"],o),title:q(o),titleAttributes:R("titleAttributes",o),prioritizeSeoTags:F(o,U)});var o;pe.canUseDOM?fe(i):ie&&(n=ie(i)),s(n)}init(){if(this.rendered)return;this.rendered=!0;const{helmetInstances:t}=this.props.context;t.add(this),this.emitChange()}render(){return this.init(),null}},Oe=class extends T.Component{static defaultProps={defer:!0,encodeSpecialCharacters:!0,prioritizeSeoTags:!1};shouldComponentUpdate(t){return!(0,O.default)(W(this.props,"helmetData"),W(t,"helmetData"))}mapNestedChildrenToProps(t,s){if(!s)return null;switch(t.type){case"script":case"noscript":return{innerHTML:s};case"style":return{cssText:s};default:throw new Error(`<${t.type} /> elements are self-closing and can not contain children. Refer to our API for more information.`)}}flattenArrayTypeChildren(t,s,n,i){return Object.assign({},s,{[t.type]:[...s[t.type]||[],Object.assign({},n,this.mapNestedChildrenToProps(t,i))]})}mapObjectTypeChildren(t,s,n,i){switch(t.type){case"title":return Object.assign({},s,{[t.type]:i,titleAttributes:Object.assign({},n)});case"body":return Object.assign({},s,{bodyAttributes:Object.assign({},n)});case"html":return Object.assign({},s,{htmlAttributes:Object.assign({},n)});default:return Object.assign({},s,{[t.type]:Object.assign({},n)})}}mapArrayTypeChildrenToProps(t,s){let n=Object.assign({},s);return Object.keys(t).forEach(s=>{n=Object.assign({},n,{[s]:t[s]})}),n}warnOnInvalidChildren(t,s){return(0,A.default)(k.some(s=>t.type===s),"function"==typeof t.type?"You may be attempting to nest <Helmet> components within each other, which is not allowed. Refer to our API for more information.":`Only elements types ${k.join(", ")} are allowed. Helmet does not support rendering <${t.type}> elements. Refer to our API for more information.`),(0,A.default)(!s||"string"==typeof s||Array.isArray(s)&&!s.some(t=>"string"!=typeof t),`Helmet expects a string as a child of <${t.type}>. Did you forget to wrap your children in braces? ( <${t.type}>{\`\`}</${t.type}> ) Refer to our API for more information.`),!0}mapChildrenToProps(n,i){let o={};return T.default.Children.forEach(n,n=>{if(!n||!n.props)return;const c=n.props,{children:l}=c,p=t(c,s),u=Object.keys(p).reduce((t,s)=>(t[M[s]||s]=p[s],t),{});let{type:h}=n;switch("symbol"==typeof h?h=h.toString():this.warnOnInvalidChildren(n,l),h){case"Symbol(react.fragment)":i=this.mapChildrenToProps(l,i);break;case"link":case"meta":case"noscript":case"script":case"style":o=this.flattenArrayTypeChildren(n,o,u,l);break;default:i=this.mapObjectTypeChildren(n,i,u,l)}}),this.mapArrayTypeChildrenToProps(o,i)}render(){const s=this.props,{children:i}=s,o=t(s,n);let c=Object.assign({},o),{helmetData:l}=o;if(i&&(c=this.mapChildrenToProps(i,c)),l&&!(l instanceof ce)){l=new ce(l.context,!0),delete c.helmetData}return l?T.default.createElement(Te,Object.assign({},c,{context:l.value})):T.default.createElement(le.Consumer,null,t=>T.default.createElement(Te,Object.assign({},c,{context:t})))}}},687,[19,32,688,567,689]);
-__d(function(g,r,_i,_a,m,e,d){var t='undefined'!=typeof Element,n='function'==typeof Map,f='function'==typeof Set,o='function'==typeof ArrayBuffer&&!!ArrayBuffer.isView;function i(u,a){if(u===a)return!0;if(u&&a&&'object'==typeof u&&'object'==typeof a){if(u.constructor!==a.constructor)return!1;var c,s,l,p;if(Array.isArray(u)){if((c=u.length)!=a.length)return!1;for(s=c;0!==s--;)if(!i(u[s],a[s]))return!1;return!0}if(n&&u instanceof Map&&a instanceof Map){if(u.size!==a.size)return!1;for(p=u.entries();!(s=p.next()).done;)if(!a.has(s.value[0]))return!1;for(p=u.entries();!(s=p.next()).done;)if(!i(s.value[1],a.get(s.value[0])))return!1;return!0}if(f&&u instanceof Set&&a instanceof Set){if(u.size!==a.size)return!1;for(p=u.entries();!(s=p.next()).done;)if(!a.has(s.value[0]))return!1;return!0}if(o&&ArrayBuffer.isView(u)&&ArrayBuffer.isView(a)){if((c=u.length)!=a.length)return!1;for(s=c;0!==s--;)if(u[s]!==a[s])return!1;return!0}if(u.constructor===RegExp)return u.source===a.source&&u.flags===a.flags;if(u.valueOf!==Object.prototype.valueOf&&'function'==typeof u.valueOf&&'function'==typeof a.valueOf)return u.valueOf()===a.valueOf();if(u.toString!==Object.prototype.toString&&'function'==typeof u.toString&&'function'==typeof a.toString)return u.toString()===a.toString();if((c=(l=Object.keys(u)).length)!==Object.keys(a).length)return!1;for(s=c;0!==s--;)if(!Object.prototype.hasOwnProperty.call(a,l[s]))return!1;if(t&&u instanceof Element)return!1;for(s=c;0!==s--;)if(('_owner'!==l[s]&&'__v'!==l[s]&&'__o'!==l[s]||!u.$$typeof)&&!i(u[l[s]],a[l[s]]))return!1;return!0}return u!=u&&a!=a}m.exports=function(t,n){try{return i(t,n)}catch(t){if((t.message||'').match(/stack|recursion/i))return console.warn('react-fast-compare cannot handle circular refs'),!1;throw t}}},688,[]);
-__d(function(g,r,i,a,m,e,d){m.exports=function(t,n,o,f){var c=o?o.call(f,t,n):void 0;if(void 0!==c)return!!c;if(t===n)return!0;if("object"!=typeof t||!t||"object"!=typeof n||!n)return!1;var u=Object.keys(t),v=Object.keys(n);if(u.length!==v.length)return!1;for(var l=Object.prototype.hasOwnProperty.bind(n),b=0;b<u.length;b++){var p=u[b];if(!l(p))return!1;var y=t[p],j=n[p];if(!1===(c=o?o.call(f,y,j,p):void 0)||void 0===c&&y!==j)return!1}return!0}},689,[]);
-__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,"__esModule",{value:!0})},690,[]);
-__d(function(g,r,_i,a,_m,_e,d){"use strict";var e,t=r(d[0]),n=this&&this.__createBinding||(Object.create?function(e,t,n,o){void 0===o&&(o=n);var i=Object.getOwnPropertyDescriptor(t,n);i&&!("get"in i?!t.__esModule:i.writable||i.configurable)||(i={enumerable:!0,get:function(){return t[n]}}),Object.defineProperty(e,o,i)}:function(e,t,n,o){void 0===o&&(o=n),e[o]=t[n]}),o=this&&this.__setModuleDefault||(Object.create?function(e,t){Object.defineProperty(e,"default",{enumerable:!0,value:t})}:function(e,t){e.default=t}),i=this&&this.__importStar||(e=function(t){return e=Object.getOwnPropertyNames||function(e){var t=[];for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[t.length]=n);return t},e(t)},function(t){if(t&&t.__esModule)return t;var i={};if(null!=t)for(var c=e(t),u=0;u<c.length;u++)"default"!==c[u]&&n(i,t,c[u]);return o(i,t),i});Object.defineProperty(_e,"__esModule",{value:!0}),_e.renderRootComponent=function(e){try{setTimeout(()=>{f._internal_preventAutoHideAsync?.()}),u.startTransition(()=>{(0,c.registerRootComponent)(e)})}catch(e){f.hideAsync();const n=b(e);(0,c.registerRootComponent)(()=>t.jsx(s.View,{})),console.error(n),console.error("A runtime error has occurred while rendering the root component."),setTimeout(()=>{throw n})}};const c=r(d[1]),u=i(r(d[2])),s=r(d[3]),f=i(r(d[4]));function l(e){if('[object Object]'!==Object.prototype.toString.call(e))return!1;const t=Object.getPrototypeOf(e);return null===t||t===Object.prototype}function p(e){return e&&'object'==typeof e&&'string'==typeof e.name&&'string'==typeof e.message}function b(e){return p(e)?e:l(e)?new Error(JSON.stringify(e)):new Error(String(e))}},691,[7,513,32,447,512]);
+__d(function(g,r,i,a,m,_e,_d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),_e.DiaryProvider=function({children:e}){const[s,l]=(0,t.useState)(''),[y,h]=(0,t.useState)({});(0,t.useEffect)(()=>{o.default.getItem(c).then(e=>{const t=e||Math.random().toString(36).substring(2,8).toUpperCase();e||o.default.setItem(c,t),l(t)})},[]),(0,t.useEffect)(()=>{if(!s)return;return(0,n.onSnapshot)((0,n.collection)(u.db,'diaries',s,'entries'),e=>{const t={};e.forEach(e=>{t[e.id]=e.data()}),h(t)})},[s]);return s?(0,d.jsx)(f.Provider,{value:{diaryId:s,entries:y,getEntry:e=>y[e],upsertEntry:async function(e){if(!s)return;await(0,n.setDoc)((0,n.doc)(u.db,'diaries',s,'entries',e.date),e)},deleteEntry:async function(e){if(!s)return;await(0,n.deleteDoc)((0,n.doc)(u.db,'diaries',s,'entries',e))},connectDiary:async function(e){const t=e.trim().toUpperCase();await o.default.setItem(c,t),h({}),l(t)}},children:e}):null},_e.useDiary=function(){const e=(0,t.useContext)(f);if(!e)throw new Error('useDiary must be used inside DiaryProvider');return e};var e,t=r(_d[0]),n=r(_d[1]),s=r(_d[2]),o=(e=s)&&e.__esModule?e:{default:e},u=r(_d[3]),d=r(_d[4]);const c='@twintuna_diary:diaryId';const f=(0,t.createContext)(null)},672,[32,673,683,689,7]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0});var t=r(d[0]);Object.keys(t).forEach(function(n){'default'===n||Object.prototype.hasOwnProperty.call(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:function(){return t[n]}})})},673,[674]);
+__d(function(e,t,n,r,s,i,o){"use strict";Object.defineProperty(i,'__esModule',{value:!0}),Object.defineProperty(i,"AbstractUserDataWriter",{enumerable:!0,get:function(){return Xh}}),Object.defineProperty(i,"AggregateField",{enumerable:!0,get:function(){return Gl}}),Object.defineProperty(i,"AggregateQuerySnapshot",{enumerable:!0,get:function(){return Kl}}),Object.defineProperty(i,"Bytes",{enumerable:!0,get:function(){return $l}}),Object.defineProperty(i,"CACHE_SIZE_UNLIMITED",{enumerable:!0,get:function(){return Dl}}),Object.defineProperty(i,"CollectionReference",{enumerable:!0,get:function(){return vl}}),Object.defineProperty(i,"DocumentReference",{enumerable:!0,get:function(){return wl}}),Object.defineProperty(i,"DocumentSnapshot",{enumerable:!0,get:function(){return ad}}),Object.defineProperty(i,"FieldPath",{enumerable:!0,get:function(){return Ql}}),Object.defineProperty(i,"FieldValue",{enumerable:!0,get:function(){return Jl}}),Object.defineProperty(i,"Firestore",{enumerable:!0,get:function(){return Nl}}),Object.defineProperty(i,"FirestoreError",{enumerable:!0,get:function(){return D}}),Object.defineProperty(i,"GeoPoint",{enumerable:!0,get:function(){return Hl}}),Object.defineProperty(i,"LoadBundleTask",{enumerable:!0,get:function(){return Cl}}),Object.defineProperty(i,"PersistentCacheIndexManager",{enumerable:!0,get:function(){return tf}}),Object.defineProperty(i,"Query",{enumerable:!0,get:function(){return yl}}),Object.defineProperty(i,"QueryCompositeFilterConstraint",{enumerable:!0,get:function(){return Oh}}),Object.defineProperty(i,"QueryConstraint",{enumerable:!0,get:function(){return Nh}}),Object.defineProperty(i,"QueryDocumentSnapshot",{enumerable:!0,get:function(){return ud}}),Object.defineProperty(i,"QueryEndAtConstraint",{enumerable:!0,get:function(){return Gh}}),Object.defineProperty(i,"QueryFieldFilterConstraint",{enumerable:!0,get:function(){return kh}}),Object.defineProperty(i,"QueryLimitConstraint",{enumerable:!0,get:function(){return Vh}}),Object.defineProperty(i,"QueryOrderByConstraint",{enumerable:!0,get:function(){return Mh}}),Object.defineProperty(i,"QuerySnapshot",{enumerable:!0,get:function(){return cd}}),Object.defineProperty(i,"QueryStartAtConstraint",{enumerable:!0,get:function(){return Bh}}),Object.defineProperty(i,"SnapshotMetadata",{enumerable:!0,get:function(){return od}}),Object.defineProperty(i,"Timestamp",{enumerable:!0,get:function(){return G}}),Object.defineProperty(i,"Transaction",{enumerable:!0,get:function(){return Gd}}),Object.defineProperty(i,"VectorValue",{enumerable:!0,get:function(){return Yl}}),Object.defineProperty(i,"WriteBatch",{enumerable:!0,get:function(){return jd}}),Object.defineProperty(i,"_AutoId",{enumerable:!0,get:function(){return U}}),Object.defineProperty(i,"_ByteString",{enumerable:!0,get:function(){return wt}}),Object.defineProperty(i,"_DatabaseId",{enumerable:!0,get:function(){return Ct}}),Object.defineProperty(i,"_DocumentKey",{enumerable:!0,get:function(){return H}}),Object.defineProperty(i,"_EmptyAppCheckTokenProvider",{enumerable:!0,get:function(){return V}}),Object.defineProperty(i,"_EmptyAuthCredentialsProvider",{enumerable:!0,get:function(){return k}}),Object.defineProperty(i,"_FieldPath",{enumerable:!0,get:function(){return J}}),Object.defineProperty(i,"_TestingHooks",{enumerable:!0,get:function(){return hf}}),Object.defineProperty(i,"_cast",{enumerable:!0,get:function(){return dl}}),Object.defineProperty(i,"_debugAssert",{enumerable:!0,get:function(){return S}}),Object.defineProperty(i,"_internalAggregationQueryToProtoRunAggregationQueryRequest",{enumerable:!0,get:function(){return lf}}),Object.defineProperty(i,"_internalQueryToProtoQueryTarget",{enumerable:!0,get:function(){return cf}}),Object.defineProperty(i,"_isBase64Available",{enumerable:!0,get:function(){return yt}}),Object.defineProperty(i,"_logWarn",{enumerable:!0,get:function(){return I}}),Object.defineProperty(i,"_validateIsNotUsedTogether",{enumerable:!0,get:function(){return ul}}),Object.defineProperty(i,"addDoc",{enumerable:!0,get:function(){return _d}}),Object.defineProperty(i,"aggregateFieldEqual",{enumerable:!0,get:function(){return sd}}),Object.defineProperty(i,"aggregateQuerySnapshotEqual",{enumerable:!0,get:function(){return id}}),Object.defineProperty(i,"and",{enumerable:!0,get:function(){return Fh}}),Object.defineProperty(i,"arrayRemove",{enumerable:!0,get:function(){return Jd}}),Object.defineProperty(i,"arrayUnion",{enumerable:!0,get:function(){return Wd}}),Object.defineProperty(i,"average",{enumerable:!0,get:function(){return nd}}),Object.defineProperty(i,"clearIndexedDbPersistence",{enumerable:!0,get:function(){return Ll}}),Object.defineProperty(i,"collection",{enumerable:!0,get:function(){return bl}}),Object.defineProperty(i,"collectionGroup",{enumerable:!0,get:function(){return Il}}),Object.defineProperty(i,"connectFirestoreEmulator",{enumerable:!0,get:function(){return pl}}),Object.defineProperty(i,"count",{enumerable:!0,get:function(){return rd}}),Object.defineProperty(i,"deleteAllPersistentCacheIndexes",{enumerable:!0,get:function(){return of}}),Object.defineProperty(i,"deleteDoc",{enumerable:!0,get:function(){return Id}}),Object.defineProperty(i,"deleteField",{enumerable:!0,get:function(){return $d}}),Object.defineProperty(i,"disableNetwork",{enumerable:!0,get:function(){return Ul}}),Object.defineProperty(i,"disablePersistentCacheIndexAutoCreation",{enumerable:!0,get:function(){return sf}}),Object.defineProperty(i,"doc",{enumerable:!0,get:function(){return _l}}),Object.defineProperty(i,"documentId",{enumerable:!0,get:function(){return Wl}}),Object.defineProperty(i,"enableIndexedDbPersistence",{enumerable:!0,get:function(){return Rl}}),Object.defineProperty(i,"enableMultiTabIndexedDbPersistence",{enumerable:!0,get:function(){return Fl}}),Object.defineProperty(i,"enableNetwork",{enumerable:!0,get:function(){return ql}}),Object.defineProperty(i,"enablePersistentCacheIndexAutoCreation",{enumerable:!0,get:function(){return rf}}),Object.defineProperty(i,"endAt",{enumerable:!0,get:function(){return $h}}),Object.defineProperty(i,"endBefore",{enumerable:!0,get:function(){return Kh}}),Object.defineProperty(i,"ensureFirestoreConfigured",{enumerable:!0,get:function(){return Pl}}),Object.defineProperty(i,"executeWrite",{enumerable:!0,get:function(){return Sd}}),Object.defineProperty(i,"getAggregateFromServer",{enumerable:!0,get:function(){return Dd}}),Object.defineProperty(i,"getCountFromServer",{enumerable:!0,get:function(){return Cd}}),Object.defineProperty(i,"getDoc",{enumerable:!0,get:function(){return dd}}),Object.defineProperty(i,"getDocFromCache",{enumerable:!0,get:function(){return md}}),Object.defineProperty(i,"getDocFromServer",{enumerable:!0,get:function(){return gd}}),Object.defineProperty(i,"getDocs",{enumerable:!0,get:function(){return pd}}),Object.defineProperty(i,"getDocsFromCache",{enumerable:!0,get:function(){return yd}}),Object.defineProperty(i,"getDocsFromServer",{enumerable:!0,get:function(){return wd}}),Object.defineProperty(i,"getFirestore",{enumerable:!0,get:function(){return kl}}),Object.defineProperty(i,"getPersistentCacheIndexManager",{enumerable:!0,get:function(){return nf}}),Object.defineProperty(i,"increment",{enumerable:!0,get:function(){return Hd}}),Object.defineProperty(i,"initializeFirestore",{enumerable:!0,get:function(){return Al}}),Object.defineProperty(i,"limit",{enumerable:!0,get:function(){return qh}}),Object.defineProperty(i,"limitToLast",{enumerable:!0,get:function(){return Uh}}),Object.defineProperty(i,"loadBundle",{enumerable:!0,get:function(){return jl}}),Object.defineProperty(i,"memoryEagerGarbageCollector",{enumerable:!0,get:function(){return Od}}),Object.defineProperty(i,"memoryLocalCache",{enumerable:!0,get:function(){return Fd}}),Object.defineProperty(i,"memoryLruGarbageCollector",{enumerable:!0,get:function(){return Rd}}),Object.defineProperty(i,"namedQuery",{enumerable:!0,get:function(){return zl}}),Object.defineProperty(i,"onSnapshot",{enumerable:!0,get:function(){return Td}}),Object.defineProperty(i,"onSnapshotsInSync",{enumerable:!0,get:function(){return Ed}}),Object.defineProperty(i,"or",{enumerable:!0,get:function(){return Rh}}),Object.defineProperty(i,"orderBy",{enumerable:!0,get:function(){return Lh}}),Object.defineProperty(i,"persistentLocalCache",{enumerable:!0,get:function(){return Md}}),Object.defineProperty(i,"persistentMultipleTabManager",{enumerable:!0,get:function(){return Ud}}),Object.defineProperty(i,"persistentSingleTabManager",{enumerable:!0,get:function(){return qd}}),Object.defineProperty(i,"query",{enumerable:!0,get:function(){return Ah}}),Object.defineProperty(i,"queryEqual",{enumerable:!0,get:function(){return El}}),Object.defineProperty(i,"refEqual",{enumerable:!0,get:function(){return Tl}}),Object.defineProperty(i,"runTransaction",{enumerable:!0,get:function(){return Kd}}),Object.defineProperty(i,"serverTimestamp",{enumerable:!0,get:function(){return Qd}}),Object.defineProperty(i,"setDoc",{enumerable:!0,get:function(){return vd}}),Object.defineProperty(i,"setIndexConfiguration",{enumerable:!0,get:function(){return Zd}}),Object.defineProperty(i,"setLogLevel",{enumerable:!0,get:function(){return w}}),Object.defineProperty(i,"snapshotEqual",{enumerable:!0,get:function(){return hd}}),Object.defineProperty(i,"startAfter",{enumerable:!0,get:function(){return zh}}),Object.defineProperty(i,"startAt",{enumerable:!0,get:function(){return jh}}),Object.defineProperty(i,"sum",{enumerable:!0,get:function(){return td}}),Object.defineProperty(i,"terminate",{enumerable:!0,get:function(){return Bl}}),Object.defineProperty(i,"updateDoc",{enumerable:!0,get:function(){return bd}}),Object.defineProperty(i,"vector",{enumerable:!0,get:function(){return Yd}}),Object.defineProperty(i,"waitForPendingWrites",{enumerable:!0,get:function(){return Vl}}),Object.defineProperty(i,"where",{enumerable:!0,get:function(){return Ph}}),Object.defineProperty(i,"writeBatch",{enumerable:!0,get:function(){return Xd}});var a=t(o[0]),u=t(o[1]),c=t(o[2]),l=t(o[3]),h=t(o[4]),d=t(o[5]);const f="@firebase/firestore";
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class m{constructor(e){this.uid=e}isAuthenticated(){return null!=this.uid}toKey(){return this.isAuthenticated()?"uid:"+this.uid:"anonymous-user"}isEqual(e){return e.uid===this.uid}}m.UNAUTHENTICATED=new m(null),m.GOOGLE_CREDENTIALS=new m("google-credentials-uid"),m.FIRST_PARTY=new m("first-party-uid"),m.MOCK_USER=new m("mock-user");
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+let g="10.14.0";
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const p=new c.Logger("@firebase/firestore");function y(){return p.logLevel}function w(e){p.setLogLevel(e)}function v(e,...t){if(p.logLevel<=c.LogLevel.DEBUG){const n=t.map(_);p.debug(`Firestore (${g}): ${e}`,...n)}}function b(e,...t){if(p.logLevel<=c.LogLevel.ERROR){const n=t.map(_);p.error(`Firestore (${g}): ${e}`,...n)}}function I(e,...t){if(p.logLevel<=c.LogLevel.WARN){const n=t.map(_);p.warn(`Firestore (${g}): ${e}`,...n)}}function _(e){if("string"==typeof e)return e;try{
+/**
+      * @license
+      * Copyright 2020 Google LLC
+      *
+      * Licensed under the Apache License, Version 2.0 (the "License");
+      * you may not use this file except in compliance with the License.
+      * You may obtain a copy of the License at
+      *
+      *   http://www.apache.org/licenses/LICENSE-2.0
+      *
+      * Unless required by applicable law or agreed to in writing, software
+      * distributed under the License is distributed on an "AS IS" BASIS,
+      * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      * See the License for the specific language governing permissions and
+      * limitations under the License.
+      */
+return(function(e){return JSON.stringify(e)})(e)}catch(t){return e}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function T(e="Unexpected state"){const t=`FIRESTORE (${g}) INTERNAL ASSERTION FAILED: `+e;throw b(t),new Error(t)}function E(e,t){e||T()}function S(e,t){e||T()}function x(e,t){return e}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const C={OK:"ok",CANCELLED:"cancelled",UNKNOWN:"unknown",INVALID_ARGUMENT:"invalid-argument",DEADLINE_EXCEEDED:"deadline-exceeded",NOT_FOUND:"not-found",ALREADY_EXISTS:"already-exists",PERMISSION_DENIED:"permission-denied",UNAUTHENTICATED:"unauthenticated",RESOURCE_EXHAUSTED:"resource-exhausted",FAILED_PRECONDITION:"failed-precondition",ABORTED:"aborted",OUT_OF_RANGE:"out-of-range",UNIMPLEMENTED:"unimplemented",INTERNAL:"internal",UNAVAILABLE:"unavailable",DATA_LOSS:"data-loss"};class D extends l.FirebaseError{constructor(e,t){super(e,t),this.code=e,this.message=t,this.toString=()=>`${this.name}: [code=${this.code}]: ${this.message}`}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class N{constructor(){this.promise=new Promise((e,t)=>{this.resolve=e,this.reject=t})}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class A{constructor(e,t){this.user=t,this.type="OAuth",this.headers=new Map,this.headers.set("Authorization",`Bearer ${e}`)}}class k{getToken(){return Promise.resolve(null)}invalidateToken(){}start(e,t){e.enqueueRetryable(()=>t(m.UNAUTHENTICATED))}shutdown(){}}class P{constructor(e){this.token=e,this.changeListener=null}getToken(){return Promise.resolve(this.token)}invalidateToken(){}start(e,t){this.changeListener=t,e.enqueueRetryable(()=>t(this.token.user))}shutdown(){this.changeListener=null}}class O{constructor(e){this.t=e,this.currentUser=m.UNAUTHENTICATED,this.i=0,this.forceRefresh=!1,this.auth=null}start(e,t){E(void 0===this.o);let n=this.i;const r=e=>this.i!==n?(n=this.i,t(e)):Promise.resolve();let s=new N;this.o=()=>{this.i++,this.currentUser=this.u(),s.resolve(),s=new N,e.enqueueRetryable(()=>r(this.currentUser))};const i=()=>{const t=s;e.enqueueRetryable(async()=>{await t.promise,await r(this.currentUser)})},o=e=>{v("FirebaseAuthCredentialsProvider","Auth detected"),this.auth=e,this.o&&(this.auth.addAuthTokenListener(this.o),i())};this.t.onInit(e=>o(e)),setTimeout(()=>{if(!this.auth){const e=this.t.getImmediate({optional:!0});e?o(e):(v("FirebaseAuthCredentialsProvider","Auth not yet detected"),s.resolve(),s=new N)}},0),i()}getToken(){const e=this.i,t=this.forceRefresh;return this.forceRefresh=!1,this.auth?this.auth.getToken(t).then(t=>this.i!==e?(v("FirebaseAuthCredentialsProvider","getToken aborted due to token change."),this.getToken()):t?(E("string"==typeof t.accessToken),new A(t.accessToken,this.currentUser)):null):Promise.resolve(null)}invalidateToken(){this.forceRefresh=!0}shutdown(){this.auth&&this.o&&this.auth.removeAuthTokenListener(this.o),this.o=void 0}u(){const e=this.auth&&this.auth.getUid();return E(null===e||"string"==typeof e),new m(e)}}class R{constructor(e,t,n){this.l=e,this.h=t,this.P=n,this.type="FirstParty",this.user=m.FIRST_PARTY,this.I=new Map}T(){return this.P?this.P():null}get headers(){this.I.set("X-Goog-AuthUser",this.l);const e=this.T();return e&&this.I.set("Authorization",e),this.h&&this.I.set("X-Goog-Iam-Authorization-Token",this.h),this.I}}class F{constructor(e,t,n){this.l=e,this.h=t,this.P=n}getToken(){return Promise.resolve(new R(this.l,this.h,this.P))}start(e,t){e.enqueueRetryable(()=>t(m.FIRST_PARTY))}shutdown(){}invalidateToken(){}}class M{constructor(e){this.value=e,this.type="AppCheck",this.headers=new Map,e&&e.length>0&&this.headers.set("x-firebase-appcheck",this.value)}}class L{constructor(e){this.A=e,this.forceRefresh=!1,this.appCheck=null,this.R=null}start(e,t){E(void 0===this.o);const n=e=>{null!=e.error&&v("FirebaseAppCheckTokenProvider",`Error getting App Check token; using placeholder token instead. Error: ${e.error.message}`);const n=e.token!==this.R;return this.R=e.token,v("FirebaseAppCheckTokenProvider",`Received ${n?"new":"existing"} token.`),n?t(e.token):Promise.resolve()};this.o=t=>{e.enqueueRetryable(()=>n(t))};const r=e=>{v("FirebaseAppCheckTokenProvider","AppCheck detected"),this.appCheck=e,this.o&&this.appCheck.addTokenListener(this.o)};this.A.onInit(e=>r(e)),setTimeout(()=>{if(!this.appCheck){const e=this.A.getImmediate({optional:!0});e?r(e):v("FirebaseAppCheckTokenProvider","AppCheck not yet detected")}},0)}getToken(){const e=this.forceRefresh;return this.forceRefresh=!1,this.appCheck?this.appCheck.getToken(e).then(e=>e?(E("string"==typeof e.token),this.R=e.token,new M(e.token)):null):Promise.resolve(null)}invalidateToken(){this.forceRefresh=!0}shutdown(){this.appCheck&&this.o&&this.appCheck.removeTokenListener(this.o),this.o=void 0}}class V{getToken(){return Promise.resolve(new M(""))}invalidateToken(){}start(e,t){}shutdown(){}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function q(e){const t="undefined"!=typeof self&&(self.crypto||self.msCrypto),n=new Uint8Array(e);if(t&&"function"==typeof t.getRandomValues)t.getRandomValues(n);else for(let t=0;t<e;t++)n[t]=Math.floor(256*Math.random());return n}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class U{static newId(){const e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",t=62*Math.floor(256/62);let n="";for(;n.length<20;){const r=q(40);for(let s=0;s<r.length;++s)n.length<20&&r[s]<t&&(n+=e.charAt(r[s]%62))}return n}}function B(e,t){return e<t?-1:e>t?1:0}function j(e,t,n){return e.length===t.length&&e.every((e,r)=>n(e,t[r]))}function z(e){return e+"\0"}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class G{constructor(e,t){if(this.seconds=e,this.nanoseconds=t,t<0)throw new D(C.INVALID_ARGUMENT,"Timestamp nanoseconds out of range: "+t);if(t>=1e9)throw new D(C.INVALID_ARGUMENT,"Timestamp nanoseconds out of range: "+t);if(e<-62135596800)throw new D(C.INVALID_ARGUMENT,"Timestamp seconds out of range: "+e);if(e>=253402300800)throw new D(C.INVALID_ARGUMENT,"Timestamp seconds out of range: "+e)}static now(){return G.fromMillis(Date.now())}static fromDate(e){return G.fromMillis(e.getTime())}static fromMillis(e){const t=Math.floor(e/1e3),n=Math.floor(1e6*(e-1e3*t));return new G(t,n)}toDate(){return new Date(this.toMillis())}toMillis(){return 1e3*this.seconds+this.nanoseconds/1e6}_compareTo(e){return this.seconds===e.seconds?B(this.nanoseconds,e.nanoseconds):B(this.seconds,e.seconds)}isEqual(e){return e.seconds===this.seconds&&e.nanoseconds===this.nanoseconds}toString(){return"Timestamp(seconds="+this.seconds+", nanoseconds="+this.nanoseconds+")"}toJSON(){return{seconds:this.seconds,nanoseconds:this.nanoseconds}}valueOf(){const e=this.seconds- -62135596800;return String(e).padStart(12,"0")+"."+String(this.nanoseconds).padStart(9,"0")}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class K{constructor(e){this.timestamp=e}static fromTimestamp(e){return new K(e)}static min(){return new K(new G(0,0))}static max(){return new K(new G(253402300799,999999999))}compareTo(e){return this.timestamp._compareTo(e.timestamp)}isEqual(e){return this.timestamp.isEqual(e.timestamp)}toMicroseconds(){return 1e6*this.timestamp.seconds+this.timestamp.nanoseconds/1e3}toString(){return"SnapshotVersion("+this.timestamp.toString()+")"}toTimestamp(){return this.timestamp}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ${constructor(e,t,n){void 0===t?t=0:t>e.length&&T(),void 0===n?n=e.length-t:n>e.length-t&&T(),this.segments=e,this.offset=t,this.len=n}get length(){return this.len}isEqual(e){return 0===$.comparator(this,e)}child(e){const t=this.segments.slice(this.offset,this.limit());return e instanceof $?e.forEach(e=>{t.push(e)}):t.push(e),this.construct(t)}limit(){return this.offset+this.length}popFirst(e){return e=void 0===e?1:e,this.construct(this.segments,this.offset+e,this.length-e)}popLast(){return this.construct(this.segments,this.offset,this.length-1)}firstSegment(){return this.segments[this.offset]}lastSegment(){return this.get(this.length-1)}get(e){return this.segments[this.offset+e]}isEmpty(){return 0===this.length}isPrefixOf(e){if(e.length<this.length)return!1;for(let t=0;t<this.length;t++)if(this.get(t)!==e.get(t))return!1;return!0}isImmediateParentOf(e){if(this.length+1!==e.length)return!1;for(let t=0;t<this.length;t++)if(this.get(t)!==e.get(t))return!1;return!0}forEach(e){for(let t=this.offset,n=this.limit();t<n;t++)e(this.segments[t])}toArray(){return this.segments.slice(this.offset,this.limit())}static comparator(e,t){const n=Math.min(e.length,t.length);for(let r=0;r<n;r++){const n=e.get(r),s=t.get(r);if(n<s)return-1;if(n>s)return 1}return e.length<t.length?-1:e.length>t.length?1:0}}class Q extends ${construct(e,t,n){return new Q(e,t,n)}canonicalString(){return this.toArray().join("/")}toString(){return this.canonicalString()}toUriEncodedString(){return this.toArray().map(encodeURIComponent).join("/")}static fromString(...e){const t=[];for(const n of e){if(n.indexOf("//")>=0)throw new D(C.INVALID_ARGUMENT,`Invalid segment (${n}). Paths must not contain // in them.`);t.push(...n.split("/").filter(e=>e.length>0))}return new Q(t)}static emptyPath(){return new Q([])}}const W=/^[_a-zA-Z][_a-zA-Z0-9]*$/;class J extends ${construct(e,t,n){return new J(e,t,n)}static isValidIdentifier(e){return W.test(e)}canonicalString(){return this.toArray().map(e=>(e=e.replace(/\\/g,"\\\\").replace(/`/g,"\\`"),J.isValidIdentifier(e)||(e="`"+e+"`"),e)).join(".")}toString(){return this.canonicalString()}isKeyField(){return 1===this.length&&"__name__"===this.get(0)}static keyField(){return new J(["__name__"])}static fromServerFormat(e){const t=[];let n="",r=0;const s=()=>{if(0===n.length)throw new D(C.INVALID_ARGUMENT,`Invalid field path (${e}). Paths must not be empty, begin with '.', end with '.', or contain '..'`);t.push(n),n=""};let i=!1;for(;r<e.length;){const t=e[r];if("\\"===t){if(r+1===e.length)throw new D(C.INVALID_ARGUMENT,"Path has trailing escape character: "+e);const t=e[r+1];if("\\"!==t&&"."!==t&&"`"!==t)throw new D(C.INVALID_ARGUMENT,"Path has invalid escape sequence: "+e);n+=t,r+=2}else"`"===t?(i=!i,r++):"."!==t||i?(n+=t,r++):(s(),r++)}if(s(),i)throw new D(C.INVALID_ARGUMENT,"Unterminated ` in path: "+e);return new J(t)}static emptyPath(){return new J([])}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class H{constructor(e){this.path=e}static fromPath(e){return new H(Q.fromString(e))}static fromName(e){return new H(Q.fromString(e).popFirst(5))}static empty(){return new H(Q.emptyPath())}get collectionGroup(){return this.path.popLast().lastSegment()}hasCollectionId(e){return this.path.length>=2&&this.path.get(this.path.length-2)===e}getCollectionGroup(){return this.path.get(this.path.length-2)}getCollectionPath(){return this.path.popLast()}isEqual(e){return null!==e&&0===Q.comparator(this.path,e.path)}toString(){return this.path.toString()}static comparator(e,t){return Q.comparator(e.path,t.path)}static isDocumentKey(e){return e.length%2==0}static fromSegments(e){return new H(new Q(e.slice()))}}
+/**
+   * @license
+   * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Y{constructor(e,t,n,r){this.indexId=e,this.collectionGroup=t,this.fields=n,this.indexState=r}}function X(e){return e.fields.find(e=>2===e.kind)}function Z(e){return e.fields.filter(e=>2!==e.kind)}function ee(e,t){let n=B(e.collectionGroup,t.collectionGroup);if(0!==n)return n;for(let r=0;r<Math.min(e.fields.length,t.fields.length);++r)if(n=ne(e.fields[r],t.fields[r]),0!==n)return n;return B(e.fields.length,t.fields.length)}Y.UNKNOWN_ID=-1;class te{constructor(e,t){this.fieldPath=e,this.kind=t}}function ne(e,t){const n=J.comparator(e.fieldPath,t.fieldPath);return 0!==n?n:B(e.kind,t.kind)}class re{constructor(e,t){this.sequenceNumber=e,this.offset=t}static empty(){return new re(0,oe.min())}}function se(e,t){const n=e.toTimestamp().seconds,r=e.toTimestamp().nanoseconds+1,s=K.fromTimestamp(1e9===r?new G(n+1,0):new G(n,r));return new oe(s,H.empty(),t)}function ie(e){return new oe(e.readTime,e.key,-1)}class oe{constructor(e,t,n){this.readTime=e,this.documentKey=t,this.largestBatchId=n}static min(){return new oe(K.min(),H.empty(),-1)}static max(){return new oe(K.max(),H.empty(),-1)}}function ae(e,t){let n=e.readTime.compareTo(t.readTime);return 0!==n?n:(n=H.comparator(e.documentKey,t.documentKey),0!==n?n:B(e.largestBatchId,t.largestBatchId)
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */)}const ue="The current tab is not in the required state to perform this operation. It might be necessary to refresh the browser tab.";class ce{constructor(){this.onCommittedListeners=[]}addOnCommittedListener(e){this.onCommittedListeners.push(e)}raiseOnCommittedEvent(){this.onCommittedListeners.forEach(e=>e())}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */async function le(e){if(e.code!==C.FAILED_PRECONDITION||e.message!==ue)throw e;v("LocalStore","Unexpectedly lost primary lease")}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class he{constructor(e){this.nextCallback=null,this.catchCallback=null,this.result=void 0,this.error=void 0,this.isDone=!1,this.callbackAttached=!1,e(e=>{this.isDone=!0,this.result=e,this.nextCallback&&this.nextCallback(e)},e=>{this.isDone=!0,this.error=e,this.catchCallback&&this.catchCallback(e)})}catch(e){return this.next(void 0,e)}next(e,t){return this.callbackAttached&&T(),this.callbackAttached=!0,this.isDone?this.error?this.wrapFailure(t,this.error):this.wrapSuccess(e,this.result):new he((n,r)=>{this.nextCallback=t=>{this.wrapSuccess(e,t).next(n,r)},this.catchCallback=e=>{this.wrapFailure(t,e).next(n,r)}})}toPromise(){return new Promise((e,t)=>{this.next(e,t)})}wrapUserFunction(e){try{const t=e();return t instanceof he?t:he.resolve(t)}catch(e){return he.reject(e)}}wrapSuccess(e,t){return e?this.wrapUserFunction(()=>e(t)):he.resolve(t)}wrapFailure(e,t){return e?this.wrapUserFunction(()=>e(t)):he.reject(t)}static resolve(e){return new he((t,n)=>{t(e)})}static reject(e){return new he((t,n)=>{n(e)})}static waitFor(e){return new he((t,n)=>{let r=0,s=0,i=!1;e.forEach(e=>{++r,e.next(()=>{++s,i&&s===r&&t()},e=>n(e))}),i=!0,s===r&&t()})}static or(e){let t=he.resolve(!1);for(const n of e)t=t.next(e=>e?he.resolve(e):n());return t}static forEach(e,t){const n=[];return e.forEach((e,r)=>{n.push(t.call(this,e,r))}),this.waitFor(n)}static mapArray(e,t){return new he((n,r)=>{const s=e.length,i=new Array(s);let o=0;for(let a=0;a<s;a++){const u=a;t(e[u]).next(e=>{i[u]=e,++o,o===s&&n(i)},e=>r(e))}})}static doWhile(e,t){return new he((n,r)=>{const s=()=>{!0===e()?t().next(()=>{s()},r):n()};s()})}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class de{constructor(e,t){this.action=e,this.transaction=t,this.aborted=!1,this.V=new N,this.transaction.oncomplete=()=>{this.V.resolve()},this.transaction.onabort=()=>{t.error?this.V.reject(new pe(e,t.error)):this.V.resolve()},this.transaction.onerror=t=>{const n=Ie(t.target.error);this.V.reject(new pe(e,n))}}static open(e,t,n,r){try{return new de(t,e.transaction(r,n))}catch(e){throw new pe(t,e)}}get m(){return this.V.promise}abort(e){e&&this.V.reject(e),this.aborted||(v("SimpleDb","Aborting transaction:",e?e.message:"Client-initiated abort"),this.aborted=!0,this.transaction.abort())}g(){const e=this.transaction;this.aborted||"function"!=typeof e.commit||e.commit()}store(e){const t=this.transaction.objectStore(e);return new we(t)}}class fe{constructor(e,t,n){this.name=e,this.version=t,this.p=n,12.2===fe.S((0,l.getUA)())&&b("Firestore persistence suffers from a bug in iOS 12.2 Safari that may cause your app to stop working. See https://stackoverflow.com/q/56496296/110915 for details and a potential workaround.")}static delete(e){return v("SimpleDb","Removing database:",e),ve(window.indexedDB.deleteDatabase(e)).toPromise()}static D(){if(!(0,l.isIndexedDBAvailable)())return!1;if(fe.v())return!0;const e=(0,l.getUA)(),t=fe.S(e),n=0<t&&t<10,r=me(e),s=0<r&&r<4.5;return!(e.indexOf("MSIE ")>0||e.indexOf("Trident/")>0||e.indexOf("Edge/")>0||n||s)}static v(){var e;return"undefined"!=typeof process&&"YES"===(null===(e=process.__PRIVATE_env)||void 0===e?void 0:e.C)}static F(e,t){return e.store(t)}static S(e){const t=e.match(/i(?:phone|pad|pod) os ([\d_]+)/i),n=t?t[1].split("_").slice(0,2).join("."):"-1";return Number(n)}async M(e){return this.db||(v("SimpleDb","Opening database:",this.name),this.db=await new Promise((t,n)=>{const r=indexedDB.open(this.name,this.version);r.onsuccess=e=>{const n=e.target.result;t(n)},r.onblocked=()=>{n(new pe(e,"Cannot upgrade IndexedDB schema while another tab is open. Close all tabs that access Firestore and reload this page to proceed."))},r.onerror=t=>{const r=t.target.error;"VersionError"===r.name?n(new D(C.FAILED_PRECONDITION,"A newer version of the Firestore SDK was previously used and so the persisted data is not compatible with the version of the SDK you are now using. The SDK will operate with persistence disabled. If you need persistence, please re-upgrade to a newer version of the SDK or else clear the persisted IndexedDB data for your app to start fresh.")):"InvalidStateError"===r.name?n(new D(C.FAILED_PRECONDITION,"Unable to open an IndexedDB connection. This could be due to running in a private browsing session on a browser whose private browsing sessions do not support IndexedDB: "+r)):n(new pe(e,r))},r.onupgradeneeded=e=>{v("SimpleDb",'Database "'+this.name+'" requires upgrade from version:',e.oldVersion);const t=e.target.result;this.p.O(t,r.transaction,e.oldVersion,this.version).next(()=>{v("SimpleDb","Database upgrade to version "+this.version+" complete")})}})),this.N&&(this.db.onversionchange=e=>this.N(e)),this.db}L(e){this.N=e,this.db&&(this.db.onversionchange=t=>e(t))}async runTransaction(e,t,n,r){const s="readonly"===t;let i=0;for(;;){++i;try{this.db=await this.M(e);const t=de.open(this.db,e,s?"readonly":"readwrite",n),i=r(t).next(e=>(t.g(),e)).catch(e=>(t.abort(e),he.reject(e))).toPromise();return i.catch(()=>{}),await t.m,i}catch(e){const t=e,n="FirebaseError"!==t.name&&i<3;if(v("SimpleDb","Transaction failed with error:",t.message,"Retrying:",n),this.close(),!n)return Promise.reject(t)}}}close(){this.db&&this.db.close(),this.db=void 0}}function me(e){const t=e.match(/Android ([\d.]+)/i),n=t?t[1].split(".").slice(0,2).join("."):"-1";return Number(n)}class ge{constructor(e){this.B=e,this.k=!1,this.q=null}get isDone(){return this.k}get K(){return this.q}set cursor(e){this.B=e}done(){this.k=!0}$(e){this.q=e}delete(){return ve(this.B.delete())}}class pe extends D{constructor(e,t){super(C.UNAVAILABLE,`IndexedDB transaction '${e}' failed: ${t}`),this.name="IndexedDbTransactionError"}}function ye(e){return"IndexedDbTransactionError"===e.name}class we{constructor(e){this.store=e}put(e,t){let n;return void 0!==t?(v("SimpleDb","PUT",this.store.name,e,t),n=this.store.put(t,e)):(v("SimpleDb","PUT",this.store.name,"<auto-key>",e),n=this.store.put(e)),ve(n)}add(e){return v("SimpleDb","ADD",this.store.name,e,e),ve(this.store.add(e))}get(e){return ve(this.store.get(e)).next(t=>(void 0===t&&(t=null),v("SimpleDb","GET",this.store.name,e,t),t))}delete(e){return v("SimpleDb","DELETE",this.store.name,e),ve(this.store.delete(e))}count(){return v("SimpleDb","COUNT",this.store.name),ve(this.store.count())}U(e,t){const n=this.options(e,t),r=n.index?this.store.index(n.index):this.store;if("function"==typeof r.getAll){const e=r.getAll(n.range);return new he((t,n)=>{e.onerror=e=>{n(e.target.error)},e.onsuccess=e=>{t(e.target.result)}})}{const e=this.cursor(n),t=[];return this.W(e,(e,n)=>{t.push(n)}).next(()=>t)}}G(e,t){const n=this.store.getAll(e,null===t?void 0:t);return new he((e,t)=>{n.onerror=e=>{t(e.target.error)},n.onsuccess=t=>{e(t.target.result)}})}j(e,t){v("SimpleDb","DELETE ALL",this.store.name);const n=this.options(e,t);n.H=!1;const r=this.cursor(n);return this.W(r,(e,t,n)=>n.delete())}J(e,t){let n;t?n=e:(n={},t=e);const r=this.cursor(n);return this.W(r,t)}Y(e){const t=this.cursor({});return new he((n,r)=>{t.onerror=e=>{const t=Ie(e.target.error);r(t)},t.onsuccess=t=>{const r=t.target.result;r?e(r.primaryKey,r.value).next(e=>{e?r.continue():n()}):n()}})}W(e,t){const n=[];return new he((r,s)=>{e.onerror=e=>{s(e.target.error)},e.onsuccess=e=>{const s=e.target.result;if(!s)return void r();const i=new ge(s),o=t(s.primaryKey,s.value,i);if(o instanceof he){const e=o.catch(e=>(i.done(),he.reject(e)));n.push(e)}i.isDone?r():null===i.K?s.continue():s.continue(i.K)}}).next(()=>he.waitFor(n))}options(e,t){let n;return void 0!==e&&("string"==typeof e?n=e:t=e),{index:n,range:t}}cursor(e){let t="next";if(e.reverse&&(t="prev"),e.index){const n=this.store.index(e.index);return e.H?n.openKeyCursor(e.range,t):n.openCursor(e.range,t)}return this.store.openCursor(e.range,t)}}function ve(e){return new he((t,n)=>{e.onsuccess=e=>{const n=e.target.result;t(n)},e.onerror=e=>{const t=Ie(e.target.error);n(t)}})}let be=!1;function Ie(e){const t=fe.S((0,l.getUA)());if(t>=12.2&&t<13){const t="An internal error was encountered in the Indexed Database server";if(e.message.indexOf(t)>=0){const e=new D("internal",`IOS_INDEXEDDB_BUG1: IndexedDb has thrown '${t}'. This is likely due to an unavoidable bug in iOS. See https://stackoverflow.com/q/56496296/110915 for details and a potential workaround.`);return be||(be=!0,setTimeout(()=>{throw e},0)),e}}return e}class _e{constructor(e,t){this.asyncQueue=e,this.Z=t,this.task=null}start(){this.X(15e3)}stop(){this.task&&(this.task.cancel(),this.task=null)}get started(){return null!==this.task}X(e){v("IndexBackfiller",`Scheduled in ${e}ms`),this.task=this.asyncQueue.enqueueAfterDelay("index_backfill",e,async()=>{this.task=null;try{v("IndexBackfiller",`Documents written: ${await this.Z.ee()}`)}catch(e){ye(e)?v("IndexBackfiller","Ignoring IndexedDB error during index backfill: ",e):await le(e)}await this.X(6e4)})}}class Te{constructor(e,t){this.localStore=e,this.persistence=t}async ee(e=50){return this.persistence.runTransaction("Backfill Indexes","readwrite-primary",t=>this.te(t,e))}te(e,t){const n=new Set;let r=t,s=!0;return he.doWhile(()=>!0===s&&r>0,()=>this.localStore.indexManager.getNextCollectionGroupToUpdate(e).next(t=>{if(null!==t&&!n.has(t))return v("IndexBackfiller",`Processing collection: ${t}`),this.ne(e,t,r).next(e=>{r-=e,n.add(t)});s=!1})).next(()=>t-r)}ne(e,t,n){return this.localStore.indexManager.getMinOffsetFromCollectionGroup(e,t).next(r=>this.localStore.localDocuments.getNextDocuments(e,t,r,n).next(n=>{const s=n.changes;return this.localStore.indexManager.updateIndexEntries(e,s).next(()=>this.re(r,n)).next(n=>(v("IndexBackfiller",`Updating offset: ${n}`),this.localStore.indexManager.updateCollectionGroup(e,t,n))).next(()=>s.size)}))}re(e,t){let n=e;return t.changes.forEach((e,t)=>{const r=ie(t);ae(r,n)>0&&(n=r)}),new oe(n.readTime,n.documentKey,Math.max(t.batchId,e.largestBatchId))}}
+/**
+   * @license
+   * Copyright 2018 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ee{constructor(e,t){this.previousValue=e,t&&(t.sequenceNumberHandler=e=>this.ie(e),this.se=e=>t.writeSequenceNumber(e))}ie(e){return this.previousValue=Math.max(e,this.previousValue),this.previousValue}next(){const e=++this.previousValue;return this.se&&this.se(e),e}}function Se(e){return null==e}function xe(e){return 0===e&&1/e==-1/0}function Ce(e){return"number"==typeof e&&Number.isInteger(e)&&!xe(e)&&e<=Number.MAX_SAFE_INTEGER&&e>=Number.MIN_SAFE_INTEGER}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function De(e){let t="";for(let n=0;n<e.length;n++)t.length>0&&(t=Ae(t)),t=Ne(e.get(n),t);return Ae(t)}function Ne(e,t){let n=t;const r=e.length;for(let t=0;t<r;t++){const r=e.charAt(t);switch(r){case"\0":n+="\x01\x10";break;case"\x01":n+="\x01\x11";break;default:n+=r}}return n}function Ae(e){return e+"\x01\x01"}function ke(e){const t=e.length;if(E(t>=2),2===t)return E("\x01"===e.charAt(0)&&"\x01"===e.charAt(1)),Q.emptyPath();const n=t-2,r=[];let s="";for(let i=0;i<t;){const t=e.indexOf("\x01",i);switch((t<0||t>n)&&T(),e.charAt(t+1)){case"\x01":const n=e.substring(i,t);let o;0===s.length?o=n:(s+=n,o=s,s=""),r.push(o);break;case"\x10":s+=e.substring(i,t),s+="\0";break;case"\x11":s+=e.substring(i,t+1);break;default:T()}i=t+2}return new Q(r)}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */Ee.oe=-1;const Pe=["userId","batchId"];
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Oe(e,t){return[e,De(t)]}function Re(e,t,n){return[e,De(t),n]}const Fe={},Me=["prefixPath","collectionGroup","readTime","documentId"],Le=["prefixPath","collectionGroup","documentId"],Ve=["collectionGroup","readTime","prefixPath","documentId"],qe=["canonicalId","targetId"],Ue=["targetId","path"],Be=["path","targetId"],je=["collectionId","parent"],ze=["indexId","uid"],Ge=["uid","sequenceNumber"],Ke=["indexId","uid","arrayValue","directionalValue","orderedDocumentKey","documentKey"],$e=["indexId","uid","orderedDocumentKey"],Qe=["userId","collectionPath","documentId"],We=["userId","collectionPath","largestBatchId"],Je=["userId","collectionGroup","largestBatchId"],He=["mutationQueues","mutations","documentMutations","remoteDocuments","targets","owner","targetGlobal","targetDocuments","clientMetadata","remoteDocumentGlobal","collectionParents","bundles","namedQueries"],Ye=[...He,"documentOverlays"],Xe=["mutationQueues","mutations","documentMutations","remoteDocumentsV14","targets","owner","targetGlobal","targetDocuments","clientMetadata","remoteDocumentGlobal","collectionParents","bundles","namedQueries","documentOverlays"],Ze=Xe,et=[...Ze,"indexConfiguration","indexState","indexEntries"],tt=et,nt=[...et,"globals"];
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class rt extends ce{constructor(e,t){super(),this._e=e,this.currentSequenceNumber=t}}function st(e,t){const n=x(e);return fe.F(n._e,t)}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function it(e){let t=0;for(const n in e)Object.prototype.hasOwnProperty.call(e,n)&&t++;return t}function ot(e,t){for(const n in e)Object.prototype.hasOwnProperty.call(e,n)&&t(n,e[n])}function at(e,t){const n=[];for(const r in e)Object.prototype.hasOwnProperty.call(e,r)&&n.push(t(e[r],r,e));return n}function ut(e){for(const t in e)if(Object.prototype.hasOwnProperty.call(e,t))return!1;return!0}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ct{constructor(e,t){this.comparator=e,this.root=t||ht.EMPTY}insert(e,t){return new ct(this.comparator,this.root.insert(e,t,this.comparator).copy(null,null,ht.BLACK,null,null))}remove(e){return new ct(this.comparator,this.root.remove(e,this.comparator).copy(null,null,ht.BLACK,null,null))}get(e){let t=this.root;for(;!t.isEmpty();){const n=this.comparator(e,t.key);if(0===n)return t.value;n<0?t=t.left:n>0&&(t=t.right)}return null}indexOf(e){let t=0,n=this.root;for(;!n.isEmpty();){const r=this.comparator(e,n.key);if(0===r)return t+n.left.size;r<0?n=n.left:(t+=n.left.size+1,n=n.right)}return-1}isEmpty(){return this.root.isEmpty()}get size(){return this.root.size}minKey(){return this.root.minKey()}maxKey(){return this.root.maxKey()}inorderTraversal(e){return this.root.inorderTraversal(e)}forEach(e){this.inorderTraversal((t,n)=>(e(t,n),!1))}toString(){const e=[];return this.inorderTraversal((t,n)=>(e.push(`${t}:${n}`),!1)),`{${e.join(", ")}}`}reverseTraversal(e){return this.root.reverseTraversal(e)}getIterator(){return new lt(this.root,null,this.comparator,!1)}getIteratorFrom(e){return new lt(this.root,e,this.comparator,!1)}getReverseIterator(){return new lt(this.root,null,this.comparator,!0)}getReverseIteratorFrom(e){return new lt(this.root,e,this.comparator,!0)}}class lt{constructor(e,t,n,r){this.isReverse=r,this.nodeStack=[];let s=1;for(;!e.isEmpty();)if(s=t?n(e.key,t):1,t&&r&&(s*=-1),s<0)e=this.isReverse?e.left:e.right;else{if(0===s){this.nodeStack.push(e);break}this.nodeStack.push(e),e=this.isReverse?e.right:e.left}}getNext(){let e=this.nodeStack.pop();const t={key:e.key,value:e.value};if(this.isReverse)for(e=e.left;!e.isEmpty();)this.nodeStack.push(e),e=e.right;else for(e=e.right;!e.isEmpty();)this.nodeStack.push(e),e=e.left;return t}hasNext(){return this.nodeStack.length>0}peek(){if(0===this.nodeStack.length)return null;const e=this.nodeStack[this.nodeStack.length-1];return{key:e.key,value:e.value}}}class ht{constructor(e,t,n,r,s){this.key=e,this.value=t,this.color=null!=n?n:ht.RED,this.left=null!=r?r:ht.EMPTY,this.right=null!=s?s:ht.EMPTY,this.size=this.left.size+1+this.right.size}copy(e,t,n,r,s){return new ht(null!=e?e:this.key,null!=t?t:this.value,null!=n?n:this.color,null!=r?r:this.left,null!=s?s:this.right)}isEmpty(){return!1}inorderTraversal(e){return this.left.inorderTraversal(e)||e(this.key,this.value)||this.right.inorderTraversal(e)}reverseTraversal(e){return this.right.reverseTraversal(e)||e(this.key,this.value)||this.left.reverseTraversal(e)}min(){return this.left.isEmpty()?this:this.left.min()}minKey(){return this.min().key}maxKey(){return this.right.isEmpty()?this.key:this.right.maxKey()}insert(e,t,n){let r=this;const s=n(e,r.key);return r=s<0?r.copy(null,null,null,r.left.insert(e,t,n),null):0===s?r.copy(null,t,null,null,null):r.copy(null,null,null,null,r.right.insert(e,t,n)),r.fixUp()}removeMin(){if(this.left.isEmpty())return ht.EMPTY;let e=this;return e.left.isRed()||e.left.left.isRed()||(e=e.moveRedLeft()),e=e.copy(null,null,null,e.left.removeMin(),null),e.fixUp()}remove(e,t){let n,r=this;if(t(e,r.key)<0)r.left.isEmpty()||r.left.isRed()||r.left.left.isRed()||(r=r.moveRedLeft()),r=r.copy(null,null,null,r.left.remove(e,t),null);else{if(r.left.isRed()&&(r=r.rotateRight()),r.right.isEmpty()||r.right.isRed()||r.right.left.isRed()||(r=r.moveRedRight()),0===t(e,r.key)){if(r.right.isEmpty())return ht.EMPTY;n=r.right.min(),r=r.copy(n.key,n.value,null,null,r.right.removeMin())}r=r.copy(null,null,null,null,r.right.remove(e,t))}return r.fixUp()}isRed(){return this.color}fixUp(){let e=this;return e.right.isRed()&&!e.left.isRed()&&(e=e.rotateLeft()),e.left.isRed()&&e.left.left.isRed()&&(e=e.rotateRight()),e.left.isRed()&&e.right.isRed()&&(e=e.colorFlip()),e}moveRedLeft(){let e=this.colorFlip();return e.right.left.isRed()&&(e=e.copy(null,null,null,null,e.right.rotateRight()),e=e.rotateLeft(),e=e.colorFlip()),e}moveRedRight(){let e=this.colorFlip();return e.left.left.isRed()&&(e=e.rotateRight(),e=e.colorFlip()),e}rotateLeft(){const e=this.copy(null,null,ht.RED,null,this.right.left);return this.right.copy(null,null,this.color,e,null)}rotateRight(){const e=this.copy(null,null,ht.RED,this.left.right,null);return this.left.copy(null,null,this.color,null,e)}colorFlip(){const e=this.left.copy(null,null,!this.left.color,null,null),t=this.right.copy(null,null,!this.right.color,null,null);return this.copy(null,null,!this.color,e,t)}checkMaxDepth(){const e=this.check();return Math.pow(2,e)<=this.size+1}check(){if(this.isRed()&&this.left.isRed())throw T();if(this.right.isRed())throw T();const e=this.left.check();if(e!==this.right.check())throw T();return e+(this.isRed()?0:1)}}ht.EMPTY=null,ht.RED=!0,ht.BLACK=!1,ht.EMPTY=new class{constructor(){this.size=0}get key(){throw T()}get value(){throw T()}get color(){throw T()}get left(){throw T()}get right(){throw T()}copy(e,t,n,r,s){return this}insert(e,t,n){return new ht(e,t)}remove(e,t){return this}isEmpty(){return!0}inorderTraversal(e){return!1}reverseTraversal(e){return!1}minKey(){return null}maxKey(){return null}isRed(){return!1}checkMaxDepth(){return!0}check(){return 0}};
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+class dt{constructor(e){this.comparator=e,this.data=new ct(this.comparator)}has(e){return null!==this.data.get(e)}first(){return this.data.minKey()}last(){return this.data.maxKey()}get size(){return this.data.size}indexOf(e){return this.data.indexOf(e)}forEach(e){this.data.inorderTraversal((t,n)=>(e(t),!1))}forEachInRange(e,t){const n=this.data.getIteratorFrom(e[0]);for(;n.hasNext();){const r=n.getNext();if(this.comparator(r.key,e[1])>=0)return;t(r.key)}}forEachWhile(e,t){let n;for(n=void 0!==t?this.data.getIteratorFrom(t):this.data.getIterator();n.hasNext();)if(!e(n.getNext().key))return}firstAfterOrEqual(e){const t=this.data.getIteratorFrom(e);return t.hasNext()?t.getNext().key:null}getIterator(){return new ft(this.data.getIterator())}getIteratorFrom(e){return new ft(this.data.getIteratorFrom(e))}add(e){return this.copy(this.data.remove(e).insert(e,!0))}delete(e){return this.has(e)?this.copy(this.data.remove(e)):this}isEmpty(){return this.data.isEmpty()}unionWith(e){let t=this;return t.size<e.size&&(t=e,e=this),e.forEach(e=>{t=t.add(e)}),t}isEqual(e){if(!(e instanceof dt))return!1;if(this.size!==e.size)return!1;const t=this.data.getIterator(),n=e.data.getIterator();for(;t.hasNext();){const e=t.getNext().key,r=n.getNext().key;if(0!==this.comparator(e,r))return!1}return!0}toArray(){const e=[];return this.forEach(t=>{e.push(t)}),e}toString(){const e=[];return this.forEach(t=>e.push(t)),"SortedSet("+e.toString()+")"}copy(e){const t=new dt(this.comparator);return t.data=e,t}}class ft{constructor(e){this.iter=e}getNext(){return this.iter.getNext().key}hasNext(){return this.iter.hasNext()}}function mt(e){return e.hasNext()?e.getNext():void 0}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class gt{constructor(e){this.fields=e,e.sort(J.comparator)}static empty(){return new gt([])}unionWith(e){let t=new dt(J.comparator);for(const e of this.fields)t=t.add(e);for(const n of e)t=t.add(n);return new gt(t.toArray())}covers(e){for(const t of this.fields)if(t.isPrefixOf(e))return!0;return!1}isEqual(e){return j(this.fields,e.fields,(e,t)=>e.isEqual(t))}}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class pt extends Error{constructor(){super(...arguments),this.name="Base64DecodeError"}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function yt(){return"undefined"!=typeof atob}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class wt{constructor(e){this.binaryString=e}static fromBase64String(e){const t=(function(e){try{return atob(e)}catch(e){throw"undefined"!=typeof DOMException&&e instanceof DOMException?new pt("Invalid base64 string: "+e):e}})(e);return new wt(t)}static fromUint8Array(e){const t=(function(e){let t="";for(let n=0;n<e.length;++n)t+=String.fromCharCode(e[n]);return t})(e);return new wt(t)}[Symbol.iterator](){let e=0;return{next:()=>e<this.binaryString.length?{value:this.binaryString.charCodeAt(e++),done:!1}:{value:void 0,done:!0}}}toBase64(){return e=this.binaryString,btoa(e);var e}toUint8Array(){return(function(e){const t=new Uint8Array(e.length);for(let n=0;n<e.length;n++)t[n]=e.charCodeAt(n);return t}
+/**
+      * @license
+      * Copyright 2020 Google LLC
+      *
+      * Licensed under the Apache License, Version 2.0 (the "License");
+      * you may not use this file except in compliance with the License.
+      * You may obtain a copy of the License at
+      *
+      *   http://www.apache.org/licenses/LICENSE-2.0
+      *
+      * Unless required by applicable law or agreed to in writing, software
+      * distributed under the License is distributed on an "AS IS" BASIS,
+      * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      * See the License for the specific language governing permissions and
+      * limitations under the License.
+      */)(this.binaryString)}approximateByteSize(){return 2*this.binaryString.length}compareTo(e){return B(this.binaryString,e.binaryString)}isEqual(e){return this.binaryString===e.binaryString}}wt.EMPTY_BYTE_STRING=new wt("");const vt=new RegExp(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.(\d+))?Z$/);function bt(e){if(E(!!e),"string"==typeof e){let t=0;const n=vt.exec(e);if(E(!!n),n[1]){let e=n[1];e=(e+"000000000").substr(0,9),t=Number(e)}const r=new Date(e);return{seconds:Math.floor(r.getTime()/1e3),nanos:t}}return{seconds:It(e.seconds),nanos:It(e.nanos)}}function It(e){return"number"==typeof e?e:"string"==typeof e?Number(e):0}function _t(e){return"string"==typeof e?wt.fromBase64String(e):wt.fromUint8Array(e)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Tt(e){var t,n;return"server_timestamp"===(null===(n=((null===(t=null==e?void 0:e.mapValue)||void 0===t?void 0:t.fields)||{}).__type__)||void 0===n?void 0:n.stringValue)}function Et(e){const t=e.mapValue.fields.__previous_value__;return Tt(t)?Et(t):t}function St(e){const t=bt(e.mapValue.fields.__local_write_time__.timestampValue);return new G(t.seconds,t.nanos)}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class xt{constructor(e,t,n,r,s,i,o,a,u){this.databaseId=e,this.appId=t,this.persistenceKey=n,this.host=r,this.ssl=s,this.forceLongPolling=i,this.autoDetectLongPolling=o,this.longPollingOptions=a,this.useFetchStreams=u}}class Ct{constructor(e,t){this.projectId=e,this.database=t||"(default)"}static empty(){return new Ct("","")}get isDefaultDatabase(){return"(default)"===this.database}isEqual(e){return e instanceof Ct&&e.projectId===this.projectId&&e.database===this.database}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const Dt={mapValue:{fields:{__type__:{stringValue:"__max__"}}}},Nt={nullValue:"NULL_VALUE"};function At(e){return"nullValue"in e?0:"booleanValue"in e?1:"integerValue"in e||"doubleValue"in e?2:"timestampValue"in e?3:"stringValue"in e?5:"bytesValue"in e?6:"referenceValue"in e?7:"geoPointValue"in e?8:"arrayValue"in e?9:"mapValue"in e?Tt(e)?4:Qt(e)?9007199254740991:Kt(e)?10:11:T()}function kt(e,t){if(e===t)return!0;const n=At(e);if(n!==At(t))return!1;switch(n){case 0:case 9007199254740991:return!0;case 1:return e.booleanValue===t.booleanValue;case 4:return St(e).isEqual(St(t));case 3:return(function(e,t){if("string"==typeof e.timestampValue&&"string"==typeof t.timestampValue&&e.timestampValue.length===t.timestampValue.length)return e.timestampValue===t.timestampValue;const n=bt(e.timestampValue),r=bt(t.timestampValue);return n.seconds===r.seconds&&n.nanos===r.nanos})(e,t);case 5:return e.stringValue===t.stringValue;case 6:return(function(e,t){return _t(e.bytesValue).isEqual(_t(t.bytesValue))})(e,t);case 7:return e.referenceValue===t.referenceValue;case 8:return(function(e,t){return It(e.geoPointValue.latitude)===It(t.geoPointValue.latitude)&&It(e.geoPointValue.longitude)===It(t.geoPointValue.longitude)})(e,t);case 2:return(function(e,t){if("integerValue"in e&&"integerValue"in t)return It(e.integerValue)===It(t.integerValue);if("doubleValue"in e&&"doubleValue"in t){const n=It(e.doubleValue),r=It(t.doubleValue);return n===r?xe(n)===xe(r):isNaN(n)&&isNaN(r)}return!1})(e,t);case 9:return j(e.arrayValue.values||[],t.arrayValue.values||[],kt);case 10:case 11:return(function(e,t){const n=e.mapValue.fields||{},r=t.mapValue.fields||{};if(it(n)!==it(r))return!1;for(const e in n)if(n.hasOwnProperty(e)&&(void 0===r[e]||!kt(n[e],r[e])))return!1;return!0})(e,t);default:return T()}}function Pt(e,t){return void 0!==(e.values||[]).find(e=>kt(e,t))}function Ot(e,t){if(e===t)return 0;const n=At(e),r=At(t);if(n!==r)return B(n,r);switch(n){case 0:case 9007199254740991:return 0;case 1:return B(e.booleanValue,t.booleanValue);case 2:return(function(e,t){const n=It(e.integerValue||e.doubleValue),r=It(t.integerValue||t.doubleValue);return n<r?-1:n>r?1:n===r?0:isNaN(n)?isNaN(r)?0:-1:1})(e,t);case 3:return Rt(e.timestampValue,t.timestampValue);case 4:return Rt(St(e),St(t));case 5:return B(e.stringValue,t.stringValue);case 6:return(function(e,t){const n=_t(e),r=_t(t);return n.compareTo(r)})(e.bytesValue,t.bytesValue);case 7:return(function(e,t){const n=e.split("/"),r=t.split("/");for(let e=0;e<n.length&&e<r.length;e++){const t=B(n[e],r[e]);if(0!==t)return t}return B(n.length,r.length)})(e.referenceValue,t.referenceValue);case 8:return(function(e,t){const n=B(It(e.latitude),It(t.latitude));return 0!==n?n:B(It(e.longitude),It(t.longitude))})(e.geoPointValue,t.geoPointValue);case 9:return Ft(e.arrayValue,t.arrayValue);case 10:return(function(e,t){var n,r,s,i;const o=e.fields||{},a=t.fields||{},u=null===(n=o.value)||void 0===n?void 0:n.arrayValue,c=null===(r=a.value)||void 0===r?void 0:r.arrayValue,l=B((null===(s=null==u?void 0:u.values)||void 0===s?void 0:s.length)||0,(null===(i=null==c?void 0:c.values)||void 0===i?void 0:i.length)||0);return 0!==l?l:Ft(u,c)})(e.mapValue,t.mapValue);case 11:return(function(e,t){if(e===Dt.mapValue&&t===Dt.mapValue)return 0;if(e===Dt.mapValue)return 1;if(t===Dt.mapValue)return-1;const n=e.fields||{},r=Object.keys(n),s=t.fields||{},i=Object.keys(s);r.sort(),i.sort();for(let e=0;e<r.length&&e<i.length;++e){const t=B(r[e],i[e]);if(0!==t)return t;const o=Ot(n[r[e]],s[i[e]]);if(0!==o)return o}return B(r.length,i.length)})(e.mapValue,t.mapValue);default:throw T()}}function Rt(e,t){if("string"==typeof e&&"string"==typeof t&&e.length===t.length)return B(e,t);const n=bt(e),r=bt(t),s=B(n.seconds,r.seconds);return 0!==s?s:B(n.nanos,r.nanos)}function Ft(e,t){const n=e.values||[],r=t.values||[];for(let e=0;e<n.length&&e<r.length;++e){const t=Ot(n[e],r[e]);if(t)return t}return B(n.length,r.length)}function Mt(e){return Lt(e)}function Lt(e){return"nullValue"in e?"null":"booleanValue"in e?""+e.booleanValue:"integerValue"in e?""+e.integerValue:"doubleValue"in e?""+e.doubleValue:"timestampValue"in e?(function(e){const t=bt(e);return`time(${t.seconds},${t.nanos})`})(e.timestampValue):"stringValue"in e?e.stringValue:"bytesValue"in e?(function(e){return _t(e).toBase64()})(e.bytesValue):"referenceValue"in e?(function(e){return H.fromName(e).toString()})(e.referenceValue):"geoPointValue"in e?(function(e){return`geo(${e.latitude},${e.longitude})`})(e.geoPointValue):"arrayValue"in e?(function(e){let t="[",n=!0;for(const r of e.values||[])n?n=!1:t+=",",t+=Lt(r);return t+"]"})(e.arrayValue):"mapValue"in e?(function(e){const t=Object.keys(e.fields||{}).sort();let n="{",r=!0;for(const s of t)r?r=!1:n+=",",n+=`${s}:${Lt(e.fields[s])}`;return n+"}"})(e.mapValue):T()}function Vt(e){switch(At(e)){case 0:case 1:return 4;case 2:return 8;case 3:case 8:return 16;case 4:const t=Et(e);return t?16+Vt(t):16;case 5:return 2*e.stringValue.length;case 6:return _t(e.bytesValue).approximateByteSize();case 7:return e.referenceValue.length;case 9:return(function(e){return(e.values||[]).reduce((e,t)=>e+Vt(t),0)})(e.arrayValue);case 10:case 11:return(function(e){let t=0;return ot(e.fields,(e,n)=>{t+=e.length+Vt(n)}),t})(e.mapValue);default:throw T()}}function qt(e,t){return{referenceValue:`projects/${e.projectId}/databases/${e.database}/documents/${t.path.canonicalString()}`}}function Ut(e){return!!e&&"integerValue"in e}function Bt(e){return!!e&&"arrayValue"in e}function jt(e){return!!e&&"nullValue"in e}function zt(e){return!!e&&"doubleValue"in e&&isNaN(Number(e.doubleValue))}function Gt(e){return!!e&&"mapValue"in e}function Kt(e){var t,n;return"__vector__"===(null===(n=((null===(t=null==e?void 0:e.mapValue)||void 0===t?void 0:t.fields)||{}).__type__)||void 0===n?void 0:n.stringValue)}function $t(e){if(e.geoPointValue)return{geoPointValue:Object.assign({},e.geoPointValue)};if(e.timestampValue&&"object"==typeof e.timestampValue)return{timestampValue:Object.assign({},e.timestampValue)};if(e.mapValue){const t={mapValue:{fields:{}}};return ot(e.mapValue.fields,(e,n)=>t.mapValue.fields[e]=$t(n)),t}if(e.arrayValue){const t={arrayValue:{values:[]}};for(let n=0;n<(e.arrayValue.values||[]).length;++n)t.arrayValue.values[n]=$t(e.arrayValue.values[n]);return t}return Object.assign({},e)}function Qt(e){return"__max__"===(((e.mapValue||{}).fields||{}).__type__||{}).stringValue}const Wt={mapValue:{fields:{__type__:{stringValue:"__vector__"},value:{arrayValue:{}}}}};function Jt(e){return"nullValue"in e?Nt:"booleanValue"in e?{booleanValue:!1}:"integerValue"in e||"doubleValue"in e?{doubleValue:NaN}:"timestampValue"in e?{timestampValue:{seconds:Number.MIN_SAFE_INTEGER}}:"stringValue"in e?{stringValue:""}:"bytesValue"in e?{bytesValue:""}:"referenceValue"in e?qt(Ct.empty(),H.empty()):"geoPointValue"in e?{geoPointValue:{latitude:-90,longitude:-180}}:"arrayValue"in e?{arrayValue:{}}:"mapValue"in e?Kt(e)?Wt:{mapValue:{}}:T()}function Ht(e){return"nullValue"in e?{booleanValue:!1}:"booleanValue"in e?{doubleValue:NaN}:"integerValue"in e||"doubleValue"in e?{timestampValue:{seconds:Number.MIN_SAFE_INTEGER}}:"timestampValue"in e?{stringValue:""}:"stringValue"in e?{bytesValue:""}:"bytesValue"in e?qt(Ct.empty(),H.empty()):"referenceValue"in e?{geoPointValue:{latitude:-90,longitude:-180}}:"geoPointValue"in e?{arrayValue:{}}:"arrayValue"in e?Wt:"mapValue"in e?Kt(e)?{mapValue:{}}:Dt:T()}function Yt(e,t){const n=Ot(e.value,t.value);return 0!==n?n:e.inclusive&&!t.inclusive?-1:!e.inclusive&&t.inclusive?1:0}function Xt(e,t){const n=Ot(e.value,t.value);return 0!==n?n:e.inclusive&&!t.inclusive?1:!e.inclusive&&t.inclusive?-1:0}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Zt{constructor(e){this.value=e}static empty(){return new Zt({mapValue:{}})}field(e){if(e.isEmpty())return this.value;{let t=this.value;for(let n=0;n<e.length-1;++n)if(t=(t.mapValue.fields||{})[e.get(n)],!Gt(t))return null;return t=(t.mapValue.fields||{})[e.lastSegment()],t||null}}set(e,t){this.getFieldsMap(e.popLast())[e.lastSegment()]=$t(t)}setAll(e){let t=J.emptyPath(),n={},r=[];e.forEach((e,s)=>{if(!t.isImmediateParentOf(s)){const e=this.getFieldsMap(t);this.applyChanges(e,n,r),n={},r=[],t=s.popLast()}e?n[s.lastSegment()]=$t(e):r.push(s.lastSegment())});const s=this.getFieldsMap(t);this.applyChanges(s,n,r)}delete(e){const t=this.field(e.popLast());Gt(t)&&t.mapValue.fields&&delete t.mapValue.fields[e.lastSegment()]}isEqual(e){return kt(this.value,e.value)}getFieldsMap(e){let t=this.value;t.mapValue.fields||(t.mapValue={fields:{}});for(let n=0;n<e.length;++n){let r=t.mapValue.fields[e.get(n)];Gt(r)&&r.mapValue.fields||(r={mapValue:{fields:{}}},t.mapValue.fields[e.get(n)]=r),t=r}return t.mapValue.fields}applyChanges(e,t,n){ot(t,(t,n)=>e[t]=n);for(const t of n)delete e[t]}clone(){return new Zt($t(this.value))}}function en(e){const t=[];return ot(e.fields,(e,n)=>{const r=new J([e]);if(Gt(n)){const e=en(n.mapValue).fields;if(0===e.length)t.push(r);else for(const n of e)t.push(r.child(n))}else t.push(r)}),new gt(t)
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}class tn{constructor(e,t,n,r,s,i,o){this.key=e,this.documentType=t,this.version=n,this.readTime=r,this.createTime=s,this.data=i,this.documentState=o}static newInvalidDocument(e){return new tn(e,0,K.min(),K.min(),K.min(),Zt.empty(),0)}static newFoundDocument(e,t,n,r){return new tn(e,1,t,K.min(),n,r,0)}static newNoDocument(e,t){return new tn(e,2,t,K.min(),K.min(),Zt.empty(),0)}static newUnknownDocument(e,t){return new tn(e,3,t,K.min(),K.min(),Zt.empty(),2)}convertToFoundDocument(e,t){return!this.createTime.isEqual(K.min())||2!==this.documentType&&0!==this.documentType||(this.createTime=e),this.version=e,this.documentType=1,this.data=t,this.documentState=0,this}convertToNoDocument(e){return this.version=e,this.documentType=2,this.data=Zt.empty(),this.documentState=0,this}convertToUnknownDocument(e){return this.version=e,this.documentType=3,this.data=Zt.empty(),this.documentState=2,this}setHasCommittedMutations(){return this.documentState=2,this}setHasLocalMutations(){return this.documentState=1,this.version=K.min(),this}setReadTime(e){return this.readTime=e,this}get hasLocalMutations(){return 1===this.documentState}get hasCommittedMutations(){return 2===this.documentState}get hasPendingWrites(){return this.hasLocalMutations||this.hasCommittedMutations}isValidDocument(){return 0!==this.documentType}isFoundDocument(){return 1===this.documentType}isNoDocument(){return 2===this.documentType}isUnknownDocument(){return 3===this.documentType}isEqual(e){return e instanceof tn&&this.key.isEqual(e.key)&&this.version.isEqual(e.version)&&this.documentType===e.documentType&&this.documentState===e.documentState&&this.data.isEqual(e.data)}mutableCopy(){return new tn(this.key,this.documentType,this.version,this.readTime,this.createTime,this.data.clone(),this.documentState)}toString(){return`Document(${this.key}, ${this.version}, ${JSON.stringify(this.data.value)}, {createTime: ${this.createTime}}), {documentType: ${this.documentType}}), {documentState: ${this.documentState}})`}}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class nn{constructor(e,t){this.position=e,this.inclusive=t}}function rn(e,t,n){let r=0;for(let s=0;s<e.position.length;s++){const i=t[s],o=e.position[s];if(r=i.field.isKeyField()?H.comparator(H.fromName(o.referenceValue),n.key):Ot(o,n.data.field(i.field)),"desc"===i.dir&&(r*=-1),0!==r)break}return r}function sn(e,t){if(null===e)return null===t;if(null===t)return!1;if(e.inclusive!==t.inclusive||e.position.length!==t.position.length)return!1;for(let n=0;n<e.position.length;n++)if(!kt(e.position[n],t.position[n]))return!1;return!0}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class on{constructor(e,t="asc"){this.field=e,this.dir=t}}function an(e,t){return e.dir===t.dir&&e.field.isEqual(t.field)}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class un{}class cn extends un{constructor(e,t,n){super(),this.field=e,this.op=t,this.value=n}static create(e,t,n){return e.isKeyField()?"in"===t||"not-in"===t?this.createKeyFieldInFilter(e,t,n):new vn(e,t,n):"array-contains"===t?new Tn(e,n):"in"===t?new En(e,n):"not-in"===t?new Sn(e,n):"array-contains-any"===t?new xn(e,n):new cn(e,t,n)}static createKeyFieldInFilter(e,t,n){return"in"===t?new bn(e,n):new In(e,n)}matches(e){const t=e.data.field(this.field);return"!="===this.op?null!==t&&this.matchesComparison(Ot(t,this.value)):null!==t&&At(this.value)===At(t)&&this.matchesComparison(Ot(t,this.value))}matchesComparison(e){switch(this.op){case"<":return e<0;case"<=":return e<=0;case"==":return 0===e;case"!=":return 0!==e;case">":return e>0;case">=":return e>=0;default:return T()}}isInequality(){return["<","<=",">",">=","!=","not-in"].indexOf(this.op)>=0}getFlattenedFilters(){return[this]}getFilters(){return[this]}}class ln extends un{constructor(e,t){super(),this.filters=e,this.op=t,this.ae=null}static create(e,t){return new ln(e,t)}matches(e){return hn(this)?void 0===this.filters.find(t=>!t.matches(e)):void 0!==this.filters.find(t=>t.matches(e))}getFlattenedFilters(){return null!==this.ae||(this.ae=this.filters.reduce((e,t)=>e.concat(t.getFlattenedFilters()),[])),this.ae}getFilters(){return Object.assign([],this.filters)}}function hn(e){return"and"===e.op}function dn(e){return"or"===e.op}function fn(e){return mn(e)&&hn(e)}function mn(e){for(const t of e.filters)if(t instanceof ln)return!1;return!0}function gn(e){if(e instanceof cn)return e.field.canonicalString()+e.op.toString()+Mt(e.value);if(fn(e))return e.filters.map(e=>gn(e)).join(",");{const t=e.filters.map(e=>gn(e)).join(",");return`${e.op}(${t})`}}function pn(e,t){return e instanceof cn?(function(e,t){return t instanceof cn&&e.op===t.op&&e.field.isEqual(t.field)&&kt(e.value,t.value)})(e,t):e instanceof ln?(function(e,t){return t instanceof ln&&e.op===t.op&&e.filters.length===t.filters.length&&e.filters.reduce((e,n,r)=>e&&pn(n,t.filters[r]),!0)})(e,t):void T()}function yn(e,t){const n=e.filters.concat(t);return ln.create(n,e.op)}function wn(e){return e instanceof cn?(function(e){return`${e.field.canonicalString()} ${e.op} ${Mt(e.value)}`})(e):e instanceof ln?(function(e){return e.op.toString()+" {"+e.getFilters().map(wn).join(" ,")+"}"})(e):"Filter"}class vn extends cn{constructor(e,t,n){super(e,t,n),this.key=H.fromName(n.referenceValue)}matches(e){const t=H.comparator(e.key,this.key);return this.matchesComparison(t)}}class bn extends cn{constructor(e,t){super(e,"in",t),this.keys=_n("in",t)}matches(e){return this.keys.some(t=>t.isEqual(e.key))}}class In extends cn{constructor(e,t){super(e,"not-in",t),this.keys=_n("not-in",t)}matches(e){return!this.keys.some(t=>t.isEqual(e.key))}}function _n(e,t){var n;return((null===(n=t.arrayValue)||void 0===n?void 0:n.values)||[]).map(e=>H.fromName(e.referenceValue))}class Tn extends cn{constructor(e,t){super(e,"array-contains",t)}matches(e){const t=e.data.field(this.field);return Bt(t)&&Pt(t.arrayValue,this.value)}}class En extends cn{constructor(e,t){super(e,"in",t)}matches(e){const t=e.data.field(this.field);return null!==t&&Pt(this.value.arrayValue,t)}}class Sn extends cn{constructor(e,t){super(e,"not-in",t)}matches(e){if(Pt(this.value.arrayValue,{nullValue:"NULL_VALUE"}))return!1;const t=e.data.field(this.field);return null!==t&&!Pt(this.value.arrayValue,t)}}class xn extends cn{constructor(e,t){super(e,"array-contains-any",t)}matches(e){const t=e.data.field(this.field);return!(!Bt(t)||!t.arrayValue.values)&&t.arrayValue.values.some(e=>Pt(this.value.arrayValue,e))}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Cn{constructor(e,t=null,n=[],r=[],s=null,i=null,o=null){this.path=e,this.collectionGroup=t,this.orderBy=n,this.filters=r,this.limit=s,this.startAt=i,this.endAt=o,this.ue=null}}function Dn(e,t=null,n=[],r=[],s=null,i=null,o=null){return new Cn(e,t,n,r,s,i,o)}function Nn(e){const t=x(e);if(null===t.ue){let e=t.path.canonicalString();null!==t.collectionGroup&&(e+="|cg:"+t.collectionGroup),e+="|f:",e+=t.filters.map(e=>gn(e)).join(","),e+="|ob:",e+=t.orderBy.map(e=>(function(e){return e.field.canonicalString()+e.dir})(e)).join(","),Se(t.limit)||(e+="|l:",e+=t.limit),t.startAt&&(e+="|lb:",e+=t.startAt.inclusive?"b:":"a:",e+=t.startAt.position.map(e=>Mt(e)).join(",")),t.endAt&&(e+="|ub:",e+=t.endAt.inclusive?"a:":"b:",e+=t.endAt.position.map(e=>Mt(e)).join(",")),t.ue=e}return t.ue}function An(e,t){if(e.limit!==t.limit)return!1;if(e.orderBy.length!==t.orderBy.length)return!1;for(let n=0;n<e.orderBy.length;n++)if(!an(e.orderBy[n],t.orderBy[n]))return!1;if(e.filters.length!==t.filters.length)return!1;for(let n=0;n<e.filters.length;n++)if(!pn(e.filters[n],t.filters[n]))return!1;return e.collectionGroup===t.collectionGroup&&!!e.path.isEqual(t.path)&&!!sn(e.startAt,t.startAt)&&sn(e.endAt,t.endAt)}function kn(e){return H.isDocumentKey(e.path)&&null===e.collectionGroup&&0===e.filters.length}function Pn(e,t){return e.filters.filter(e=>e instanceof cn&&e.field.isEqual(t))}function On(e,t,n){let r=Nt,s=!0;for(const n of Pn(e,t)){let e=Nt,t=!0;switch(n.op){case"<":case"<=":e=Jt(n.value);break;case"==":case"in":case">=":e=n.value;break;case">":e=n.value,t=!1;break;case"!=":case"not-in":e=Nt}Yt({value:r,inclusive:s},{value:e,inclusive:t})<0&&(r=e,s=t)}if(null!==n)for(let i=0;i<e.orderBy.length;++i)if(e.orderBy[i].field.isEqual(t)){const e=n.position[i];Yt({value:r,inclusive:s},{value:e,inclusive:n.inclusive})<0&&(r=e,s=n.inclusive);break}return{value:r,inclusive:s}}function Rn(e,t,n){let r=Dt,s=!0;for(const n of Pn(e,t)){let e=Dt,t=!0;switch(n.op){case">=":case">":e=Ht(n.value),t=!1;break;case"==":case"in":case"<=":e=n.value;break;case"<":e=n.value,t=!1;break;case"!=":case"not-in":e=Dt}Xt({value:r,inclusive:s},{value:e,inclusive:t})>0&&(r=e,s=t)}if(null!==n)for(let i=0;i<e.orderBy.length;++i)if(e.orderBy[i].field.isEqual(t)){const e=n.position[i];Xt({value:r,inclusive:s},{value:e,inclusive:n.inclusive})>0&&(r=e,s=n.inclusive);break}return{value:r,inclusive:s}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Fn{constructor(e,t=null,n=[],r=[],s=null,i="F",o=null,a=null){this.path=e,this.collectionGroup=t,this.explicitOrderBy=n,this.filters=r,this.limit=s,this.limitType=i,this.startAt=o,this.endAt=a,this.ce=null,this.le=null,this.he=null,this.startAt,this.endAt}}function Mn(e,t,n,r,s,i,o,a){return new Fn(e,t,n,r,s,i,o,a)}function Ln(e){return new Fn(e)}function Vn(e){return 0===e.filters.length&&null===e.limit&&null==e.startAt&&null==e.endAt&&(0===e.explicitOrderBy.length||1===e.explicitOrderBy.length&&e.explicitOrderBy[0].field.isKeyField())}function qn(e){return null!==e.collectionGroup}function Un(e){const t=x(e);if(null===t.ce){t.ce=[];const e=new Set;for(const n of t.explicitOrderBy)t.ce.push(n),e.add(n.field.canonicalString());const n=t.explicitOrderBy.length>0?t.explicitOrderBy[t.explicitOrderBy.length-1].dir:"asc",r=(function(e){let t=new dt(J.comparator);return e.filters.forEach(e=>{e.getFlattenedFilters().forEach(e=>{e.isInequality()&&(t=t.add(e.field))})}),t})(t);r.forEach(r=>{e.has(r.canonicalString())||r.isKeyField()||t.ce.push(new on(r,n))}),e.has(J.keyField().canonicalString())||t.ce.push(new on(J.keyField(),n))}return t.ce}function Bn(e){const t=x(e);return t.le||(t.le=zn(t,Un(e))),t.le}function jn(e){const t=x(e);return t.he||(t.he=zn(t,e.explicitOrderBy)),t.he}function zn(e,t){if("F"===e.limitType)return Dn(e.path,e.collectionGroup,t,e.filters,e.limit,e.startAt,e.endAt);{t=t.map(e=>{const t="desc"===e.dir?"asc":"desc";return new on(e.field,t)});const n=e.endAt?new nn(e.endAt.position,e.endAt.inclusive):null,r=e.startAt?new nn(e.startAt.position,e.startAt.inclusive):null;return Dn(e.path,e.collectionGroup,t,e.filters,e.limit,n,r)}}function Gn(e,t){const n=e.filters.concat([t]);return new Fn(e.path,e.collectionGroup,e.explicitOrderBy.slice(),n,e.limit,e.limitType,e.startAt,e.endAt)}function Kn(e,t,n){return new Fn(e.path,e.collectionGroup,e.explicitOrderBy.slice(),e.filters.slice(),t,n,e.startAt,e.endAt)}function $n(e,t){return An(Bn(e),Bn(t))&&e.limitType===t.limitType}function Qn(e){return`${Nn(Bn(e))}|lt:${e.limitType}`}function Wn(e){return`Query(target=${(function(e){let t=e.path.canonicalString();return null!==e.collectionGroup&&(t+=" collectionGroup="+e.collectionGroup),e.filters.length>0&&(t+=`, filters: [${e.filters.map(e=>wn(e)).join(", ")}]`),Se(e.limit)||(t+=", limit: "+e.limit),e.orderBy.length>0&&(t+=`, orderBy: [${e.orderBy.map(e=>(function(e){return`${e.field.canonicalString()} (${e.dir})`})(e)).join(", ")}]`),e.startAt&&(t+=", startAt: ",t+=e.startAt.inclusive?"b:":"a:",t+=e.startAt.position.map(e=>Mt(e)).join(",")),e.endAt&&(t+=", endAt: ",t+=e.endAt.inclusive?"a:":"b:",t+=e.endAt.position.map(e=>Mt(e)).join(",")),`Target(${t})`})(Bn(e))}; limitType=${e.limitType})`}function Jn(e,t){return t.isFoundDocument()&&(function(e,t){const n=t.key.path;return null!==e.collectionGroup?t.key.hasCollectionId(e.collectionGroup)&&e.path.isPrefixOf(n):H.isDocumentKey(e.path)?e.path.isEqual(n):e.path.isImmediateParentOf(n)})(e,t)&&(function(e,t){for(const n of Un(e))if(!n.field.isKeyField()&&null===t.data.field(n.field))return!1;return!0})(e,t)&&(function(e,t){for(const n of e.filters)if(!n.matches(t))return!1;return!0})(e,t)&&(function(e,t){return!(e.startAt&&!(function(e,t,n){const r=rn(e,t,n);return e.inclusive?r<=0:r<0})(e.startAt,Un(e),t))&&!(e.endAt&&!(function(e,t,n){const r=rn(e,t,n);return e.inclusive?r>=0:r>0})(e.endAt,Un(e),t))})(e,t)}function Hn(e){return e.collectionGroup||(e.path.length%2==1?e.path.lastSegment():e.path.get(e.path.length-2))}function Yn(e){return(t,n)=>{let r=!1;for(const s of Un(e)){const e=Xn(s,t,n);if(0!==e)return e;r=r||s.field.isKeyField()}return 0}}function Xn(e,t,n){const r=e.field.isKeyField()?H.comparator(t.key,n.key):(function(e,t,n){const r=t.data.field(e),s=n.data.field(e);return null!==r&&null!==s?Ot(r,s):T()})(e.field,t,n);switch(e.dir){case"asc":return r;case"desc":return-1*r;default:return T()}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Zn{constructor(e,t){this.mapKeyFn=e,this.equalsFn=t,this.inner={},this.innerSize=0}get(e){const t=this.mapKeyFn(e),n=this.inner[t];if(void 0!==n)for(const[t,r]of n)if(this.equalsFn(t,e))return r}has(e){return void 0!==this.get(e)}set(e,t){const n=this.mapKeyFn(e),r=this.inner[n];if(void 0===r)return this.inner[n]=[[e,t]],void this.innerSize++;for(let n=0;n<r.length;n++)if(this.equalsFn(r[n][0],e))return void(r[n]=[e,t]);r.push([e,t]),this.innerSize++}delete(e){const t=this.mapKeyFn(e),n=this.inner[t];if(void 0===n)return!1;for(let r=0;r<n.length;r++)if(this.equalsFn(n[r][0],e))return 1===n.length?delete this.inner[t]:n.splice(r,1),this.innerSize--,!0;return!1}forEach(e){ot(this.inner,(t,n)=>{for(const[t,r]of n)e(t,r)})}isEmpty(){return ut(this.inner)}size(){return this.innerSize}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const er=new ct(H.comparator);function tr(){return er}const nr=new ct(H.comparator);function rr(...e){let t=nr;for(const n of e)t=t.insert(n.key,n);return t}function sr(e){let t=nr;return e.forEach((e,n)=>t=t.insert(e,n.overlayedDocument)),t}function ir(){return ar()}function or(){return ar()}function ar(){return new Zn(e=>e.toString(),(e,t)=>e.isEqual(t))}const ur=new ct(H.comparator),cr=new dt(H.comparator);function lr(...e){let t=cr;for(const n of e)t=t.add(n);return t}const hr=new dt(B);function dr(){return hr}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function fr(e,t){if(e.useProto3Json){if(isNaN(t))return{doubleValue:"NaN"};if(t===1/0)return{doubleValue:"Infinity"};if(t===-1/0)return{doubleValue:"-Infinity"}}return{doubleValue:xe(t)?"-0":t}}function mr(e){return{integerValue:""+e}}function gr(e,t){return Ce(t)?mr(t):fr(e,t)}
+/**
+   * @license
+   * Copyright 2018 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class pr{constructor(){this._=void 0}}function yr(e,t,n){return e instanceof br?(function(e,t){const n={fields:{__type__:{stringValue:"server_timestamp"},__local_write_time__:{timestampValue:{seconds:e.seconds,nanos:e.nanoseconds}}}};return t&&Tt(t)&&(t=Et(t)),t&&(n.fields.__previous_value__=t),{mapValue:n}})(n,t):e instanceof Ir?_r(e,t):e instanceof Tr?Er(e,t):(function(e,t){const n=vr(e,t),r=xr(n)+xr(e.Pe);return Ut(n)&&Ut(e.Pe)?mr(r):fr(e.serializer,r)})(e,t)}function wr(e,t,n){return e instanceof Ir?_r(e,t):e instanceof Tr?Er(e,t):n}function vr(e,t){return e instanceof Sr?(function(e){return Ut(e)||(function(e){return!!e&&"doubleValue"in e})(e)})(t)?t:{integerValue:0}:null}class br extends pr{}class Ir extends pr{constructor(e){super(),this.elements=e}}function _r(e,t){const n=Cr(t);for(const t of e.elements)n.some(e=>kt(e,t))||n.push(t);return{arrayValue:{values:n}}}class Tr extends pr{constructor(e){super(),this.elements=e}}function Er(e,t){let n=Cr(t);for(const t of e.elements)n=n.filter(e=>!kt(e,t));return{arrayValue:{values:n}}}class Sr extends pr{constructor(e,t){super(),this.serializer=e,this.Pe=t}}function xr(e){return It(e.integerValue||e.doubleValue)}function Cr(e){return Bt(e)&&e.arrayValue.values?e.arrayValue.values.slice():[]}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Dr{constructor(e,t){this.field=e,this.transform=t}}function Nr(e,t){return e.field.isEqual(t.field)&&(function(e,t){return e instanceof Ir&&t instanceof Ir||e instanceof Tr&&t instanceof Tr?j(e.elements,t.elements,kt):e instanceof Sr&&t instanceof Sr?kt(e.Pe,t.Pe):e instanceof br&&t instanceof br})(e.transform,t.transform)}class Ar{constructor(e,t){this.version=e,this.transformResults=t}}class kr{constructor(e,t){this.updateTime=e,this.exists=t}static none(){return new kr}static exists(e){return new kr(void 0,e)}static updateTime(e){return new kr(e)}get isNone(){return void 0===this.updateTime&&void 0===this.exists}isEqual(e){return this.exists===e.exists&&(this.updateTime?!!e.updateTime&&this.updateTime.isEqual(e.updateTime):!e.updateTime)}}function Pr(e,t){return void 0!==e.updateTime?t.isFoundDocument()&&t.version.isEqual(e.updateTime):void 0===e.exists||e.exists===t.isFoundDocument()}class Or{}function Rr(e,t){if(!e.hasLocalMutations||t&&0===t.fields.length)return null;if(null===t)return e.isNoDocument()?new Gr(e.key,kr.none()):new qr(e.key,e.data,kr.none());{const n=e.data,r=Zt.empty();let s=new dt(J.comparator);for(let e of t.fields)if(!s.has(e)){let t=n.field(e);null===t&&e.length>1&&(e=e.popLast(),t=n.field(e)),null===t?r.delete(e):r.set(e,t),s=s.add(e)}return new Ur(e.key,r,new gt(s.toArray()),kr.none())}}function Fr(e,t,n){e instanceof qr?(function(e,t,n){const r=e.value.clone(),s=jr(e.fieldTransforms,t,n.transformResults);r.setAll(s),t.convertToFoundDocument(n.version,r).setHasCommittedMutations()})(e,t,n):e instanceof Ur?(function(e,t,n){if(!Pr(e.precondition,t))return void t.convertToUnknownDocument(n.version);const r=jr(e.fieldTransforms,t,n.transformResults),s=t.data;s.setAll(Br(e)),s.setAll(r),t.convertToFoundDocument(n.version,s).setHasCommittedMutations()})(e,t,n):(function(e,t,n){t.convertToNoDocument(n.version).setHasCommittedMutations()})(0,t,n)}function Mr(e,t,n,r){return e instanceof qr?(function(e,t,n,r){if(!Pr(e.precondition,t))return n;const s=e.value.clone(),i=zr(e.fieldTransforms,r,t);return s.setAll(i),t.convertToFoundDocument(t.version,s).setHasLocalMutations(),null})(e,t,n,r):e instanceof Ur?(function(e,t,n,r){if(!Pr(e.precondition,t))return n;const s=zr(e.fieldTransforms,r,t),i=t.data;return i.setAll(Br(e)),i.setAll(s),t.convertToFoundDocument(t.version,i).setHasLocalMutations(),null===n?null:n.unionWith(e.fieldMask.fields).unionWith(e.fieldTransforms.map(e=>e.field))})(e,t,n,r):(function(e,t,n){return Pr(e.precondition,t)?(t.convertToNoDocument(t.version).setHasLocalMutations(),null):n})(e,t,n)}function Lr(e,t){let n=null;for(const r of e.fieldTransforms){const e=t.data.field(r.field),s=vr(r.transform,e||null);null!=s&&(null===n&&(n=Zt.empty()),n.set(r.field,s))}return n||null}function Vr(e,t){return e.type===t.type&&!!e.key.isEqual(t.key)&&!!e.precondition.isEqual(t.precondition)&&!!(function(e,t){return void 0===e&&void 0===t||!(!e||!t)&&j(e,t,(e,t)=>Nr(e,t))})(e.fieldTransforms,t.fieldTransforms)&&(0===e.type?e.value.isEqual(t.value):1!==e.type||e.data.isEqual(t.data)&&e.fieldMask.isEqual(t.fieldMask))}class qr extends Or{constructor(e,t,n,r=[]){super(),this.key=e,this.value=t,this.precondition=n,this.fieldTransforms=r,this.type=0}getFieldMask(){return null}}class Ur extends Or{constructor(e,t,n,r,s=[]){super(),this.key=e,this.data=t,this.fieldMask=n,this.precondition=r,this.fieldTransforms=s,this.type=1}getFieldMask(){return this.fieldMask}}function Br(e){const t=new Map;return e.fieldMask.fields.forEach(n=>{if(!n.isEmpty()){const r=e.data.field(n);t.set(n,r)}}),t}function jr(e,t,n){const r=new Map;E(e.length===n.length);for(let s=0;s<n.length;s++){const i=e[s],o=i.transform,a=t.data.field(i.field);r.set(i.field,wr(o,a,n[s]))}return r}function zr(e,t,n){const r=new Map;for(const s of e){const e=s.transform,i=n.data.field(s.field);r.set(s.field,yr(e,i,t))}return r}class Gr extends Or{constructor(e,t){super(),this.key=e,this.precondition=t,this.type=2,this.fieldTransforms=[]}getFieldMask(){return null}}class Kr extends Or{constructor(e,t){super(),this.key=e,this.precondition=t,this.type=3,this.fieldTransforms=[]}getFieldMask(){return null}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class $r{constructor(e,t,n,r){this.batchId=e,this.localWriteTime=t,this.baseMutations=n,this.mutations=r}applyToRemoteDocument(e,t){const n=t.mutationResults;for(let t=0;t<this.mutations.length;t++){const r=this.mutations[t];r.key.isEqual(e.key)&&Fr(r,e,n[t])}}applyToLocalView(e,t){for(const n of this.baseMutations)n.key.isEqual(e.key)&&(t=Mr(n,e,t,this.localWriteTime));for(const n of this.mutations)n.key.isEqual(e.key)&&(t=Mr(n,e,t,this.localWriteTime));return t}applyToLocalDocumentSet(e,t){const n=or();return this.mutations.forEach(r=>{const s=e.get(r.key),i=s.overlayedDocument;let o=this.applyToLocalView(i,s.mutatedFields);o=t.has(r.key)?null:o;const a=Rr(i,o);null!==a&&n.set(r.key,a),i.isValidDocument()||i.convertToNoDocument(K.min())}),n}keys(){return this.mutations.reduce((e,t)=>e.add(t.key),lr())}isEqual(e){return this.batchId===e.batchId&&j(this.mutations,e.mutations,(e,t)=>Vr(e,t))&&j(this.baseMutations,e.baseMutations,(e,t)=>Vr(e,t))}}class Qr{constructor(e,t,n,r){this.batch=e,this.commitVersion=t,this.mutationResults=n,this.docVersions=r}static from(e,t,n){E(e.mutations.length===n.length);let r=ur;const s=e.mutations;for(let e=0;e<s.length;e++)r=r.insert(s[e].key,n[e].version);return new Qr(e,t,n,r)}}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Wr{constructor(e,t){this.largestBatchId=e,this.mutation=t}getKey(){return this.mutation.key}isEqual(e){return null!==e&&this.mutation===e.mutation}toString(){return`Overlay{\n      largestBatchId: ${this.largestBatchId},\n      mutation: ${this.mutation.toString()}\n    }`}}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Jr{constructor(e,t,n){this.alias=e,this.aggregateType=t,this.fieldPath=n}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Hr{constructor(e,t){this.count=e,this.unchangedNames=t}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */var Yr,Xr;function Zr(e){switch(e){default:return T();case C.CANCELLED:case C.UNKNOWN:case C.DEADLINE_EXCEEDED:case C.RESOURCE_EXHAUSTED:case C.INTERNAL:case C.UNAVAILABLE:case C.UNAUTHENTICATED:return!1;case C.INVALID_ARGUMENT:case C.NOT_FOUND:case C.ALREADY_EXISTS:case C.PERMISSION_DENIED:case C.FAILED_PRECONDITION:case C.ABORTED:case C.OUT_OF_RANGE:case C.UNIMPLEMENTED:case C.DATA_LOSS:return!0}}function es(e){if(void 0===e)return b("GRPC error has no .code"),C.UNKNOWN;switch(e){case Yr.OK:return C.OK;case Yr.CANCELLED:return C.CANCELLED;case Yr.UNKNOWN:return C.UNKNOWN;case Yr.DEADLINE_EXCEEDED:return C.DEADLINE_EXCEEDED;case Yr.RESOURCE_EXHAUSTED:return C.RESOURCE_EXHAUSTED;case Yr.INTERNAL:return C.INTERNAL;case Yr.UNAVAILABLE:return C.UNAVAILABLE;case Yr.UNAUTHENTICATED:return C.UNAUTHENTICATED;case Yr.INVALID_ARGUMENT:return C.INVALID_ARGUMENT;case Yr.NOT_FOUND:return C.NOT_FOUND;case Yr.ALREADY_EXISTS:return C.ALREADY_EXISTS;case Yr.PERMISSION_DENIED:return C.PERMISSION_DENIED;case Yr.FAILED_PRECONDITION:return C.FAILED_PRECONDITION;case Yr.ABORTED:return C.ABORTED;case Yr.OUT_OF_RANGE:return C.OUT_OF_RANGE;case Yr.UNIMPLEMENTED:return C.UNIMPLEMENTED;case Yr.DATA_LOSS:return C.DATA_LOSS;default:return T()}}(Xr=Yr||(Yr={}))[Xr.OK=0]="OK",Xr[Xr.CANCELLED=1]="CANCELLED",Xr[Xr.UNKNOWN=2]="UNKNOWN",Xr[Xr.INVALID_ARGUMENT=3]="INVALID_ARGUMENT",Xr[Xr.DEADLINE_EXCEEDED=4]="DEADLINE_EXCEEDED",Xr[Xr.NOT_FOUND=5]="NOT_FOUND",Xr[Xr.ALREADY_EXISTS=6]="ALREADY_EXISTS",Xr[Xr.PERMISSION_DENIED=7]="PERMISSION_DENIED",Xr[Xr.UNAUTHENTICATED=16]="UNAUTHENTICATED",Xr[Xr.RESOURCE_EXHAUSTED=8]="RESOURCE_EXHAUSTED",Xr[Xr.FAILED_PRECONDITION=9]="FAILED_PRECONDITION",Xr[Xr.ABORTED=10]="ABORTED",Xr[Xr.OUT_OF_RANGE=11]="OUT_OF_RANGE",Xr[Xr.UNIMPLEMENTED=12]="UNIMPLEMENTED",Xr[Xr.INTERNAL=13]="INTERNAL",Xr[Xr.UNAVAILABLE=14]="UNAVAILABLE",Xr[Xr.DATA_LOSS=15]="DATA_LOSS";
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+let ts=null;
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function ns(){return new TextEncoder}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const rs=new h.Integer([4294967295,4294967295],0);function ss(e){const t=ns().encode(e),n=new h.Md5;return n.update(t),new Uint8Array(n.digest())}function is(e){const t=new DataView(e.buffer),n=t.getUint32(0,!0),r=t.getUint32(4,!0),s=t.getUint32(8,!0),i=t.getUint32(12,!0);return[new h.Integer([n,r],0),new h.Integer([s,i],0)]}class os{constructor(e,t,n){if(this.bitmap=e,this.padding=t,this.hashCount=n,t<0||t>=8)throw new as(`Invalid padding: ${t}`);if(n<0)throw new as(`Invalid hash count: ${n}`);if(e.length>0&&0===this.hashCount)throw new as(`Invalid hash count: ${n}`);if(0===e.length&&0!==t)throw new as(`Invalid padding when bitmap length is 0: ${t}`);this.Ie=8*e.length-t,this.Te=h.Integer.fromNumber(this.Ie)}Ee(e,t,n){let r=e.add(t.multiply(h.Integer.fromNumber(n)));return 1===r.compare(rs)&&(r=new h.Integer([r.getBits(0),r.getBits(1)],0)),r.modulo(this.Te).toNumber()}de(e){return!!(this.bitmap[Math.floor(e/8)]&1<<e%8)}mightContain(e){if(0===this.Ie)return!1;const t=ss(e),[n,r]=is(t);for(let e=0;e<this.hashCount;e++){const t=this.Ee(n,r,e);if(!this.de(t))return!1}return!0}static create(e,t,n){const r=e%8==0?0:8-e%8,s=new Uint8Array(Math.ceil(e/8)),i=new os(s,r,t);return n.forEach(e=>i.insert(e)),i}insert(e){if(0===this.Ie)return;const t=ss(e),[n,r]=is(t);for(let e=0;e<this.hashCount;e++){const t=this.Ee(n,r,e);this.Ae(t)}}Ae(e){const t=Math.floor(e/8),n=e%8;this.bitmap[t]|=1<<n}}class as extends Error{constructor(){super(...arguments),this.name="BloomFilterError"}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class us{constructor(e,t,n,r,s){this.snapshotVersion=e,this.targetChanges=t,this.targetMismatches=n,this.documentUpdates=r,this.resolvedLimboDocuments=s}static createSynthesizedRemoteEventForCurrentChange(e,t,n){const r=new Map;return r.set(e,cs.createSynthesizedTargetChangeForCurrentChange(e,t,n)),new us(K.min(),r,new ct(B),tr(),lr())}}class cs{constructor(e,t,n,r,s){this.resumeToken=e,this.current=t,this.addedDocuments=n,this.modifiedDocuments=r,this.removedDocuments=s}static createSynthesizedTargetChangeForCurrentChange(e,t,n){return new cs(n,t,lr(),lr(),lr())}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ls{constructor(e,t,n,r){this.Re=e,this.removedTargetIds=t,this.key=n,this.Ve=r}}class hs{constructor(e,t){this.targetId=e,this.me=t}}class ds{constructor(e,t,n=wt.EMPTY_BYTE_STRING,r=null){this.state=e,this.targetIds=t,this.resumeToken=n,this.cause=r}}class fs{constructor(){this.fe=0,this.ge=ps(),this.pe=wt.EMPTY_BYTE_STRING,this.ye=!1,this.we=!0}get current(){return this.ye}get resumeToken(){return this.pe}get Se(){return 0!==this.fe}get be(){return this.we}De(e){e.approximateByteSize()>0&&(this.we=!0,this.pe=e)}ve(){let e=lr(),t=lr(),n=lr();return this.ge.forEach((r,s)=>{switch(s){case 0:e=e.add(r);break;case 2:t=t.add(r);break;case 1:n=n.add(r);break;default:T()}}),new cs(this.pe,this.ye,e,t,n)}Ce(){this.we=!1,this.ge=ps()}Fe(e,t){this.we=!0,this.ge=this.ge.insert(e,t)}Me(e){this.we=!0,this.ge=this.ge.remove(e)}xe(){this.fe+=1}Oe(){this.fe-=1,E(this.fe>=0)}Ne(){this.we=!0,this.ye=!0}}class ms{constructor(e){this.Le=e,this.Be=new Map,this.ke=tr(),this.qe=gs(),this.Qe=new ct(B)}Ke(e){for(const t of e.Re)e.Ve&&e.Ve.isFoundDocument()?this.$e(t,e.Ve):this.Ue(t,e.key,e.Ve);for(const t of e.removedTargetIds)this.Ue(t,e.key,e.Ve)}We(e){this.forEachTarget(e,t=>{const n=this.Ge(t);switch(e.state){case 0:this.ze(t)&&n.De(e.resumeToken);break;case 1:n.Oe(),n.Se||n.Ce(),n.De(e.resumeToken);break;case 2:n.Oe(),n.Se||this.removeTarget(t);break;case 3:this.ze(t)&&(n.Ne(),n.De(e.resumeToken));break;case 4:this.ze(t)&&(this.je(t),n.De(e.resumeToken));break;default:T()}})}forEachTarget(e,t){e.targetIds.length>0?e.targetIds.forEach(t):this.Be.forEach((e,n)=>{this.ze(n)&&t(n)})}He(e){const t=e.targetId,n=e.me.count,r=this.Je(t);if(r){const s=r.target;if(kn(s))if(0===n){const e=new H(s.path);this.Ue(t,e,tn.newNoDocument(e,K.min()))}else E(1===n);else{const r=this.Ye(t);if(r!==n){const n=this.Ze(e),s=n?this.Xe(n,e,r):1;if(0!==s){this.je(t);const e=2===s?"TargetPurposeExistenceFilterMismatchBloom":"TargetPurposeExistenceFilterMismatch";this.Qe=this.Qe.insert(t,e)}null==ts||ts.et((function(e,t,n,r,s){var i,o,a,u,c,l;const h={localCacheCount:e,existenceFilterCount:t.count,databaseId:n.database,projectId:n.projectId},d=t.unchangedNames;return d&&(h.bloomFilter={applied:0===s,hashCount:null!==(i=null==d?void 0:d.hashCount)&&void 0!==i?i:0,bitmapLength:null!==(u=null===(a=null===(o=null==d?void 0:d.bits)||void 0===o?void 0:o.bitmap)||void 0===a?void 0:a.length)&&void 0!==u?u:0,padding:null!==(l=null===(c=null==d?void 0:d.bits)||void 0===c?void 0:c.padding)&&void 0!==l?l:0,mightContain:e=>{var t;return null!==(t=null==r?void 0:r.mightContain(e))&&void 0!==t&&t}}),h}
+/**
+            * @license
+            * Copyright 2017 Google LLC
+            *
+            * Licensed under the Apache License, Version 2.0 (the "License");
+            * you may not use this file except in compliance with the License.
+            * You may obtain a copy of the License at
+            *
+            *   http://www.apache.org/licenses/LICENSE-2.0
+            *
+            * Unless required by applicable law or agreed to in writing, software
+            * distributed under the License is distributed on an "AS IS" BASIS,
+            * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            * See the License for the specific language governing permissions and
+            * limitations under the License.
+            */)(r,e.me,this.Le.tt(),n,s))}}}}Ze(e){const t=e.me.unchangedNames;if(!t||!t.bits)return null;const{bits:{bitmap:n="",padding:r=0},hashCount:s=0}=t;let i,o;try{i=_t(n).toUint8Array()}catch(e){if(e instanceof pt)return I("Decoding the base64 bloom filter in existence filter failed ("+e.message+"); ignoring the bloom filter and falling back to full re-query."),null;throw e}try{o=new os(i,r,s)}catch(e){return I(e instanceof as?"BloomFilter error: ":"Applying bloom filter failed: ",e),null}return 0===o.Ie?null:o}Xe(e,t,n){return t.me.count===n-this.nt(e,t.targetId)?0:2}nt(e,t){const n=this.Le.getRemoteKeysForTarget(t);let r=0;return n.forEach(n=>{const s=this.Le.tt(),i=`projects/${s.projectId}/databases/${s.database}/documents/${n.path.canonicalString()}`;e.mightContain(i)||(this.Ue(t,n,null),r++)}),r}rt(e){const t=new Map;this.Be.forEach((n,r)=>{const s=this.Je(r);if(s){if(n.current&&kn(s.target)){const t=new H(s.target.path);null!==this.ke.get(t)||this.it(r,t)||this.Ue(r,t,tn.newNoDocument(t,e))}n.be&&(t.set(r,n.ve()),n.Ce())}});let n=lr();this.qe.forEach((e,t)=>{let r=!0;t.forEachWhile(e=>{const t=this.Je(e);return!t||"TargetPurposeLimboResolution"===t.purpose||(r=!1,!1)}),r&&(n=n.add(e))}),this.ke.forEach((t,n)=>n.setReadTime(e));const r=new us(e,t,this.Qe,this.ke,n);return this.ke=tr(),this.qe=gs(),this.Qe=new ct(B),r}$e(e,t){if(!this.ze(e))return;const n=this.it(e,t.key)?2:0;this.Ge(e).Fe(t.key,n),this.ke=this.ke.insert(t.key,t),this.qe=this.qe.insert(t.key,this.st(t.key).add(e))}Ue(e,t,n){if(!this.ze(e))return;const r=this.Ge(e);this.it(e,t)?r.Fe(t,1):r.Me(t),this.qe=this.qe.insert(t,this.st(t).delete(e)),n&&(this.ke=this.ke.insert(t,n))}removeTarget(e){this.Be.delete(e)}Ye(e){const t=this.Ge(e).ve();return this.Le.getRemoteKeysForTarget(e).size+t.addedDocuments.size-t.removedDocuments.size}xe(e){this.Ge(e).xe()}Ge(e){let t=this.Be.get(e);return t||(t=new fs,this.Be.set(e,t)),t}st(e){let t=this.qe.get(e);return t||(t=new dt(B),this.qe=this.qe.insert(e,t)),t}ze(e){const t=null!==this.Je(e);return t||v("WatchChangeAggregator","Detected inactive target",e),t}Je(e){const t=this.Be.get(e);return t&&t.Se?null:this.Le.ot(e)}je(e){this.Be.set(e,new fs),this.Le.getRemoteKeysForTarget(e).forEach(t=>{this.Ue(e,t,null)})}it(e,t){return this.Le.getRemoteKeysForTarget(e).has(t)}}function gs(){return new ct(H.comparator)}function ps(){return new ct(H.comparator)}const ys={asc:"ASCENDING",desc:"DESCENDING"},ws={"<":"LESS_THAN","<=":"LESS_THAN_OR_EQUAL",">":"GREATER_THAN",">=":"GREATER_THAN_OR_EQUAL","==":"EQUAL","!=":"NOT_EQUAL","array-contains":"ARRAY_CONTAINS",in:"IN","not-in":"NOT_IN","array-contains-any":"ARRAY_CONTAINS_ANY"},vs={and:"AND",or:"OR"};class bs{constructor(e,t){this.databaseId=e,this.useProto3Json=t}}function Is(e,t){return e.useProto3Json||Se(t)?t:{value:t}}function _s(e,t){return e.useProto3Json?`${new Date(1e3*t.seconds).toISOString().replace(/\.\d*/,"").replace("Z","")}.${("000000000"+t.nanoseconds).slice(-9)}Z`:{seconds:""+t.seconds,nanos:t.nanoseconds}}function Ts(e,t){return e.useProto3Json?t.toBase64():t.toUint8Array()}function Es(e,t){return _s(e,t.toTimestamp())}function Ss(e){return E(!!e),K.fromTimestamp((function(e){const t=bt(e);return new G(t.seconds,t.nanos)})(e))}function xs(e,t){return Cs(e,t).canonicalString()}function Cs(e,t){const n=(function(e){return new Q(["projects",e.projectId,"databases",e.database])})(e).child("documents");return void 0===t?n:n.child(t)}function Ds(e){const t=Q.fromString(e);return E(ti(t)),t}function Ns(e,t){return xs(e.databaseId,t.path)}function As(e,t){const n=Ds(t);if(n.get(1)!==e.databaseId.projectId)throw new D(C.INVALID_ARGUMENT,"Tried to deserialize key from different project: "+n.get(1)+" vs "+e.databaseId.projectId);if(n.get(3)!==e.databaseId.database)throw new D(C.INVALID_ARGUMENT,"Tried to deserialize key from different database: "+n.get(3)+" vs "+e.databaseId.database);return new H(Rs(n))}function ks(e,t){return xs(e.databaseId,t)}function Ps(e){const t=Ds(e);return 4===t.length?Q.emptyPath():Rs(t)}function Os(e){return new Q(["projects",e.databaseId.projectId,"databases",e.databaseId.database]).canonicalString()}function Rs(e){return E(e.length>4&&"documents"===e.get(4)),e.popFirst(5)}function Fs(e,t,n){return{name:Ns(e,t),fields:n.value.mapValue.fields}}function Ms(e,t,n){const r=As(e,t.name),s=Ss(t.updateTime),i=t.createTime?Ss(t.createTime):K.min(),o=new Zt({mapValue:{fields:t.fields}}),a=tn.newFoundDocument(r,s,i,o);return n&&a.setHasCommittedMutations(),n?a.setHasCommittedMutations():a}function Ls(e,t){return"found"in t?(function(e,t){E(!!t.found),t.found.name,t.found.updateTime;const n=As(e,t.found.name),r=Ss(t.found.updateTime),s=t.found.createTime?Ss(t.found.createTime):K.min(),i=new Zt({mapValue:{fields:t.found.fields}});return tn.newFoundDocument(n,r,s,i)})(e,t):"missing"in t?(function(e,t){E(!!t.missing),E(!!t.readTime);const n=As(e,t.missing),r=Ss(t.readTime);return tn.newNoDocument(n,r)})(e,t):T()}function Vs(e,t){let n;if("targetChange"in t){t.targetChange;const r=(function(e){return"NO_CHANGE"===e?0:"ADD"===e?1:"REMOVE"===e?2:"CURRENT"===e?3:"RESET"===e?4:T()})(t.targetChange.targetChangeType||"NO_CHANGE"),s=t.targetChange.targetIds||[],i=(function(e,t){return e.useProto3Json?(E(void 0===t||"string"==typeof t),wt.fromBase64String(t||"")):(E(void 0===t||t instanceof Buffer||t instanceof Uint8Array),wt.fromUint8Array(t||new Uint8Array))})(e,t.targetChange.resumeToken),o=t.targetChange.cause,a=o&&(function(e){const t=void 0===e.code?C.UNKNOWN:es(e.code);return new D(t,e.message||"")})(o);n=new ds(r,s,i,a||null)}else if("documentChange"in t){t.documentChange;const r=t.documentChange;r.document,r.document.name,r.document.updateTime;const s=As(e,r.document.name),i=Ss(r.document.updateTime),o=r.document.createTime?Ss(r.document.createTime):K.min(),a=new Zt({mapValue:{fields:r.document.fields}}),u=tn.newFoundDocument(s,i,o,a),c=r.targetIds||[],l=r.removedTargetIds||[];n=new ls(c,l,u.key,u)}else if("documentDelete"in t){t.documentDelete;const r=t.documentDelete;r.document;const s=As(e,r.document),i=r.readTime?Ss(r.readTime):K.min(),o=tn.newNoDocument(s,i),a=r.removedTargetIds||[];n=new ls([],a,o.key,o)}else if("documentRemove"in t){t.documentRemove;const r=t.documentRemove;r.document;const s=As(e,r.document),i=r.removedTargetIds||[];n=new ls([],i,s,null)}else{if(!("filter"in t))return T();{t.filter;const e=t.filter;e.targetId;const{count:r=0,unchangedNames:s}=e,i=new Hr(r,s),o=e.targetId;n=new hs(o,i)}}return n}function qs(e,t){let n;if(t instanceof qr)n={update:Fs(e,t.key,t.value)};else if(t instanceof Gr)n={delete:Ns(e,t.key)};else if(t instanceof Ur)n={update:Fs(e,t.key,t.data),updateMask:ei(t.fieldMask)};else{if(!(t instanceof Kr))return T();n={verify:Ns(e,t.key)}}return t.fieldTransforms.length>0&&(n.updateTransforms=t.fieldTransforms.map(e=>(function(e,t){const n=t.transform;if(n instanceof br)return{fieldPath:t.field.canonicalString(),setToServerValue:"REQUEST_TIME"};if(n instanceof Ir)return{fieldPath:t.field.canonicalString(),appendMissingElements:{values:n.elements}};if(n instanceof Tr)return{fieldPath:t.field.canonicalString(),removeAllFromArray:{values:n.elements}};if(n instanceof Sr)return{fieldPath:t.field.canonicalString(),increment:n.Pe};throw T()})(0,e))),t.precondition.isNone||(n.currentDocument=(function(e,t){return void 0!==t.updateTime?{updateTime:Es(e,t.updateTime)}:void 0!==t.exists?{exists:t.exists}:T()})(e,t.precondition)),n}function Us(e,t){const n=t.currentDocument?(function(e){return void 0!==e.updateTime?kr.updateTime(Ss(e.updateTime)):void 0!==e.exists?kr.exists(e.exists):kr.none()})(t.currentDocument):kr.none(),r=t.updateTransforms?t.updateTransforms.map(t=>(function(e,t){let n=null;if("setToServerValue"in t)E("REQUEST_TIME"===t.setToServerValue),n=new br;else if("appendMissingElements"in t){const e=t.appendMissingElements.values||[];n=new Ir(e)}else if("removeAllFromArray"in t){const e=t.removeAllFromArray.values||[];n=new Tr(e)}else"increment"in t?n=new Sr(e,t.increment):T();const r=J.fromServerFormat(t.fieldPath);return new Dr(r,n)})(e,t)):[];if(t.update){t.update.name;const s=As(e,t.update.name),i=new Zt({mapValue:{fields:t.update.fields}});if(t.updateMask){const e=(function(e){const t=e.fieldPaths||[];return new gt(t.map(e=>J.fromServerFormat(e)))})(t.updateMask);return new Ur(s,i,e,n,r)}return new qr(s,i,n,r)}if(t.delete){const r=As(e,t.delete);return new Gr(r,n)}if(t.verify){const r=As(e,t.verify);return new Kr(r,n)}return T()}function Bs(e,t){return e&&e.length>0?(E(void 0!==t),e.map(e=>(function(e,t){let n=e.updateTime?Ss(e.updateTime):Ss(t);return n.isEqual(K.min())&&(n=Ss(t)),new Ar(n,e.transformResults||[])})(e,t))):[]}function js(e,t){return{documents:[ks(e,t.path)]}}function zs(e,t){const n={structuredQuery:{}},r=t.path;let s;null!==t.collectionGroup?(s=r,n.structuredQuery.from=[{collectionId:t.collectionGroup,allDescendants:!0}]):(s=r.popLast(),n.structuredQuery.from=[{collectionId:r.lastSegment()}]),n.parent=ks(e,s);const i=(function(e){if(0!==e.length)return Zs(ln.create(e,"and"))})(t.filters);i&&(n.structuredQuery.where=i);const o=(function(e){if(0!==e.length)return e.map(e=>(function(e){return{field:Ys(e.field),direction:Ws(e.dir)}})(e))})(t.orderBy);o&&(n.structuredQuery.orderBy=o);const a=Is(e,t.limit);return null!==a&&(n.structuredQuery.limit=a),t.startAt&&(n.structuredQuery.startAt=(function(e){return{before:e.inclusive,values:e.position}})(t.startAt)),t.endAt&&(n.structuredQuery.endAt=(function(e){return{before:!e.inclusive,values:e.position}})(t.endAt)),{_t:n,parent:s}}function Gs(e,t,n,r){const{_t:s,parent:i}=zs(e,t),o={},a=[];let u=0;return n.forEach(e=>{const t=r?e.alias:"aggregate_"+u++;o[t]=e.alias,"count"===e.aggregateType?a.push({alias:t,count:{}}):"avg"===e.aggregateType?a.push({alias:t,avg:{field:Ys(e.fieldPath)}}):"sum"===e.aggregateType&&a.push({alias:t,sum:{field:Ys(e.fieldPath)}})}),{request:{structuredAggregationQuery:{aggregations:a,structuredQuery:s.structuredQuery},parent:s.parent},ut:o,parent:i}}function Ks(e){let t=Ps(e.parent);const n=e.structuredQuery,r=n.from?n.from.length:0;let s=null;if(r>0){E(1===r);const e=n.from[0];e.allDescendants?s=e.collectionId:t=t.child(e.collectionId)}let i=[];n.where&&(i=(function(e){const t=Qs(e);return t instanceof ln&&fn(t)?t.getFilters():[t]})(n.where));let o=[];n.orderBy&&(o=(function(e){return e.map(e=>(function(e){return new on(Xs(e.field),(function(e){switch(e){case"ASCENDING":return"asc";case"DESCENDING":return"desc";default:return}})(e.direction))})(e))})(n.orderBy));let a=null;n.limit&&(a=(function(e){let t;return t="object"==typeof e?e.value:e,Se(t)?null:t})(n.limit));let u=null;n.startAt&&(u=(function(e){const t=!!e.before,n=e.values||[];return new nn(n,t)})(n.startAt));let c=null;return n.endAt&&(c=(function(e){const t=!e.before,n=e.values||[];return new nn(n,t)})(n.endAt)),Mn(t,s,o,i,a,"F",u,c)}function $s(e,t){const n=(function(e){switch(e){case"TargetPurposeListen":return null;case"TargetPurposeExistenceFilterMismatch":return"existence-filter-mismatch";case"TargetPurposeExistenceFilterMismatchBloom":return"existence-filter-mismatch-bloom";case"TargetPurposeLimboResolution":return"limbo-document";default:return T()}})(t.purpose);return null==n?null:{"goog-listen-tags":n}}function Qs(e){return void 0!==e.unaryFilter?(function(e){switch(e.unaryFilter.op){case"IS_NAN":const t=Xs(e.unaryFilter.field);return cn.create(t,"==",{doubleValue:NaN});case"IS_NULL":const n=Xs(e.unaryFilter.field);return cn.create(n,"==",{nullValue:"NULL_VALUE"});case"IS_NOT_NAN":const r=Xs(e.unaryFilter.field);return cn.create(r,"!=",{doubleValue:NaN});case"IS_NOT_NULL":const s=Xs(e.unaryFilter.field);return cn.create(s,"!=",{nullValue:"NULL_VALUE"});default:return T()}})(e):void 0!==e.fieldFilter?(function(e){return cn.create(Xs(e.fieldFilter.field),(function(e){switch(e){case"EQUAL":return"==";case"NOT_EQUAL":return"!=";case"GREATER_THAN":return">";case"GREATER_THAN_OR_EQUAL":return">=";case"LESS_THAN":return"<";case"LESS_THAN_OR_EQUAL":return"<=";case"ARRAY_CONTAINS":return"array-contains";case"IN":return"in";case"NOT_IN":return"not-in";case"ARRAY_CONTAINS_ANY":return"array-contains-any";default:return T()}})(e.fieldFilter.op),e.fieldFilter.value)})(e):void 0!==e.compositeFilter?(function(e){return ln.create(e.compositeFilter.filters.map(e=>Qs(e)),(function(e){switch(e){case"AND":return"and";case"OR":return"or";default:return T()}})(e.compositeFilter.op))})(e):T()}function Ws(e){return ys[e]}function Js(e){return ws[e]}function Hs(e){return vs[e]}function Ys(e){return{fieldPath:e.canonicalString()}}function Xs(e){return J.fromServerFormat(e.fieldPath)}function Zs(e){return e instanceof cn?(function(e){if("=="===e.op){if(zt(e.value))return{unaryFilter:{field:Ys(e.field),op:"IS_NAN"}};if(jt(e.value))return{unaryFilter:{field:Ys(e.field),op:"IS_NULL"}}}else if("!="===e.op){if(zt(e.value))return{unaryFilter:{field:Ys(e.field),op:"IS_NOT_NAN"}};if(jt(e.value))return{unaryFilter:{field:Ys(e.field),op:"IS_NOT_NULL"}}}return{fieldFilter:{field:Ys(e.field),op:Js(e.op),value:e.value}}})(e):e instanceof ln?(function(e){const t=e.getFilters().map(e=>Zs(e));return 1===t.length?t[0]:{compositeFilter:{op:Hs(e.op),filters:t}}})(e):T()}function ei(e){const t=[];return e.fields.forEach(e=>t.push(e.canonicalString())),{fieldPaths:t}}function ti(e){return e.length>=4&&"projects"===e.get(0)&&"databases"===e.get(2)}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ni{constructor(e,t,n,r,s=K.min(),i=K.min(),o=wt.EMPTY_BYTE_STRING,a=null){this.target=e,this.targetId=t,this.purpose=n,this.sequenceNumber=r,this.snapshotVersion=s,this.lastLimboFreeSnapshotVersion=i,this.resumeToken=o,this.expectedCount=a}withSequenceNumber(e){return new ni(this.target,this.targetId,this.purpose,e,this.snapshotVersion,this.lastLimboFreeSnapshotVersion,this.resumeToken,this.expectedCount)}withResumeToken(e,t){return new ni(this.target,this.targetId,this.purpose,this.sequenceNumber,t,this.lastLimboFreeSnapshotVersion,e,null)}withExpectedCount(e){return new ni(this.target,this.targetId,this.purpose,this.sequenceNumber,this.snapshotVersion,this.lastLimboFreeSnapshotVersion,this.resumeToken,e)}withLastLimboFreeSnapshotVersion(e){return new ni(this.target,this.targetId,this.purpose,this.sequenceNumber,this.snapshotVersion,e,this.resumeToken,this.expectedCount)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ri{constructor(e){this.ct=e}}function si(e,t){let n;if(t.document)n=Ms(e.ct,t.document,!!t.hasCommittedMutations);else if(t.noDocument){const e=H.fromSegments(t.noDocument.path),r=ui(t.noDocument.readTime);n=tn.newNoDocument(e,r),t.hasCommittedMutations&&n.setHasCommittedMutations()}else{if(!t.unknownDocument)return T();{const e=H.fromSegments(t.unknownDocument.path),r=ui(t.unknownDocument.version);n=tn.newUnknownDocument(e,r)}}return t.readTime&&n.setReadTime((function(e){const t=new G(e[0],e[1]);return K.fromTimestamp(t)})(t.readTime)),n}function ii(e,t){const n=t.key,r={prefixPath:n.getCollectionPath().popLast().toArray(),collectionGroup:n.collectionGroup,documentId:n.path.lastSegment(),readTime:oi(t.readTime),hasCommittedMutations:t.hasCommittedMutations};if(t.isFoundDocument())r.document=(function(e,t){return{name:Ns(e,t.key),fields:t.data.value.mapValue.fields,updateTime:_s(e,t.version.toTimestamp()),createTime:_s(e,t.createTime.toTimestamp())}})(e.ct,t);else if(t.isNoDocument())r.noDocument={path:n.path.toArray(),readTime:ai(t.version)};else{if(!t.isUnknownDocument())return T();r.unknownDocument={path:n.path.toArray(),version:ai(t.version)}}return r}function oi(e){const t=e.toTimestamp();return[t.seconds,t.nanoseconds]}function ai(e){const t=e.toTimestamp();return{seconds:t.seconds,nanoseconds:t.nanoseconds}}function ui(e){const t=new G(e.seconds,e.nanoseconds);return K.fromTimestamp(t)}function ci(e,t){const n=(t.baseMutations||[]).map(t=>Us(e.ct,t));for(let e=0;e<t.mutations.length-1;++e){const n=t.mutations[e];if(e+1<t.mutations.length&&void 0!==t.mutations[e+1].transform){const r=t.mutations[e+1];n.updateTransforms=r.transform.fieldTransforms,t.mutations.splice(e+1,1),++e}}const r=t.mutations.map(t=>Us(e.ct,t)),s=G.fromMillis(t.localWriteTimeMs);return new $r(t.batchId,s,n,r)}function li(e){const t=ui(e.readTime),n=void 0!==e.lastLimboFreeSnapshotVersion?ui(e.lastLimboFreeSnapshotVersion):K.min();let r;return r=(function(e){return void 0!==e.documents})(e.query)?(function(e){return E(1===e.documents.length),Bn(Ln(Ps(e.documents[0])))})(e.query):(function(e){return Bn(Ks(e))})(e.query),new ni(r,e.targetId,"TargetPurposeListen",e.lastListenSequenceNumber,t,n,wt.fromBase64String(e.resumeToken))}function hi(e,t){const n=ai(t.snapshotVersion),r=ai(t.lastLimboFreeSnapshotVersion);let s;s=kn(t.target)?js(e.ct,t.target):zs(e.ct,t.target)._t;const i=t.resumeToken.toBase64();return{targetId:t.targetId,canonicalId:Nn(t.target),readTime:n,resumeToken:i,lastListenSequenceNumber:t.sequenceNumber,lastLimboFreeSnapshotVersion:r,query:s}}function di(e){const t=Ks({parent:e.parent,structuredQuery:e.structuredQuery});return"LAST"===e.limitType?Kn(t,t.limit,"L"):t}function fi(e,t){return new Wr(t.largestBatchId,Us(e.ct,t.overlayMutation))}function mi(e,t){const n=t.path.lastSegment();return[e,De(t.path.popLast()),n]}function gi(e,t,n,r){return{indexId:e,uid:t,sequenceNumber:n,readTime:ai(r.readTime),documentKey:De(r.documentKey.path),largestBatchId:r.largestBatchId}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class pi{getBundleMetadata(e,t){return yi(e).get(t).next(e=>{if(e)return(function(e){return{id:e.bundleId,createTime:ui(e.createTime),version:e.version}})(e)})}saveBundleMetadata(e,t){return yi(e).put((function(e){return{bundleId:e.id,createTime:ai(Ss(e.createTime)),version:e.version}})(t))}getNamedQuery(e,t){return wi(e).get(t).next(e=>{if(e)return(function(e){return{name:e.name,query:di(e.bundledQuery),readTime:ui(e.readTime)}})(e)})}saveNamedQuery(e,t){return wi(e).put((function(e){return{name:e.name,readTime:ai(Ss(e.readTime)),bundledQuery:e.bundledQuery}})(t))}}function yi(e){return st(e,"bundles")}function wi(e){return st(e,"namedQueries")}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class vi{constructor(e,t){this.serializer=e,this.userId=t}static lt(e,t){const n=t.uid||"";return new vi(e,n)}getOverlay(e,t){return bi(e).get(mi(this.userId,t)).next(e=>e?fi(this.serializer,e):null)}getOverlays(e,t){const n=ir();return he.forEach(t,t=>this.getOverlay(e,t).next(e=>{null!==e&&n.set(t,e)})).next(()=>n)}saveOverlays(e,t,n){const r=[];return n.forEach((n,s)=>{const i=new Wr(t,s);r.push(this.ht(e,i))}),he.waitFor(r)}removeOverlaysForBatchId(e,t,n){const r=new Set;t.forEach(e=>r.add(De(e.getCollectionPath())));const s=[];return r.forEach(t=>{const r=IDBKeyRange.bound([this.userId,t,n],[this.userId,t,n+1],!1,!0);s.push(bi(e).j("collectionPathOverlayIndex",r))}),he.waitFor(s)}getOverlaysForCollection(e,t,n){const r=ir(),s=De(t),i=IDBKeyRange.bound([this.userId,s,n],[this.userId,s,Number.POSITIVE_INFINITY],!0);return bi(e).U("collectionPathOverlayIndex",i).next(e=>{for(const t of e){const e=fi(this.serializer,t);r.set(e.getKey(),e)}return r})}getOverlaysForCollectionGroup(e,t,n,r){const s=ir();let i;const o=IDBKeyRange.bound([this.userId,t,n],[this.userId,t,Number.POSITIVE_INFINITY],!0);return bi(e).J({index:"collectionGroupOverlayIndex",range:o},(e,t,n)=>{const o=fi(this.serializer,t);s.size()<r||o.largestBatchId===i?(s.set(o.getKey(),o),i=o.largestBatchId):n.done()}).next(()=>s)}ht(e,t){return bi(e).put((function(e,t,n){const[r,s,i]=mi(t,n.mutation.key);return{userId:t,collectionPath:s,documentId:i,collectionGroup:n.mutation.key.getCollectionGroup(),largestBatchId:n.largestBatchId,overlayMutation:qs(e.ct,n.mutation)}})(this.serializer,this.userId,t))}}function bi(e){return st(e,"documentOverlays")}
+/**
+   * @license
+   * Copyright 2024 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ii{Pt(e){return st(e,"globals")}getSessionToken(e){return this.Pt(e).get("sessionToken").next(e=>{const t=null==e?void 0:e.value;return t?wt.fromUint8Array(t):wt.EMPTY_BYTE_STRING})}setSessionToken(e,t){return this.Pt(e).put({name:"sessionToken",value:t.toUint8Array()})}}
+/**
+   * @license
+   * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class _i{constructor(){}It(e,t){this.Tt(e,t),t.Et()}Tt(e,t){if("nullValue"in e)this.dt(t,5);else if("booleanValue"in e)this.dt(t,10),t.At(e.booleanValue?1:0);else if("integerValue"in e)this.dt(t,15),t.At(It(e.integerValue));else if("doubleValue"in e){const n=It(e.doubleValue);isNaN(n)?this.dt(t,13):(this.dt(t,15),xe(n)?t.At(0):t.At(n))}else if("timestampValue"in e){let n=e.timestampValue;this.dt(t,20),"string"==typeof n&&(n=bt(n)),t.Rt(`${n.seconds||""}`),t.At(n.nanos||0)}else if("stringValue"in e)this.Vt(e.stringValue,t),this.ft(t);else if("bytesValue"in e)this.dt(t,30),t.gt(_t(e.bytesValue)),this.ft(t);else if("referenceValue"in e)this.yt(e.referenceValue,t);else if("geoPointValue"in e){const n=e.geoPointValue;this.dt(t,45),t.At(n.latitude||0),t.At(n.longitude||0)}else"mapValue"in e?Qt(e)?this.dt(t,Number.MAX_SAFE_INTEGER):Kt(e)?this.wt(e.mapValue,t):(this.St(e.mapValue,t),this.ft(t)):"arrayValue"in e?(this.bt(e.arrayValue,t),this.ft(t)):T()}Vt(e,t){this.dt(t,25),this.Dt(e,t)}Dt(e,t){t.Rt(e)}St(e,t){const n=e.fields||{};this.dt(t,55);for(const e of Object.keys(n))this.Vt(e,t),this.Tt(n[e],t)}wt(e,t){var n,r;const s=e.fields||{};this.dt(t,53);const i="value",o=(null===(r=null===(n=s[i].arrayValue)||void 0===n?void 0:n.values)||void 0===r?void 0:r.length)||0;this.dt(t,15),t.At(It(o)),this.Vt(i,t),this.Tt(s[i],t)}bt(e,t){const n=e.values||[];this.dt(t,50);for(const e of n)this.Tt(e,t)}yt(e,t){this.dt(t,37),H.fromName(e).path.forEach(e=>{this.dt(t,60),this.Dt(e,t)})}dt(e,t){e.At(t)}ft(e){e.At(2)}}function Ti(e){if(0===e)return 8;let t=0;return!(e>>4)&&(t+=4,e<<=4),!(e>>6)&&(t+=2,e<<=2),!(e>>7)&&(t+=1),t}function Ei(e){const t=64-(function(e){let t=0;for(let n=0;n<8;++n){const r=Ti(255&e[n]);if(t+=r,8!==r)break}return t})(e);return Math.ceil(t/8)}_i.vt=new _i;class Si{constructor(){this.buffer=new Uint8Array(1024),this.position=0}Ct(e){const t=e[Symbol.iterator]();let n=t.next();for(;!n.done;)this.Ft(n.value),n=t.next();this.Mt()}xt(e){const t=e[Symbol.iterator]();let n=t.next();for(;!n.done;)this.Ot(n.value),n=t.next();this.Nt()}Lt(e){for(const t of e){const e=t.charCodeAt(0);if(e<128)this.Ft(e);else if(e<2048)this.Ft(960|e>>>6),this.Ft(128|63&e);else if(t<"\ud800"||"\udbff"<t)this.Ft(480|e>>>12),this.Ft(128|63&e>>>6),this.Ft(128|63&e);else{const e=t.codePointAt(0);this.Ft(240|e>>>18),this.Ft(128|63&e>>>12),this.Ft(128|63&e>>>6),this.Ft(128|63&e)}}this.Mt()}Bt(e){for(const t of e){const e=t.charCodeAt(0);if(e<128)this.Ot(e);else if(e<2048)this.Ot(960|e>>>6),this.Ot(128|63&e);else if(t<"\ud800"||"\udbff"<t)this.Ot(480|e>>>12),this.Ot(128|63&e>>>6),this.Ot(128|63&e);else{const e=t.codePointAt(0);this.Ot(240|e>>>18),this.Ot(128|63&e>>>12),this.Ot(128|63&e>>>6),this.Ot(128|63&e)}}this.Nt()}kt(e){const t=this.qt(e),n=Ei(t);this.Qt(1+n),this.buffer[this.position++]=255&n;for(let e=t.length-n;e<t.length;++e)this.buffer[this.position++]=255&t[e]}Kt(e){const t=this.qt(e),n=Ei(t);this.Qt(1+n),this.buffer[this.position++]=~(255&n);for(let e=t.length-n;e<t.length;++e)this.buffer[this.position++]=~(255&t[e])}$t(){this.Ut(255),this.Ut(255)}Wt(){this.Gt(255),this.Gt(255)}reset(){this.position=0}seed(e){this.Qt(e.length),this.buffer.set(e,this.position),this.position+=e.length}zt(){return this.buffer.slice(0,this.position)}qt(e){const t=(function(e){const t=new DataView(new ArrayBuffer(8));return t.setFloat64(0,e,!1),new Uint8Array(t.buffer)})(e),n=!!(128&t[0]);t[0]^=n?255:128;for(let e=1;e<t.length;++e)t[e]^=n?255:0;return t}Ft(e){const t=255&e;0===t?(this.Ut(0),this.Ut(255)):255===t?(this.Ut(255),this.Ut(0)):this.Ut(t)}Ot(e){const t=255&e;0===t?(this.Gt(0),this.Gt(255)):255===t?(this.Gt(255),this.Gt(0)):this.Gt(e)}Mt(){this.Ut(0),this.Ut(1)}Nt(){this.Gt(0),this.Gt(1)}Ut(e){this.Qt(1),this.buffer[this.position++]=e}Gt(e){this.Qt(1),this.buffer[this.position++]=~e}Qt(e){const t=e+this.position;if(t<=this.buffer.length)return;let n=2*this.buffer.length;n<t&&(n=t);const r=new Uint8Array(n);r.set(this.buffer),this.buffer=r}}class xi{constructor(e){this.jt=e}gt(e){this.jt.Ct(e)}Rt(e){this.jt.Lt(e)}At(e){this.jt.kt(e)}Et(){this.jt.$t()}}class Ci{constructor(e){this.jt=e}gt(e){this.jt.xt(e)}Rt(e){this.jt.Bt(e)}At(e){this.jt.Kt(e)}Et(){this.jt.Wt()}}class Di{constructor(){this.jt=new Si,this.Ht=new xi(this.jt),this.Jt=new Ci(this.jt)}seed(e){this.jt.seed(e)}Yt(e){return 0===e?this.Ht:this.Jt}zt(){return this.jt.zt()}reset(){this.jt.reset()}}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ni{constructor(e,t,n,r){this.indexId=e,this.documentKey=t,this.arrayValue=n,this.directionalValue=r}Zt(){const e=this.directionalValue.length,t=0===e||255===this.directionalValue[e-1]?e+1:e,n=new Uint8Array(t);return n.set(this.directionalValue,0),t!==e?n.set([0],this.directionalValue.length):++n[n.length-1],new Ni(this.indexId,this.documentKey,this.arrayValue,n)}}function Ai(e,t){let n=e.indexId-t.indexId;return 0!==n?n:(n=ki(e.arrayValue,t.arrayValue),0!==n?n:(n=ki(e.directionalValue,t.directionalValue),0!==n?n:H.comparator(e.documentKey,t.documentKey)))}function ki(e,t){for(let n=0;n<e.length&&n<t.length;++n){const r=e[n]-t[n];if(0!==r)return r}return e.length-t.length}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Pi{constructor(e){this.Xt=new dt((e,t)=>J.comparator(e.field,t.field)),this.collectionId=null!=e.collectionGroup?e.collectionGroup:e.path.lastSegment(),this.en=e.orderBy,this.tn=[];for(const t of e.filters){const e=t;e.isInequality()?this.Xt=this.Xt.add(e):this.tn.push(e)}}get nn(){return this.Xt.size>1}rn(e){if(E(e.collectionGroup===this.collectionId),this.nn)return!1;const t=X(e);if(void 0!==t&&!this.sn(t))return!1;const n=Z(e);let r=new Set,s=0,i=0;for(;s<n.length&&this.sn(n[s]);++s)r=r.add(n[s].fieldPath.canonicalString());if(s===n.length)return!0;if(this.Xt.size>0){const e=this.Xt.getIterator().getNext();if(!r.has(e.field.canonicalString())){const t=n[s];if(!this.on(e,t)||!this._n(this.en[i++],t))return!1}++s}for(;s<n.length;++s){const e=n[s];if(i>=this.en.length||!this._n(this.en[i++],e))return!1}return!0}an(){if(this.nn)return null;let e=new dt(J.comparator);const t=[];for(const n of this.tn)if(!n.field.isKeyField())if("array-contains"===n.op||"array-contains-any"===n.op)t.push(new te(n.field,2));else{if(e.has(n.field))continue;e=e.add(n.field),t.push(new te(n.field,0))}for(const n of this.en)n.field.isKeyField()||e.has(n.field)||(e=e.add(n.field),t.push(new te(n.field,"asc"===n.dir?0:1)));return new Y(Y.UNKNOWN_ID,this.collectionId,t,re.empty())}sn(e){for(const t of this.tn)if(this.on(t,e))return!0;return!1}on(e,t){if(void 0===e||!e.field.isEqual(t.fieldPath))return!1;const n="array-contains"===e.op||"array-contains-any"===e.op;return 2===t.kind===n}_n(e,t){return!!e.field.isEqual(t.fieldPath)&&(0===t.kind&&"asc"===e.dir||1===t.kind&&"desc"===e.dir)}}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Oi(e){var t,n;if(E(e instanceof cn||e instanceof ln),e instanceof cn){if(e instanceof En){const r=(null===(n=null===(t=e.value.arrayValue)||void 0===t?void 0:t.values)||void 0===n?void 0:n.map(t=>cn.create(e.field,"==",t)))||[];return ln.create(r,"or")}return e}const r=e.filters.map(e=>Oi(e));return ln.create(r,e.op)}function Ri(e){if(0===e.getFilters().length)return[];const t=Vi(Oi(e));return E(Li(t)),Fi(t)||Mi(t)?[t]:t.getFilters()}function Fi(e){return e instanceof cn}function Mi(e){return e instanceof ln&&fn(e)}function Li(e){return Fi(e)||Mi(e)||(function(e){if(e instanceof ln&&dn(e)){for(const t of e.getFilters())if(!Fi(t)&&!Mi(t))return!1;return!0}return!1})(e)}function Vi(e){if(E(e instanceof cn||e instanceof ln),e instanceof cn)return e;if(1===e.filters.length)return Vi(e.filters[0]);const t=e.filters.map(e=>Vi(e));let n=ln.create(t,e.op);return n=Bi(n),Li(n)?n:(E(n instanceof ln),E(hn(n)),E(n.filters.length>1),n.filters.reduce((e,t)=>qi(e,t)))}function qi(e,t){let n;return E(e instanceof cn||e instanceof ln),E(t instanceof cn||t instanceof ln),n=e instanceof cn?t instanceof cn?(function(e,t){return ln.create([e,t],"and")})(e,t):Ui(e,t):t instanceof cn?Ui(t,e):(function(e,t){if(E(e.filters.length>0&&t.filters.length>0),hn(e)&&hn(t))return yn(e,t.getFilters());const n=dn(e)?e:t,r=dn(e)?t:e,s=n.filters.map(e=>qi(e,r));return ln.create(s,"or")})(e,t),Bi(n)}function Ui(e,t){if(hn(t))return yn(t,e.getFilters());{const n=t.filters.map(t=>qi(e,t));return ln.create(n,"or")}}function Bi(e){if(E(e instanceof cn||e instanceof ln),e instanceof cn)return e;const t=e.getFilters();if(1===t.length)return Bi(t[0]);if(mn(e))return e;const n=t.map(e=>Bi(e)),r=[];return n.forEach(t=>{t instanceof cn?r.push(t):t instanceof ln&&(t.op===e.op?r.push(...t.filters):r.push(t))}),1===r.length?r[0]:ln.create(r,e.op)
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}class ji{constructor(){this.un=new zi}addToCollectionParentIndex(e,t){return this.un.add(t),he.resolve()}getCollectionParents(e,t){return he.resolve(this.un.getEntries(t))}addFieldIndex(e,t){return he.resolve()}deleteFieldIndex(e,t){return he.resolve()}deleteAllFieldIndexes(e){return he.resolve()}createTargetIndexes(e,t){return he.resolve()}getDocumentsMatchingTarget(e,t){return he.resolve(null)}getIndexType(e,t){return he.resolve(0)}getFieldIndexes(e,t){return he.resolve([])}getNextCollectionGroupToUpdate(e){return he.resolve(null)}getMinOffset(e,t){return he.resolve(oe.min())}getMinOffsetFromCollectionGroup(e,t){return he.resolve(oe.min())}updateCollectionGroup(e,t,n){return he.resolve()}updateIndexEntries(e,t){return he.resolve()}}class zi{constructor(){this.index={}}add(e){const t=e.lastSegment(),n=e.popLast(),r=this.index[t]||new dt(Q.comparator),s=!r.has(n);return this.index[t]=r.add(n),s}has(e){const t=e.lastSegment(),n=e.popLast(),r=this.index[t];return r&&r.has(n)}getEntries(e){return(this.index[e]||new dt(Q.comparator)).toArray()}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const Gi=new Uint8Array(0);class Ki{constructor(e,t){this.databaseId=t,this.cn=new zi,this.ln=new Zn(e=>Nn(e),(e,t)=>An(e,t)),this.uid=e.uid||""}addToCollectionParentIndex(e,t){if(!this.cn.has(t)){const n=t.lastSegment(),r=t.popLast();e.addOnCommittedListener(()=>{this.cn.add(t)});const s={collectionId:n,parent:De(r)};return $i(e).put(s)}return he.resolve()}getCollectionParents(e,t){const n=[],r=IDBKeyRange.bound([t,""],[z(t),""],!1,!0);return $i(e).U(r).next(e=>{for(const r of e){if(r.collectionId!==t)break;n.push(ke(r.parent))}return n})}addFieldIndex(e,t){const n=Wi(e),r=(function(e){return{indexId:e.indexId,collectionGroup:e.collectionGroup,fields:e.fields.map(e=>[e.fieldPath.canonicalString(),e.kind])}})(t);delete r.indexId;const s=n.add(r);if(t.indexState){const n=Ji(e);return s.next(e=>{n.put(gi(e,this.uid,t.indexState.sequenceNumber,t.indexState.offset))})}return s.next()}deleteFieldIndex(e,t){const n=Wi(e),r=Ji(e),s=Qi(e);return n.delete(t.indexId).next(()=>r.delete(IDBKeyRange.bound([t.indexId],[t.indexId+1],!1,!0))).next(()=>s.delete(IDBKeyRange.bound([t.indexId],[t.indexId+1],!1,!0)))}deleteAllFieldIndexes(e){const t=Wi(e),n=Qi(e),r=Ji(e);return t.j().next(()=>n.j()).next(()=>r.j())}createTargetIndexes(e,t){return he.forEach(this.hn(t),t=>this.getIndexType(e,t).next(n=>{if(0===n||1===n){const n=new Pi(t).an();if(null!=n)return this.addFieldIndex(e,n)}}))}getDocumentsMatchingTarget(e,t){const n=Qi(e);let r=!0;const s=new Map;return he.forEach(this.hn(t),t=>this.Pn(e,t).next(e=>{r&&(r=!!e),s.set(t,e)})).next(()=>{if(r){let e=lr();const r=[];return he.forEach(s,(s,i)=>{v("IndexedDbIndexManager",`Using index ${(function(e){return`id=${e.indexId}|cg=${e.collectionGroup}|f=${e.fields.map(e=>`${e.fieldPath}:${e.kind}`).join(",")}`})(s)} to execute ${Nn(t)}`);const o=(function(e,t){const n=X(t);if(void 0===n)return null;for(const t of Pn(e,n.fieldPath))switch(t.op){case"array-contains-any":return t.value.arrayValue.values||[];case"array-contains":return[t.value]}return null})(i,s),a=(function(e,t){const n=new Map;for(const r of Z(t))for(const t of Pn(e,r.fieldPath))switch(t.op){case"==":case"in":n.set(r.fieldPath.canonicalString(),t.value);break;case"not-in":case"!=":return n.set(r.fieldPath.canonicalString(),t.value),Array.from(n.values())}return null})(i,s),u=(function(e,t){const n=[];let r=!0;for(const s of Z(t)){const t=0===s.kind?On(e,s.fieldPath,e.startAt):Rn(e,s.fieldPath,e.startAt);n.push(t.value),r&&(r=t.inclusive)}return new nn(n,r)})(i,s),c=(function(e,t){const n=[];let r=!0;for(const s of Z(t)){const t=0===s.kind?Rn(e,s.fieldPath,e.endAt):On(e,s.fieldPath,e.endAt);n.push(t.value),r&&(r=t.inclusive)}return new nn(n,r)})(i,s),l=this.In(s,i,u),h=this.In(s,i,c),d=this.Tn(s,i,a),f=this.En(s.indexId,o,l,u.inclusive,h,c.inclusive,d);return he.forEach(f,s=>n.G(s,t.limit).next(t=>{t.forEach(t=>{const n=H.fromSegments(t.documentKey);e.has(n)||(e=e.add(n),r.push(n))})}))}).next(()=>r)}return he.resolve(null)})}hn(e){let t=this.ln.get(e);return t||(t=0===e.filters.length?[e]:Ri(ln.create(e.filters,"and")).map(t=>Dn(e.path,e.collectionGroup,e.orderBy,t.getFilters(),e.limit,e.startAt,e.endAt)),this.ln.set(e,t),t)}En(e,t,n,r,s,i,o){const a=(null!=t?t.length:1)*Math.max(n.length,s.length),u=a/(null!=t?t.length:1),c=[];for(let l=0;l<a;++l){const a=t?this.dn(t[l/u]):Gi,h=this.An(e,a,n[l%u],r),d=this.Rn(e,a,s[l%u],i),f=o.map(t=>this.An(e,a,t,!0));c.push(...this.createRange(h,d,f))}return c}An(e,t,n,r){const s=new Ni(e,H.empty(),t,n);return r?s:s.Zt()}Rn(e,t,n,r){const s=new Ni(e,H.empty(),t,n);return r?s.Zt():s}Pn(e,t){const n=new Pi(t),r=null!=t.collectionGroup?t.collectionGroup:t.path.lastSegment();return this.getFieldIndexes(e,r).next(e=>{let t=null;for(const r of e)n.rn(r)&&(!t||r.fields.length>t.fields.length)&&(t=r);return t})}getIndexType(e,t){let n=2;const r=this.hn(t);return he.forEach(r,t=>this.Pn(e,t).next(e=>{e?0!==n&&e.fields.length<(function(e){let t=new dt(J.comparator),n=!1;for(const r of e.filters)for(const e of r.getFlattenedFilters())e.field.isKeyField()||("array-contains"===e.op||"array-contains-any"===e.op?n=!0:t=t.add(e.field));for(const n of e.orderBy)n.field.isKeyField()||(t=t.add(n.field));return t.size+(n?1:0)})(t)&&(n=1):n=0})).next(()=>(function(e){return null!==e.limit})(t)&&r.length>1&&2===n?1:n)}Vn(e,t){const n=new Di;for(const r of Z(e)){const e=t.data.field(r.fieldPath);if(null==e)return null;const s=n.Yt(r.kind);_i.vt.It(e,s)}return n.zt()}dn(e){const t=new Di;return _i.vt.It(e,t.Yt(0)),t.zt()}mn(e,t){const n=new Di;return _i.vt.It(qt(this.databaseId,t),n.Yt((function(e){const t=Z(e);return 0===t.length?0:t[t.length-1].kind})(e))),n.zt()}Tn(e,t,n){if(null===n)return[];let r=[];r.push(new Di);let s=0;for(const i of Z(e)){const e=n[s++];for(const n of r)if(this.fn(t,i.fieldPath)&&Bt(e))r=this.gn(r,i,e);else{const t=n.Yt(i.kind);_i.vt.It(e,t)}}return this.pn(r)}In(e,t,n){return this.Tn(e,t,n.position)}pn(e){const t=[];for(let n=0;n<e.length;++n)t[n]=e[n].zt();return t}gn(e,t,n){const r=[...e],s=[];for(const e of n.arrayValue.values||[])for(const n of r){const r=new Di;r.seed(n.zt()),_i.vt.It(e,r.Yt(t.kind)),s.push(r)}return s}fn(e,t){return!!e.filters.find(e=>e instanceof cn&&e.field.isEqual(t)&&("in"===e.op||"not-in"===e.op))}getFieldIndexes(e,t){const n=Wi(e),r=Ji(e);return(t?n.U("collectionGroupIndex",IDBKeyRange.bound(t,t)):n.U()).next(e=>{const t=[];return he.forEach(e,e=>r.get([e.indexId,this.uid]).next(n=>{t.push((function(e,t){const n=t?new re(t.sequenceNumber,new oe(ui(t.readTime),new H(ke(t.documentKey)),t.largestBatchId)):re.empty(),r=e.fields.map(([e,t])=>new te(J.fromServerFormat(e),t));return new Y(e.indexId,e.collectionGroup,r,n)})(e,n))})).next(()=>t)})}getNextCollectionGroupToUpdate(e){return this.getFieldIndexes(e).next(e=>0===e.length?null:(e.sort((e,t)=>{const n=e.indexState.sequenceNumber-t.indexState.sequenceNumber;return 0!==n?n:B(e.collectionGroup,t.collectionGroup)}),e[0].collectionGroup))}updateCollectionGroup(e,t,n){const r=Wi(e),s=Ji(e);return this.yn(e).next(e=>r.U("collectionGroupIndex",IDBKeyRange.bound(t,t)).next(t=>he.forEach(t,t=>s.put(gi(t.indexId,this.uid,e,n)))))}updateIndexEntries(e,t){const n=new Map;return he.forEach(t,(t,r)=>{const s=n.get(t.collectionGroup);return(s?he.resolve(s):this.getFieldIndexes(e,t.collectionGroup)).next(s=>(n.set(t.collectionGroup,s),he.forEach(s,n=>this.wn(e,t,n).next(t=>{const s=this.Sn(r,n);return t.isEqual(s)?he.resolve():this.bn(e,r,n,t,s)}))))})}Dn(e,t,n,r){return Qi(e).put({indexId:r.indexId,uid:this.uid,arrayValue:r.arrayValue,directionalValue:r.directionalValue,orderedDocumentKey:this.mn(n,t.key),documentKey:t.key.path.toArray()})}vn(e,t,n,r){return Qi(e).delete([r.indexId,this.uid,r.arrayValue,r.directionalValue,this.mn(n,t.key),t.key.path.toArray()])}wn(e,t,n){const r=Qi(e);let s=new dt(Ai);return r.J({index:"documentKeyIndex",range:IDBKeyRange.only([n.indexId,this.uid,this.mn(n,t)])},(e,r)=>{s=s.add(new Ni(n.indexId,t,r.arrayValue,r.directionalValue))}).next(()=>s)}Sn(e,t){let n=new dt(Ai);const r=this.Vn(t,e);if(null==r)return n;const s=X(t);if(null!=s){const i=e.data.field(s.fieldPath);if(Bt(i))for(const s of i.arrayValue.values||[])n=n.add(new Ni(t.indexId,e.key,this.dn(s),r))}else n=n.add(new Ni(t.indexId,e.key,Gi,r));return n}bn(e,t,n,r,s){v("IndexedDbIndexManager","Updating index entries for document '%s'",t.key);const i=[];return(function(e,t,n,r,s){const i=e.getIterator(),o=t.getIterator();let a=mt(i),u=mt(o);for(;a||u;){let e=!1,t=!1;if(a&&u){const r=n(a,u);r<0?t=!0:r>0&&(e=!0)}else null!=a?t=!0:e=!0;e?(r(u),u=mt(o)):t?(s(a),a=mt(i)):(a=mt(i),u=mt(o))}})(r,s,Ai,r=>{i.push(this.Dn(e,t,n,r))},r=>{i.push(this.vn(e,t,n,r))}),he.waitFor(i)}yn(e){let t=1;return Ji(e).J({index:"sequenceNumberIndex",reverse:!0,range:IDBKeyRange.upperBound([this.uid,Number.MAX_SAFE_INTEGER])},(e,n,r)=>{r.done(),t=n.sequenceNumber+1}).next(()=>t)}createRange(e,t,n){n=n.sort((e,t)=>Ai(e,t)).filter((e,t,n)=>!t||0!==Ai(e,n[t-1]));const r=[];r.push(e);for(const s of n){const n=Ai(s,e),i=Ai(s,t);if(0===n)r[0]=e.Zt();else if(n>0&&i<0)r.push(s),r.push(s.Zt());else if(i>0)break}r.push(t);const s=[];for(let e=0;e<r.length;e+=2){if(this.Cn(r[e],r[e+1]))return[];const t=[r[e].indexId,this.uid,r[e].arrayValue,r[e].directionalValue,Gi,[]],n=[r[e+1].indexId,this.uid,r[e+1].arrayValue,r[e+1].directionalValue,Gi,[]];s.push(IDBKeyRange.bound(t,n))}return s}Cn(e,t){return Ai(e,t)>0}getMinOffsetFromCollectionGroup(e,t){return this.getFieldIndexes(e,t).next(Hi)}getMinOffset(e,t){return he.mapArray(this.hn(t),t=>this.Pn(e,t).next(e=>e||T())).next(Hi)}}function $i(e){return st(e,"collectionParents")}function Qi(e){return st(e,"indexEntries")}function Wi(e){return st(e,"indexConfiguration")}function Ji(e){return st(e,"indexState")}function Hi(e){E(0!==e.length);let t=e[0].indexState.offset,n=t.largestBatchId;for(let r=1;r<e.length;r++){const s=e[r].indexState.offset;ae(s,t)<0&&(t=s),n<s.largestBatchId&&(n=s.largestBatchId)}return new oe(t.readTime,t.documentKey,n)}
+/**
+   * @license
+   * Copyright 2018 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const Yi={didRun:!1,sequenceNumbersCollected:0,targetsRemoved:0,documentsRemoved:0};class Xi{constructor(e,t,n){this.cacheSizeCollectionThreshold=e,this.percentileToCollect=t,this.maximumSequenceNumbersToCollect=n}static withCacheSize(e){return new Xi(e,Xi.DEFAULT_COLLECTION_PERCENTILE,Xi.DEFAULT_MAX_SEQUENCE_NUMBERS_TO_COLLECT)}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Zi(e,t,n){const r=e.store("mutations"),s=e.store("documentMutations"),i=[],o=IDBKeyRange.only(n.batchId);let a=0;const u=r.J({range:o},(e,t,n)=>(a++,n.delete()));i.push(u.next(()=>{E(1===a)}));const c=[];for(const e of n.mutations){const r=Re(t,e.key.path,n.batchId);i.push(s.delete(r)),c.push(e.key)}return he.waitFor(i).next(()=>c)}function eo(e){if(!e)return 0;let t;if(e.document)t=e.document;else if(e.unknownDocument)t=e.unknownDocument;else{if(!e.noDocument)throw T();t=e.noDocument}return JSON.stringify(t).length}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */Xi.DEFAULT_COLLECTION_PERCENTILE=10,Xi.DEFAULT_MAX_SEQUENCE_NUMBERS_TO_COLLECT=1e3,Xi.DEFAULT=new Xi(41943040,Xi.DEFAULT_COLLECTION_PERCENTILE,Xi.DEFAULT_MAX_SEQUENCE_NUMBERS_TO_COLLECT),Xi.DISABLED=new Xi(-1,0,0);class to{constructor(e,t,n,r){this.userId=e,this.serializer=t,this.indexManager=n,this.referenceDelegate=r,this.Fn={}}static lt(e,t,n,r){E(""!==e.uid);const s=e.isAuthenticated()?e.uid:"";return new to(s,t,n,r)}checkEmpty(e){let t=!0;const n=IDBKeyRange.bound([this.userId,Number.NEGATIVE_INFINITY],[this.userId,Number.POSITIVE_INFINITY]);return ro(e).J({index:"userMutationsIndex",range:n},(e,n,r)=>{t=!1,r.done()}).next(()=>t)}addMutationBatch(e,t,n,r){const s=so(e),i=ro(e);return i.add({}).next(o=>{E("number"==typeof o);const a=new $r(o,t,n,r),u=(function(e,t,n){const r=n.baseMutations.map(t=>qs(e.ct,t)),s=n.mutations.map(t=>qs(e.ct,t));return{userId:t,batchId:n.batchId,localWriteTimeMs:n.localWriteTime.toMillis(),baseMutations:r,mutations:s}})(this.serializer,this.userId,a),c=[];let l=new dt((e,t)=>B(e.canonicalString(),t.canonicalString()));for(const e of r){const t=Re(this.userId,e.key.path,o);l=l.add(e.key.path.popLast()),c.push(i.put(u)),c.push(s.put(t,Fe))}return l.forEach(t=>{c.push(this.indexManager.addToCollectionParentIndex(e,t))}),e.addOnCommittedListener(()=>{this.Fn[o]=a.keys()}),he.waitFor(c).next(()=>a)})}lookupMutationBatch(e,t){return ro(e).get(t).next(e=>e?(E(e.userId===this.userId),ci(this.serializer,e)):null)}Mn(e,t){return this.Fn[t]?he.resolve(this.Fn[t]):this.lookupMutationBatch(e,t).next(e=>{if(e){const n=e.keys();return this.Fn[t]=n,n}return null})}getNextMutationBatchAfterBatchId(e,t){const n=t+1,r=IDBKeyRange.lowerBound([this.userId,n]);let s=null;return ro(e).J({index:"userMutationsIndex",range:r},(e,t,r)=>{t.userId===this.userId&&(E(t.batchId>=n),s=ci(this.serializer,t)),r.done()}).next(()=>s)}getHighestUnacknowledgedBatchId(e){const t=IDBKeyRange.upperBound([this.userId,Number.POSITIVE_INFINITY]);let n=-1;return ro(e).J({index:"userMutationsIndex",range:t,reverse:!0},(e,t,r)=>{n=t.batchId,r.done()}).next(()=>n)}getAllMutationBatches(e){const t=IDBKeyRange.bound([this.userId,-1],[this.userId,Number.POSITIVE_INFINITY]);return ro(e).U("userMutationsIndex",t).next(e=>e.map(e=>ci(this.serializer,e)))}getAllMutationBatchesAffectingDocumentKey(e,t){const n=Oe(this.userId,t.path),r=IDBKeyRange.lowerBound(n),s=[];return so(e).J({range:r},(n,r,i)=>{const[o,a,u]=n,c=ke(a);if(o===this.userId&&t.path.isEqual(c))return ro(e).get(u).next(e=>{if(!e)throw T();E(e.userId===this.userId),s.push(ci(this.serializer,e))});i.done()}).next(()=>s)}getAllMutationBatchesAffectingDocumentKeys(e,t){let n=new dt(B);const r=[];return t.forEach(t=>{const s=Oe(this.userId,t.path),i=IDBKeyRange.lowerBound(s),o=so(e).J({range:i},(e,r,s)=>{const[i,o,a]=e,u=ke(o);i===this.userId&&t.path.isEqual(u)?n=n.add(a):s.done()});r.push(o)}),he.waitFor(r).next(()=>this.xn(e,n))}getAllMutationBatchesAffectingQuery(e,t){const n=t.path,r=n.length+1,s=Oe(this.userId,n),i=IDBKeyRange.lowerBound(s);let o=new dt(B);return so(e).J({range:i},(e,t,s)=>{const[i,a,u]=e,c=ke(a);i===this.userId&&n.isPrefixOf(c)?c.length===r&&(o=o.add(u)):s.done()}).next(()=>this.xn(e,o))}xn(e,t){const n=[],r=[];return t.forEach(t=>{r.push(ro(e).get(t).next(e=>{if(null===e)throw T();E(e.userId===this.userId),n.push(ci(this.serializer,e))}))}),he.waitFor(r).next(()=>n)}removeMutationBatch(e,t){return Zi(e._e,this.userId,t).next(n=>(e.addOnCommittedListener(()=>{this.On(t.batchId)}),he.forEach(n,t=>this.referenceDelegate.markPotentiallyOrphaned(e,t))))}On(e){delete this.Fn[e]}performConsistencyCheck(e){return this.checkEmpty(e).next(t=>{if(!t)return he.resolve();const n=IDBKeyRange.lowerBound((function(e){return[e]})(this.userId)),r=[];return so(e).J({range:n},(e,t,n)=>{if(e[0]===this.userId){const t=ke(e[1]);r.push(t)}else n.done()}).next(()=>{E(0===r.length)})})}containsKey(e,t){return no(e,this.userId,t)}Nn(e){return io(e).get(this.userId).next(e=>e||{userId:this.userId,lastAcknowledgedBatchId:-1,lastStreamToken:""})}}function no(e,t,n){const r=Oe(t,n.path),s=r[1],i=IDBKeyRange.lowerBound(r);let o=!1;return so(e).J({range:i,H:!0},(e,n,r)=>{const[i,a,u]=e;i===t&&a===s&&(o=!0),r.done()}).next(()=>o)}function ro(e){return st(e,"mutations")}function so(e){return st(e,"documentMutations")}function io(e){return st(e,"mutationQueues")}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class oo{constructor(e){this.Ln=e}next(){return this.Ln+=2,this.Ln}static Bn(){return new oo(0)}static kn(){return new oo(-1)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ao{constructor(e,t){this.referenceDelegate=e,this.serializer=t}allocateTargetId(e){return this.qn(e).next(t=>{const n=new oo(t.highestTargetId);return t.highestTargetId=n.next(),this.Qn(e,t).next(()=>t.highestTargetId)})}getLastRemoteSnapshotVersion(e){return this.qn(e).next(e=>K.fromTimestamp(new G(e.lastRemoteSnapshotVersion.seconds,e.lastRemoteSnapshotVersion.nanoseconds)))}getHighestSequenceNumber(e){return this.qn(e).next(e=>e.highestListenSequenceNumber)}setTargetsMetadata(e,t,n){return this.qn(e).next(r=>(r.highestListenSequenceNumber=t,n&&(r.lastRemoteSnapshotVersion=n.toTimestamp()),t>r.highestListenSequenceNumber&&(r.highestListenSequenceNumber=t),this.Qn(e,r)))}addTargetData(e,t){return this.Kn(e,t).next(()=>this.qn(e).next(n=>(n.targetCount+=1,this.$n(t,n),this.Qn(e,n))))}updateTargetData(e,t){return this.Kn(e,t)}removeTargetData(e,t){return this.removeMatchingKeysForTargetId(e,t.targetId).next(()=>uo(e).delete(t.targetId)).next(()=>this.qn(e)).next(t=>(E(t.targetCount>0),t.targetCount-=1,this.Qn(e,t)))}removeTargets(e,t,n){let r=0;const s=[];return uo(e).J((i,o)=>{const a=li(o);a.sequenceNumber<=t&&null===n.get(a.targetId)&&(r++,s.push(this.removeTargetData(e,a)))}).next(()=>he.waitFor(s)).next(()=>r)}forEachTarget(e,t){return uo(e).J((e,n)=>{const r=li(n);t(r)})}qn(e){return co(e).get("targetGlobalKey").next(e=>(E(null!==e),e))}Qn(e,t){return co(e).put("targetGlobalKey",t)}Kn(e,t){return uo(e).put(hi(this.serializer,t))}$n(e,t){let n=!1;return e.targetId>t.highestTargetId&&(t.highestTargetId=e.targetId,n=!0),e.sequenceNumber>t.highestListenSequenceNumber&&(t.highestListenSequenceNumber=e.sequenceNumber,n=!0),n}getTargetCount(e){return this.qn(e).next(e=>e.targetCount)}getTargetData(e,t){const n=Nn(t),r=IDBKeyRange.bound([n,Number.NEGATIVE_INFINITY],[n,Number.POSITIVE_INFINITY]);let s=null;return uo(e).J({range:r,index:"queryTargetsIndex"},(e,n,r)=>{const i=li(n);An(t,i.target)&&(s=i,r.done())}).next(()=>s)}addMatchingKeys(e,t,n){const r=[],s=lo(e);return t.forEach(t=>{const i=De(t.path);r.push(s.put({targetId:n,path:i})),r.push(this.referenceDelegate.addReference(e,n,t))}),he.waitFor(r)}removeMatchingKeys(e,t,n){const r=lo(e);return he.forEach(t,t=>{const s=De(t.path);return he.waitFor([r.delete([n,s]),this.referenceDelegate.removeReference(e,n,t)])})}removeMatchingKeysForTargetId(e,t){const n=lo(e),r=IDBKeyRange.bound([t],[t+1],!1,!0);return n.delete(r)}getMatchingKeysForTargetId(e,t){const n=IDBKeyRange.bound([t],[t+1],!1,!0),r=lo(e);let s=lr();return r.J({range:n,H:!0},(e,t,n)=>{const r=ke(e[1]),i=new H(r);s=s.add(i)}).next(()=>s)}containsKey(e,t){const n=De(t.path),r=IDBKeyRange.bound([n],[z(n)],!1,!0);let s=0;return lo(e).J({index:"documentTargetsIndex",H:!0,range:r},([e,t],n,r)=>{0!==e&&(s++,r.done())}).next(()=>s>0)}ot(e,t){return uo(e).get(t).next(e=>e?li(e):null)}}function uo(e){return st(e,"targets")}function co(e){return st(e,"targetGlobal")}function lo(e){return st(e,"targetDocuments")}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function ho([e,t],[n,r]){const s=B(e,n);return 0===s?B(t,r):s}class fo{constructor(e){this.Un=e,this.buffer=new dt(ho),this.Wn=0}Gn(){return++this.Wn}zn(e){const t=[e,this.Gn()];if(this.buffer.size<this.Un)this.buffer=this.buffer.add(t);else{const e=this.buffer.last();ho(t,e)<0&&(this.buffer=this.buffer.delete(e).add(t))}}get maxValue(){return this.buffer.last()[0]}}class mo{constructor(e,t,n){this.garbageCollector=e,this.asyncQueue=t,this.localStore=n,this.jn=null}start(){-1!==this.garbageCollector.params.cacheSizeCollectionThreshold&&this.Hn(6e4)}stop(){this.jn&&(this.jn.cancel(),this.jn=null)}get started(){return null!==this.jn}Hn(e){v("LruGarbageCollector",`Garbage collection scheduled in ${e}ms`),this.jn=this.asyncQueue.enqueueAfterDelay("lru_garbage_collection",e,async()=>{this.jn=null;try{await this.localStore.collectGarbage(this.garbageCollector)}catch(e){ye(e)?v("LruGarbageCollector","Ignoring IndexedDB error during garbage collection: ",e):await le(e)}await this.Hn(3e5)})}}class go{constructor(e,t){this.Jn=e,this.params=t}calculateTargetCount(e,t){return this.Jn.Yn(e).next(e=>Math.floor(t/100*e))}nthSequenceNumber(e,t){if(0===t)return he.resolve(Ee.oe);const n=new fo(t);return this.Jn.forEachTarget(e,e=>n.zn(e.sequenceNumber)).next(()=>this.Jn.Zn(e,e=>n.zn(e))).next(()=>n.maxValue)}removeTargets(e,t,n){return this.Jn.removeTargets(e,t,n)}removeOrphanedDocuments(e,t){return this.Jn.removeOrphanedDocuments(e,t)}collect(e,t){return-1===this.params.cacheSizeCollectionThreshold?(v("LruGarbageCollector","Garbage collection skipped; disabled"),he.resolve(Yi)):this.getCacheSize(e).next(n=>n<this.params.cacheSizeCollectionThreshold?(v("LruGarbageCollector",`Garbage collection skipped; Cache size ${n} is lower than threshold ${this.params.cacheSizeCollectionThreshold}`),Yi):this.Xn(e,t))}getCacheSize(e){return this.Jn.getCacheSize(e)}Xn(e,t){let n,r,s,i,o,a,u;const l=Date.now();return this.calculateTargetCount(e,this.params.percentileToCollect).next(t=>(t>this.params.maximumSequenceNumbersToCollect?(v("LruGarbageCollector",`Capping sequence numbers to collect down to the maximum of ${this.params.maximumSequenceNumbersToCollect} from ${t}`),r=this.params.maximumSequenceNumbersToCollect):r=t,i=Date.now(),this.nthSequenceNumber(e,r))).next(r=>(n=r,o=Date.now(),this.removeTargets(e,n,t))).next(t=>(s=t,a=Date.now(),this.removeOrphanedDocuments(e,n))).next(e=>(u=Date.now(),y()<=c.LogLevel.DEBUG&&v("LruGarbageCollector",`LRU Garbage Collection\n\tCounted targets in ${i-l}ms\n\tDetermined least recently used ${r} in `+(o-i)+"ms\n"+`\tRemoved ${s} targets in `+(a-o)+"ms\n"+`\tRemoved ${e} documents in `+(u-a)+"ms\n"+`Total Duration: ${u-l}ms`),he.resolve({didRun:!0,sequenceNumbersCollected:r,targetsRemoved:s,documentsRemoved:e})))}}function po(e,t){return new go(e,t)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class yo{constructor(e,t){this.db=e,this.garbageCollector=po(this,t)}Yn(e){const t=this.er(e);return this.db.getTargetCache().getTargetCount(e).next(e=>t.next(t=>e+t))}er(e){let t=0;return this.Zn(e,e=>{t++}).next(()=>t)}forEachTarget(e,t){return this.db.getTargetCache().forEachTarget(e,t)}Zn(e,t){return this.tr(e,(e,n)=>t(n))}addReference(e,t,n){return wo(e,n)}removeReference(e,t,n){return wo(e,n)}removeTargets(e,t,n){return this.db.getTargetCache().removeTargets(e,t,n)}markPotentiallyOrphaned(e,t){return wo(e,t)}nr(e,t){return(function(e,t){let n=!1;return io(e).Y(r=>no(e,r,t).next(e=>(e&&(n=!0),he.resolve(!e)))).next(()=>n)})(e,t)}removeOrphanedDocuments(e,t){const n=this.db.getRemoteDocumentCache().newChangeBuffer(),r=[];let s=0;return this.tr(e,(i,o)=>{if(o<=t){const t=this.nr(e,i).next(t=>{if(!t)return s++,n.getEntry(e,i).next(()=>(n.removeEntry(i,K.min()),lo(e).delete((function(e){return[0,De(e.path)]})(i))))});r.push(t)}}).next(()=>he.waitFor(r)).next(()=>n.apply(e)).next(()=>s)}removeTarget(e,t){const n=t.withSequenceNumber(e.currentSequenceNumber);return this.db.getTargetCache().updateTargetData(e,n)}updateLimboDocument(e,t){return wo(e,t)}tr(e,t){const n=lo(e);let r,s=Ee.oe;return n.J({index:"documentTargetsIndex"},([e,n],{path:i,sequenceNumber:o})=>{0===e?(s!==Ee.oe&&t(new H(ke(r)),s),s=o,r=i):s=Ee.oe}).next(()=>{s!==Ee.oe&&t(new H(ke(r)),s)})}getCacheSize(e){return this.db.getRemoteDocumentCache().getSize(e)}}function wo(e,t){return lo(e).put((function(e,t){return{targetId:0,path:De(e.path),sequenceNumber:t}})(t,e.currentSequenceNumber))}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class vo{constructor(){this.changes=new Zn(e=>e.toString(),(e,t)=>e.isEqual(t)),this.changesApplied=!1}addEntry(e){this.assertNotApplied(),this.changes.set(e.key,e)}removeEntry(e,t){this.assertNotApplied(),this.changes.set(e,tn.newInvalidDocument(e).setReadTime(t))}getEntry(e,t){this.assertNotApplied();const n=this.changes.get(t);return void 0!==n?he.resolve(n):this.getFromCache(e,t)}getEntries(e,t){return this.getAllFromCache(e,t)}apply(e){return this.assertNotApplied(),this.changesApplied=!0,this.applyChanges(e)}assertNotApplied(){}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class bo{constructor(e){this.serializer=e}setIndexManager(e){this.indexManager=e}addEntry(e,t,n){return Eo(e).put(n)}removeEntry(e,t,n){return Eo(e).delete((function(e,t){const n=e.path.toArray();return[n.slice(0,n.length-2),n[n.length-2],oi(t),n[n.length-1]]})(t,n))}updateMetadata(e,t){return this.getMetadata(e).next(n=>(n.byteSize+=t,this.rr(e,n)))}getEntry(e,t){let n=tn.newInvalidDocument(t);return Eo(e).J({index:"documentKeyIndex",range:IDBKeyRange.only(So(t))},(e,r)=>{n=this.ir(t,r)}).next(()=>n)}sr(e,t){let n={size:0,document:tn.newInvalidDocument(t)};return Eo(e).J({index:"documentKeyIndex",range:IDBKeyRange.only(So(t))},(e,r)=>{n={document:this.ir(t,r),size:eo(r)}}).next(()=>n)}getEntries(e,t){let n=tr();return this._r(e,t,(e,t)=>{const r=this.ir(e,t);n=n.insert(e,r)}).next(()=>n)}ar(e,t){let n=tr(),r=new ct(H.comparator);return this._r(e,t,(e,t)=>{const s=this.ir(e,t);n=n.insert(e,s),r=r.insert(e,eo(t))}).next(()=>({documents:n,ur:r}))}_r(e,t,n){if(t.isEmpty())return he.resolve();let r=new dt(Co);t.forEach(e=>r=r.add(e));const s=IDBKeyRange.bound(So(r.first()),So(r.last())),i=r.getIterator();let o=i.getNext();return Eo(e).J({index:"documentKeyIndex",range:s},(e,t,r)=>{const s=H.fromSegments([...t.prefixPath,t.collectionGroup,t.documentId]);for(;o&&Co(o,s)<0;)n(o,null),o=i.getNext();o&&o.isEqual(s)&&(n(o,t),o=i.hasNext()?i.getNext():null),o?r.$(So(o)):r.done()}).next(()=>{for(;o;)n(o,null),o=i.hasNext()?i.getNext():null})}getDocumentsMatchingQuery(e,t,n,r,s){const i=t.path,o=[i.popLast().toArray(),i.lastSegment(),oi(n.readTime),n.documentKey.path.isEmpty()?"":n.documentKey.path.lastSegment()],a=[i.popLast().toArray(),i.lastSegment(),[Number.MAX_SAFE_INTEGER,Number.MAX_SAFE_INTEGER],""];return Eo(e).U(IDBKeyRange.bound(o,a,!0)).next(e=>{null==s||s.incrementDocumentReadCount(e.length);let n=tr();for(const s of e){const e=this.ir(H.fromSegments(s.prefixPath.concat(s.collectionGroup,s.documentId)),s);e.isFoundDocument()&&(Jn(t,e)||r.has(e.key))&&(n=n.insert(e.key,e))}return n})}getAllFromCollectionGroup(e,t,n,r){let s=tr();const i=xo(t,n),o=xo(t,oe.max());return Eo(e).J({index:"collectionGroupIndex",range:IDBKeyRange.bound(i,o,!0)},(e,t,n)=>{const i=this.ir(H.fromSegments(t.prefixPath.concat(t.collectionGroup,t.documentId)),t);s=s.insert(i.key,i),s.size===r&&n.done()}).next(()=>s)}newChangeBuffer(e){return new _o(this,!!e&&e.trackRemovals)}getSize(e){return this.getMetadata(e).next(e=>e.byteSize)}getMetadata(e){return To(e).get("remoteDocumentGlobalKey").next(e=>(E(!!e),e))}rr(e,t){return To(e).put("remoteDocumentGlobalKey",t)}ir(e,t){if(t){const e=si(this.serializer,t);if(!e.isNoDocument()||!e.version.isEqual(K.min()))return e}return tn.newInvalidDocument(e)}}function Io(e){return new bo(e)}class _o extends vo{constructor(e,t){super(),this.cr=e,this.trackRemovals=t,this.lr=new Zn(e=>e.toString(),(e,t)=>e.isEqual(t))}applyChanges(e){const t=[];let n=0,r=new dt((e,t)=>B(e.canonicalString(),t.canonicalString()));return this.changes.forEach((s,i)=>{const o=this.lr.get(s);if(t.push(this.cr.removeEntry(e,s,o.readTime)),i.isValidDocument()){const a=ii(this.cr.serializer,i);r=r.add(s.path.popLast());const u=eo(a);n+=u-o.size,t.push(this.cr.addEntry(e,s,a))}else if(n-=o.size,this.trackRemovals){const n=ii(this.cr.serializer,i.convertToNoDocument(K.min()));t.push(this.cr.addEntry(e,s,n))}}),r.forEach(n=>{t.push(this.cr.indexManager.addToCollectionParentIndex(e,n))}),t.push(this.cr.updateMetadata(e,n)),he.waitFor(t)}getFromCache(e,t){return this.cr.sr(e,t).next(e=>(this.lr.set(t,{size:e.size,readTime:e.document.readTime}),e.document))}getAllFromCache(e,t){return this.cr.ar(e,t).next(({documents:e,ur:t})=>(t.forEach((t,n)=>{this.lr.set(t,{size:n,readTime:e.get(t).readTime})}),e))}}function To(e){return st(e,"remoteDocumentGlobal")}function Eo(e){return st(e,"remoteDocumentsV14")}function So(e){const t=e.path.toArray();return[t.slice(0,t.length-2),t[t.length-2],t[t.length-1]]}function xo(e,t){const n=t.documentKey.path.toArray();return[e,oi(t.readTime),n.slice(0,n.length-2),n.length>0?n[n.length-1]:""]}function Co(e,t){const n=e.path.toArray(),r=t.path.toArray();let s=0;for(let e=0;e<n.length-2&&e<r.length-2;++e)if(s=B(n[e],r[e]),s)return s;return s=B(n.length,r.length),s||(s=B(n[n.length-2],r[r.length-2]),s||B(n[n.length-1],r[r.length-1])
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */)}class Do{constructor(e,t){this.overlayedDocument=e,this.mutatedFields=t}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class No{constructor(e,t,n,r){this.remoteDocumentCache=e,this.mutationQueue=t,this.documentOverlayCache=n,this.indexManager=r}getDocument(e,t){let n=null;return this.documentOverlayCache.getOverlay(e,t).next(r=>(n=r,this.remoteDocumentCache.getEntry(e,t))).next(e=>(null!==n&&Mr(n.mutation,e,gt.empty(),G.now()),e))}getDocuments(e,t){return this.remoteDocumentCache.getEntries(e,t).next(t=>this.getLocalViewOfDocuments(e,t,lr()).next(()=>t))}getLocalViewOfDocuments(e,t,n=lr()){const r=ir();return this.populateOverlays(e,r,t).next(()=>this.computeViews(e,t,r,n).next(e=>{let t=rr();return e.forEach((e,n)=>{t=t.insert(e,n.overlayedDocument)}),t}))}getOverlayedDocuments(e,t){const n=ir();return this.populateOverlays(e,n,t).next(()=>this.computeViews(e,t,n,lr()))}populateOverlays(e,t,n){const r=[];return n.forEach(e=>{t.has(e)||r.push(e)}),this.documentOverlayCache.getOverlays(e,r).next(e=>{e.forEach((e,n)=>{t.set(e,n)})})}computeViews(e,t,n,r){let s=tr();const i=ar(),o=ar();return t.forEach((e,t)=>{const o=n.get(t.key);r.has(t.key)&&(void 0===o||o.mutation instanceof Ur)?s=s.insert(t.key,t):void 0!==o?(i.set(t.key,o.mutation.getFieldMask()),Mr(o.mutation,t,o.mutation.getFieldMask(),G.now())):i.set(t.key,gt.empty())}),this.recalculateAndSaveOverlays(e,s).next(e=>(e.forEach((e,t)=>i.set(e,t)),t.forEach((e,t)=>{var n;return o.set(e,new Do(t,null!==(n=i.get(e))&&void 0!==n?n:null))}),o))}recalculateAndSaveOverlays(e,t){const n=ar();let r=new ct((e,t)=>e-t),s=lr();return this.mutationQueue.getAllMutationBatchesAffectingDocumentKeys(e,t).next(e=>{for(const s of e)s.keys().forEach(e=>{const i=t.get(e);if(null===i)return;let o=n.get(e)||gt.empty();o=s.applyToLocalView(i,o),n.set(e,o);const a=(r.get(s.batchId)||lr()).add(e);r=r.insert(s.batchId,a)})}).next(()=>{const i=[],o=r.getReverseIterator();for(;o.hasNext();){const r=o.getNext(),a=r.key,u=r.value,c=or();u.forEach(e=>{if(!s.has(e)){const r=Rr(t.get(e),n.get(e));null!==r&&c.set(e,r),s=s.add(e)}}),i.push(this.documentOverlayCache.saveOverlays(e,a,c))}return he.waitFor(i)}).next(()=>n)}recalculateAndSaveOverlaysForDocumentKeys(e,t){return this.remoteDocumentCache.getEntries(e,t).next(t=>this.recalculateAndSaveOverlays(e,t))}getDocumentsMatchingQuery(e,t,n,r){return(function(e){return H.isDocumentKey(e.path)&&null===e.collectionGroup&&0===e.filters.length})(t)?this.getDocumentsMatchingDocumentQuery(e,t.path):qn(t)?this.getDocumentsMatchingCollectionGroupQuery(e,t,n,r):this.getDocumentsMatchingCollectionQuery(e,t,n,r)}getNextDocuments(e,t,n,r){return this.remoteDocumentCache.getAllFromCollectionGroup(e,t,n,r).next(s=>{const i=r-s.size>0?this.documentOverlayCache.getOverlaysForCollectionGroup(e,t,n.largestBatchId,r-s.size):he.resolve(ir());let o=-1,a=s;return i.next(t=>he.forEach(t,(t,n)=>(o<n.largestBatchId&&(o=n.largestBatchId),s.get(t)?he.resolve():this.remoteDocumentCache.getEntry(e,t).next(e=>{a=a.insert(t,e)}))).next(()=>this.populateOverlays(e,t,s)).next(()=>this.computeViews(e,a,t,lr())).next(e=>({batchId:o,changes:sr(e)})))})}getDocumentsMatchingDocumentQuery(e,t){return this.getDocument(e,new H(t)).next(e=>{let t=rr();return e.isFoundDocument()&&(t=t.insert(e.key,e)),t})}getDocumentsMatchingCollectionGroupQuery(e,t,n,r){const s=t.collectionGroup;let i=rr();return this.indexManager.getCollectionParents(e,s).next(o=>he.forEach(o,o=>{const a=(function(e,t){return new Fn(t,null,e.explicitOrderBy.slice(),e.filters.slice(),e.limit,e.limitType,e.startAt,e.endAt)})(t,o.child(s));return this.getDocumentsMatchingCollectionQuery(e,a,n,r).next(e=>{e.forEach((e,t)=>{i=i.insert(e,t)})})}).next(()=>i))}getDocumentsMatchingCollectionQuery(e,t,n,r){let s;return this.documentOverlayCache.getOverlaysForCollection(e,t.path,n.largestBatchId).next(i=>(s=i,this.remoteDocumentCache.getDocumentsMatchingQuery(e,t,n,s,r))).next(e=>{s.forEach((t,n)=>{const r=n.getKey();null===e.get(r)&&(e=e.insert(r,tn.newInvalidDocument(r)))});let n=rr();return e.forEach((e,r)=>{const i=s.get(e);void 0!==i&&Mr(i.mutation,r,gt.empty(),G.now()),Jn(t,r)&&(n=n.insert(e,r))}),n})}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ao{constructor(e){this.serializer=e,this.hr=new Map,this.Pr=new Map}getBundleMetadata(e,t){return he.resolve(this.hr.get(t))}saveBundleMetadata(e,t){return this.hr.set(t.id,(function(e){return{id:e.id,version:e.version,createTime:Ss(e.createTime)}})(t)),he.resolve()}getNamedQuery(e,t){return he.resolve(this.Pr.get(t))}saveNamedQuery(e,t){return this.Pr.set(t.name,(function(e){return{name:e.name,query:di(e.bundledQuery),readTime:Ss(e.readTime)}})(t)),he.resolve()}}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ko{constructor(){this.overlays=new ct(H.comparator),this.Ir=new Map}getOverlay(e,t){return he.resolve(this.overlays.get(t))}getOverlays(e,t){const n=ir();return he.forEach(t,t=>this.getOverlay(e,t).next(e=>{null!==e&&n.set(t,e)})).next(()=>n)}saveOverlays(e,t,n){return n.forEach((n,r)=>{this.ht(e,t,r)}),he.resolve()}removeOverlaysForBatchId(e,t,n){const r=this.Ir.get(n);return void 0!==r&&(r.forEach(e=>this.overlays=this.overlays.remove(e)),this.Ir.delete(n)),he.resolve()}getOverlaysForCollection(e,t,n){const r=ir(),s=t.length+1,i=new H(t.child("")),o=this.overlays.getIteratorFrom(i);for(;o.hasNext();){const e=o.getNext().value,i=e.getKey();if(!t.isPrefixOf(i.path))break;i.path.length===s&&e.largestBatchId>n&&r.set(e.getKey(),e)}return he.resolve(r)}getOverlaysForCollectionGroup(e,t,n,r){let s=new ct((e,t)=>e-t);const i=this.overlays.getIterator();for(;i.hasNext();){const e=i.getNext().value;if(e.getKey().getCollectionGroup()===t&&e.largestBatchId>n){let t=s.get(e.largestBatchId);null===t&&(t=ir(),s=s.insert(e.largestBatchId,t)),t.set(e.getKey(),e)}}const o=ir(),a=s.getIterator();for(;a.hasNext()&&(a.getNext().value.forEach((e,t)=>o.set(e,t)),!(o.size()>=r)););return he.resolve(o)}ht(e,t,n){const r=this.overlays.get(n.key);if(null!==r){const e=this.Ir.get(r.largestBatchId).delete(n.key);this.Ir.set(r.largestBatchId,e)}this.overlays=this.overlays.insert(n.key,new Wr(t,n));let s=this.Ir.get(t);void 0===s&&(s=lr(),this.Ir.set(t,s)),this.Ir.set(t,s.add(n.key))}}
+/**
+   * @license
+   * Copyright 2024 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Po{constructor(){this.sessionToken=wt.EMPTY_BYTE_STRING}getSessionToken(e){return he.resolve(this.sessionToken)}setSessionToken(e,t){return this.sessionToken=t,he.resolve()}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Oo{constructor(){this.Tr=new dt(Ro.Er),this.dr=new dt(Ro.Ar)}isEmpty(){return this.Tr.isEmpty()}addReference(e,t){const n=new Ro(e,t);this.Tr=this.Tr.add(n),this.dr=this.dr.add(n)}Rr(e,t){e.forEach(e=>this.addReference(e,t))}removeReference(e,t){this.Vr(new Ro(e,t))}mr(e,t){e.forEach(e=>this.removeReference(e,t))}gr(e){const t=new H(new Q([])),n=new Ro(t,e),r=new Ro(t,e+1),s=[];return this.dr.forEachInRange([n,r],e=>{this.Vr(e),s.push(e.key)}),s}pr(){this.Tr.forEach(e=>this.Vr(e))}Vr(e){this.Tr=this.Tr.delete(e),this.dr=this.dr.delete(e)}yr(e){const t=new H(new Q([])),n=new Ro(t,e),r=new Ro(t,e+1);let s=lr();return this.dr.forEachInRange([n,r],e=>{s=s.add(e.key)}),s}containsKey(e){const t=new Ro(e,0),n=this.Tr.firstAfterOrEqual(t);return null!==n&&e.isEqual(n.key)}}class Ro{constructor(e,t){this.key=e,this.wr=t}static Er(e,t){return H.comparator(e.key,t.key)||B(e.wr,t.wr)}static Ar(e,t){return B(e.wr,t.wr)||H.comparator(e.key,t.key)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Fo{constructor(e,t){this.indexManager=e,this.referenceDelegate=t,this.mutationQueue=[],this.Sr=1,this.br=new dt(Ro.Er)}checkEmpty(e){return he.resolve(0===this.mutationQueue.length)}addMutationBatch(e,t,n,r){const s=this.Sr;this.Sr++,this.mutationQueue.length>0&&this.mutationQueue[this.mutationQueue.length-1];const i=new $r(s,t,n,r);this.mutationQueue.push(i);for(const t of r)this.br=this.br.add(new Ro(t.key,s)),this.indexManager.addToCollectionParentIndex(e,t.key.path.popLast());return he.resolve(i)}lookupMutationBatch(e,t){return he.resolve(this.Dr(t))}getNextMutationBatchAfterBatchId(e,t){const n=t+1,r=this.vr(n),s=r<0?0:r;return he.resolve(this.mutationQueue.length>s?this.mutationQueue[s]:null)}getHighestUnacknowledgedBatchId(){return he.resolve(0===this.mutationQueue.length?-1:this.Sr-1)}getAllMutationBatches(e){return he.resolve(this.mutationQueue.slice())}getAllMutationBatchesAffectingDocumentKey(e,t){const n=new Ro(t,0),r=new Ro(t,Number.POSITIVE_INFINITY),s=[];return this.br.forEachInRange([n,r],e=>{const t=this.Dr(e.wr);s.push(t)}),he.resolve(s)}getAllMutationBatchesAffectingDocumentKeys(e,t){let n=new dt(B);return t.forEach(e=>{const t=new Ro(e,0),r=new Ro(e,Number.POSITIVE_INFINITY);this.br.forEachInRange([t,r],e=>{n=n.add(e.wr)})}),he.resolve(this.Cr(n))}getAllMutationBatchesAffectingQuery(e,t){const n=t.path,r=n.length+1;let s=n;H.isDocumentKey(s)||(s=s.child(""));const i=new Ro(new H(s),0);let o=new dt(B);return this.br.forEachWhile(e=>{const t=e.key.path;return!!n.isPrefixOf(t)&&(t.length===r&&(o=o.add(e.wr)),!0)},i),he.resolve(this.Cr(o))}Cr(e){const t=[];return e.forEach(e=>{const n=this.Dr(e);null!==n&&t.push(n)}),t}removeMutationBatch(e,t){E(0===this.Fr(t.batchId,"removed")),this.mutationQueue.shift();let n=this.br;return he.forEach(t.mutations,r=>{const s=new Ro(r.key,t.batchId);return n=n.delete(s),this.referenceDelegate.markPotentiallyOrphaned(e,r.key)}).next(()=>{this.br=n})}On(e){}containsKey(e,t){const n=new Ro(t,0),r=this.br.firstAfterOrEqual(n);return he.resolve(t.isEqual(r&&r.key))}performConsistencyCheck(e){return this.mutationQueue.length,he.resolve()}Fr(e,t){return this.vr(e)}vr(e){return 0===this.mutationQueue.length?0:e-this.mutationQueue[0].batchId}Dr(e){const t=this.vr(e);return t<0||t>=this.mutationQueue.length?null:this.mutationQueue[t]}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Mo{constructor(e){this.Mr=e,this.docs=new ct(H.comparator),this.size=0}setIndexManager(e){this.indexManager=e}addEntry(e,t){const n=t.key,r=this.docs.get(n),s=r?r.size:0,i=this.Mr(t);return this.docs=this.docs.insert(n,{document:t.mutableCopy(),size:i}),this.size+=i-s,this.indexManager.addToCollectionParentIndex(e,n.path.popLast())}removeEntry(e){const t=this.docs.get(e);t&&(this.docs=this.docs.remove(e),this.size-=t.size)}getEntry(e,t){const n=this.docs.get(t);return he.resolve(n?n.document.mutableCopy():tn.newInvalidDocument(t))}getEntries(e,t){let n=tr();return t.forEach(e=>{const t=this.docs.get(e);n=n.insert(e,t?t.document.mutableCopy():tn.newInvalidDocument(e))}),he.resolve(n)}getDocumentsMatchingQuery(e,t,n,r){let s=tr();const i=t.path,o=new H(i.child("")),a=this.docs.getIteratorFrom(o);for(;a.hasNext();){const{key:e,value:{document:o}}=a.getNext();if(!i.isPrefixOf(e.path))break;e.path.length>i.length+1||ae(ie(o),n)<=0||(r.has(o.key)||Jn(t,o))&&(s=s.insert(o.key,o.mutableCopy()))}return he.resolve(s)}getAllFromCollectionGroup(e,t,n,r){T()}Or(e,t){return he.forEach(this.docs,e=>t(e))}newChangeBuffer(e){return new Lo(this)}getSize(e){return he.resolve(this.size)}}class Lo extends vo{constructor(e){super(),this.cr=e}applyChanges(e){const t=[];return this.changes.forEach((n,r)=>{r.isValidDocument()?t.push(this.cr.addEntry(e,r)):this.cr.removeEntry(n)}),he.waitFor(t)}getFromCache(e,t){return this.cr.getEntry(e,t)}getAllFromCache(e,t){return this.cr.getEntries(e,t)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Vo{constructor(e){this.persistence=e,this.Nr=new Zn(e=>Nn(e),An),this.lastRemoteSnapshotVersion=K.min(),this.highestTargetId=0,this.Lr=0,this.Br=new Oo,this.targetCount=0,this.kr=oo.Bn()}forEachTarget(e,t){return this.Nr.forEach((e,n)=>t(n)),he.resolve()}getLastRemoteSnapshotVersion(e){return he.resolve(this.lastRemoteSnapshotVersion)}getHighestSequenceNumber(e){return he.resolve(this.Lr)}allocateTargetId(e){return this.highestTargetId=this.kr.next(),he.resolve(this.highestTargetId)}setTargetsMetadata(e,t,n){return n&&(this.lastRemoteSnapshotVersion=n),t>this.Lr&&(this.Lr=t),he.resolve()}Kn(e){this.Nr.set(e.target,e);const t=e.targetId;t>this.highestTargetId&&(this.kr=new oo(t),this.highestTargetId=t),e.sequenceNumber>this.Lr&&(this.Lr=e.sequenceNumber)}addTargetData(e,t){return this.Kn(t),this.targetCount+=1,he.resolve()}updateTargetData(e,t){return this.Kn(t),he.resolve()}removeTargetData(e,t){return this.Nr.delete(t.target),this.Br.gr(t.targetId),this.targetCount-=1,he.resolve()}removeTargets(e,t,n){let r=0;const s=[];return this.Nr.forEach((i,o)=>{o.sequenceNumber<=t&&null===n.get(o.targetId)&&(this.Nr.delete(i),s.push(this.removeMatchingKeysForTargetId(e,o.targetId)),r++)}),he.waitFor(s).next(()=>r)}getTargetCount(e){return he.resolve(this.targetCount)}getTargetData(e,t){const n=this.Nr.get(t)||null;return he.resolve(n)}addMatchingKeys(e,t,n){return this.Br.Rr(t,n),he.resolve()}removeMatchingKeys(e,t,n){this.Br.mr(t,n);const r=this.persistence.referenceDelegate,s=[];return r&&t.forEach(t=>{s.push(r.markPotentiallyOrphaned(e,t))}),he.waitFor(s)}removeMatchingKeysForTargetId(e,t){return this.Br.gr(t),he.resolve()}getMatchingKeysForTargetId(e,t){const n=this.Br.yr(t);return he.resolve(n)}containsKey(e,t){return he.resolve(this.Br.containsKey(t))}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class qo{constructor(e,t){this.qr={},this.overlays={},this.Qr=new Ee(0),this.Kr=!1,this.Kr=!0,this.$r=new Po,this.referenceDelegate=e(this),this.Ur=new Vo(this),this.indexManager=new ji,this.remoteDocumentCache=(function(e){return new Mo(e)})(e=>this.referenceDelegate.Wr(e)),this.serializer=new ri(t),this.Gr=new Ao(this.serializer)}start(){return Promise.resolve()}shutdown(){return this.Kr=!1,Promise.resolve()}get started(){return this.Kr}setDatabaseDeletedListener(){}setNetworkEnabled(){}getIndexManager(e){return this.indexManager}getDocumentOverlayCache(e){let t=this.overlays[e.toKey()];return t||(t=new ko,this.overlays[e.toKey()]=t),t}getMutationQueue(e,t){let n=this.qr[e.toKey()];return n||(n=new Fo(t,this.referenceDelegate),this.qr[e.toKey()]=n),n}getGlobalsCache(){return this.$r}getTargetCache(){return this.Ur}getRemoteDocumentCache(){return this.remoteDocumentCache}getBundleCache(){return this.Gr}runTransaction(e,t,n){v("MemoryPersistence","Starting transaction:",e);const r=new Uo(this.Qr.next());return this.referenceDelegate.zr(),n(r).next(e=>this.referenceDelegate.jr(r).next(()=>e)).toPromise().then(e=>(r.raiseOnCommittedEvent(),e))}Hr(e,t){return he.or(Object.values(this.qr).map(n=>()=>n.containsKey(e,t)))}}class Uo extends ce{constructor(e){super(),this.currentSequenceNumber=e}}class Bo{constructor(e){this.persistence=e,this.Jr=new Oo,this.Yr=null}static Zr(e){return new Bo(e)}get Xr(){if(this.Yr)return this.Yr;throw T()}addReference(e,t,n){return this.Jr.addReference(n,t),this.Xr.delete(n.toString()),he.resolve()}removeReference(e,t,n){return this.Jr.removeReference(n,t),this.Xr.add(n.toString()),he.resolve()}markPotentiallyOrphaned(e,t){return this.Xr.add(t.toString()),he.resolve()}removeTarget(e,t){this.Jr.gr(t.targetId).forEach(e=>this.Xr.add(e.toString()));const n=this.persistence.getTargetCache();return n.getMatchingKeysForTargetId(e,t.targetId).next(e=>{e.forEach(e=>this.Xr.add(e.toString()))}).next(()=>n.removeTargetData(e,t))}zr(){this.Yr=new Set}jr(e){const t=this.persistence.getRemoteDocumentCache().newChangeBuffer();return he.forEach(this.Xr,n=>{const r=H.fromPath(n);return this.ei(e,r).next(e=>{e||t.removeEntry(r,K.min())})}).next(()=>(this.Yr=null,t.apply(e)))}updateLimboDocument(e,t){return this.ei(e,t).next(e=>{e?this.Xr.delete(t.toString()):this.Xr.add(t.toString())})}Wr(e){return 0}ei(e,t){return he.or([()=>he.resolve(this.Jr.containsKey(t)),()=>this.persistence.getTargetCache().containsKey(e,t),()=>this.persistence.Hr(e,t)])}}class jo{constructor(e,t){this.persistence=e,this.ti=new Zn(e=>De(e.path),(e,t)=>e.isEqual(t)),this.garbageCollector=po(this,t)}static Zr(e,t){return new jo(e,t)}zr(){}jr(e){return he.resolve()}forEachTarget(e,t){return this.persistence.getTargetCache().forEachTarget(e,t)}Yn(e){const t=this.er(e);return this.persistence.getTargetCache().getTargetCount(e).next(e=>t.next(t=>e+t))}er(e){let t=0;return this.Zn(e,e=>{t++}).next(()=>t)}Zn(e,t){return he.forEach(this.ti,(n,r)=>this.nr(e,n,r).next(e=>e?he.resolve():t(r)))}removeTargets(e,t,n){return this.persistence.getTargetCache().removeTargets(e,t,n)}removeOrphanedDocuments(e,t){let n=0;const r=this.persistence.getRemoteDocumentCache(),s=r.newChangeBuffer();return r.Or(e,r=>this.nr(e,r,t).next(e=>{e||(n++,s.removeEntry(r,K.min()))})).next(()=>s.apply(e)).next(()=>n)}markPotentiallyOrphaned(e,t){return this.ti.set(t,e.currentSequenceNumber),he.resolve()}removeTarget(e,t){const n=t.withSequenceNumber(e.currentSequenceNumber);return this.persistence.getTargetCache().updateTargetData(e,n)}addReference(e,t,n){return this.ti.set(n,e.currentSequenceNumber),he.resolve()}removeReference(e,t,n){return this.ti.set(n,e.currentSequenceNumber),he.resolve()}updateLimboDocument(e,t){return this.ti.set(t,e.currentSequenceNumber),he.resolve()}Wr(e){let t=e.key.toString().length;return e.isFoundDocument()&&(t+=Vt(e.data.value)),t}nr(e,t,n){return he.or([()=>this.persistence.Hr(e,t),()=>this.persistence.getTargetCache().containsKey(e,t),()=>{const e=this.ti.get(t);return he.resolve(void 0!==e&&e>n)}])}getCacheSize(e){return this.persistence.getRemoteDocumentCache().getSize(e)}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class zo{constructor(e){this.serializer=e}O(e,t,n,r){const s=new de("createOrUpgrade",t);n<1&&r>=1&&((function(e){e.createObjectStore("owner")})(e),(function(e){e.createObjectStore("mutationQueues",{keyPath:"userId"}),e.createObjectStore("mutations",{keyPath:"batchId",autoIncrement:!0}).createIndex("userMutationsIndex",Pe,{unique:!0}),e.createObjectStore("documentMutations")})(e),Go(e),(function(e){e.createObjectStore("remoteDocuments")})(e));let i=he.resolve();return n<3&&r>=3&&(0!==n&&((function(e){e.deleteObjectStore("targetDocuments"),e.deleteObjectStore("targets"),e.deleteObjectStore("targetGlobal")})(e),Go(e)),i=i.next(()=>(function(e){const t=e.store("targetGlobal"),n={highestTargetId:0,highestListenSequenceNumber:0,lastRemoteSnapshotVersion:K.min().toTimestamp(),targetCount:0};return t.put("targetGlobalKey",n)})(s))),n<4&&r>=4&&(0!==n&&(i=i.next(()=>(function(e,t){return t.store("mutations").U().next(n=>{e.deleteObjectStore("mutations"),e.createObjectStore("mutations",{keyPath:"batchId",autoIncrement:!0}).createIndex("userMutationsIndex",Pe,{unique:!0});const r=t.store("mutations"),s=n.map(e=>r.put(e));return he.waitFor(s)})})(e,s))),i=i.next(()=>{!(function(e){e.createObjectStore("clientMetadata",{keyPath:"clientId"})})(e)})),n<5&&r>=5&&(i=i.next(()=>this.ni(s))),n<6&&r>=6&&(i=i.next(()=>((function(e){e.createObjectStore("remoteDocumentGlobal")})(e),this.ri(s)))),n<7&&r>=7&&(i=i.next(()=>this.ii(s))),n<8&&r>=8&&(i=i.next(()=>this.si(e,s))),n<9&&r>=9&&(i=i.next(()=>{!(function(e){e.objectStoreNames.contains("remoteDocumentChanges")&&e.deleteObjectStore("remoteDocumentChanges")})(e)})),n<10&&r>=10&&(i=i.next(()=>this.oi(s))),n<11&&r>=11&&(i=i.next(()=>{!(function(e){e.createObjectStore("bundles",{keyPath:"bundleId"})})(e),(function(e){e.createObjectStore("namedQueries",{keyPath:"name"})})(e)})),n<12&&r>=12&&(i=i.next(()=>{!(function(e){const t=e.createObjectStore("documentOverlays",{keyPath:Qe});t.createIndex("collectionPathOverlayIndex",We,{unique:!1}),t.createIndex("collectionGroupOverlayIndex",Je,{unique:!1})})(e)})),n<13&&r>=13&&(i=i.next(()=>(function(e){const t=e.createObjectStore("remoteDocumentsV14",{keyPath:Me});t.createIndex("documentKeyIndex",Le),t.createIndex("collectionGroupIndex",Ve)})(e)).next(()=>this._i(e,s)).next(()=>e.deleteObjectStore("remoteDocuments"))),n<14&&r>=14&&(i=i.next(()=>this.ai(e,s))),n<15&&r>=15&&(i=i.next(()=>(function(e){e.createObjectStore("indexConfiguration",{keyPath:"indexId",autoIncrement:!0}).createIndex("collectionGroupIndex","collectionGroup",{unique:!1}),e.createObjectStore("indexState",{keyPath:ze}).createIndex("sequenceNumberIndex",Ge,{unique:!1}),e.createObjectStore("indexEntries",{keyPath:Ke}).createIndex("documentKeyIndex",$e,{unique:!1})})(e))),n<16&&r>=16&&(i=i.next(()=>{t.objectStore("indexState").clear()}).next(()=>{t.objectStore("indexEntries").clear()})),n<17&&r>=17&&(i=i.next(()=>{!(function(e){e.createObjectStore("globals",{keyPath:"name"})})(e)})),i}ri(e){let t=0;return e.store("remoteDocuments").J((e,n)=>{t+=eo(n)}).next(()=>{const n={byteSize:t};return e.store("remoteDocumentGlobal").put("remoteDocumentGlobalKey",n)})}ni(e){const t=e.store("mutationQueues"),n=e.store("mutations");return t.U().next(t=>he.forEach(t,t=>{const r=IDBKeyRange.bound([t.userId,-1],[t.userId,t.lastAcknowledgedBatchId]);return n.U("userMutationsIndex",r).next(n=>he.forEach(n,n=>{E(n.userId===t.userId);const r=ci(this.serializer,n);return Zi(e,t.userId,r).next(()=>{})}))}))}ii(e){const t=e.store("targetDocuments"),n=e.store("remoteDocuments");return e.store("targetGlobal").get("targetGlobalKey").next(e=>{const r=[];return n.J((n,s)=>{const i=new Q(n),o=(function(e){return[0,De(e)]})(i);r.push(t.get(o).next(n=>n?he.resolve():(n=>t.put({targetId:0,path:De(n),sequenceNumber:e.highestListenSequenceNumber}))(i)))}).next(()=>he.waitFor(r))})}si(e,t){e.createObjectStore("collectionParents",{keyPath:je});const n=t.store("collectionParents"),r=new zi,s=e=>{if(r.add(e)){const t=e.lastSegment(),r=e.popLast();return n.put({collectionId:t,parent:De(r)})}};return t.store("remoteDocuments").J({H:!0},(e,t)=>{const n=new Q(e);return s(n.popLast())}).next(()=>t.store("documentMutations").J({H:!0},([e,t,n],r)=>{const i=ke(t);return s(i.popLast())}))}oi(e){const t=e.store("targets");return t.J((e,n)=>{const r=li(n),s=hi(this.serializer,r);return t.put(s)})}_i(e,t){const n=t.store("remoteDocuments"),r=[];return n.J((e,n)=>{const s=t.store("remoteDocumentsV14"),i=(function(e){return e.document?new H(Q.fromString(e.document.name).popFirst(5)):e.noDocument?H.fromSegments(e.noDocument.path):e.unknownDocument?H.fromSegments(e.unknownDocument.path):T()}
+/**
+          * @license
+          * Copyright 2017 Google LLC
+          *
+          * Licensed under the Apache License, Version 2.0 (the "License");
+          * you may not use this file except in compliance with the License.
+          * You may obtain a copy of the License at
+          *
+          *   http://www.apache.org/licenses/LICENSE-2.0
+          *
+          * Unless required by applicable law or agreed to in writing, software
+          * distributed under the License is distributed on an "AS IS" BASIS,
+          * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+          * See the License for the specific language governing permissions and
+          * limitations under the License.
+          */)(n).path.toArray(),o={prefixPath:i.slice(0,i.length-2),collectionGroup:i[i.length-2],documentId:i[i.length-1],readTime:n.readTime||[0,0],unknownDocument:n.unknownDocument,noDocument:n.noDocument,document:n.document,hasCommittedMutations:!!n.hasCommittedMutations};r.push(s.put(o))}).next(()=>he.waitFor(r))}ai(e,t){const n=t.store("mutations"),r=Io(this.serializer),s=new qo(Bo.Zr,this.serializer.ct);return n.U().next(e=>{const n=new Map;return e.forEach(e=>{var t;let r=null!==(t=n.get(e.userId))&&void 0!==t?t:lr();ci(this.serializer,e).keys().forEach(e=>r=r.add(e)),n.set(e.userId,r)}),he.forEach(n,(e,n)=>{const i=new m(n),o=vi.lt(this.serializer,i),a=s.getIndexManager(i),u=to.lt(i,this.serializer,a,s.referenceDelegate);return new No(r,u,o,a).recalculateAndSaveOverlaysForDocumentKeys(new rt(t,Ee.oe),e).next()})})}}function Go(e){e.createObjectStore("targetDocuments",{keyPath:Ue}).createIndex("documentTargetsIndex",Be,{unique:!0}),e.createObjectStore("targets",{keyPath:"targetId"}).createIndex("queryTargetsIndex",qe,{unique:!0}),e.createObjectStore("targetGlobal")}const Ko="Failed to obtain exclusive access to the persistence layer. To allow shared access, multi-tab synchronization has to be enabled in all tabs. If you are using `experimentalForceOwningTab:true`, make sure that only one tab has persistence enabled at any given time.";class $o{constructor(e,t,n,r,s,i,o,a,u,c,l=17){if(this.allowTabSynchronization=e,this.persistenceKey=t,this.clientId=n,this.ui=s,this.window=i,this.document=o,this.ci=u,this.li=c,this.hi=l,this.Qr=null,this.Kr=!1,this.isPrimary=!1,this.networkEnabled=!0,this.Pi=null,this.inForeground=!1,this.Ii=null,this.Ti=null,this.Ei=Number.NEGATIVE_INFINITY,this.di=e=>Promise.resolve(),!$o.D())throw new D(C.UNIMPLEMENTED,"This platform is either missing IndexedDB or is known to have an incomplete implementation. Offline persistence has been disabled.");this.referenceDelegate=new yo(this,r),this.Ai=t+"main",this.serializer=new ri(a),this.Ri=new fe(this.Ai,this.hi,new zo(this.serializer)),this.$r=new Ii,this.Ur=new ao(this.referenceDelegate,this.serializer),this.remoteDocumentCache=Io(this.serializer),this.Gr=new pi,this.window&&this.window.localStorage?this.Vi=this.window.localStorage:(this.Vi=null,!1===c&&b("IndexedDbPersistence","LocalStorage is unavailable. As a result, persistence may not work reliably. In particular enablePersistence() could fail immediately after refreshing the page."))}start(){return this.mi().then(()=>{if(!this.isPrimary&&!this.allowTabSynchronization)throw new D(C.FAILED_PRECONDITION,Ko);return this.fi(),this.gi(),this.pi(),this.runTransaction("getHighestListenSequenceNumber","readonly",e=>this.Ur.getHighestSequenceNumber(e))}).then(e=>{this.Qr=new Ee(e,this.ci)}).then(()=>{this.Kr=!0}).catch(e=>(this.Ri&&this.Ri.close(),Promise.reject(e)))}yi(e){return this.di=async t=>{if(this.started)return e(t)},e(this.isPrimary)}setDatabaseDeletedListener(e){this.Ri.L(async t=>{null===t.newVersion&&await e()})}setNetworkEnabled(e){this.networkEnabled!==e&&(this.networkEnabled=e,this.ui.enqueueAndForget(async()=>{this.started&&await this.mi()}))}mi(){return this.runTransaction("updateClientMetadataAndTryBecomePrimary","readwrite",e=>Wo(e).put({clientId:this.clientId,updateTimeMs:Date.now(),networkEnabled:this.networkEnabled,inForeground:this.inForeground}).next(()=>{if(this.isPrimary)return this.wi(e).next(e=>{e||(this.isPrimary=!1,this.ui.enqueueRetryable(()=>this.di(!1)))})}).next(()=>this.Si(e)).next(t=>this.isPrimary&&!t?this.bi(e).next(()=>!1):!!t&&this.Di(e).next(()=>!0))).catch(e=>{if(ye(e))return v("IndexedDbPersistence","Failed to extend owner lease: ",e),this.isPrimary;if(!this.allowTabSynchronization)throw e;return v("IndexedDbPersistence","Releasing owner lease after error during lease refresh",e),!1}).then(e=>{this.isPrimary!==e&&this.ui.enqueueRetryable(()=>this.di(e)),this.isPrimary=e})}wi(e){return Qo(e).get("owner").next(e=>he.resolve(this.vi(e)))}Ci(e){return Wo(e).delete(this.clientId)}async Fi(){if(this.isPrimary&&!this.Mi(this.Ei,18e5)){this.Ei=Date.now();const e=await this.runTransaction("maybeGarbageCollectMultiClientState","readwrite-primary",e=>{const t=st(e,"clientMetadata");return t.U().next(e=>{const n=this.xi(e,18e5),r=e.filter(e=>-1===n.indexOf(e));return he.forEach(r,e=>t.delete(e.clientId)).next(()=>r)})}).catch(()=>[]);if(this.Vi)for(const t of e)this.Vi.removeItem(this.Oi(t.clientId))}}pi(){this.Ti=this.ui.enqueueAfterDelay("client_metadata_refresh",4e3,()=>this.mi().then(()=>this.Fi()).then(()=>this.pi()))}vi(e){return!!e&&e.ownerId===this.clientId}Si(e){return this.li?he.resolve(!0):Qo(e).get("owner").next(t=>{if(null!==t&&this.Mi(t.leaseTimestampMs,5e3)&&!this.Ni(t.ownerId)){if(this.vi(t)&&this.networkEnabled)return!0;if(!this.vi(t)){if(!t.allowTabSynchronization)throw new D(C.FAILED_PRECONDITION,Ko);return!1}}return!(!this.networkEnabled||!this.inForeground)||Wo(e).U().next(e=>void 0===this.xi(e,5e3).find(e=>{if(this.clientId!==e.clientId){const t=!this.networkEnabled&&e.networkEnabled,n=!this.inForeground&&e.inForeground,r=this.networkEnabled===e.networkEnabled;if(t||n&&r)return!0}return!1}))}).next(e=>(this.isPrimary!==e&&v("IndexedDbPersistence",`Client ${e?"is":"is not"} eligible for a primary lease.`),e))}async shutdown(){this.Kr=!1,this.Li(),this.Ti&&(this.Ti.cancel(),this.Ti=null),this.Bi(),this.ki(),await this.Ri.runTransaction("shutdown","readwrite",["owner","clientMetadata"],e=>{const t=new rt(e,Ee.oe);return this.bi(t).next(()=>this.Ci(t))}),this.Ri.close(),this.qi()}xi(e,t){return e.filter(e=>this.Mi(e.updateTimeMs,t)&&!this.Ni(e.clientId))}Qi(){return this.runTransaction("getActiveClients","readonly",e=>Wo(e).U().next(e=>this.xi(e,18e5).map(e=>e.clientId)))}get started(){return this.Kr}getGlobalsCache(){return this.$r}getMutationQueue(e,t){return to.lt(e,this.serializer,t,this.referenceDelegate)}getTargetCache(){return this.Ur}getRemoteDocumentCache(){return this.remoteDocumentCache}getIndexManager(e){return new Ki(e,this.serializer.ct.databaseId)}getDocumentOverlayCache(e){return vi.lt(this.serializer,e)}getBundleCache(){return this.Gr}runTransaction(e,t,n){v("IndexedDbPersistence","Starting transaction:",e);const r="readonly"===t?"readonly":"readwrite",s=(function(e){return 17===e?nt:16===e?tt:15===e?et:14===e?Ze:13===e?Xe:12===e?Ye:11===e?He:void T()})(this.hi);let i;return this.Ri.runTransaction(e,r,s,r=>(i=new rt(r,this.Qr?this.Qr.next():Ee.oe),"readwrite-primary"===t?this.wi(i).next(e=>!!e||this.Si(i)).next(t=>{if(!t)throw b(`Failed to obtain primary lease for action '${e}'.`),this.isPrimary=!1,this.ui.enqueueRetryable(()=>this.di(!1)),new D(C.FAILED_PRECONDITION,ue);return n(i)}).next(e=>this.Di(i).next(()=>e)):this.Ki(i).next(()=>n(i)))).then(e=>(i.raiseOnCommittedEvent(),e))}Ki(e){return Qo(e).get("owner").next(e=>{if(null!==e&&this.Mi(e.leaseTimestampMs,5e3)&&!this.Ni(e.ownerId)&&!this.vi(e)&&!(this.li||this.allowTabSynchronization&&e.allowTabSynchronization))throw new D(C.FAILED_PRECONDITION,Ko)})}Di(e){const t={ownerId:this.clientId,allowTabSynchronization:this.allowTabSynchronization,leaseTimestampMs:Date.now()};return Qo(e).put("owner",t)}static D(){return fe.D()}bi(e){const t=Qo(e);return t.get("owner").next(e=>this.vi(e)?(v("IndexedDbPersistence","Releasing primary lease."),t.delete("owner")):he.resolve())}Mi(e,t){const n=Date.now();return!(e<n-t||e>n&&(b(`Detected an update time that is in the future: ${e} > ${n}`),1))}fi(){null!==this.document&&"function"==typeof this.document.addEventListener&&(this.Ii=()=>{this.ui.enqueueAndForget(()=>(this.inForeground="visible"===this.document.visibilityState,this.mi()))},this.document.addEventListener("visibilitychange",this.Ii),this.inForeground="visible"===this.document.visibilityState)}Bi(){this.Ii&&(this.document.removeEventListener("visibilitychange",this.Ii),this.Ii=null)}gi(){var e;"function"==typeof(null===(e=this.window)||void 0===e?void 0:e.addEventListener)&&(this.Pi=()=>{this.Li();const e=/(?:Version|Mobile)\/1[456]/;(0,l.isSafari)()&&(navigator.appVersion.match(e)||navigator.userAgent.match(e))&&this.ui.enterRestrictedMode(!0),this.ui.enqueueAndForget(()=>this.shutdown())},this.window.addEventListener("pagehide",this.Pi))}ki(){this.Pi&&(this.window.removeEventListener("pagehide",this.Pi),this.Pi=null)}Ni(e){var t;try{const n=null!==(null===(t=this.Vi)||void 0===t?void 0:t.getItem(this.Oi(e)));return v("IndexedDbPersistence",`Client '${e}' ${n?"is":"is not"} zombied in LocalStorage`),n}catch(e){return b("IndexedDbPersistence","Failed to get zombied client id.",e),!1}}Li(){if(this.Vi)try{this.Vi.setItem(this.Oi(this.clientId),String(Date.now()))}catch(e){b("Failed to set zombie client id.",e)}}qi(){if(this.Vi)try{this.Vi.removeItem(this.Oi(this.clientId))}catch(e){}}Oi(e){return`firestore_zombie_${this.persistenceKey}_${e}`}}function Qo(e){return st(e,"owner")}function Wo(e){return st(e,"clientMetadata")}function Jo(e,t){let n=e.projectId;return e.isDefaultDatabase||(n+="."+e.database),"firestore/"+t+"/"+n+"/"
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}class Ho{constructor(e,t,n,r){this.targetId=e,this.fromCache=t,this.$i=n,this.Ui=r}static Wi(e,t){let n=lr(),r=lr();for(const e of t.docChanges)switch(e.type){case 0:n=n.add(e.doc.key);break;case 1:r=r.add(e.doc.key)}return new Ho(e,t.fromCache,n,r)}}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Yo{constructor(){this._documentReadCount=0}get documentReadCount(){return this._documentReadCount}incrementDocumentReadCount(e){this._documentReadCount+=e}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Xo{constructor(){this.Gi=!1,this.zi=!1,this.ji=100,this.Hi=(0,l.isSafari)()?8:me((0,l.getUA)())>0?6:4}initialize(e,t){this.Ji=e,this.indexManager=t,this.Gi=!0}getDocumentsMatchingQuery(e,t,n,r){const s={result:null};return this.Yi(e,t).next(e=>{s.result=e}).next(()=>{if(!s.result)return this.Zi(e,t,r,n).next(e=>{s.result=e})}).next(()=>{if(s.result)return;const n=new Yo;return this.Xi(e,t,n).next(r=>{if(s.result=r,this.zi)return this.es(e,t,n,r.size)})}).next(()=>s.result)}es(e,t,n,r){return n.documentReadCount<this.ji?(y()<=c.LogLevel.DEBUG&&v("QueryEngine","SDK will not create cache indexes for query:",Wn(t),"since it only creates cache indexes for collection contains","more than or equal to",this.ji,"documents"),he.resolve()):(y()<=c.LogLevel.DEBUG&&v("QueryEngine","Query:",Wn(t),"scans",n.documentReadCount,"local documents and returns",r,"documents as results."),n.documentReadCount>this.Hi*r?(y()<=c.LogLevel.DEBUG&&v("QueryEngine","The SDK decides to create cache indexes for query:",Wn(t),"as using cache indexes may help improve performance."),this.indexManager.createTargetIndexes(e,Bn(t))):he.resolve())}Yi(e,t){if(Vn(t))return he.resolve(null);let n=Bn(t);return this.indexManager.getIndexType(e,n).next(r=>0===r?null:(null!==t.limit&&1===r&&(t=Kn(t,null,"F"),n=Bn(t)),this.indexManager.getDocumentsMatchingTarget(e,n).next(r=>{const s=lr(...r);return this.Ji.getDocuments(e,s).next(r=>this.indexManager.getMinOffset(e,n).next(n=>{const i=this.ts(t,r);return this.ns(t,i,s,n.readTime)?this.Yi(e,Kn(t,null,"F")):this.rs(e,i,t,n)}))})))}Zi(e,t,n,r){return Vn(t)||r.isEqual(K.min())?he.resolve(null):this.Ji.getDocuments(e,n).next(s=>{const i=this.ts(t,s);return this.ns(t,i,n,r)?he.resolve(null):(y()<=c.LogLevel.DEBUG&&v("QueryEngine","Re-using previous result from %s to execute query: %s",r.toString(),Wn(t)),this.rs(e,i,t,se(r,-1)).next(e=>e))})}ts(e,t){let n=new dt(Yn(e));return t.forEach((t,r)=>{Jn(e,r)&&(n=n.add(r))}),n}ns(e,t,n,r){if(null===e.limit)return!1;if(n.size!==t.size)return!0;const s="F"===e.limitType?t.last():t.first();return!!s&&(s.hasPendingWrites||s.version.compareTo(r)>0)}Xi(e,t,n){return y()<=c.LogLevel.DEBUG&&v("QueryEngine","Using full collection scan to execute query:",Wn(t)),this.Ji.getDocumentsMatchingQuery(e,t,oe.min(),n)}rs(e,t,n,r){return this.Ji.getDocumentsMatchingQuery(e,n,r).next(e=>(t.forEach(t=>{e=e.insert(t.key,t)}),e))}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Zo{constructor(e,t,n,r){this.persistence=e,this.ss=t,this.serializer=r,this.os=new ct(B),this._s=new Zn(e=>Nn(e),An),this.us=new Map,this.cs=e.getRemoteDocumentCache(),this.Ur=e.getTargetCache(),this.Gr=e.getBundleCache(),this.ls(n)}ls(e){this.documentOverlayCache=this.persistence.getDocumentOverlayCache(e),this.indexManager=this.persistence.getIndexManager(e),this.mutationQueue=this.persistence.getMutationQueue(e,this.indexManager),this.localDocuments=new No(this.cs,this.mutationQueue,this.documentOverlayCache,this.indexManager),this.cs.setIndexManager(this.indexManager),this.ss.initialize(this.localDocuments,this.indexManager)}collectGarbage(e){return this.persistence.runTransaction("Collect garbage","readwrite-primary",t=>e.collect(t,this.os))}}function ea(e,t,n,r){return new Zo(e,t,n,r)}async function ta(e,t){const n=x(e);return await n.persistence.runTransaction("Handle user change","readonly",e=>{let r;return n.mutationQueue.getAllMutationBatches(e).next(s=>(r=s,n.ls(t),n.mutationQueue.getAllMutationBatches(e))).next(t=>{const s=[],i=[];let o=lr();for(const e of r){s.push(e.batchId);for(const t of e.mutations)o=o.add(t.key)}for(const e of t){i.push(e.batchId);for(const t of e.mutations)o=o.add(t.key)}return n.localDocuments.getDocuments(e,o).next(e=>({hs:e,removedBatchIds:s,addedBatchIds:i}))})})}function na(e,t){const n=x(e);return n.persistence.runTransaction("Acknowledge batch","readwrite-primary",e=>{const r=t.batch.keys(),s=n.cs.newChangeBuffer({trackRemovals:!0});return(function(e,t,n,r){const s=n.batch,i=s.keys();let o=he.resolve();return i.forEach(e=>{o=o.next(()=>r.getEntry(t,e)).next(t=>{const i=n.docVersions.get(e);E(null!==i),t.version.compareTo(i)<0&&(s.applyToRemoteDocument(t,n),t.isValidDocument()&&(t.setReadTime(n.commitVersion),r.addEntry(t)))})}),o.next(()=>e.mutationQueue.removeMutationBatch(t,s))})(n,e,t,s).next(()=>s.apply(e)).next(()=>n.mutationQueue.performConsistencyCheck(e)).next(()=>n.documentOverlayCache.removeOverlaysForBatchId(e,r,t.batch.batchId)).next(()=>n.localDocuments.recalculateAndSaveOverlaysForDocumentKeys(e,(function(e){let t=lr();for(let n=0;n<e.mutationResults.length;++n)e.mutationResults[n].transformResults.length>0&&(t=t.add(e.batch.mutations[n].key));return t})(t))).next(()=>n.localDocuments.getDocuments(e,r))})}function ra(e){const t=x(e);return t.persistence.runTransaction("Get last remote snapshot version","readonly",e=>t.Ur.getLastRemoteSnapshotVersion(e))}function sa(e,t){const n=x(e),r=t.snapshotVersion;let s=n.os;return n.persistence.runTransaction("Apply remote event","readwrite-primary",e=>{const i=n.cs.newChangeBuffer({trackRemovals:!0});s=n.os;const o=[];t.targetChanges.forEach((i,a)=>{const u=s.get(a);if(!u)return;o.push(n.Ur.removeMatchingKeys(e,i.removedDocuments,a).next(()=>n.Ur.addMatchingKeys(e,i.addedDocuments,a)));let c=u.withSequenceNumber(e.currentSequenceNumber);null!==t.targetMismatches.get(a)?c=c.withResumeToken(wt.EMPTY_BYTE_STRING,K.min()).withLastLimboFreeSnapshotVersion(K.min()):i.resumeToken.approximateByteSize()>0&&(c=c.withResumeToken(i.resumeToken,r)),s=s.insert(a,c),(function(e,t,n){return 0===e.resumeToken.approximateByteSize()||(t.snapshotVersion.toMicroseconds()-e.snapshotVersion.toMicroseconds()>=3e8||n.addedDocuments.size+n.modifiedDocuments.size+n.removedDocuments.size>0)})(u,c,i)&&o.push(n.Ur.updateTargetData(e,c))});let a=tr(),u=lr();if(t.documentUpdates.forEach(r=>{t.resolvedLimboDocuments.has(r)&&o.push(n.persistence.referenceDelegate.updateLimboDocument(e,r))}),o.push(ia(e,i,t.documentUpdates).next(e=>{a=e.Ps,u=e.Is})),!r.isEqual(K.min())){const t=n.Ur.getLastRemoteSnapshotVersion(e).next(t=>n.Ur.setTargetsMetadata(e,e.currentSequenceNumber,r));o.push(t)}return he.waitFor(o).next(()=>i.apply(e)).next(()=>n.localDocuments.getLocalViewOfDocuments(e,a,u)).next(()=>a)}).then(e=>(n.os=s,e))}function ia(e,t,n){let r=lr(),s=lr();return n.forEach(e=>r=r.add(e)),t.getEntries(e,r).next(e=>{let r=tr();return n.forEach((n,i)=>{const o=e.get(n);i.isFoundDocument()!==o.isFoundDocument()&&(s=s.add(n)),i.isNoDocument()&&i.version.isEqual(K.min())?(t.removeEntry(n,i.readTime),r=r.insert(n,i)):!o.isValidDocument()||i.version.compareTo(o.version)>0||0===i.version.compareTo(o.version)&&o.hasPendingWrites?(t.addEntry(i),r=r.insert(n,i)):v("LocalStore","Ignoring outdated watch update for ",n,". Current version:",o.version," Watch version:",i.version)}),{Ps:r,Is:s}})}function oa(e,t){const n=x(e);return n.persistence.runTransaction("Get next mutation batch","readonly",e=>(void 0===t&&(t=-1),n.mutationQueue.getNextMutationBatchAfterBatchId(e,t)))}function aa(e,t){const n=x(e);return n.persistence.runTransaction("Allocate target","readwrite",e=>{let r;return n.Ur.getTargetData(e,t).next(s=>s?(r=s,he.resolve(r)):n.Ur.allocateTargetId(e).next(s=>(r=new ni(t,s,"TargetPurposeListen",e.currentSequenceNumber),n.Ur.addTargetData(e,r).next(()=>r))))}).then(e=>{const r=n.os.get(e.targetId);return(null===r||e.snapshotVersion.compareTo(r.snapshotVersion)>0)&&(n.os=n.os.insert(e.targetId,e),n._s.set(t,e.targetId)),e})}async function ua(e,t,n){const r=x(e),s=r.os.get(t),i=n?"readwrite":"readwrite-primary";try{n||await r.persistence.runTransaction("Release target",i,e=>r.persistence.referenceDelegate.removeTarget(e,s))}catch(e){if(!ye(e))throw e;v("LocalStore",`Failed to update sequence numbers for target ${t}: ${e}`)}r.os=r.os.remove(t),r._s.delete(s.target)}function ca(e,t,n){const r=x(e);let s=K.min(),i=lr();return r.persistence.runTransaction("Execute query","readwrite",e=>(function(e,t,n){const r=x(e),s=r._s.get(n);return void 0!==s?he.resolve(r.os.get(s)):r.Ur.getTargetData(t,n)})(r,e,Bn(t)).next(t=>{if(t)return s=t.lastLimboFreeSnapshotVersion,r.Ur.getMatchingKeysForTargetId(e,t.targetId).next(e=>{i=e})}).next(()=>r.ss.getDocumentsMatchingQuery(e,t,n?s:K.min(),n?i:lr())).next(e=>(da(r,Hn(t),e),{documents:e,Ts:i})))}function la(e,t){const n=x(e),r=x(n.Ur),s=n.os.get(t);return s?Promise.resolve(s.target):n.persistence.runTransaction("Get target data","readonly",e=>r.ot(e,t).next(e=>e?e.target:null))}function ha(e,t){const n=x(e),r=n.us.get(t)||K.min();return n.persistence.runTransaction("Get new document changes","readonly",e=>n.cs.getAllFromCollectionGroup(e,t,se(r,-1),Number.MAX_SAFE_INTEGER)).then(e=>(da(n,t,e),e))}function da(e,t,n){let r=e.us.get(t)||K.min();n.forEach((e,t)=>{t.readTime.compareTo(r)>0&&(r=t.readTime)}),e.us.set(t,r)}async function fa(e,t,n,r){const s=x(e);let i=lr(),o=tr();for(const e of n){const n=t.Es(e.metadata.name);e.document&&(i=i.add(n));const r=t.ds(e);r.setReadTime(t.As(e.metadata.readTime)),o=o.insert(n,r)}const a=s.cs.newChangeBuffer({trackRemovals:!0}),u=await aa(s,(function(e){return Bn(Ln(Q.fromString(`__bundle__/docs/${e}`)))})(r));return s.persistence.runTransaction("Apply bundle documents","readwrite",e=>ia(e,a,o).next(t=>(a.apply(e),t)).next(t=>s.Ur.removeMatchingKeysForTargetId(e,u.targetId).next(()=>s.Ur.addMatchingKeys(e,i,u.targetId)).next(()=>s.localDocuments.getLocalViewOfDocuments(e,t.Ps,t.Is)).next(()=>t.Ps)))}async function ma(e,t,n=lr()){const r=await aa(e,Bn(di(t.bundledQuery))),s=x(e);return s.persistence.runTransaction("Save named query","readwrite",e=>{const i=Ss(t.readTime);if(r.snapshotVersion.compareTo(i)>=0)return s.Gr.saveNamedQuery(e,t);const o=r.withResumeToken(wt.EMPTY_BYTE_STRING,i);return s.os=s.os.insert(o.targetId,o),s.Ur.updateTargetData(e,o).next(()=>s.Ur.removeMatchingKeysForTargetId(e,r.targetId)).next(()=>s.Ur.addMatchingKeys(e,n,r.targetId)).next(()=>s.Gr.saveNamedQuery(e,t))})}function ga(e,t){return`firestore_clients_${e}_${t}`}function pa(e,t,n){let r=`firestore_mutations_${e}_${n}`;return t.isAuthenticated()&&(r+=`_${t.uid}`),r}function ya(e,t){return`firestore_targets_${e}_${t}`}class wa{constructor(e,t,n,r){this.user=e,this.batchId=t,this.state=n,this.error=r}static Rs(e,t,n){const r=JSON.parse(n);let s,i="object"==typeof r&&-1!==["pending","acknowledged","rejected"].indexOf(r.state)&&(void 0===r.error||"object"==typeof r.error);return i&&r.error&&(i="string"==typeof r.error.message&&"string"==typeof r.error.code,i&&(s=new D(r.error.code,r.error.message))),i?new wa(e,t,r.state,s):(b("SharedClientState",`Failed to parse mutation state for ID '${t}': ${n}`),null)}Vs(){const e={state:this.state,updateTimeMs:Date.now()};return this.error&&(e.error={code:this.error.code,message:this.error.message}),JSON.stringify(e)}}class va{constructor(e,t,n){this.targetId=e,this.state=t,this.error=n}static Rs(e,t){const n=JSON.parse(t);let r,s="object"==typeof n&&-1!==["not-current","current","rejected"].indexOf(n.state)&&(void 0===n.error||"object"==typeof n.error);return s&&n.error&&(s="string"==typeof n.error.message&&"string"==typeof n.error.code,s&&(r=new D(n.error.code,n.error.message))),s?new va(e,n.state,r):(b("SharedClientState",`Failed to parse target state for ID '${e}': ${t}`),null)}Vs(){const e={state:this.state,updateTimeMs:Date.now()};return this.error&&(e.error={code:this.error.code,message:this.error.message}),JSON.stringify(e)}}class ba{constructor(e,t){this.clientId=e,this.activeTargetIds=t}static Rs(e,t){const n=JSON.parse(t);let r="object"==typeof n&&n.activeTargetIds instanceof Array,s=dr();for(let e=0;r&&e<n.activeTargetIds.length;++e)r=Ce(n.activeTargetIds[e]),s=s.add(n.activeTargetIds[e]);return r?new ba(e,s):(b("SharedClientState",`Failed to parse client data for instance '${e}': ${t}`),null)}}class Ia{constructor(e,t){this.clientId=e,this.onlineState=t}static Rs(e){const t=JSON.parse(e);return"object"==typeof t&&-1!==["Unknown","Online","Offline"].indexOf(t.onlineState)&&"string"==typeof t.clientId?new Ia(t.clientId,t.onlineState):(b("SharedClientState",`Failed to parse online state: ${e}`),null)}}class _a{constructor(){this.activeTargetIds=dr()}fs(e){this.activeTargetIds=this.activeTargetIds.add(e)}gs(e){this.activeTargetIds=this.activeTargetIds.delete(e)}Vs(){const e={activeTargetIds:this.activeTargetIds.toArray(),updateTimeMs:Date.now()};return JSON.stringify(e)}}class Ta{constructor(e,t,n,r,s){this.window=e,this.ui=t,this.persistenceKey=n,this.ps=r,this.syncEngine=null,this.onlineStateHandler=null,this.sequenceNumberHandler=null,this.ys=this.ws.bind(this),this.Ss=new ct(B),this.started=!1,this.bs=[];const i=n.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");this.storage=this.window.localStorage,this.currentUser=s,this.Ds=ga(this.persistenceKey,this.ps),this.vs=(function(e){return`firestore_sequence_number_${e}`}
+/**
+      * @license
+      * Copyright 2018 Google LLC
+      *
+      * Licensed under the Apache License, Version 2.0 (the "License");
+      * you may not use this file except in compliance with the License.
+      * You may obtain a copy of the License at
+      *
+      *   http://www.apache.org/licenses/LICENSE-2.0
+      *
+      * Unless required by applicable law or agreed to in writing, software
+      * distributed under the License is distributed on an "AS IS" BASIS,
+      * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      * See the License for the specific language governing permissions and
+      * limitations under the License.
+      */)(this.persistenceKey),this.Ss=this.Ss.insert(this.ps,new _a),this.Cs=new RegExp(`^firestore_clients_${i}_([^_]*)$`),this.Fs=new RegExp(`^firestore_mutations_${i}_(\\d+)(?:_(.*))?$`),this.Ms=new RegExp(`^firestore_targets_${i}_(\\d+)$`),this.xs=(function(e){return`firestore_online_state_${e}`})(this.persistenceKey),this.Os=(function(e){return`firestore_bundle_loaded_v2_${e}`})(this.persistenceKey),this.window.addEventListener("storage",this.ys)}static D(e){return!(!e||!e.localStorage)}async start(){const e=await this.syncEngine.Qi();for(const t of e){if(t===this.ps)continue;const e=this.getItem(ga(this.persistenceKey,t));if(e){const n=ba.Rs(t,e);n&&(this.Ss=this.Ss.insert(n.clientId,n))}}this.Ns();const t=this.storage.getItem(this.xs);if(t){const e=this.Ls(t);e&&this.Bs(e)}for(const e of this.bs)this.ws(e);this.bs=[],this.window.addEventListener("pagehide",()=>this.shutdown()),this.started=!0}writeSequenceNumber(e){this.setItem(this.vs,JSON.stringify(e))}getAllActiveQueryTargets(){return this.ks(this.Ss)}isActiveQueryTarget(e){let t=!1;return this.Ss.forEach((n,r)=>{r.activeTargetIds.has(e)&&(t=!0)}),t}addPendingMutation(e){this.qs(e,"pending")}updateMutationState(e,t,n){this.qs(e,t,n),this.Qs(e)}addLocalQueryTarget(e,t=!0){let n="not-current";if(this.isActiveQueryTarget(e)){const t=this.storage.getItem(ya(this.persistenceKey,e));if(t){const r=va.Rs(e,t);r&&(n=r.state)}}return t&&this.Ks.fs(e),this.Ns(),n}removeLocalQueryTarget(e){this.Ks.gs(e),this.Ns()}isLocalQueryTarget(e){return this.Ks.activeTargetIds.has(e)}clearQueryState(e){this.removeItem(ya(this.persistenceKey,e))}updateQueryState(e,t,n){this.$s(e,t,n)}handleUserChange(e,t,n){t.forEach(e=>{this.Qs(e)}),this.currentUser=e,n.forEach(e=>{this.addPendingMutation(e)})}setOnlineState(e){this.Us(e)}notifyBundleLoaded(e){this.Ws(e)}shutdown(){this.started&&(this.window.removeEventListener("storage",this.ys),this.removeItem(this.Ds),this.started=!1)}getItem(e){const t=this.storage.getItem(e);return v("SharedClientState","READ",e,t),t}setItem(e,t){v("SharedClientState","SET",e,t),this.storage.setItem(e,t)}removeItem(e){v("SharedClientState","REMOVE",e),this.storage.removeItem(e)}ws(e){const t=e;if(t.storageArea===this.storage){if(v("SharedClientState","EVENT",t.key,t.newValue),t.key===this.Ds)return void b("Received WebStorage notification for local change. Another client might have garbage-collected our state");this.ui.enqueueRetryable(async()=>{if(this.started){if(null!==t.key)if(this.Cs.test(t.key)){if(null==t.newValue){const e=this.Gs(t.key);return this.zs(e,null)}{const e=this.js(t.key,t.newValue);if(e)return this.zs(e.clientId,e)}}else if(this.Fs.test(t.key)){if(null!==t.newValue){const e=this.Hs(t.key,t.newValue);if(e)return this.Js(e)}}else if(this.Ms.test(t.key)){if(null!==t.newValue){const e=this.Ys(t.key,t.newValue);if(e)return this.Zs(e)}}else if(t.key===this.xs){if(null!==t.newValue){const e=this.Ls(t.newValue);if(e)return this.Bs(e)}}else if(t.key===this.vs){const e=(function(e){let t=Ee.oe;if(null!=e)try{const n=JSON.parse(e);E("number"==typeof n),t=n}catch(e){b("SharedClientState","Failed to read sequence number from WebStorage",e)}return t})(t.newValue);e!==Ee.oe&&this.sequenceNumberHandler(e)}else if(t.key===this.Os){const e=this.Xs(t.newValue);await Promise.all(e.map(e=>this.syncEngine.eo(e)))}}else this.bs.push(t)})}}get Ks(){return this.Ss.get(this.ps)}Ns(){this.setItem(this.Ds,this.Ks.Vs())}qs(e,t,n){const r=new wa(this.currentUser,e,t,n),s=pa(this.persistenceKey,this.currentUser,e);this.setItem(s,r.Vs())}Qs(e){const t=pa(this.persistenceKey,this.currentUser,e);this.removeItem(t)}Us(e){const t={clientId:this.ps,onlineState:e};this.storage.setItem(this.xs,JSON.stringify(t))}$s(e,t,n){const r=ya(this.persistenceKey,e),s=new va(e,t,n);this.setItem(r,s.Vs())}Ws(e){const t=JSON.stringify(Array.from(e));this.setItem(this.Os,t)}Gs(e){const t=this.Cs.exec(e);return t?t[1]:null}js(e,t){const n=this.Gs(e);return ba.Rs(n,t)}Hs(e,t){const n=this.Fs.exec(e),r=Number(n[1]),s=void 0!==n[2]?n[2]:null;return wa.Rs(new m(s),r,t)}Ys(e,t){const n=this.Ms.exec(e),r=Number(n[1]);return va.Rs(r,t)}Ls(e){return Ia.Rs(e)}Xs(e){return JSON.parse(e)}async Js(e){if(e.user.uid===this.currentUser.uid)return this.syncEngine.no(e.batchId,e.state,e.error);v("SharedClientState",`Ignoring mutation for non-active user ${e.user.uid}`)}Zs(e){return this.syncEngine.ro(e.targetId,e.state,e.error)}zs(e,t){const n=t?this.Ss.insert(e,t):this.Ss.remove(e),r=this.ks(this.Ss),s=this.ks(n),i=[],o=[];return s.forEach(e=>{r.has(e)||i.push(e)}),r.forEach(e=>{s.has(e)||o.push(e)}),this.syncEngine.io(i,o).then(()=>{this.Ss=n})}Bs(e){this.Ss.get(e.clientId)&&this.onlineStateHandler(e.onlineState)}ks(e){let t=dr();return e.forEach((e,n)=>{t=t.unionWith(n.activeTargetIds)}),t}}class Ea{constructor(){this.so=new _a,this.oo={},this.onlineStateHandler=null,this.sequenceNumberHandler=null}addPendingMutation(e){}updateMutationState(e,t,n){}addLocalQueryTarget(e,t=!0){return t&&this.so.fs(e),this.oo[e]||"not-current"}updateQueryState(e,t,n){this.oo[e]=t}removeLocalQueryTarget(e){this.so.gs(e)}isLocalQueryTarget(e){return this.so.activeTargetIds.has(e)}clearQueryState(e){delete this.oo[e]}getAllActiveQueryTargets(){return this.so.activeTargetIds}isActiveQueryTarget(e){return this.so.activeTargetIds.has(e)}start(){return this.so=new _a,Promise.resolve()}handleUserChange(e,t,n){}setOnlineState(e){}shutdown(){}writeSequenceNumber(e){}notifyBundleLoaded(e){}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Sa{_o(e){}shutdown(){}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class xa{constructor(){this.ao=()=>this.uo(),this.co=()=>this.lo(),this.ho=[],this.Po()}_o(e){this.ho.push(e)}shutdown(){window.removeEventListener("online",this.ao),window.removeEventListener("offline",this.co)}Po(){window.addEventListener("online",this.ao),window.addEventListener("offline",this.co)}uo(){v("ConnectivityMonitor","Network connectivity changed: AVAILABLE");for(const e of this.ho)e(0)}lo(){v("ConnectivityMonitor","Network connectivity changed: UNAVAILABLE");for(const e of this.ho)e(1)}static D(){return"undefined"!=typeof window&&void 0!==window.addEventListener&&void 0!==window.removeEventListener}}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */let Ca=null;function Da(){return null===Ca?Ca=268435456+Math.round(2147483648*Math.random()):Ca++,"0x"+Ca.toString(16)
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}const Na={BatchGetDocuments:"batchGet",Commit:"commit",RunQuery:"runQuery",RunAggregationQuery:"runAggregationQuery"};
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Aa{constructor(e){this.Io=e.Io,this.To=e.To}Eo(e){this.Ao=e}Ro(e){this.Vo=e}mo(e){this.fo=e}onMessage(e){this.po=e}close(){this.To()}send(e){this.Io(e)}yo(){this.Ao()}wo(){this.Vo()}So(e){this.fo(e)}bo(e){this.po(e)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const ka="WebChannelConnection";class Pa extends class{constructor(e){this.databaseInfo=e,this.databaseId=e.databaseId;const t=e.ssl?"https":"http",n=encodeURIComponent(this.databaseId.projectId),r=encodeURIComponent(this.databaseId.database);this.Do=t+"://"+e.host,this.vo=`projects/${n}/databases/${r}`,this.Co="(default)"===this.databaseId.database?`project_id=${n}`:`project_id=${n}&database_id=${r}`}get Fo(){return!1}Mo(e,t,n,r,s){const i=Da(),o=this.xo(e,t.toUriEncodedString());v("RestConnection",`Sending RPC '${e}' ${i}:`,o,n);const a={"google-cloud-resource-prefix":this.vo,"x-goog-request-params":this.Co};return this.Oo(a,r,s),this.No(e,o,a,n).then(t=>(v("RestConnection",`Received RPC '${e}' ${i}: `,t),t),t=>{throw I("RestConnection",`RPC '${e}' ${i} failed with error: `,t,"url: ",o,"request:",n),t})}Lo(e,t,n,r,s,i){return this.Mo(e,t,n,r,s)}Oo(e,t,n){e["X-Goog-Api-Client"]="gl-js/ fire/"+g,e["Content-Type"]="text/plain",this.databaseInfo.appId&&(e["X-Firebase-GMPID"]=this.databaseInfo.appId),t&&t.headers.forEach((t,n)=>e[n]=t),n&&n.headers.forEach((t,n)=>e[n]=t)}xo(e,t){const n=Na[e];return`${this.Do}/v1/${t}:${n}`}terminate(){}}{constructor(e){super(e),this.forceLongPolling=e.forceLongPolling,this.autoDetectLongPolling=e.autoDetectLongPolling,this.useFetchStreams=e.useFetchStreams,this.longPollingOptions=e.longPollingOptions}No(e,t,n,r){const s=Da();return new Promise((i,o)=>{const a=new d.XhrIo;a.setWithCredentials(!0),a.listenOnce(d.EventType.COMPLETE,()=>{try{switch(a.getLastErrorCode()){case d.ErrorCode.NO_ERROR:const t=a.getResponseJson();v(ka,`XHR for RPC '${e}' ${s} received:`,JSON.stringify(t)),i(t);break;case d.ErrorCode.TIMEOUT:v(ka,`RPC '${e}' ${s} timed out`),o(new D(C.DEADLINE_EXCEEDED,"Request time out"));break;case d.ErrorCode.HTTP_ERROR:const n=a.getStatus();if(v(ka,`RPC '${e}' ${s} failed with status:`,n,"response text:",a.getResponseText()),n>0){let e=a.getResponseJson();Array.isArray(e)&&(e=e[0]);const t=null==e?void 0:e.error;if(t&&t.status&&t.message){const e=(function(e){const t=e.toLowerCase().replace(/_/g,"-");return Object.values(C).indexOf(t)>=0?t:C.UNKNOWN})(t.status);o(new D(e,t.message))}else o(new D(C.UNKNOWN,"Server responded with status "+a.getStatus()))}else o(new D(C.UNAVAILABLE,"Connection failed."));break;default:T()}}finally{v(ka,`RPC '${e}' ${s} completed.`)}});const u=JSON.stringify(r);v(ka,`RPC '${e}' ${s} sending request:`,r),a.send(t,"POST",u,n,15)})}Bo(e,t,n){const r=Da(),s=[this.Do,"/","google.firestore.v1.Firestore","/",e,"/channel"],i=(0,d.createWebChannelTransport)(),o=(0,d.getStatEventTarget)(),a={httpSessionIdParam:"gsessionid",initMessageHeaders:{},messageUrlParams:{database:`projects/${this.databaseId.projectId}/databases/${this.databaseId.database}`},sendRawJson:!0,supportsCrossDomainXhr:!0,internalChannelParams:{forwardChannelRequestTimeoutMs:6e5},forceLongPolling:this.forceLongPolling,detectBufferingProxy:this.autoDetectLongPolling},u=this.longPollingOptions.timeoutSeconds;void 0!==u&&(a.longPollingTimeout=Math.round(1e3*u)),this.useFetchStreams&&(a.useFetchStreams=!0),this.Oo(a.initMessageHeaders,t,n),a.encodeInitMessageHeaders=!0;const c=s.join("");v(ka,`Creating RPC '${e}' stream ${r}: ${c}`,a);const l=i.createWebChannel(c,a);let h=!1,f=!1;const m=new Aa({Io:t=>{f?v(ka,`Not sending because RPC '${e}' stream ${r} is closed:`,t):(h||(v(ka,`Opening RPC '${e}' stream ${r} transport.`),l.open(),h=!0),v(ka,`RPC '${e}' stream ${r} sending:`,t),l.send(t))},To:()=>l.close()}),g=(e,t,n)=>{e.listen(t,e=>{try{n(e)}catch(e){setTimeout(()=>{throw e},0)}})};return g(l,d.WebChannel.EventType.OPEN,()=>{f||(v(ka,`RPC '${e}' stream ${r} transport opened.`),m.yo())}),g(l,d.WebChannel.EventType.CLOSE,()=>{f||(f=!0,v(ka,`RPC '${e}' stream ${r} transport closed`),m.So())}),g(l,d.WebChannel.EventType.ERROR,t=>{f||(f=!0,I(ka,`RPC '${e}' stream ${r} transport errored:`,t),m.So(new D(C.UNAVAILABLE,"The operation could not be completed")))}),g(l,d.WebChannel.EventType.MESSAGE,t=>{var n;if(!f){const s=t.data[0];E(!!s);const i=s,o=i.error||(null===(n=i[0])||void 0===n?void 0:n.error);if(o){v(ka,`RPC '${e}' stream ${r} received error:`,o);const t=o.status;let n=(function(e){const t=Yr[e];if(void 0!==t)return es(t)})(t),s=o.message;void 0===n&&(n=C.INTERNAL,s="Unknown error status: "+t+" with message "+o.message),f=!0,m.So(new D(n,s)),l.close()}else v(ka,`RPC '${e}' stream ${r} received:`,s),m.bo(s)}}),g(o,d.Event.STAT_EVENT,t=>{t.stat===d.Stat.PROXY?v(ka,`RPC '${e}' stream ${r} detected buffering proxy`):t.stat===d.Stat.NOPROXY&&v(ka,`RPC '${e}' stream ${r} detected no buffering proxy`)}),setTimeout(()=>{m.wo()},0),m}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Oa(){return"undefined"!=typeof window?window:null}function Ra(){return"undefined"!=typeof document?document:null}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Fa(e){return new bs(e,!0)}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ma{constructor(e,t,n=1e3,r=1.5,s=6e4){this.ui=e,this.timerId=t,this.ko=n,this.qo=r,this.Qo=s,this.Ko=0,this.$o=null,this.Uo=Date.now(),this.reset()}reset(){this.Ko=0}Wo(){this.Ko=this.Qo}Go(e){this.cancel();const t=Math.floor(this.Ko+this.zo()),n=Math.max(0,Date.now()-this.Uo),r=Math.max(0,t-n);r>0&&v("ExponentialBackoff",`Backing off for ${r} ms (base delay: ${this.Ko} ms, delay with jitter: ${t} ms, last attempt: ${n} ms ago)`),this.$o=this.ui.enqueueAfterDelay(this.timerId,r,()=>(this.Uo=Date.now(),e())),this.Ko*=this.qo,this.Ko<this.ko&&(this.Ko=this.ko),this.Ko>this.Qo&&(this.Ko=this.Qo)}jo(){null!==this.$o&&(this.$o.skipDelay(),this.$o=null)}cancel(){null!==this.$o&&(this.$o.cancel(),this.$o=null)}zo(){return(Math.random()-.5)*this.Ko}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class La{constructor(e,t,n,r,s,i,o,a){this.ui=e,this.Ho=n,this.Jo=r,this.connection=s,this.authCredentialsProvider=i,this.appCheckCredentialsProvider=o,this.listener=a,this.state=0,this.Yo=0,this.Zo=null,this.Xo=null,this.stream=null,this.e_=0,this.t_=new Ma(e,t)}n_(){return 1===this.state||5===this.state||this.r_()}r_(){return 2===this.state||3===this.state}start(){this.e_=0,4!==this.state?this.auth():this.i_()}async stop(){this.n_()&&await this.close(0)}s_(){this.state=0,this.t_.reset()}o_(){this.r_()&&null===this.Zo&&(this.Zo=this.ui.enqueueAfterDelay(this.Ho,6e4,()=>this.__()))}a_(e){this.u_(),this.stream.send(e)}async __(){if(this.r_())return this.close(0)}u_(){this.Zo&&(this.Zo.cancel(),this.Zo=null)}c_(){this.Xo&&(this.Xo.cancel(),this.Xo=null)}async close(e,t){this.u_(),this.c_(),this.t_.cancel(),this.Yo++,4!==e?this.t_.reset():t&&t.code===C.RESOURCE_EXHAUSTED?(b(t.toString()),b("Using maximum backoff delay to prevent overloading the backend."),this.t_.Wo()):t&&t.code===C.UNAUTHENTICATED&&3!==this.state&&(this.authCredentialsProvider.invalidateToken(),this.appCheckCredentialsProvider.invalidateToken()),null!==this.stream&&(this.l_(),this.stream.close(),this.stream=null),this.state=e,await this.listener.mo(t)}l_(){}auth(){this.state=1;const e=this.h_(this.Yo),t=this.Yo;Promise.all([this.authCredentialsProvider.getToken(),this.appCheckCredentialsProvider.getToken()]).then(([e,n])=>{this.Yo===t&&this.P_(e,n)},t=>{e(()=>{const e=new D(C.UNKNOWN,"Fetching auth token failed: "+t.message);return this.I_(e)})})}P_(e,t){const n=this.h_(this.Yo);this.stream=this.T_(e,t),this.stream.Eo(()=>{n(()=>this.listener.Eo())}),this.stream.Ro(()=>{n(()=>(this.state=2,this.Xo=this.ui.enqueueAfterDelay(this.Jo,1e4,()=>(this.r_()&&(this.state=3),Promise.resolve())),this.listener.Ro()))}),this.stream.mo(e=>{n(()=>this.I_(e))}),this.stream.onMessage(e=>{n(()=>1==++this.e_?this.E_(e):this.onNext(e))})}i_(){this.state=5,this.t_.Go(async()=>{this.state=0,this.start()})}I_(e){return v("PersistentStream",`close with error: ${e}`),this.stream=null,this.close(4,e)}h_(e){return t=>{this.ui.enqueueAndForget(()=>this.Yo===e?t():(v("PersistentStream","stream callback skipped by getCloseGuardedDispatcher."),Promise.resolve()))}}}class Va extends La{constructor(e,t,n,r,s,i){super(e,"listen_stream_connection_backoff","listen_stream_idle","health_check_timeout",t,n,r,i),this.serializer=s}T_(e,t){return this.connection.Bo("Listen",e,t)}E_(e){return this.onNext(e)}onNext(e){this.t_.reset();const t=Vs(this.serializer,e),n=(function(e){if(!("targetChange"in e))return K.min();const t=e.targetChange;return t.targetIds&&t.targetIds.length?K.min():t.readTime?Ss(t.readTime):K.min()})(e);return this.listener.d_(t,n)}A_(e){const t={};t.database=Os(this.serializer),t.addTarget=(function(e,t){let n;const r=t.target;if(n=kn(r)?{documents:js(e,r)}:{query:zs(e,r)._t},n.targetId=t.targetId,t.resumeToken.approximateByteSize()>0){n.resumeToken=Ts(e,t.resumeToken);const r=Is(e,t.expectedCount);null!==r&&(n.expectedCount=r)}else if(t.snapshotVersion.compareTo(K.min())>0){n.readTime=_s(e,t.snapshotVersion.toTimestamp());const r=Is(e,t.expectedCount);null!==r&&(n.expectedCount=r)}return n})(this.serializer,e);const n=$s(this.serializer,e);n&&(t.labels=n),this.a_(t)}R_(e){const t={};t.database=Os(this.serializer),t.removeTarget=e,this.a_(t)}}class qa extends La{constructor(e,t,n,r,s,i){super(e,"write_stream_connection_backoff","write_stream_idle","health_check_timeout",t,n,r,i),this.serializer=s}get V_(){return this.e_>0}start(){this.lastStreamToken=void 0,super.start()}l_(){this.V_&&this.m_([])}T_(e,t){return this.connection.Bo("Write",e,t)}E_(e){return E(!!e.streamToken),this.lastStreamToken=e.streamToken,E(!e.writeResults||0===e.writeResults.length),this.listener.f_()}onNext(e){E(!!e.streamToken),this.lastStreamToken=e.streamToken,this.t_.reset();const t=Bs(e.writeResults,e.commitTime),n=Ss(e.commitTime);return this.listener.g_(n,t)}p_(){const e={};e.database=Os(this.serializer),this.a_(e)}m_(e){const t={streamToken:this.lastStreamToken,writes:e.map(e=>qs(this.serializer,e))};this.a_(t)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ua extends class{}{constructor(e,t,n,r){super(),this.authCredentials=e,this.appCheckCredentials=t,this.connection=n,this.serializer=r,this.y_=!1}w_(){if(this.y_)throw new D(C.FAILED_PRECONDITION,"The client has already been terminated.")}Mo(e,t,n,r){return this.w_(),Promise.all([this.authCredentials.getToken(),this.appCheckCredentials.getToken()]).then(([s,i])=>this.connection.Mo(e,Cs(t,n),r,s,i)).catch(e=>{throw"FirebaseError"===e.name?(e.code===C.UNAUTHENTICATED&&(this.authCredentials.invalidateToken(),this.appCheckCredentials.invalidateToken()),e):new D(C.UNKNOWN,e.toString())})}Lo(e,t,n,r,s){return this.w_(),Promise.all([this.authCredentials.getToken(),this.appCheckCredentials.getToken()]).then(([i,o])=>this.connection.Lo(e,Cs(t,n),r,i,o,s)).catch(e=>{throw"FirebaseError"===e.name?(e.code===C.UNAUTHENTICATED&&(this.authCredentials.invalidateToken(),this.appCheckCredentials.invalidateToken()),e):new D(C.UNKNOWN,e.toString())})}terminate(){this.y_=!0,this.connection.terminate()}}class Ba{constructor(e,t){this.asyncQueue=e,this.onlineStateHandler=t,this.state="Unknown",this.S_=0,this.b_=null,this.D_=!0}v_(){0===this.S_&&(this.C_("Unknown"),this.b_=this.asyncQueue.enqueueAfterDelay("online_state_timeout",1e4,()=>(this.b_=null,this.F_("Backend didn't respond within 10 seconds."),this.C_("Offline"),Promise.resolve())))}M_(e){"Online"===this.state?this.C_("Unknown"):(this.S_++,this.S_>=1&&(this.x_(),this.F_(`Connection failed 1 times. Most recent error: ${e.toString()}`),this.C_("Offline")))}set(e){this.x_(),this.S_=0,"Online"===e&&(this.D_=!1),this.C_(e)}C_(e){e!==this.state&&(this.state=e,this.onlineStateHandler(e))}F_(e){const t=`Could not reach Cloud Firestore backend. ${e}\nThis typically indicates that your device does not have a healthy Internet connection at the moment. The client will operate in offline mode until it is able to successfully connect to the backend.`;this.D_?(b(t),this.D_=!1):v("OnlineStateTracker",t)}x_(){null!==this.b_&&(this.b_.cancel(),this.b_=null)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ja{constructor(e,t,n,r,s){this.localStore=e,this.datastore=t,this.asyncQueue=n,this.remoteSyncer={},this.O_=[],this.N_=new Map,this.L_=new Set,this.B_=[],this.k_=s,this.k_._o(e=>{n.enqueueAndForget(async()=>{Ya(this)&&(v("RemoteStore","Restarting streams for network reachability change."),await(async function(e){const t=x(e);t.L_.add(4),await Ga(t),t.q_.set("Unknown"),t.L_.delete(4),await za(t)})(this))})}),this.q_=new Ba(n,r)}}async function za(e){if(Ya(e))for(const t of e.B_)await t(!0)}async function Ga(e){for(const t of e.B_)await t(!1)}function Ka(e,t){const n=x(e);n.N_.has(t.targetId)||(n.N_.set(t.targetId,t),Ha(n)?Ja(n):pu(n).r_()&&Qa(n,t))}function $a(e,t){const n=x(e),r=pu(n);n.N_.delete(t),r.r_()&&Wa(n,t),0===n.N_.size&&(r.r_()?r.o_():Ya(n)&&n.q_.set("Unknown"))}function Qa(e,t){if(e.Q_.xe(t.targetId),t.resumeToken.approximateByteSize()>0||t.snapshotVersion.compareTo(K.min())>0){const n=e.remoteSyncer.getRemoteKeysForTarget(t.targetId).size;t=t.withExpectedCount(n)}pu(e).A_(t)}function Wa(e,t){e.Q_.xe(t),pu(e).R_(t)}function Ja(e){e.Q_=new ms({getRemoteKeysForTarget:t=>e.remoteSyncer.getRemoteKeysForTarget(t),ot:t=>e.N_.get(t)||null,tt:()=>e.datastore.serializer.databaseId}),pu(e).start(),e.q_.v_()}function Ha(e){return Ya(e)&&!pu(e).n_()&&e.N_.size>0}function Ya(e){return 0===x(e).L_.size}function Xa(e){e.Q_=void 0}async function Za(e){e.q_.set("Online")}async function eu(e){e.N_.forEach((t,n)=>{Qa(e,t)})}async function tu(e,t){Xa(e),Ha(e)?(e.q_.M_(t),Ja(e)):e.q_.set("Unknown")}async function nu(e,t,n){if(e.q_.set("Online"),t instanceof ds&&2===t.state&&t.cause)try{await(async function(e,t){const n=t.cause;for(const r of t.targetIds)e.N_.has(r)&&(await e.remoteSyncer.rejectListen(r,n),e.N_.delete(r),e.Q_.removeTarget(r))})(e,t)}catch(n){v("RemoteStore","Failed to remove targets %s: %s ",t.targetIds.join(","),n),await ru(e,n)}else if(t instanceof ls?e.Q_.Ke(t):t instanceof hs?e.Q_.He(t):e.Q_.We(t),!n.isEqual(K.min()))try{const t=await ra(e.localStore);n.compareTo(t)>=0&&await(function(e,t){const n=e.Q_.rt(t);return n.targetChanges.forEach((n,r)=>{if(n.resumeToken.approximateByteSize()>0){const s=e.N_.get(r);s&&e.N_.set(r,s.withResumeToken(n.resumeToken,t))}}),n.targetMismatches.forEach((t,n)=>{const r=e.N_.get(t);if(!r)return;e.N_.set(t,r.withResumeToken(wt.EMPTY_BYTE_STRING,r.snapshotVersion)),Wa(e,t);const s=new ni(r.target,t,n,r.sequenceNumber);Qa(e,s)}),e.remoteSyncer.applyRemoteEvent(n)})(e,n)}catch(t){v("RemoteStore","Failed to raise snapshot:",t),await ru(e,t)}}async function ru(e,t,n){if(!ye(t))throw t;e.L_.add(1),await Ga(e),e.q_.set("Offline"),n||(n=()=>ra(e.localStore)),e.asyncQueue.enqueueRetryable(async()=>{v("RemoteStore","Retrying IndexedDB access"),await n(),e.L_.delete(1),await za(e)})}function su(e,t){return t().catch(n=>ru(e,n,t))}async function iu(e){const t=x(e),n=yu(t);let r=t.O_.length>0?t.O_[t.O_.length-1].batchId:-1;for(;ou(t);)try{const e=await oa(t.localStore,r);if(null===e){0===t.O_.length&&n.o_();break}r=e.batchId,au(t,e)}catch(e){await ru(t,e)}uu(t)&&cu(t)}function ou(e){return Ya(e)&&e.O_.length<10}function au(e,t){e.O_.push(t);const n=yu(e);n.r_()&&n.V_&&n.m_(t.mutations)}function uu(e){return Ya(e)&&!yu(e).n_()&&e.O_.length>0}function cu(e){yu(e).start()}async function lu(e){yu(e).p_()}async function hu(e){const t=yu(e);for(const n of e.O_)t.m_(n.mutations)}async function du(e,t,n){const r=e.O_.shift(),s=Qr.from(r,t,n);await su(e,()=>e.remoteSyncer.applySuccessfulWrite(s)),await iu(e)}async function fu(e,t){t&&yu(e).V_&&await(async function(e,t){if((function(e){return Zr(e)&&e!==C.ABORTED})(t.code)){const n=e.O_.shift();yu(e).s_(),await su(e,()=>e.remoteSyncer.rejectFailedWrite(n.batchId,t)),await iu(e)}})(e,t),uu(e)&&cu(e)}async function mu(e,t){const n=x(e);n.asyncQueue.verifyOperationInProgress(),v("RemoteStore","RemoteStore received new credentials");const r=Ya(n);n.L_.add(3),await Ga(n),r&&n.q_.set("Unknown"),await n.remoteSyncer.handleCredentialChange(t),n.L_.delete(3),await za(n)}async function gu(e,t){const n=x(e);t?(n.L_.delete(2),await za(n)):t||(n.L_.add(2),await Ga(n),n.q_.set("Unknown"))}function pu(e){return e.K_||(e.K_=(function(e,t,n){const r=x(e);return r.w_(),new Va(t,r.connection,r.authCredentials,r.appCheckCredentials,r.serializer,n)
+/**
+    * @license
+    * Copyright 2018 Google LLC
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    *   http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
+    */})(e.datastore,e.asyncQueue,{Eo:Za.bind(null,e),Ro:eu.bind(null,e),mo:tu.bind(null,e),d_:nu.bind(null,e)}),e.B_.push(async t=>{t?(e.K_.s_(),Ha(e)?Ja(e):e.q_.set("Unknown")):(await e.K_.stop(),Xa(e))})),e.K_}function yu(e){return e.U_||(e.U_=(function(e,t,n){const r=x(e);return r.w_(),new qa(t,r.connection,r.authCredentials,r.appCheckCredentials,r.serializer,n)})(e.datastore,e.asyncQueue,{Eo:()=>Promise.resolve(),Ro:lu.bind(null,e),mo:fu.bind(null,e),f_:hu.bind(null,e),g_:du.bind(null,e)}),e.B_.push(async t=>{t?(e.U_.s_(),await iu(e)):(await e.U_.stop(),e.O_.length>0&&(v("RemoteStore",`Stopping write stream with ${e.O_.length} pending writes`),e.O_=[]))})),e.U_
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}class wu{constructor(e,t,n,r,s){this.asyncQueue=e,this.timerId=t,this.targetTimeMs=n,this.op=r,this.removalCallback=s,this.deferred=new N,this.then=this.deferred.promise.then.bind(this.deferred.promise),this.deferred.promise.catch(e=>{})}get promise(){return this.deferred.promise}static createAndSchedule(e,t,n,r,s){const i=Date.now()+n,o=new wu(e,t,i,r,s);return o.start(n),o}start(e){this.timerHandle=setTimeout(()=>this.handleDelayElapsed(),e)}skipDelay(){return this.handleDelayElapsed()}cancel(e){null!==this.timerHandle&&(this.clearTimeout(),this.deferred.reject(new D(C.CANCELLED,"Operation cancelled"+(e?": "+e:""))))}handleDelayElapsed(){this.asyncQueue.enqueueAndForget(()=>null!==this.timerHandle?(this.clearTimeout(),this.op().then(e=>this.deferred.resolve(e))):Promise.resolve())}clearTimeout(){null!==this.timerHandle&&(this.removalCallback(this),clearTimeout(this.timerHandle),this.timerHandle=null)}}function vu(e,t){if(b("AsyncQueue",`${t}: ${e}`),ye(e))return new D(C.UNAVAILABLE,`${t}: ${e}`);throw e}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class bu{constructor(e){this.comparator=e?(t,n)=>e(t,n)||H.comparator(t.key,n.key):(e,t)=>H.comparator(e.key,t.key),this.keyedMap=rr(),this.sortedSet=new ct(this.comparator)}static emptySet(e){return new bu(e.comparator)}has(e){return null!=this.keyedMap.get(e)}get(e){return this.keyedMap.get(e)}first(){return this.sortedSet.minKey()}last(){return this.sortedSet.maxKey()}isEmpty(){return this.sortedSet.isEmpty()}indexOf(e){const t=this.keyedMap.get(e);return t?this.sortedSet.indexOf(t):-1}get size(){return this.sortedSet.size}forEach(e){this.sortedSet.inorderTraversal((t,n)=>(e(t),!1))}add(e){const t=this.delete(e.key);return t.copy(t.keyedMap.insert(e.key,e),t.sortedSet.insert(e,null))}delete(e){const t=this.get(e);return t?this.copy(this.keyedMap.remove(e),this.sortedSet.remove(t)):this}isEqual(e){if(!(e instanceof bu))return!1;if(this.size!==e.size)return!1;const t=this.sortedSet.getIterator(),n=e.sortedSet.getIterator();for(;t.hasNext();){const e=t.getNext().key,r=n.getNext().key;if(!e.isEqual(r))return!1}return!0}toString(){const e=[];return this.forEach(t=>{e.push(t.toString())}),0===e.length?"DocumentSet ()":"DocumentSet (\n  "+e.join("  \n")+"\n)"}copy(e,t){const n=new bu;return n.comparator=this.comparator,n.keyedMap=e,n.sortedSet=t,n}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Iu{constructor(){this.W_=new ct(H.comparator)}track(e){const t=e.doc.key,n=this.W_.get(t);n?0!==e.type&&3===n.type?this.W_=this.W_.insert(t,e):3===e.type&&1!==n.type?this.W_=this.W_.insert(t,{type:n.type,doc:e.doc}):2===e.type&&2===n.type?this.W_=this.W_.insert(t,{type:2,doc:e.doc}):2===e.type&&0===n.type?this.W_=this.W_.insert(t,{type:0,doc:e.doc}):1===e.type&&0===n.type?this.W_=this.W_.remove(t):1===e.type&&2===n.type?this.W_=this.W_.insert(t,{type:1,doc:n.doc}):0===e.type&&1===n.type?this.W_=this.W_.insert(t,{type:2,doc:e.doc}):T():this.W_=this.W_.insert(t,e)}G_(){const e=[];return this.W_.inorderTraversal((t,n)=>{e.push(n)}),e}}class _u{constructor(e,t,n,r,s,i,o,a,u){this.query=e,this.docs=t,this.oldDocs=n,this.docChanges=r,this.mutatedKeys=s,this.fromCache=i,this.syncStateChanged=o,this.excludesMetadataChanges=a,this.hasCachedResults=u}static fromInitialDocuments(e,t,n,r,s){const i=[];return t.forEach(e=>{i.push({type:0,doc:e})}),new _u(e,t,bu.emptySet(t),i,n,r,!0,!1,s)}get hasPendingWrites(){return!this.mutatedKeys.isEmpty()}isEqual(e){if(!(this.fromCache===e.fromCache&&this.hasCachedResults===e.hasCachedResults&&this.syncStateChanged===e.syncStateChanged&&this.mutatedKeys.isEqual(e.mutatedKeys)&&$n(this.query,e.query)&&this.docs.isEqual(e.docs)&&this.oldDocs.isEqual(e.oldDocs)))return!1;const t=this.docChanges,n=e.docChanges;if(t.length!==n.length)return!1;for(let e=0;e<t.length;e++)if(t[e].type!==n[e].type||!t[e].doc.isEqual(n[e].doc))return!1;return!0}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Tu{constructor(){this.z_=void 0,this.j_=[]}H_(){return this.j_.some(e=>e.J_())}}class Eu{constructor(){this.queries=Su(),this.onlineState="Unknown",this.Y_=new Set}terminate(){!(function(e,t){const n=x(e),r=n.queries;n.queries=Su(),r.forEach((e,n)=>{for(const e of n.j_)e.onError(t)})})(this,new D(C.ABORTED,"Firestore shutting down"))}}function Su(){return new Zn(e=>Qn(e),$n)}async function xu(e,t){const n=x(e);let r=3;const s=t.query;let i=n.queries.get(s);i?!i.H_()&&t.J_()&&(r=2):(i=new Tu,r=t.J_()?0:1);try{switch(r){case 0:i.z_=await n.onListen(s,!0);break;case 1:i.z_=await n.onListen(s,!1);break;case 2:await n.onFirstRemoteStoreListen(s)}}catch(e){const n=vu(e,`Initialization of query '${Wn(t.query)}' failed`);return void t.onError(n)}n.queries.set(s,i),i.j_.push(t),t.Z_(n.onlineState),i.z_&&t.X_(i.z_)&&Au(n)}async function Cu(e,t){const n=x(e),r=t.query;let s=3;const i=n.queries.get(r);if(i){const e=i.j_.indexOf(t);e>=0&&(i.j_.splice(e,1),0===i.j_.length?s=t.J_()?0:1:!i.H_()&&t.J_()&&(s=2))}switch(s){case 0:return n.queries.delete(r),n.onUnlisten(r,!0);case 1:return n.queries.delete(r),n.onUnlisten(r,!1);case 2:return n.onLastRemoteStoreUnlisten(r);default:return}}function Du(e,t){const n=x(e);let r=!1;for(const e of t){const t=e.query,s=n.queries.get(t);if(s){for(const t of s.j_)t.X_(e)&&(r=!0);s.z_=e}}r&&Au(n)}function Nu(e,t,n){const r=x(e),s=r.queries.get(t);if(s)for(const e of s.j_)e.onError(n);r.queries.delete(t)}function Au(e){e.Y_.forEach(e=>{e.next()})}var ku,Pu;(Pu=ku||(ku={})).ea="default",Pu.Cache="cache";class Ou{constructor(e,t,n){this.query=e,this.ta=t,this.na=!1,this.ra=null,this.onlineState="Unknown",this.options=n||{}}X_(e){if(!this.options.includeMetadataChanges){const t=[];for(const n of e.docChanges)3!==n.type&&t.push(n);e=new _u(e.query,e.docs,e.oldDocs,t,e.mutatedKeys,e.fromCache,e.syncStateChanged,!0,e.hasCachedResults)}let t=!1;return this.na?this.ia(e)&&(this.ta.next(e),t=!0):this.sa(e,this.onlineState)&&(this.oa(e),t=!0),this.ra=e,t}onError(e){this.ta.error(e)}Z_(e){this.onlineState=e;let t=!1;return this.ra&&!this.na&&this.sa(this.ra,e)&&(this.oa(this.ra),t=!0),t}sa(e,t){if(!e.fromCache)return!0;if(!this.J_())return!0;const n="Offline"!==t;return(!this.options._a||!n)&&(!e.docs.isEmpty()||e.hasCachedResults||"Offline"===t)}ia(e){if(e.docChanges.length>0)return!0;const t=this.ra&&this.ra.hasPendingWrites!==e.hasPendingWrites;return!(!e.syncStateChanged&&!t)&&!0===this.options.includeMetadataChanges}oa(e){e=_u.fromInitialDocuments(e.query,e.docs,e.mutatedKeys,e.fromCache,e.hasCachedResults),this.na=!0,this.ta.next(e)}J_(){return this.options.source!==ku.Cache}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ru{constructor(e,t){this.aa=e,this.byteLength=t}ua(){return"metadata"in this.aa}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Fu{constructor(e){this.serializer=e}Es(e){return As(this.serializer,e)}ds(e){return e.metadata.exists?Ms(this.serializer,e.document,!1):tn.newNoDocument(this.Es(e.metadata.name),this.As(e.metadata.readTime))}As(e){return Ss(e)}}class Mu{constructor(e,t,n){this.ca=e,this.localStore=t,this.serializer=n,this.queries=[],this.documents=[],this.collectionGroups=new Set,this.progress=Lu(e)}la(e){this.progress.bytesLoaded+=e.byteLength;let t=this.progress.documentsLoaded;if(e.aa.namedQuery)this.queries.push(e.aa.namedQuery);else if(e.aa.documentMetadata){this.documents.push({metadata:e.aa.documentMetadata}),e.aa.documentMetadata.exists||++t;const n=Q.fromString(e.aa.documentMetadata.name);this.collectionGroups.add(n.get(n.length-2))}else e.aa.document&&(this.documents[this.documents.length-1].document=e.aa.document,++t);return t!==this.progress.documentsLoaded?(this.progress.documentsLoaded=t,Object.assign({},this.progress)):null}ha(e){const t=new Map,n=new Fu(this.serializer);for(const r of e)if(r.metadata.queries){const e=n.Es(r.metadata.name);for(const n of r.metadata.queries){const r=(t.get(n)||lr()).add(e);t.set(n,r)}}return t}async complete(){const e=await fa(this.localStore,new Fu(this.serializer),this.documents,this.ca.id),t=this.ha(this.documents);for(const e of this.queries)await ma(this.localStore,e,t.get(e.name));return this.progress.taskState="Success",{progress:this.progress,Pa:this.collectionGroups,Ia:e}}}function Lu(e){return{taskState:"Running",documentsLoaded:0,bytesLoaded:0,totalDocuments:e.totalDocuments,totalBytes:e.totalBytes}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Vu{constructor(e){this.key=e}}class qu{constructor(e){this.key=e}}class Uu{constructor(e,t){this.query=e,this.Ta=t,this.Ea=null,this.hasCachedResults=!1,this.current=!1,this.da=lr(),this.mutatedKeys=lr(),this.Aa=Yn(e),this.Ra=new bu(this.Aa)}get Va(){return this.Ta}ma(e,t){const n=t?t.fa:new Iu,r=t?t.Ra:this.Ra;let s=t?t.mutatedKeys:this.mutatedKeys,i=r,o=!1;const a="F"===this.query.limitType&&r.size===this.query.limit?r.last():null,u="L"===this.query.limitType&&r.size===this.query.limit?r.first():null;if(e.inorderTraversal((e,t)=>{const c=r.get(e),l=Jn(this.query,t)?t:null,h=!!c&&this.mutatedKeys.has(c.key),d=!!l&&(l.hasLocalMutations||this.mutatedKeys.has(l.key)&&l.hasCommittedMutations);let f=!1;c&&l?c.data.isEqual(l.data)?h!==d&&(n.track({type:3,doc:l}),f=!0):this.ga(c,l)||(n.track({type:2,doc:l}),f=!0,(a&&this.Aa(l,a)>0||u&&this.Aa(l,u)<0)&&(o=!0)):!c&&l?(n.track({type:0,doc:l}),f=!0):c&&!l&&(n.track({type:1,doc:c}),f=!0,(a||u)&&(o=!0)),f&&(l?(i=i.add(l),s=d?s.add(e):s.delete(e)):(i=i.delete(e),s=s.delete(e)))}),null!==this.query.limit)for(;i.size>this.query.limit;){const e="F"===this.query.limitType?i.last():i.first();i=i.delete(e.key),s=s.delete(e.key),n.track({type:1,doc:e})}return{Ra:i,fa:n,ns:o,mutatedKeys:s}}ga(e,t){return e.hasLocalMutations&&t.hasCommittedMutations&&!t.hasLocalMutations}applyChanges(e,t,n,r){const s=this.Ra;this.Ra=e.Ra,this.mutatedKeys=e.mutatedKeys;const i=e.fa.G_();i.sort((e,t)=>(function(e,t){const n=e=>{switch(e){case 0:return 1;case 2:case 3:return 2;case 1:return 0;default:return T()}};return n(e)-n(t)}
+/**
+      * @license
+      * Copyright 2020 Google LLC
+      *
+      * Licensed under the Apache License, Version 2.0 (the "License");
+      * you may not use this file except in compliance with the License.
+      * You may obtain a copy of the License at
+      *
+      *   http://www.apache.org/licenses/LICENSE-2.0
+      *
+      * Unless required by applicable law or agreed to in writing, software
+      * distributed under the License is distributed on an "AS IS" BASIS,
+      * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      * See the License for the specific language governing permissions and
+      * limitations under the License.
+      */)(e.type,t.type)||this.Aa(e.doc,t.doc)),this.pa(n),r=null!=r&&r;const o=t&&!r?this.ya():[],a=0===this.da.size&&this.current&&!r?1:0,u=a!==this.Ea;return this.Ea=a,0!==i.length||u?{snapshot:new _u(this.query,e.Ra,s,i,e.mutatedKeys,0===a,u,!1,!!n&&n.resumeToken.approximateByteSize()>0),wa:o}:{wa:o}}Z_(e){return this.current&&"Offline"===e?(this.current=!1,this.applyChanges({Ra:this.Ra,fa:new Iu,mutatedKeys:this.mutatedKeys,ns:!1},!1)):{wa:[]}}Sa(e){return!this.Ta.has(e)&&!!this.Ra.has(e)&&!this.Ra.get(e).hasLocalMutations}pa(e){e&&(e.addedDocuments.forEach(e=>this.Ta=this.Ta.add(e)),e.modifiedDocuments.forEach(e=>{}),e.removedDocuments.forEach(e=>this.Ta=this.Ta.delete(e)),this.current=e.current)}ya(){if(!this.current)return[];const e=this.da;this.da=lr(),this.Ra.forEach(e=>{this.Sa(e.key)&&(this.da=this.da.add(e.key))});const t=[];return e.forEach(e=>{this.da.has(e)||t.push(new qu(e))}),this.da.forEach(n=>{e.has(n)||t.push(new Vu(n))}),t}ba(e){this.Ta=e.Ts,this.da=lr();const t=this.ma(e.documents);return this.applyChanges(t,!0)}Da(){return _u.fromInitialDocuments(this.query,this.Ra,this.mutatedKeys,0===this.Ea,this.hasCachedResults)}}class Bu{constructor(e,t,n){this.query=e,this.targetId=t,this.view=n}}class ju{constructor(e){this.key=e,this.va=!1}}class zu{constructor(e,t,n,r,s,i){this.localStore=e,this.remoteStore=t,this.eventManager=n,this.sharedClientState=r,this.currentUser=s,this.maxConcurrentLimboResolutions=i,this.Ca={},this.Fa=new Zn(e=>Qn(e),$n),this.Ma=new Map,this.xa=new Set,this.Oa=new ct(H.comparator),this.Na=new Map,this.La=new Oo,this.Ba={},this.ka=new Map,this.qa=oo.kn(),this.onlineState="Unknown",this.Qa=void 0}get isPrimaryClient(){return!0===this.Qa}}async function Gu(e,t,n=!0){const r=_c(e);let s;const i=r.Fa.get(t);return i?(r.sharedClientState.addLocalQueryTarget(i.targetId),s=i.view.Da()):s=await $u(r,t,n,!0),s}async function Ku(e,t){const n=_c(e);await $u(n,t,!0,!1)}async function $u(e,t,n,r){const s=await aa(e.localStore,Bn(t)),i=s.targetId,o=e.sharedClientState.addLocalQueryTarget(i,n);let a;return r&&(a=await Qu(e,t,i,"current"===o,s.resumeToken)),e.isPrimaryClient&&n&&Ka(e.remoteStore,s),a}async function Qu(e,t,n,r,s){e.Ka=(t,n,r)=>(async function(e,t,n,r){let s=t.view.ma(n);s.ns&&(s=await ca(e.localStore,t.query,!1).then(({documents:e})=>t.view.ma(e,s)));const i=r&&r.targetChanges.get(t.targetId),o=r&&null!=r.targetMismatches.get(t.targetId),a=t.view.applyChanges(s,e.isPrimaryClient,i,o);return ac(e,t.targetId,a.wa),a.snapshot})(e,t,n,r);const i=await ca(e.localStore,t,!0),o=new Uu(t,i.Ts),a=o.ma(i.documents),u=cs.createSynthesizedTargetChangeForCurrentChange(n,r&&"Offline"!==e.onlineState,s),c=o.applyChanges(a,e.isPrimaryClient,u);ac(e,n,c.wa);const l=new Bu(t,n,o);return e.Fa.set(t,l),e.Ma.has(n)?e.Ma.get(n).push(t):e.Ma.set(n,[t]),c.snapshot}async function Wu(e,t,n){const r=x(e),s=r.Fa.get(t),i=r.Ma.get(s.targetId);if(i.length>1)return r.Ma.set(s.targetId,i.filter(e=>!$n(e,t))),void r.Fa.delete(t);r.isPrimaryClient?(r.sharedClientState.removeLocalQueryTarget(s.targetId),r.sharedClientState.isActiveQueryTarget(s.targetId)||await ua(r.localStore,s.targetId,!1).then(()=>{r.sharedClientState.clearQueryState(s.targetId),n&&$a(r.remoteStore,s.targetId),ic(r,s.targetId)}).catch(le)):(ic(r,s.targetId),await ua(r.localStore,s.targetId,!0))}async function Ju(e,t){const n=x(e),r=n.Fa.get(t),s=n.Ma.get(r.targetId);n.isPrimaryClient&&1===s.length&&(n.sharedClientState.removeLocalQueryTarget(r.targetId),$a(n.remoteStore,r.targetId))}async function Hu(e,t,n){const r=Tc(e);try{const e=await(function(e,t){const n=x(e),r=G.now(),s=t.reduce((e,t)=>e.add(t.key),lr());let i,o;return n.persistence.runTransaction("Locally write mutations","readwrite",e=>{let a=tr(),u=lr();return n.cs.getEntries(e,s).next(e=>{a=e,a.forEach((e,t)=>{t.isValidDocument()||(u=u.add(e))})}).next(()=>n.localDocuments.getOverlayedDocuments(e,a)).next(s=>{i=s;const o=[];for(const e of t){const t=Lr(e,i.get(e.key).overlayedDocument);null!=t&&o.push(new Ur(e.key,t,en(t.value.mapValue),kr.exists(!0)))}return n.mutationQueue.addMutationBatch(e,r,o,t)}).next(t=>{o=t;const r=t.applyToLocalDocumentSet(i,u);return n.documentOverlayCache.saveOverlays(e,t.batchId,r)})}).then(()=>({batchId:o.batchId,changes:sr(i)}))})(r.localStore,t);r.sharedClientState.addPendingMutation(e.batchId),(function(e,t,n){let r=e.Ba[e.currentUser.toKey()];r||(r=new ct(B)),r=r.insert(t,n),e.Ba[e.currentUser.toKey()]=r})(r,e.batchId,n),await lc(r,e.changes),await iu(r.remoteStore)}catch(e){const t=vu(e,"Failed to persist write");n.reject(t)}}async function Yu(e,t){const n=x(e);try{const e=await sa(n.localStore,t);t.targetChanges.forEach((e,t)=>{const r=n.Na.get(t);r&&(E(e.addedDocuments.size+e.modifiedDocuments.size+e.removedDocuments.size<=1),e.addedDocuments.size>0?r.va=!0:e.modifiedDocuments.size>0?E(r.va):e.removedDocuments.size>0&&(E(r.va),r.va=!1))}),await lc(n,e,t)}catch(e){await le(e)}}function Xu(e,t,n){const r=x(e);if(r.isPrimaryClient&&0===n||!r.isPrimaryClient&&1===n){const e=[];r.Fa.forEach((n,r)=>{const s=r.view.Z_(t);s.snapshot&&e.push(s.snapshot)}),(function(e,t){const n=x(e);n.onlineState=t;let r=!1;n.queries.forEach((e,n)=>{for(const e of n.j_)e.Z_(t)&&(r=!0)}),r&&Au(n)})(r.eventManager,t),e.length&&r.Ca.d_(e),r.onlineState=t,r.isPrimaryClient&&r.sharedClientState.setOnlineState(t)}}async function Zu(e,t,n){const r=x(e);r.sharedClientState.updateQueryState(t,"rejected",n);const s=r.Na.get(t),i=s&&s.key;if(i){let e=new ct(H.comparator);e=e.insert(i,tn.newNoDocument(i,K.min()));const n=lr().add(i),s=new us(K.min(),new Map,new ct(B),e,n);await Yu(r,s),r.Oa=r.Oa.remove(i),r.Na.delete(t),cc(r)}else await ua(r.localStore,t,!1).then(()=>ic(r,t,n)).catch(le)}async function ec(e,t){const n=x(e),r=t.batch.batchId;try{const e=await na(n.localStore,t);sc(n,r,null),rc(n,r),n.sharedClientState.updateMutationState(r,"acknowledged"),await lc(n,e)}catch(e){await le(e)}}async function tc(e,t,n){const r=x(e);try{const e=await(function(e,t){const n=x(e);return n.persistence.runTransaction("Reject batch","readwrite-primary",e=>{let r;return n.mutationQueue.lookupMutationBatch(e,t).next(t=>(E(null!==t),r=t.keys(),n.mutationQueue.removeMutationBatch(e,t))).next(()=>n.mutationQueue.performConsistencyCheck(e)).next(()=>n.documentOverlayCache.removeOverlaysForBatchId(e,r,t)).next(()=>n.localDocuments.recalculateAndSaveOverlaysForDocumentKeys(e,r)).next(()=>n.localDocuments.getDocuments(e,r))})})(r.localStore,t);sc(r,t,n),rc(r,t),r.sharedClientState.updateMutationState(t,"rejected",n),await lc(r,e)}catch(n){await le(n)}}async function nc(e,t){const n=x(e);Ya(n.remoteStore)||v("SyncEngine","The network is disabled. The task returned by 'awaitPendingWrites()' will not complete until the network is enabled.");try{const e=await(function(e){const t=x(e);return t.persistence.runTransaction("Get highest unacknowledged batch id","readonly",e=>t.mutationQueue.getHighestUnacknowledgedBatchId(e))})(n.localStore);if(-1===e)return void t.resolve();const r=n.ka.get(e)||[];r.push(t),n.ka.set(e,r)}catch(e){const n=vu(e,"Initialization of waitForPendingWrites() operation failed");t.reject(n)}}function rc(e,t){(e.ka.get(t)||[]).forEach(e=>{e.resolve()}),e.ka.delete(t)}function sc(e,t,n){const r=x(e);let s=r.Ba[r.currentUser.toKey()];if(s){const e=s.get(t);e&&(n?e.reject(n):e.resolve(),s=s.remove(t)),r.Ba[r.currentUser.toKey()]=s}}function ic(e,t,n=null){e.sharedClientState.removeLocalQueryTarget(t);for(const r of e.Ma.get(t))e.Fa.delete(r),n&&e.Ca.$a(r,n);e.Ma.delete(t),e.isPrimaryClient&&e.La.gr(t).forEach(t=>{e.La.containsKey(t)||oc(e,t)})}function oc(e,t){e.xa.delete(t.path.canonicalString());const n=e.Oa.get(t);null!==n&&($a(e.remoteStore,n),e.Oa=e.Oa.remove(t),e.Na.delete(n),cc(e))}function ac(e,t,n){for(const r of n)r instanceof Vu?(e.La.addReference(r.key,t),uc(e,r)):r instanceof qu?(v("SyncEngine","Document no longer in limbo: "+r.key),e.La.removeReference(r.key,t),e.La.containsKey(r.key)||oc(e,r.key)):T()}function uc(e,t){const n=t.key,r=n.path.canonicalString();e.Oa.get(n)||e.xa.has(r)||(v("SyncEngine","New document in limbo: "+n),e.xa.add(r),cc(e))}function cc(e){for(;e.xa.size>0&&e.Oa.size<e.maxConcurrentLimboResolutions;){const t=e.xa.values().next().value;e.xa.delete(t);const n=new H(Q.fromString(t)),r=e.qa.next();e.Na.set(r,new ju(n)),e.Oa=e.Oa.insert(n,r),Ka(e.remoteStore,new ni(Bn(Ln(n.path)),r,"TargetPurposeLimboResolution",Ee.oe))}}async function lc(e,t,n){const r=x(e),s=[],i=[],o=[];r.Fa.isEmpty()||(r.Fa.forEach((e,a)=>{o.push(r.Ka(a,t,n).then(e=>{var t;if((e||n)&&r.isPrimaryClient){const s=e?!e.fromCache:null===(t=null==n?void 0:n.targetChanges.get(a.targetId))||void 0===t?void 0:t.current;r.sharedClientState.updateQueryState(a.targetId,s?"current":"not-current")}if(e){s.push(e);const t=Ho.Wi(a.targetId,e);i.push(t)}}))}),await Promise.all(o),r.Ca.d_(s),await(async function(e,t){const n=x(e);try{await n.persistence.runTransaction("notifyLocalViewChanges","readwrite",e=>he.forEach(t,t=>he.forEach(t.$i,r=>n.persistence.referenceDelegate.addReference(e,t.targetId,r)).next(()=>he.forEach(t.Ui,r=>n.persistence.referenceDelegate.removeReference(e,t.targetId,r)))))}catch(e){if(!ye(e))throw e;v("LocalStore","Failed to update sequence numbers: "+e)}for(const e of t){const t=e.targetId;if(!e.fromCache){const e=n.os.get(t),r=e.snapshotVersion,s=e.withLastLimboFreeSnapshotVersion(r);n.os=n.os.insert(t,s)}}})(r.localStore,i))}async function hc(e,t){const n=x(e);if(!n.currentUser.isEqual(t)){v("SyncEngine","User change. New user:",t.toKey());const e=await ta(n.localStore,t);n.currentUser=t,(function(e,t){e.ka.forEach(e=>{e.forEach(e=>{e.reject(new D(C.CANCELLED,t))})}),e.ka.clear()})(n,"'waitForPendingWrites' promise is rejected due to a user change."),n.sharedClientState.handleUserChange(t,e.removedBatchIds,e.addedBatchIds),await lc(n,e.hs)}}function dc(e,t){const n=x(e),r=n.Na.get(t);if(r&&r.va)return lr().add(r.key);{let e=lr();const r=n.Ma.get(t);if(!r)return e;for(const t of r){const r=n.Fa.get(t);e=e.unionWith(r.view.Va)}return e}}async function fc(e,t){const n=x(e),r=await ca(n.localStore,t.query,!0),s=t.view.ba(r);return n.isPrimaryClient&&ac(n,t.targetId,s.wa),s}async function mc(e,t){const n=x(e);return ha(n.localStore,t).then(e=>lc(n,e))}async function gc(e,t,n,r){const s=x(e),i=await(function(e,t){const n=x(e),r=x(n.mutationQueue);return n.persistence.runTransaction("Lookup mutation documents","readonly",e=>r.Mn(e,t).next(t=>t?n.localDocuments.getDocuments(e,t):he.resolve(null)))})(s.localStore,t);null!==i?("pending"===n?await iu(s.remoteStore):"acknowledged"===n||"rejected"===n?(sc(s,t,r||null),rc(s,t),(function(e,t){x(x(e).mutationQueue).On(t)})(s.localStore,t)):T(),await lc(s,i)):v("SyncEngine","Cannot apply mutation batch with id: "+t)}async function pc(e,t){const n=x(e);if(_c(n),Tc(n),!0===t&&!0!==n.Qa){const e=n.sharedClientState.getAllActiveQueryTargets(),t=await yc(n,e.toArray());n.Qa=!0,await gu(n.remoteStore,!0);for(const e of t)Ka(n.remoteStore,e)}else if(!1===t&&!1!==n.Qa){const e=[];let t=Promise.resolve();n.Ma.forEach((r,s)=>{n.sharedClientState.isLocalQueryTarget(s)?e.push(s):t=t.then(()=>(ic(n,s),ua(n.localStore,s,!0))),$a(n.remoteStore,s)}),await t,await yc(n,e),(function(e){const t=x(e);t.Na.forEach((e,n)=>{$a(t.remoteStore,n)}),t.La.pr(),t.Na=new Map,t.Oa=new ct(H.comparator)})(n),n.Qa=!1,await gu(n.remoteStore,!1)}}async function yc(e,t,n){const r=x(e),s=[],i=[];for(const e of t){let t;const n=r.Ma.get(e);if(n&&0!==n.length){t=await aa(r.localStore,Bn(n[0]));for(const e of n){const t=r.Fa.get(e),n=await fc(r,t);n.snapshot&&i.push(n.snapshot)}}else{const n=await la(r.localStore,e);t=await aa(r.localStore,n),await Qu(r,wc(n),e,!1,t.resumeToken)}s.push(t)}return r.Ca.d_(i),s}function wc(e){return Mn(e.path,e.collectionGroup,e.orderBy,e.filters,e.limit,"F",e.startAt,e.endAt)}function vc(e){return(function(e){return x(x(e).persistence).Qi()})(x(e).localStore)}async function bc(e,t,n,r){const s=x(e);if(s.Qa)return void v("SyncEngine","Ignoring unexpected query state notification.");const i=s.Ma.get(t);if(i&&i.length>0)switch(n){case"current":case"not-current":{const e=await ha(s.localStore,Hn(i[0])),r=us.createSynthesizedRemoteEventForCurrentChange(t,"current"===n,wt.EMPTY_BYTE_STRING);await lc(s,e,r);break}case"rejected":await ua(s.localStore,t,!0),ic(s,t,r);break;default:T()}}async function Ic(e,t,n){const r=_c(e);if(r.Qa){for(const e of t){if(r.Ma.has(e)&&r.sharedClientState.isActiveQueryTarget(e)){v("SyncEngine","Adding an already active target "+e);continue}const t=await la(r.localStore,e),n=await aa(r.localStore,t);await Qu(r,wc(t),n.targetId,!1,n.resumeToken),Ka(r.remoteStore,n)}for(const e of n)r.Ma.has(e)&&await ua(r.localStore,e,!1).then(()=>{$a(r.remoteStore,e),ic(r,e)}).catch(le)}}function _c(e){const t=x(e);return t.remoteStore.remoteSyncer.applyRemoteEvent=Yu.bind(null,t),t.remoteStore.remoteSyncer.getRemoteKeysForTarget=dc.bind(null,t),t.remoteStore.remoteSyncer.rejectListen=Zu.bind(null,t),t.Ca.d_=Du.bind(null,t.eventManager),t.Ca.$a=Nu.bind(null,t.eventManager),t}function Tc(e){const t=x(e);return t.remoteStore.remoteSyncer.applySuccessfulWrite=ec.bind(null,t),t.remoteStore.remoteSyncer.rejectFailedWrite=tc.bind(null,t),t}function Ec(e,t,n){const r=x(e);(async function(e,t,n){try{const r=await t.getMetadata();if(await(function(e,t){const n=x(e),r=Ss(t.createTime);return n.persistence.runTransaction("hasNewerBundle","readonly",e=>n.Gr.getBundleMetadata(e,t.id)).then(e=>!!e&&e.createTime.compareTo(r)>=0)})(e.localStore,r))return await t.close(),n._completeWith((function(e){return{taskState:"Success",documentsLoaded:e.totalDocuments,bytesLoaded:e.totalBytes,totalDocuments:e.totalDocuments,totalBytes:e.totalBytes}})(r)),Promise.resolve(new Set);n._updateProgress(Lu(r));const s=new Mu(r,e.localStore,t.serializer);let i=await t.Ua();for(;i;){const e=await s.la(i);e&&n._updateProgress(e),i=await t.Ua()}const o=await s.complete();return await lc(e,o.Ia,void 0),await(function(e,t){const n=x(e);return n.persistence.runTransaction("Save bundle","readwrite",e=>n.Gr.saveBundleMetadata(e,t))})(e.localStore,r),n._completeWith(o.progress),Promise.resolve(o.Pa)}catch(e){return I("SyncEngine",`Loading bundle failed with ${e}`),n._failWith(e),Promise.resolve(new Set)}}
+/**
+    * @license
+    * Copyright 2020 Google LLC
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    *   http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
+    */)(r,t,n).then(e=>{r.sharedClientState.notifyBundleLoaded(e)})}class Sc{constructor(){this.kind="memory",this.synchronizeTabs=!1}async initialize(e){this.serializer=Fa(e.databaseInfo.databaseId),this.sharedClientState=this.Wa(e),this.persistence=this.Ga(e),await this.persistence.start(),this.localStore=this.za(e),this.gcScheduler=this.ja(e,this.localStore),this.indexBackfillerScheduler=this.Ha(e,this.localStore)}ja(e,t){return null}Ha(e,t){return null}za(e){return ea(this.persistence,new Xo,e.initialUser,this.serializer)}Ga(e){return new qo(Bo.Zr,this.serializer)}Wa(e){return new Ea}async terminate(){var e,t;null===(e=this.gcScheduler)||void 0===e||e.stop(),null===(t=this.indexBackfillerScheduler)||void 0===t||t.stop(),this.sharedClientState.shutdown(),await this.persistence.shutdown()}}Sc.provider={build:()=>new Sc};class xc extends Sc{constructor(e){super(),this.cacheSizeBytes=e}ja(e,t){E(this.persistence.referenceDelegate instanceof jo);const n=this.persistence.referenceDelegate.garbageCollector;return new mo(n,e.asyncQueue,t)}Ga(e){const t=void 0!==this.cacheSizeBytes?Xi.withCacheSize(this.cacheSizeBytes):Xi.DEFAULT;return new qo(e=>jo.Zr(e,t),this.serializer)}}class Cc extends Sc{constructor(e,t,n){super(),this.Ja=e,this.cacheSizeBytes=t,this.forceOwnership=n,this.kind="persistent",this.synchronizeTabs=!1}async initialize(e){await super.initialize(e),await this.Ja.initialize(this,e),await Tc(this.Ja.syncEngine),await iu(this.Ja.remoteStore),await this.persistence.yi(()=>(this.gcScheduler&&!this.gcScheduler.started&&this.gcScheduler.start(),this.indexBackfillerScheduler&&!this.indexBackfillerScheduler.started&&this.indexBackfillerScheduler.start(),Promise.resolve()))}za(e){return ea(this.persistence,new Xo,e.initialUser,this.serializer)}ja(e,t){const n=this.persistence.referenceDelegate.garbageCollector;return new mo(n,e.asyncQueue,t)}Ha(e,t){const n=new Te(t,this.persistence);return new _e(e.asyncQueue,n)}Ga(e){const t=Jo(e.databaseInfo.databaseId,e.databaseInfo.persistenceKey),n=void 0!==this.cacheSizeBytes?Xi.withCacheSize(this.cacheSizeBytes):Xi.DEFAULT;return new $o(this.synchronizeTabs,t,e.clientId,n,e.asyncQueue,Oa(),Ra(),this.serializer,this.sharedClientState,!!this.forceOwnership)}Wa(e){return new Ea}}class Dc extends Cc{constructor(e,t){super(e,t,!1),this.Ja=e,this.cacheSizeBytes=t,this.synchronizeTabs=!0}async initialize(e){await super.initialize(e);const t=this.Ja.syncEngine;this.sharedClientState instanceof Ta&&(this.sharedClientState.syncEngine={no:gc.bind(null,t),ro:bc.bind(null,t),io:Ic.bind(null,t),Qi:vc.bind(null,t),eo:mc.bind(null,t)},await this.sharedClientState.start()),await this.persistence.yi(async e=>{await pc(this.Ja.syncEngine,e),this.gcScheduler&&(e&&!this.gcScheduler.started?this.gcScheduler.start():e||this.gcScheduler.stop()),this.indexBackfillerScheduler&&(e&&!this.indexBackfillerScheduler.started?this.indexBackfillerScheduler.start():e||this.indexBackfillerScheduler.stop())})}Wa(e){const t=Oa();if(!Ta.D(t))throw new D(C.UNIMPLEMENTED,"IndexedDB persistence is only available on platforms that support LocalStorage.");const n=Jo(e.databaseInfo.databaseId,e.databaseInfo.persistenceKey);return new Ta(t,e.asyncQueue,n,e.clientId,e.initialUser)}}class Nc{async initialize(e,t){this.localStore||(this.localStore=e.localStore,this.sharedClientState=e.sharedClientState,this.datastore=this.createDatastore(t),this.remoteStore=this.createRemoteStore(t),this.eventManager=this.createEventManager(t),this.syncEngine=this.createSyncEngine(t,!e.synchronizeTabs),this.sharedClientState.onlineStateHandler=e=>Xu(this.syncEngine,e,1),this.remoteStore.remoteSyncer.handleCredentialChange=hc.bind(null,this.syncEngine),await gu(this.remoteStore,this.syncEngine.isPrimaryClient))}createEventManager(e){return new Eu}createDatastore(e){const t=Fa(e.databaseInfo.databaseId),n=(function(e){return new Pa(e)})(e.databaseInfo);return(function(e,t,n,r){return new Ua(e,t,n,r)})(e.authCredentials,e.appCheckCredentials,n,t)}createRemoteStore(e){return(function(e,t,n,r,s){return new ja(e,t,n,r,s)})(this.localStore,this.datastore,e.asyncQueue,e=>Xu(this.syncEngine,e,0),xa.D()?new xa:new Sa)}createSyncEngine(e,t){return(function(e,t,n,r,s,i,o){const a=new zu(e,t,n,r,s,i);return o&&(a.Qa=!0),a})(this.localStore,this.remoteStore,this.eventManager,this.sharedClientState,e.initialUser,e.maxConcurrentLimboResolutions,t)}async terminate(){var e,t;await(async function(e){const t=x(e);v("RemoteStore","RemoteStore shutting down."),t.L_.add(5),await Ga(t),t.k_.shutdown(),t.q_.set("Unknown")})(this.remoteStore),null===(e=this.datastore)||void 0===e||e.terminate(),null===(t=this.eventManager)||void 0===t||t.terminate()}}function Ac(e,t=10240){let n=0;return{async read(){if(n<e.byteLength){const r={value:e.slice(n,n+t),done:!1};return n+=t,r}return{done:!0}},async cancel(){},releaseLock(){},closed:Promise.resolve()}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */Nc.provider={build:()=>new Nc};class kc{constructor(e){this.observer=e,this.muted=!1}next(e){this.muted||this.observer.next&&this.Ya(this.observer.next,e)}error(e){this.muted||(this.observer.error?this.Ya(this.observer.error,e):b("Uncaught Error in snapshot listener:",e.toString()))}Za(){this.muted=!0}Ya(e,t){setTimeout(()=>{this.muted||e(t)},0)}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Pc{constructor(e,t){this.Xa=e,this.serializer=t,this.metadata=new N,this.buffer=new Uint8Array,this.eu=new TextDecoder("utf-8"),this.tu().then(e=>{e&&e.ua()?this.metadata.resolve(e.aa.metadata):this.metadata.reject(new Error(`The first element of the bundle is not a metadata, it is\n             ${JSON.stringify(null==e?void 0:e.aa)}`))},e=>this.metadata.reject(e))}close(){return this.Xa.cancel()}async getMetadata(){return this.metadata.promise}async Ua(){return await this.getMetadata(),this.tu()}async tu(){const e=await this.nu();if(null===e)return null;const t=this.eu.decode(e),n=Number(t);isNaN(n)&&this.ru(`length string (${t}) is not valid number`);const r=await this.iu(n);return new Ru(JSON.parse(r),e.length+n)}su(){return this.buffer.findIndex(e=>e==="{".charCodeAt(0))}async nu(){for(;this.su()<0&&!await this.ou(););if(0===this.buffer.length)return null;const e=this.su();e<0&&this.ru("Reached the end of bundle when a length string is expected.");const t=this.buffer.slice(0,e);return this.buffer=this.buffer.slice(e),t}async iu(e){for(;this.buffer.length<e;)await this.ou()&&this.ru("Reached the end of bundle when more is expected.");const t=this.eu.decode(this.buffer.slice(0,e));return this.buffer=this.buffer.slice(e),t}ru(e){throw this.Xa.cancel(),new Error(`Invalid bundle format: ${e}`)}async ou(){const e=await this.Xa.read();if(!e.done){const t=new Uint8Array(this.buffer.length+e.value.length);t.set(this.buffer),t.set(e.value,this.buffer.length),this.buffer=t}return e.done}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Oc{constructor(e){this.datastore=e,this.readVersions=new Map,this.mutations=[],this.committed=!1,this.lastTransactionError=null,this.writtenDocs=new Set}async lookup(e){if(this.ensureCommitNotCalled(),this.mutations.length>0)throw this.lastTransactionError=new D(C.INVALID_ARGUMENT,"Firestore transactions require all reads to be executed before all writes."),this.lastTransactionError;const t=await(async function(e,t){const n=x(e),r={documents:t.map(e=>Ns(n.serializer,e))},s=await n.Lo("BatchGetDocuments",n.serializer.databaseId,Q.emptyPath(),r,t.length),i=new Map;s.forEach(e=>{const t=Ls(n.serializer,e);i.set(t.key.toString(),t)});const o=[];return t.forEach(e=>{const t=i.get(e.toString());E(!!t),o.push(t)}),o})(this.datastore,e);return t.forEach(e=>this.recordVersion(e)),t}set(e,t){this.write(t.toMutation(e,this.precondition(e))),this.writtenDocs.add(e.toString())}update(e,t){try{this.write(t.toMutation(e,this.preconditionForUpdate(e)))}catch(e){this.lastTransactionError=e}this.writtenDocs.add(e.toString())}delete(e){this.write(new Gr(e,this.precondition(e))),this.writtenDocs.add(e.toString())}async commit(){if(this.ensureCommitNotCalled(),this.lastTransactionError)throw this.lastTransactionError;const e=this.readVersions;this.mutations.forEach(t=>{e.delete(t.key.toString())}),e.forEach((e,t)=>{const n=H.fromPath(t);this.mutations.push(new Kr(n,this.precondition(n)))}),await(async function(e,t){const n=x(e),r={writes:t.map(e=>qs(n.serializer,e))};await n.Mo("Commit",n.serializer.databaseId,Q.emptyPath(),r)})(this.datastore,this.mutations),this.committed=!0}recordVersion(e){let t;if(e.isFoundDocument())t=e.version;else{if(!e.isNoDocument())throw T();t=K.min()}const n=this.readVersions.get(e.key.toString());if(n){if(!t.isEqual(n))throw new D(C.ABORTED,"Document version changed between two reads.")}else this.readVersions.set(e.key.toString(),t)}precondition(e){const t=this.readVersions.get(e.toString());return!this.writtenDocs.has(e.toString())&&t?t.isEqual(K.min())?kr.exists(!1):kr.updateTime(t):kr.none()}preconditionForUpdate(e){const t=this.readVersions.get(e.toString());if(!this.writtenDocs.has(e.toString())&&t){if(t.isEqual(K.min()))throw new D(C.INVALID_ARGUMENT,"Can't update a document that doesn't exist.");return kr.updateTime(t)}return kr.exists(!0)}write(e){this.ensureCommitNotCalled(),this.mutations.push(e)}ensureCommitNotCalled(){}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Rc{constructor(e,t,n,r,s){this.asyncQueue=e,this.datastore=t,this.options=n,this.updateFunction=r,this.deferred=s,this._u=n.maxAttempts,this.t_=new Ma(this.asyncQueue,"transaction_retry")}au(){this._u-=1,this.uu()}uu(){this.t_.Go(async()=>{const e=new Oc(this.datastore),t=this.cu(e);t&&t.then(t=>{this.asyncQueue.enqueueAndForget(()=>e.commit().then(()=>{this.deferred.resolve(t)}).catch(e=>{this.lu(e)}))}).catch(e=>{this.lu(e)})})}cu(e){try{const t=this.updateFunction(e);return!Se(t)&&t.catch&&t.then?t:(this.deferred.reject(Error("Transaction callback must return a Promise")),null)}catch(e){return this.deferred.reject(e),null}}lu(e){this._u>0&&this.hu(e)?(this._u-=1,this.asyncQueue.enqueueAndForget(()=>(this.uu(),Promise.resolve()))):this.deferred.reject(e)}hu(e){if("FirebaseError"===e.name){const t=e.code;return"aborted"===t||"failed-precondition"===t||"already-exists"===t||!Zr(t)}return!1}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Fc{constructor(e,t,n,r,s){this.authCredentials=e,this.appCheckCredentials=t,this.asyncQueue=n,this.databaseInfo=r,this.user=m.UNAUTHENTICATED,this.clientId=U.newId(),this.authCredentialListener=()=>Promise.resolve(),this.appCheckCredentialListener=()=>Promise.resolve(),this._uninitializedComponentsProvider=s,this.authCredentials.start(n,async e=>{v("FirestoreClient","Received user=",e.uid),await this.authCredentialListener(e),this.user=e}),this.appCheckCredentials.start(n,e=>(v("FirestoreClient","Received new app check token=",e),this.appCheckCredentialListener(e,this.user)))}get configuration(){return{asyncQueue:this.asyncQueue,databaseInfo:this.databaseInfo,clientId:this.clientId,authCredentials:this.authCredentials,appCheckCredentials:this.appCheckCredentials,initialUser:this.user,maxConcurrentLimboResolutions:100}}setCredentialChangeListener(e){this.authCredentialListener=e}setAppCheckTokenChangeListener(e){this.appCheckCredentialListener=e}terminate(){this.asyncQueue.enterRestrictedMode();const e=new N;return this.asyncQueue.enqueueAndForgetEvenWhileRestricted(async()=>{try{this._onlineComponents&&await this._onlineComponents.terminate(),this._offlineComponents&&await this._offlineComponents.terminate(),this.authCredentials.shutdown(),this.appCheckCredentials.shutdown(),e.resolve()}catch(t){const n=vu(t,"Failed to shutdown persistence");e.reject(n)}}),e.promise}}async function Mc(e,t){e.asyncQueue.verifyOperationInProgress(),v("FirestoreClient","Initializing OfflineComponentProvider");const n=e.configuration;await t.initialize(n);let r=n.initialUser;e.setCredentialChangeListener(async e=>{r.isEqual(e)||(await ta(t.localStore,e),r=e)}),t.persistence.setDatabaseDeletedListener(()=>e.terminate()),e._offlineComponents=t}async function Lc(e,t){e.asyncQueue.verifyOperationInProgress();const n=await Vc(e);v("FirestoreClient","Initializing OnlineComponentProvider"),await t.initialize(n,e.configuration),e.setCredentialChangeListener(e=>mu(t.remoteStore,e)),e.setAppCheckTokenChangeListener((e,n)=>mu(t.remoteStore,n)),e._onlineComponents=t}async function Vc(e){if(!e._offlineComponents)if(e._uninitializedComponentsProvider){v("FirestoreClient","Using user provided OfflineComponentProvider");try{await Mc(e,e._uninitializedComponentsProvider._offline)}catch(t){const n=t;if(!(function(e){return"FirebaseError"===e.name?e.code===C.FAILED_PRECONDITION||e.code===C.UNIMPLEMENTED:!("undefined"!=typeof DOMException&&e instanceof DOMException)||22===e.code||20===e.code||11===e.code})(n))throw n;I("Error using user provided cache. Falling back to memory cache: "+n),await Mc(e,new Sc)}}else v("FirestoreClient","Using default OfflineComponentProvider"),await Mc(e,new Sc);return e._offlineComponents}async function qc(e){return e._onlineComponents||(e._uninitializedComponentsProvider?(v("FirestoreClient","Using user provided OnlineComponentProvider"),await Lc(e,e._uninitializedComponentsProvider._online)):(v("FirestoreClient","Using default OnlineComponentProvider"),await Lc(e,new Nc))),e._onlineComponents}function Uc(e){return Vc(e).then(e=>e.persistence)}function Bc(e){return Vc(e).then(e=>e.localStore)}function jc(e){return qc(e).then(e=>e.remoteStore)}function zc(e){return qc(e).then(e=>e.syncEngine)}function Gc(e){return qc(e).then(e=>e.datastore)}async function Kc(e){const t=await qc(e),n=t.eventManager;return n.onListen=Gu.bind(null,t.syncEngine),n.onUnlisten=Wu.bind(null,t.syncEngine),n.onFirstRemoteStoreListen=Ku.bind(null,t.syncEngine),n.onLastRemoteStoreUnlisten=Ju.bind(null,t.syncEngine),n}function $c(e){return e.asyncQueue.enqueue(async()=>{const t=await Uc(e),n=await jc(e);return t.setNetworkEnabled(!0),(function(e){const t=x(e);return t.L_.delete(0),za(t)})(n)})}function Qc(e){return e.asyncQueue.enqueue(async()=>{const t=await Uc(e),n=await jc(e);return t.setNetworkEnabled(!1),(async function(e){const t=x(e);t.L_.add(0),await Ga(t),t.q_.set("Offline")})(n)})}function Wc(e,t){const n=new N;return e.asyncQueue.enqueueAndForget(async()=>(async function(e,t,n){try{const r=await(function(e,t){const n=x(e);return n.persistence.runTransaction("read document","readonly",e=>n.localDocuments.getDocument(e,t))})(e,t);r.isFoundDocument()?n.resolve(r):r.isNoDocument()?n.resolve(null):n.reject(new D(C.UNAVAILABLE,"Failed to get document from cache. (However, this document may exist on the server. Run again without setting 'source' in the GetOptions to attempt to retrieve the document from the server.)"))}catch(e){const r=vu(e,`Failed to get document '${t} from cache`);n.reject(r)}})(await Bc(e),t,n)),n.promise}function Jc(e,t,n={}){const r=new N;return e.asyncQueue.enqueueAndForget(async()=>(function(e,t,n,r,s){const i=new kc({next:a=>{i.Za(),t.enqueueAndForget(()=>Cu(e,o));const u=a.docs.has(n);!u&&a.fromCache?s.reject(new D(C.UNAVAILABLE,"Failed to get document because the client is offline.")):u&&a.fromCache&&r&&"server"===r.source?s.reject(new D(C.UNAVAILABLE,'Failed to get document from server. (However, this document does exist in the local cache. Run again without setting source to "server" to retrieve the cached document.)')):s.resolve(a)},error:e=>s.reject(e)}),o=new Ou(Ln(n.path),i,{includeMetadataChanges:!0,_a:!0});return xu(e,o)})(await Kc(e),e.asyncQueue,t,n,r)),r.promise}function Hc(e,t){const n=new N;return e.asyncQueue.enqueueAndForget(async()=>(async function(e,t,n){try{const r=await ca(e,t,!0),s=new Uu(t,r.Ts),i=s.ma(r.documents),o=s.applyChanges(i,!1);n.resolve(o.snapshot)}catch(e){const r=vu(e,`Failed to execute query '${t} against cache`);n.reject(r)}})(await Bc(e),t,n)),n.promise}function Yc(e,t,n={}){const r=new N;return e.asyncQueue.enqueueAndForget(async()=>(function(e,t,n,r,s){const i=new kc({next:n=>{i.Za(),t.enqueueAndForget(()=>Cu(e,o)),n.fromCache&&"server"===r.source?s.reject(new D(C.UNAVAILABLE,'Failed to get documents from server. (However, these documents may exist in the local cache. Run again without setting source to "server" to retrieve the cached documents.)')):s.resolve(n)},error:e=>s.reject(e)}),o=new Ou(n,i,{includeMetadataChanges:!0,_a:!0});return xu(e,o)})(await Kc(e),e.asyncQueue,t,n,r)),r.promise}function Xc(e,t,n){const r=new N;return e.asyncQueue.enqueueAndForget(async()=>{try{const s=await Gc(e);r.resolve((async function(e,t,n){var r;const s=x(e),{request:i,ut:o,parent:a}=Gs(s.serializer,jn(t),n);s.connection.Fo||delete i.parent;const u=(await s.Lo("RunAggregationQuery",s.serializer.databaseId,a,i,1)).filter(e=>!!e.result);E(1===u.length);const c=null===(r=u[0].result)||void 0===r?void 0:r.aggregateFields;return Object.keys(c).reduce((e,t)=>(e[o[t]]=c[t],e),{})})(s,t,n))}catch(e){r.reject(e)}}),r.promise}function Zc(e,t){const n=new kc(t);return e.asyncQueue.enqueueAndForget(async()=>(function(e,t){x(e).Y_.add(t),t.next()})(await Kc(e),n)),()=>{n.Za(),e.asyncQueue.enqueueAndForget(async()=>(function(e,t){x(e).Y_.delete(t)})(await Kc(e),n))}}function el(e,t,n,r){const s=(function(e,t){let n;return n="string"==typeof e?ns().encode(e):e,(function(e,t){return new Pc(e,t)})((function(e,t){if(e instanceof Uint8Array)return Ac(e,t);if(e instanceof ArrayBuffer)return Ac(new Uint8Array(e),t);if(e instanceof ReadableStream)return e.getReader();throw new Error("Source of `toByteStreamReader` has to be a ArrayBuffer or ReadableStream")})(n),t)})(n,Fa(t));e.asyncQueue.enqueueAndForget(async()=>{Ec(await zc(e),s,r)})}function tl(e,t){return e.asyncQueue.enqueue(async()=>(function(e,t){const n=x(e);return n.persistence.runTransaction("Get named query","readonly",e=>n.Gr.getNamedQuery(e,t))})(await Bc(e),t))}function nl(e,t){return e.asyncQueue.enqueue(async()=>(async function(e,t){const n=x(e),r=n.indexManager,s=[];return n.persistence.runTransaction("Configure indexes","readwrite",e=>r.getFieldIndexes(e).next(n=>
+/**
+      * @license
+      * Copyright 2017 Google LLC
+      *
+      * Licensed under the Apache License, Version 2.0 (the "License");
+      * you may not use this file except in compliance with the License.
+      * You may obtain a copy of the License at
+      *
+      *   http://www.apache.org/licenses/LICENSE-2.0
+      *
+      * Unless required by applicable law or agreed to in writing, software
+      * distributed under the License is distributed on an "AS IS" BASIS,
+      * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      * See the License for the specific language governing permissions and
+      * limitations under the License.
+      */
+(function(e,t,n,r,s){e=[...e],t=[...t],e.sort(n),t.sort(n);const i=e.length,o=t.length;let a=0,u=0;for(;a<o&&u<i;){const i=n(e[u],t[a]);i<0?s(e[u++]):i>0?r(t[a++]):(a++,u++)}for(;a<o;)r(t[a++]);for(;u<i;)s(e[u++])})(n,t,ee,t=>{s.push(r.addFieldIndex(e,t))},t=>{s.push(r.deleteFieldIndex(e,t))})).next(()=>he.waitFor(s)))})(await Bc(e),t))}function rl(e,t){return e.asyncQueue.enqueue(async()=>(function(e,t){x(e).ss.zi=t})(await Bc(e),t))}function sl(e){return e.asyncQueue.enqueue(async()=>(function(e){const t=x(e),n=t.indexManager;return t.persistence.runTransaction("Delete All Indexes","readwrite",e=>n.deleteAllFieldIndexes(e))}
+/**
+    * @license
+    * Copyright 2019 Google LLC
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    *   http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
+    */)(await Bc(e)))}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function il(e){const t={};return void 0!==e.timeoutSeconds&&(t.timeoutSeconds=e.timeoutSeconds),t
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}const ol=new Map;
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function al(e,t,n){if(!n)throw new D(C.INVALID_ARGUMENT,`Function ${e}() cannot be called with an empty ${t}.`)}function ul(e,t,n,r){if(!0===t&&!0===r)throw new D(C.INVALID_ARGUMENT,`${e} and ${n} cannot be used together.`)}function cl(e){if(!H.isDocumentKey(e))throw new D(C.INVALID_ARGUMENT,`Invalid document reference. Document references must have an even number of segments, but ${e} has ${e.length}.`)}function ll(e){if(H.isDocumentKey(e))throw new D(C.INVALID_ARGUMENT,`Invalid collection reference. Collection references must have an odd number of segments, but ${e} has ${e.length}.`)}function hl(e){if(void 0===e)return"undefined";if(null===e)return"null";if("string"==typeof e)return e.length>20&&(e=`${e.substring(0,20)}...`),JSON.stringify(e);if("number"==typeof e||"boolean"==typeof e)return""+e;if("object"==typeof e){if(e instanceof Array)return"an array";{const t=(function(e){return e.constructor?e.constructor.name:null})(e);return t?`a custom ${t} object`:"an object"}}return"function"==typeof e?"a function":T()}function dl(e,t){if("_delegate"in e&&(e=e._delegate),!(e instanceof t)){if(t.name===e.constructor.name)throw new D(C.INVALID_ARGUMENT,"Type does not match the expected instance. Did you pass a reference from a different Firestore SDK?");{const n=hl(e);throw new D(C.INVALID_ARGUMENT,`Expected type '${t.name}', but it was: ${n}`)}}return e}function fl(e,t){if(t<=0)throw new D(C.INVALID_ARGUMENT,`Function ${e}() requires a positive number, but it was: ${t}.`)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ml{constructor(e){var t,n;if(void 0===e.host){if(void 0!==e.ssl)throw new D(C.INVALID_ARGUMENT,"Can't provide ssl option if host option is not set");this.host="firestore.googleapis.com",this.ssl=!0}else this.host=e.host,this.ssl=null===(t=e.ssl)||void 0===t||t;if(this.credentials=e.credentials,this.ignoreUndefinedProperties=!!e.ignoreUndefinedProperties,this.localCache=e.localCache,void 0===e.cacheSizeBytes)this.cacheSizeBytes=41943040;else{if(-1!==e.cacheSizeBytes&&e.cacheSizeBytes<1048576)throw new D(C.INVALID_ARGUMENT,"cacheSizeBytes must be at least 1048576");this.cacheSizeBytes=e.cacheSizeBytes}ul("experimentalForceLongPolling",e.experimentalForceLongPolling,"experimentalAutoDetectLongPolling",e.experimentalAutoDetectLongPolling),this.experimentalForceLongPolling=!!e.experimentalForceLongPolling,this.experimentalForceLongPolling?this.experimentalAutoDetectLongPolling=!1:void 0===e.experimentalAutoDetectLongPolling?this.experimentalAutoDetectLongPolling=!0:this.experimentalAutoDetectLongPolling=!!e.experimentalAutoDetectLongPolling,this.experimentalLongPollingOptions=il(null!==(n=e.experimentalLongPollingOptions)&&void 0!==n?n:{}),(function(e){if(void 0!==e.timeoutSeconds){if(isNaN(e.timeoutSeconds))throw new D(C.INVALID_ARGUMENT,`invalid long polling timeout: ${e.timeoutSeconds} (must not be NaN)`);if(e.timeoutSeconds<5)throw new D(C.INVALID_ARGUMENT,`invalid long polling timeout: ${e.timeoutSeconds} (minimum allowed value is 5)`);if(e.timeoutSeconds>30)throw new D(C.INVALID_ARGUMENT,`invalid long polling timeout: ${e.timeoutSeconds} (maximum allowed value is 30)`)}}
+/**
+      * @license
+      * Copyright 2020 Google LLC
+      *
+      * Licensed under the Apache License, Version 2.0 (the "License");
+      * you may not use this file except in compliance with the License.
+      * You may obtain a copy of the License at
+      *
+      *   http://www.apache.org/licenses/LICENSE-2.0
+      *
+      * Unless required by applicable law or agreed to in writing, software
+      * distributed under the License is distributed on an "AS IS" BASIS,
+      * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      * See the License for the specific language governing permissions and
+      * limitations under the License.
+      */)(this.experimentalLongPollingOptions),this.useFetchStreams=!!e.useFetchStreams}isEqual(e){return this.host===e.host&&this.ssl===e.ssl&&this.credentials===e.credentials&&this.cacheSizeBytes===e.cacheSizeBytes&&this.experimentalForceLongPolling===e.experimentalForceLongPolling&&this.experimentalAutoDetectLongPolling===e.experimentalAutoDetectLongPolling&&(function(e,t){return e.timeoutSeconds===t.timeoutSeconds})(this.experimentalLongPollingOptions,e.experimentalLongPollingOptions)&&this.ignoreUndefinedProperties===e.ignoreUndefinedProperties&&this.useFetchStreams===e.useFetchStreams}}class gl{constructor(e,t,n,r){this._authCredentials=e,this._appCheckCredentials=t,this._databaseId=n,this._app=r,this.type="firestore-lite",this._persistenceKey="(lite)",this._settings=new ml({}),this._settingsFrozen=!1,this._terminateTask="notTerminated"}get app(){if(!this._app)throw new D(C.FAILED_PRECONDITION,"Firestore was not initialized using the Firebase SDK. 'app' is not available");return this._app}get _initialized(){return this._settingsFrozen}get _terminated(){return"notTerminated"!==this._terminateTask}_setSettings(e){if(this._settingsFrozen)throw new D(C.FAILED_PRECONDITION,"Firestore has already been started and its settings can no longer be changed. You can only modify settings before calling any other methods on a Firestore object.");this._settings=new ml(e),void 0!==e.credentials&&(this._authCredentials=(function(e){if(!e)return new k;switch(e.type){case"firstParty":return new F(e.sessionIndex||"0",e.iamToken||null,e.authTokenFactory||null);case"provider":return e.client;default:throw new D(C.INVALID_ARGUMENT,"makeAuthCredentialsProvider failed due to invalid credential type")}})(e.credentials))}_getSettings(){return this._settings}_freezeSettings(){return this._settingsFrozen=!0,this._settings}_delete(){return"notTerminated"===this._terminateTask&&(this._terminateTask=this._terminate()),this._terminateTask}async _restart(){"notTerminated"===this._terminateTask?await this._terminate():this._terminateTask="notTerminated"}toJSON(){return{app:this._app,databaseId:this._databaseId,settings:this._settings}}_terminate(){return(function(e){const t=ol.get(e);t&&(v("ComponentProvider","Removing Datastore"),ol.delete(e),t.terminate())})(this),Promise.resolve()}}function pl(e,t,n,r={}){var s;const i=(e=dl(e,gl))._getSettings(),o=`${t}:${n}`;if("firestore.googleapis.com"!==i.host&&i.host!==o&&I("Host has been set in both settings() and connectFirestoreEmulator(), emulator host will be used."),e._setSettings(Object.assign(Object.assign({},i),{host:o,ssl:!1})),r.mockUserToken){let t,n;if("string"==typeof r.mockUserToken)t=r.mockUserToken,n=m.MOCK_USER;else{t=(0,l.createMockUserToken)(r.mockUserToken,null===(s=e._app)||void 0===s?void 0:s.options.projectId);const i=r.mockUserToken.sub||r.mockUserToken.user_id;if(!i)throw new D(C.INVALID_ARGUMENT,"mockUserToken must contain 'sub' or 'user_id' field!");n=new m(i)}e._authCredentials=new P(new A(t,n))}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class yl{constructor(e,t,n){this.converter=t,this._query=n,this.type="query",this.firestore=e}withConverter(e){return new yl(this.firestore,e,this._query)}}class wl{constructor(e,t,n){this.converter=t,this._key=n,this.type="document",this.firestore=e}get _path(){return this._key.path}get id(){return this._key.path.lastSegment()}get path(){return this._key.path.canonicalString()}get parent(){return new vl(this.firestore,this.converter,this._key.path.popLast())}withConverter(e){return new wl(this.firestore,e,this._key)}}class vl extends yl{constructor(e,t,n){super(e,t,Ln(n)),this._path=n,this.type="collection"}get id(){return this._query.path.lastSegment()}get path(){return this._query.path.canonicalString()}get parent(){const e=this._path.popLast();return e.isEmpty()?null:new wl(this.firestore,null,new H(e))}withConverter(e){return new vl(this.firestore,e,this._path)}}function bl(e,t,...n){if(e=(0,l.getModularInstance)(e),al("collection","path",t),e instanceof gl){const r=Q.fromString(t,...n);return ll(r),new vl(e,null,r)}{if(!(e instanceof wl||e instanceof vl))throw new D(C.INVALID_ARGUMENT,"Expected first argument to collection() to be a CollectionReference, a DocumentReference or FirebaseFirestore");const r=e._path.child(Q.fromString(t,...n));return ll(r),new vl(e.firestore,null,r)}}function Il(e,t){if(e=dl(e,gl),al("collectionGroup","collection id",t),t.indexOf("/")>=0)throw new D(C.INVALID_ARGUMENT,`Invalid collection ID '${t}' passed to function collectionGroup(). Collection IDs must not contain '/'.`);return new yl(e,null,(function(e){return new Fn(Q.emptyPath(),e)})(t))}function _l(e,t,...n){if(e=(0,l.getModularInstance)(e),1===arguments.length&&(t=U.newId()),al("doc","path",t),e instanceof gl){const r=Q.fromString(t,...n);return cl(r),new wl(e,null,new H(r))}{if(!(e instanceof wl||e instanceof vl))throw new D(C.INVALID_ARGUMENT,"Expected first argument to collection() to be a CollectionReference, a DocumentReference or FirebaseFirestore");const r=e._path.child(Q.fromString(t,...n));return cl(r),new wl(e.firestore,e instanceof vl?e.converter:null,new H(r))}}function Tl(e,t){return e=(0,l.getModularInstance)(e),t=(0,l.getModularInstance)(t),(e instanceof wl||e instanceof vl)&&(t instanceof wl||t instanceof vl)&&e.firestore===t.firestore&&e.path===t.path&&e.converter===t.converter}function El(e,t){return e=(0,l.getModularInstance)(e),t=(0,l.getModularInstance)(t),e instanceof yl&&t instanceof yl&&e.firestore===t.firestore&&$n(e._query,t._query)&&e.converter===t.converter
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}class Sl{constructor(e=Promise.resolve()){this.Pu=[],this.Iu=!1,this.Tu=[],this.Eu=null,this.du=!1,this.Au=!1,this.Ru=[],this.t_=new Ma(this,"async_queue_retry"),this.Vu=()=>{const e=Ra();e&&v("AsyncQueue","Visibility state changed to "+e.visibilityState),this.t_.jo()},this.mu=e;const t=Ra();t&&"function"==typeof t.addEventListener&&t.addEventListener("visibilitychange",this.Vu)}get isShuttingDown(){return this.Iu}enqueueAndForget(e){this.enqueue(e)}enqueueAndForgetEvenWhileRestricted(e){this.fu(),this.gu(e)}enterRestrictedMode(e){if(!this.Iu){this.Iu=!0,this.Au=e||!1;const t=Ra();t&&"function"==typeof t.removeEventListener&&t.removeEventListener("visibilitychange",this.Vu)}}enqueue(e){if(this.fu(),this.Iu)return new Promise(()=>{});const t=new N;return this.gu(()=>this.Iu&&this.Au?Promise.resolve():(e().then(t.resolve,t.reject),t.promise)).then(()=>t.promise)}enqueueRetryable(e){this.enqueueAndForget(()=>(this.Pu.push(e),this.pu()))}async pu(){if(0!==this.Pu.length){try{await this.Pu[0](),this.Pu.shift(),this.t_.reset()}catch(e){if(!ye(e))throw e;v("AsyncQueue","Operation failed with retryable error: "+e)}this.Pu.length>0&&this.t_.Go(()=>this.pu())}}gu(e){const t=this.mu.then(()=>(this.du=!0,e().catch(e=>{this.Eu=e,this.du=!1;const t=(function(e){let t=e.message||"";return e.stack&&(t=e.stack.includes(e.message)?e.stack:e.message+"\n"+e.stack),t}
+/**
+        * @license
+        * Copyright 2017 Google LLC
+        *
+        * Licensed under the Apache License, Version 2.0 (the "License");
+        * you may not use this file except in compliance with the License.
+        * You may obtain a copy of the License at
+        *
+        *   http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS,
+        * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        * See the License for the specific language governing permissions and
+        * limitations under the License.
+        */)(e);throw b("INTERNAL UNHANDLED ERROR: ",t),e}).then(e=>(this.du=!1,e))));return this.mu=t,t}enqueueAfterDelay(e,t,n){this.fu(),this.Ru.indexOf(e)>-1&&(t=0);const r=wu.createAndSchedule(this,e,t,n,e=>this.yu(e));return this.Tu.push(r),r}fu(){this.Eu&&T()}verifyOperationInProgress(){}async wu(){let e;do{e=this.mu,await e}while(e!==this.mu)}Su(e){for(const t of this.Tu)if(t.timerId===e)return!0;return!1}bu(e){return this.wu().then(()=>{this.Tu.sort((e,t)=>e.targetTimeMs-t.targetTimeMs);for(const t of this.Tu)if(t.skipDelay(),"all"!==e&&t.timerId===e)break;return this.wu()})}Du(e){this.Ru.push(e)}yu(e){const t=this.Tu.indexOf(e);this.Tu.splice(t,1)}}function xl(e){return(function(e,t){if("object"!=typeof e||null===e)return!1;const n=e;for(const e of t)if(e in n&&"function"==typeof n[e])return!0;return!1}
+/**
+    * @license
+    * Copyright 2020 Google LLC
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    *   http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
+    */)(e,["next","error","complete"])}class Cl{constructor(){this._progressObserver={},this._taskCompletionResolver=new N,this._lastProgress={taskState:"Running",totalBytes:0,totalDocuments:0,bytesLoaded:0,documentsLoaded:0}}onProgress(e,t,n){this._progressObserver={next:e,error:t,complete:n}}catch(e){return this._taskCompletionResolver.promise.catch(e)}then(e,t){return this._taskCompletionResolver.promise.then(e,t)}_completeWith(e){this._updateProgress(e),this._progressObserver.complete&&this._progressObserver.complete(),this._taskCompletionResolver.resolve(e)}_failWith(e){this._lastProgress.taskState="Error",this._progressObserver.next&&this._progressObserver.next(this._lastProgress),this._progressObserver.error&&this._progressObserver.error(e),this._taskCompletionResolver.reject(e)}_updateProgress(e){this._lastProgress=e,this._progressObserver.next&&this._progressObserver.next(e)}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const Dl=-1;class Nl extends gl{constructor(e,t,n,r){super(e,t,n,r),this.type="firestore",this._queue=new Sl,this._persistenceKey=(null==r?void 0:r.name)||"[DEFAULT]"}async _terminate(){if(this._firestoreClient){const e=this._firestoreClient.terminate();this._queue=new Sl(e),this._firestoreClient=void 0,await e}}}function Al(e,t,n){n||(n="(default)");const r=(0,a._getProvider)(e,"firestore");if(r.isInitialized(n)){const e=r.getImmediate({identifier:n}),s=r.getOptions(n);if((0,l.deepEqual)(s,t))return e;throw new D(C.FAILED_PRECONDITION,"initializeFirestore() has already been called with different options. To avoid this error, call initializeFirestore() with the same options as when it was originally called, or call getFirestore() to return the already initialized instance.")}if(void 0!==t.cacheSizeBytes&&void 0!==t.localCache)throw new D(C.INVALID_ARGUMENT,"cache and cacheSizeBytes cannot be specified at the same time as cacheSizeBytes willbe deprecated. Instead, specify the cache size in the cache object");if(void 0!==t.cacheSizeBytes&&-1!==t.cacheSizeBytes&&t.cacheSizeBytes<1048576)throw new D(C.INVALID_ARGUMENT,"cacheSizeBytes must be at least 1048576");return r.initialize({options:t,instanceIdentifier:n})}function kl(e,t){const n="object"==typeof e?e:(0,a.getApp)(),r="string"==typeof e?e:t||"(default)",s=(0,a._getProvider)(n,"firestore").getImmediate({identifier:r});if(!s._initialized){const e=(0,l.getDefaultEmulatorHostnameAndPort)("firestore");e&&pl(s,...e)}return s}function Pl(e){if(e._terminated)throw new D(C.FAILED_PRECONDITION,"The client has already been terminated.");return e._firestoreClient||Ol(e),e._firestoreClient}function Ol(e){var t,n,r;const s=e._freezeSettings(),i=(function(e,t,n,r){return new xt(e,t,n,r.host,r.ssl,r.experimentalForceLongPolling,r.experimentalAutoDetectLongPolling,il(r.experimentalLongPollingOptions),r.useFetchStreams)})(e._databaseId,(null===(t=e._app)||void 0===t?void 0:t.options.appId)||"",e._persistenceKey,s);e._componentsProvider||(null===(n=s.localCache)||void 0===n?void 0:n._offlineComponentProvider)&&(null===(r=s.localCache)||void 0===r?void 0:r._onlineComponentProvider)&&(e._componentsProvider={_offline:s.localCache._offlineComponentProvider,_online:s.localCache._onlineComponentProvider}),e._firestoreClient=new Fc(e._authCredentials,e._appCheckCredentials,e._queue,i,e._componentsProvider&&(function(e){const t=null==e?void 0:e._online.build();return{_offline:null==e?void 0:e._offline.build(t),_online:t}})(e._componentsProvider))}function Rl(e,t){I("enableIndexedDbPersistence() will be deprecated in the future, you can use `FirestoreSettings.cache` instead.");const n=e._freezeSettings();return Ml(e,Nc.provider,{build:e=>new Cc(e,n.cacheSizeBytes,null==t?void 0:t.forceOwnership)}),Promise.resolve()}async function Fl(e){I("enableMultiTabIndexedDbPersistence() will be deprecated in the future, you can use `FirestoreSettings.cache` instead.");const t=e._freezeSettings();Ml(e,Nc.provider,{build:e=>new Dc(e,t.cacheSizeBytes)})}function Ml(e,t,n){if((e=dl(e,Nl))._firestoreClient||e._terminated)throw new D(C.FAILED_PRECONDITION,"Firestore has already been started and persistence can no longer be enabled. You can only enable persistence before calling any other methods on a Firestore object.");if(e._componentsProvider||e._getSettings().localCache)throw new D(C.FAILED_PRECONDITION,"SDK cache is already specified.");e._componentsProvider={_online:t,_offline:n},Ol(e)}function Ll(e){if(e._initialized&&!e._terminated)throw new D(C.FAILED_PRECONDITION,"Persistence can only be cleared before a Firestore instance is initialized or after it is terminated.");const t=new N;return e._queue.enqueueAndForgetEvenWhileRestricted(async()=>{try{await(async function(e){if(!fe.D())return Promise.resolve();const t=e+"main";await fe.delete(t)})(Jo(e._databaseId,e._persistenceKey)),t.resolve()}catch(e){t.reject(e)}}),t.promise}function Vl(e){return(function(e){const t=new N;return e.asyncQueue.enqueueAndForget(async()=>nc(await zc(e),t)),t.promise})(Pl(e=dl(e,Nl)))}function ql(e){return $c(Pl(e=dl(e,Nl)))}function Ul(e){return Qc(Pl(e=dl(e,Nl)))}function Bl(e){return(0,a._removeServiceInstance)(e.app,"firestore",e._databaseId.database),e._delete()}function jl(e,t){const n=Pl(e=dl(e,Nl)),r=new Cl;return el(n,e._databaseId,t,r),r}function zl(e,t){return tl(Pl(e=dl(e,Nl)),t).then(t=>t?new yl(e,null,t.query):null)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Gl{constructor(e="count",t){this._internalFieldPath=t,this.type="AggregateField",this.aggregateType=e}}class Kl{constructor(e,t,n){this._userDataWriter=t,this._data=n,this.type="AggregateQuerySnapshot",this.query=e}data(){return this._userDataWriter.convertObjectMap(this._data)}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class $l{constructor(e){this._byteString=e}static fromBase64String(e){try{return new $l(wt.fromBase64String(e))}catch(e){throw new D(C.INVALID_ARGUMENT,"Failed to construct data from Base64 string: "+e)}}static fromUint8Array(e){return new $l(wt.fromUint8Array(e))}toBase64(){return this._byteString.toBase64()}toUint8Array(){return this._byteString.toUint8Array()}toString(){return"Bytes(base64: "+this.toBase64()+")"}isEqual(e){return this._byteString.isEqual(e._byteString)}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Ql{constructor(...e){for(let t=0;t<e.length;++t)if(0===e[t].length)throw new D(C.INVALID_ARGUMENT,"Invalid field name at argument $(i + 1). Field names must not be empty.");this._internalPath=new J(e)}isEqual(e){return this._internalPath.isEqual(e._internalPath)}}function Wl(){return new Ql("__name__")}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Jl{constructor(e){this._methodName=e}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Hl{constructor(e,t){if(!isFinite(e)||e<-90||e>90)throw new D(C.INVALID_ARGUMENT,"Latitude must be a number between -90 and 90, but was: "+e);if(!isFinite(t)||t<-180||t>180)throw new D(C.INVALID_ARGUMENT,"Longitude must be a number between -180 and 180, but was: "+t);this._lat=e,this._long=t}get latitude(){return this._lat}get longitude(){return this._long}isEqual(e){return this._lat===e._lat&&this._long===e._long}toJSON(){return{latitude:this._lat,longitude:this._long}}_compareTo(e){return B(this._lat,e._lat)||B(this._long,e._long)}}
+/**
+   * @license
+   * Copyright 2024 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Yl{constructor(e){this._values=(e||[]).map(e=>e)}toArray(){return this._values.map(e=>e)}isEqual(e){return(function(e,t){if(e.length!==t.length)return!1;for(let n=0;n<e.length;++n)if(e[n]!==t[n])return!1;return!0})(this._values,e._values)}}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const Xl=/^__.*__$/;class Zl{constructor(e,t,n){this.data=e,this.fieldMask=t,this.fieldTransforms=n}toMutation(e,t){return null!==this.fieldMask?new Ur(e,this.data,this.fieldMask,t,this.fieldTransforms):new qr(e,this.data,t,this.fieldTransforms)}}class eh{constructor(e,t,n){this.data=e,this.fieldMask=t,this.fieldTransforms=n}toMutation(e,t){return new Ur(e,this.data,this.fieldMask,t,this.fieldTransforms)}}function th(e){switch(e){case 0:case 2:case 1:return!0;case 3:case 4:return!1;default:throw T()}}class nh{constructor(e,t,n,r,s,i){this.settings=e,this.databaseId=t,this.serializer=n,this.ignoreUndefinedProperties=r,void 0===s&&this.vu(),this.fieldTransforms=s||[],this.fieldMask=i||[]}get path(){return this.settings.path}get Cu(){return this.settings.Cu}Fu(e){return new nh(Object.assign(Object.assign({},this.settings),e),this.databaseId,this.serializer,this.ignoreUndefinedProperties,this.fieldTransforms,this.fieldMask)}Mu(e){var t;const n=null===(t=this.path)||void 0===t?void 0:t.child(e),r=this.Fu({path:n,xu:!1});return r.Ou(e),r}Nu(e){var t;const n=null===(t=this.path)||void 0===t?void 0:t.child(e),r=this.Fu({path:n,xu:!1});return r.vu(),r}Lu(e){return this.Fu({path:void 0,xu:!0})}Bu(e){return _h(e,this.settings.methodName,this.settings.ku||!1,this.path,this.settings.qu)}contains(e){return void 0!==this.fieldMask.find(t=>e.isPrefixOf(t))||void 0!==this.fieldTransforms.find(t=>e.isPrefixOf(t.field))}vu(){if(this.path)for(let e=0;e<this.path.length;e++)this.Ou(this.path.get(e))}Ou(e){if(0===e.length)throw this.Bu("Document fields must not be empty");if(th(this.Cu)&&Xl.test(e))throw this.Bu('Document fields cannot begin and end with "__"')}}class rh{constructor(e,t,n){this.databaseId=e,this.ignoreUndefinedProperties=t,this.serializer=n||Fa(e)}Qu(e,t,n,r=!1){return new nh({Cu:e,methodName:t,qu:n,path:J.emptyPath(),xu:!1,ku:r},this.databaseId,this.serializer,this.ignoreUndefinedProperties)}}function sh(e){const t=e._freezeSettings(),n=Fa(e._databaseId);return new rh(e._databaseId,!!t.ignoreUndefinedProperties,n)}function ih(e,t,n,r,s,i={}){const o=e.Qu(i.merge||i.mergeFields?2:0,t,n,s);wh("Data must be an object, but it was:",o,r);const a=ph(r,o);let u,c;if(i.merge)u=new gt(o.fieldMask),c=o.fieldTransforms;else if(i.mergeFields){const e=[];for(const r of i.mergeFields){const s=vh(t,r,n);if(!o.contains(s))throw new D(C.INVALID_ARGUMENT,`Field '${s}' is specified in your field mask but missing from your input data.`);Th(e,s)||e.push(s)}u=new gt(e),c=o.fieldTransforms.filter(e=>u.covers(e.field))}else u=null,c=o.fieldTransforms;return new Zl(new Zt(a),u,c)}class oh extends Jl{_toFieldTransform(e){if(2!==e.Cu)throw 1===e.Cu?e.Bu(`${this._methodName}() can only appear at the top level of your update data`):e.Bu(`${this._methodName}() cannot be used with set() unless you pass {merge:true}`);return e.fieldMask.push(e.path),null}isEqual(e){return e instanceof oh}}function ah(e,t,n){return new nh({Cu:3,qu:t.settings.qu,methodName:e._methodName,xu:n},t.databaseId,t.serializer,t.ignoreUndefinedProperties)}class uh extends Jl{_toFieldTransform(e){return new Dr(e.path,new br)}isEqual(e){return e instanceof uh}}class ch extends Jl{constructor(e,t){super(e),this.Ku=t}_toFieldTransform(e){const t=ah(this,e,!0),n=this.Ku.map(e=>gh(e,t)),r=new Ir(n);return new Dr(e.path,r)}isEqual(e){return e instanceof ch&&(0,l.deepEqual)(this.Ku,e.Ku)}}class lh extends Jl{constructor(e,t){super(e),this.Ku=t}_toFieldTransform(e){const t=ah(this,e,!0),n=this.Ku.map(e=>gh(e,t)),r=new Tr(n);return new Dr(e.path,r)}isEqual(e){return e instanceof lh&&(0,l.deepEqual)(this.Ku,e.Ku)}}class hh extends Jl{constructor(e,t){super(e),this.$u=t}_toFieldTransform(e){const t=new Sr(e.serializer,gr(e.serializer,this.$u));return new Dr(e.path,t)}isEqual(e){return e instanceof hh&&this.$u===e.$u}}function dh(e,t,n,r){const s=e.Qu(1,t,n);wh("Data must be an object, but it was:",s,r);const i=[],o=Zt.empty();ot(r,(e,r)=>{const a=Ih(t,e,n);r=(0,l.getModularInstance)(r);const u=s.Nu(a);if(r instanceof oh)i.push(a);else{const e=gh(r,u);null!=e&&(i.push(a),o.set(a,e))}});const a=new gt(i);return new eh(o,a,s.fieldTransforms)}function fh(e,t,n,r,s,i){const o=e.Qu(1,t,n),a=[vh(t,r,n)],u=[s];if(i.length%2!=0)throw new D(C.INVALID_ARGUMENT,`Function ${t}() needs to be called with an even number of arguments that alternate between field names and values.`);for(let e=0;e<i.length;e+=2)a.push(vh(t,i[e])),u.push(i[e+1]);const c=[],h=Zt.empty();for(let e=a.length-1;e>=0;--e)if(!Th(c,a[e])){const t=a[e];let n=u[e];n=(0,l.getModularInstance)(n);const r=o.Nu(t);if(n instanceof oh)c.push(t);else{const e=gh(n,r);null!=e&&(c.push(t),h.set(t,e))}}const d=new gt(c);return new eh(h,d,o.fieldTransforms)}function mh(e,t,n,r=!1){return gh(n,e.Qu(r?4:3,t))}function gh(e,t){if(yh(e=(0,l.getModularInstance)(e)))return wh("Unsupported field value:",t,e),ph(e,t);if(e instanceof Jl)return(function(e,t){if(!th(t.Cu))throw t.Bu(`${e._methodName}() can only be used with update() and set()`);if(!t.path)throw t.Bu(`${e._methodName}() is not currently supported inside arrays`);const n=e._toFieldTransform(t);n&&t.fieldTransforms.push(n)})(e,t),null;if(void 0===e&&t.ignoreUndefinedProperties)return null;if(t.path&&t.fieldMask.push(t.path),e instanceof Array){if(t.settings.xu&&4!==t.Cu)throw t.Bu("Nested arrays are not supported");return(function(e,t){const n=[];let r=0;for(const s of e){let e=gh(s,t.Lu(r));null==e&&(e={nullValue:"NULL_VALUE"}),n.push(e),r++}return{arrayValue:{values:n}}})(e,t)}return(function(e,t){if(null===(e=(0,l.getModularInstance)(e)))return{nullValue:"NULL_VALUE"};if("number"==typeof e)return gr(t.serializer,e);if("boolean"==typeof e)return{booleanValue:e};if("string"==typeof e)return{stringValue:e};if(e instanceof Date){const n=G.fromDate(e);return{timestampValue:_s(t.serializer,n)}}if(e instanceof G){const n=new G(e.seconds,1e3*Math.floor(e.nanoseconds/1e3));return{timestampValue:_s(t.serializer,n)}}if(e instanceof Hl)return{geoPointValue:{latitude:e.latitude,longitude:e.longitude}};if(e instanceof $l)return{bytesValue:Ts(t.serializer,e._byteString)};if(e instanceof wl){const n=t.databaseId,r=e.firestore._databaseId;if(!r.isEqual(n))throw t.Bu(`Document reference is for database ${r.projectId}/${r.database} but should be for database ${n.projectId}/${n.database}`);return{referenceValue:xs(e.firestore._databaseId||t.databaseId,e._key.path)}}if(e instanceof Yl)return(function(e,t){return{mapValue:{fields:{__type__:{stringValue:"__vector__"},value:{arrayValue:{values:e.toArray().map(e=>{if("number"!=typeof e)throw t.Bu("VectorValues must only contain numeric values.");return fr(t.serializer,e)})}}}}}})(e,t);throw t.Bu(`Unsupported field value: ${hl(e)}`)})(e,t)}function ph(e,t){const n={};return ut(e)?t.path&&t.path.length>0&&t.fieldMask.push(t.path):ot(e,(e,r)=>{const s=gh(r,t.Mu(e));null!=s&&(n[e]=s)}),{mapValue:{fields:n}}}function yh(e){return!("object"!=typeof e||null===e||e instanceof Array||e instanceof Date||e instanceof G||e instanceof Hl||e instanceof $l||e instanceof wl||e instanceof Jl||e instanceof Yl)}function wh(e,t,n){if(!yh(n)||!(function(e){return"object"==typeof e&&null!==e&&(Object.getPrototypeOf(e)===Object.prototype||null===Object.getPrototypeOf(e))})(n)){const r=hl(n);throw"an object"===r?t.Bu(e+" a custom object"):t.Bu(e+" "+r)}}function vh(e,t,n){if((t=(0,l.getModularInstance)(t))instanceof Ql)return t._internalPath;if("string"==typeof t)return Ih(e,t);throw _h("Field path arguments must be of type string or ",e,!1,void 0,n)}const bh=new RegExp("[~\\*/\\[\\]]");function Ih(e,t,n){if(t.search(bh)>=0)throw _h(`Invalid field path (${t}). Paths must not contain '~', '*', '/', '[', or ']'`,e,!1,void 0,n);try{return new Ql(...t.split("."))._internalPath}catch(r){throw _h(`Invalid field path (${t}). Paths must not be empty, begin with '.', end with '.', or contain '..'`,e,!1,void 0,n)}}function _h(e,t,n,r,s){const i=r&&!r.isEmpty(),o=void 0!==s;let a=`Function ${t}() called with invalid data`;n&&(a+=" (via `toFirestore()`)"),a+=". ";let u="";return(i||o)&&(u+=" (found",i&&(u+=` in field ${r}`),o&&(u+=` in document ${s}`),u+=")"),new D(C.INVALID_ARGUMENT,a+e+u)}function Th(e,t){return e.some(e=>e.isEqual(t))}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Eh{constructor(e,t,n,r,s){this._firestore=e,this._userDataWriter=t,this._key=n,this._document=r,this._converter=s}get id(){return this._key.path.lastSegment()}get ref(){return new wl(this._firestore,this._converter,this._key)}exists(){return null!==this._document}data(){if(this._document){if(this._converter){const e=new Sh(this._firestore,this._userDataWriter,this._key,this._document,null);return this._converter.fromFirestore(e)}return this._userDataWriter.convertValue(this._document.data.value)}}get(e){if(this._document){const t=this._document.data.field(xh("DocumentSnapshot.get",e));if(null!==t)return this._userDataWriter.convertValue(t)}}}class Sh extends Eh{data(){return super.data()}}function xh(e,t){return"string"==typeof t?Ih(e,t):t instanceof Ql?t._internalPath:t._delegate._internalPath}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Ch(e){if("L"===e.limitType&&0===e.explicitOrderBy.length)throw new D(C.UNIMPLEMENTED,"limitToLast() queries require specifying at least one orderBy() clause")}class Dh{}class Nh extends Dh{}function Ah(e,t,...n){let r=[];t instanceof Dh&&r.push(t),r=r.concat(n),(function(e){const t=e.filter(e=>e instanceof Oh).length,n=e.filter(e=>e instanceof kh).length;if(t>1||t>0&&n>0)throw new D(C.INVALID_ARGUMENT,"InvalidQuery. When using composite filters, you cannot use more than one filter at the top level. Consider nesting the multiple filters within an `and(...)` statement. For example: change `query(query, where(...), or(...))` to `query(query, and(where(...), or(...)))`.")}
+/**
+    * @license
+    * Copyright 2020 Google LLC
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    *   http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
+    */)(r);for(const t of r)e=t._apply(e);return e}class kh extends Nh{constructor(e,t,n){super(),this._field=e,this._op=t,this._value=n,this.type="where"}static _create(e,t,n){return new kh(e,t,n)}_apply(e){const t=this._parse(e);return Hh(e._query,t),new yl(e.firestore,e.converter,Gn(e._query,t))}_parse(e){const t=sh(e.firestore),n=(function(e,t,n,r,s,i,o){let a;if(s.isKeyField()){if("array-contains"===i||"array-contains-any"===i)throw new D(C.INVALID_ARGUMENT,`Invalid Query. You can't perform '${i}' queries on documentId().`);if("in"===i||"not-in"===i){Jh(o,i);const t=[];for(const n of o)t.push(Wh(r,e,n));a={arrayValue:{values:t}}}else a=Wh(r,e,o)}else"in"!==i&&"not-in"!==i&&"array-contains-any"!==i||Jh(o,i),a=mh(n,t,o,"in"===i||"not-in"===i);return cn.create(s,i,a)})(e._query,"where",t,e.firestore._databaseId,this._field,this._op,this._value);return n}}function Ph(e,t,n){const r=t,s=xh("where",e);return kh._create(s,r,n)}class Oh extends Dh{constructor(e,t){super(),this.type=e,this._queryConstraints=t}static _create(e,t){return new Oh(e,t)}_parse(e){const t=this._queryConstraints.map(t=>t._parse(e)).filter(e=>e.getFilters().length>0);return 1===t.length?t[0]:ln.create(t,this._getOperator())}_apply(e){const t=this._parse(e);return 0===t.getFilters().length?e:((function(e,t){let n=e;const r=t.getFlattenedFilters();for(const e of r)Hh(n,e),n=Gn(n,e)})(e._query,t),new yl(e.firestore,e.converter,Gn(e._query,t)))}_getQueryConstraints(){return this._queryConstraints}_getOperator(){return"and"===this.type?"and":"or"}}function Rh(...e){return e.forEach(e=>Yh("or",e)),Oh._create("or",e)}function Fh(...e){return e.forEach(e=>Yh("and",e)),Oh._create("and",e)}class Mh extends Nh{constructor(e,t){super(),this._field=e,this._direction=t,this.type="orderBy"}static _create(e,t){return new Mh(e,t)}_apply(e){const t=(function(e,t,n){if(null!==e.startAt)throw new D(C.INVALID_ARGUMENT,"Invalid query. You must not call startAt() or startAfter() before calling orderBy().");if(null!==e.endAt)throw new D(C.INVALID_ARGUMENT,"Invalid query. You must not call endAt() or endBefore() before calling orderBy().");return new on(t,n)})(e._query,this._field,this._direction);return new yl(e.firestore,e.converter,(function(e,t){const n=e.explicitOrderBy.concat([t]);return new Fn(e.path,e.collectionGroup,n,e.filters.slice(),e.limit,e.limitType,e.startAt,e.endAt)})(e._query,t))}}function Lh(e,t="asc"){const n=t,r=xh("orderBy",e);return Mh._create(r,n)}class Vh extends Nh{constructor(e,t,n){super(),this.type=e,this._limit=t,this._limitType=n}static _create(e,t,n){return new Vh(e,t,n)}_apply(e){return new yl(e.firestore,e.converter,Kn(e._query,this._limit,this._limitType))}}function qh(e){return fl("limit",e),Vh._create("limit",e,"F")}function Uh(e){return fl("limitToLast",e),Vh._create("limitToLast",e,"L")}class Bh extends Nh{constructor(e,t,n){super(),this.type=e,this._docOrFields=t,this._inclusive=n}static _create(e,t,n){return new Bh(e,t,n)}_apply(e){const t=Qh(e,this.type,this._docOrFields,this._inclusive);return new yl(e.firestore,e.converter,(function(e,t){return new Fn(e.path,e.collectionGroup,e.explicitOrderBy.slice(),e.filters.slice(),e.limit,e.limitType,t,e.endAt)})(e._query,t))}}function jh(...e){return Bh._create("startAt",e,!0)}function zh(...e){return Bh._create("startAfter",e,!1)}class Gh extends Nh{constructor(e,t,n){super(),this.type=e,this._docOrFields=t,this._inclusive=n}static _create(e,t,n){return new Gh(e,t,n)}_apply(e){const t=Qh(e,this.type,this._docOrFields,this._inclusive);return new yl(e.firestore,e.converter,(function(e,t){return new Fn(e.path,e.collectionGroup,e.explicitOrderBy.slice(),e.filters.slice(),e.limit,e.limitType,e.startAt,t)})(e._query,t))}}function Kh(...e){return Gh._create("endBefore",e,!1)}function $h(...e){return Gh._create("endAt",e,!0)}function Qh(e,t,n,r){if(n[0]=(0,l.getModularInstance)(n[0]),n[0]instanceof Eh)return(function(e,t,n,r,s){if(!r)throw new D(C.NOT_FOUND,`Can't use a DocumentSnapshot that doesn't exist for ${n}().`);const i=[];for(const n of Un(e))if(n.field.isKeyField())i.push(qt(t,r.key));else{const e=r.data.field(n.field);if(Tt(e))throw new D(C.INVALID_ARGUMENT,'Invalid query. You are trying to start or end a query using a document for which the field "'+n.field+'" is an uncommitted server timestamp. (Since the value of this field is unknown, you cannot start/end a query with it.)');if(null===e){const e=n.field.canonicalString();throw new D(C.INVALID_ARGUMENT,`Invalid query. You are trying to start or end a query using a document for which the field '${e}' (used as the orderBy) does not exist.`)}i.push(e)}return new nn(i,s)})(e._query,e.firestore._databaseId,t,n[0]._document,r);{const s=sh(e.firestore);return(function(e,t,n,r,s,i){const o=e.explicitOrderBy;if(s.length>o.length)throw new D(C.INVALID_ARGUMENT,`Too many arguments provided to ${r}(). The number of arguments must be less than or equal to the number of orderBy() clauses`);const a=[];for(let i=0;i<s.length;i++){const u=s[i];if(o[i].field.isKeyField()){if("string"!=typeof u)throw new D(C.INVALID_ARGUMENT,`Invalid query. Expected a string for document ID in ${r}(), but got a ${typeof u}`);if(!qn(e)&&-1!==u.indexOf("/"))throw new D(C.INVALID_ARGUMENT,`Invalid query. When querying a collection and ordering by documentId(), the value passed to ${r}() must be a plain document ID, but '${u}' contains a slash.`);const n=e.path.child(Q.fromString(u));if(!H.isDocumentKey(n))throw new D(C.INVALID_ARGUMENT,`Invalid query. When querying a collection group and ordering by documentId(), the value passed to ${r}() must result in a valid document path, but '${n}' is not because it contains an odd number of segments.`);const s=new H(n);a.push(qt(t,s))}else{const e=mh(n,r,u);a.push(e)}}return new nn(a,i)})(e._query,e.firestore._databaseId,s,t,n,r)}}function Wh(e,t,n){if("string"==typeof(n=(0,l.getModularInstance)(n))){if(""===n)throw new D(C.INVALID_ARGUMENT,"Invalid query. When querying with documentId(), you must provide a valid document ID, but it was an empty string.");if(!qn(t)&&-1!==n.indexOf("/"))throw new D(C.INVALID_ARGUMENT,`Invalid query. When querying a collection by documentId(), you must provide a plain document ID, but '${n}' contains a '/' character.`);const r=t.path.child(Q.fromString(n));if(!H.isDocumentKey(r))throw new D(C.INVALID_ARGUMENT,`Invalid query. When querying a collection group by documentId(), the value provided must result in a valid document path, but '${r}' is not because it has an odd number of segments (${r.length}).`);return qt(e,new H(r))}if(n instanceof wl)return qt(e,n._key);throw new D(C.INVALID_ARGUMENT,`Invalid query. When querying with documentId(), you must provide a valid string or a DocumentReference, but it was: ${hl(n)}.`)}function Jh(e,t){if(!Array.isArray(e)||0===e.length)throw new D(C.INVALID_ARGUMENT,`Invalid Query. A non-empty array is required for '${t.toString()}' filters.`)}function Hh(e,t){const n=(function(e,t){for(const n of e)for(const e of n.getFlattenedFilters())if(t.indexOf(e.op)>=0)return e.op;return null})(e.filters,(function(e){switch(e){case"!=":return["!=","not-in"];case"array-contains-any":case"in":return["not-in"];case"not-in":return["array-contains-any","in","not-in","!="];default:return[]}})(t.op));if(null!==n)throw n===t.op?new D(C.INVALID_ARGUMENT,`Invalid query. You cannot use more than one '${t.op.toString()}' filter.`):new D(C.INVALID_ARGUMENT,`Invalid query. You cannot use '${t.op.toString()}' filters with '${n.toString()}' filters.`)}function Yh(e,t){if(!(t instanceof kh||t instanceof Oh))throw new D(C.INVALID_ARGUMENT,`Function ${e}() requires AppliableConstraints created with a call to 'where(...)', 'or(...)', or 'and(...)'.`)}class Xh{convertValue(e,t="none"){switch(At(e)){case 0:return null;case 1:return e.booleanValue;case 2:return It(e.integerValue||e.doubleValue);case 3:return this.convertTimestamp(e.timestampValue);case 4:return this.convertServerTimestamp(e,t);case 5:return e.stringValue;case 6:return this.convertBytes(_t(e.bytesValue));case 7:return this.convertReference(e.referenceValue);case 8:return this.convertGeoPoint(e.geoPointValue);case 9:return this.convertArray(e.arrayValue,t);case 11:return this.convertObject(e.mapValue,t);case 10:return this.convertVectorValue(e.mapValue);default:throw T()}}convertObject(e,t){return this.convertObjectMap(e.fields,t)}convertObjectMap(e,t="none"){const n={};return ot(e,(e,r)=>{n[e]=this.convertValue(r,t)}),n}convertVectorValue(e){var t,n,r;const s=null===(r=null===(n=null===(t=e.fields)||void 0===t?void 0:t.value.arrayValue)||void 0===n?void 0:n.values)||void 0===r?void 0:r.map(e=>It(e.doubleValue));return new Yl(s)}convertGeoPoint(e){return new Hl(It(e.latitude),It(e.longitude))}convertArray(e,t){return(e.values||[]).map(e=>this.convertValue(e,t))}convertServerTimestamp(e,t){switch(t){case"previous":const n=Et(e);return null==n?null:this.convertValue(n,t);case"estimate":return this.convertTimestamp(St(e));default:return null}}convertTimestamp(e){const t=bt(e);return new G(t.seconds,t.nanos)}convertDocumentKey(e,t){const n=Q.fromString(e);E(ti(n));const r=new Ct(n.get(1),n.get(3)),s=new H(n.popFirst(5));return r.isEqual(t)||b(`Document ${s} contains a document reference within a different database (${r.projectId}/${r.database}) which is not supported. It will be treated as a reference in the current database (${t.projectId}/${t.database}) instead.`),s}}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Zh(e,t,n){let r;return r=e?n&&(n.merge||n.mergeFields)?e.toFirestore(t,n):e.toFirestore(t):t,r}class ed extends Xh{constructor(e){super(),this.firestore=e}convertBytes(e){return new $l(e)}convertReference(e){const t=this.convertDocumentKey(e,this.firestore._databaseId);return new wl(this.firestore,null,t)}}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function td(e){return new Gl("sum",vh("sum",e))}function nd(e){return new Gl("avg",vh("average",e))}function rd(){return new Gl("count")}function sd(e,t){var n,r;return e instanceof Gl&&t instanceof Gl&&e.aggregateType===t.aggregateType&&(null===(n=e._internalFieldPath)||void 0===n?void 0:n.canonicalString())===(null===(r=t._internalFieldPath)||void 0===r?void 0:r.canonicalString())}function id(e,t){return El(e.query,t.query)&&(0,l.deepEqual)(e.data(),t.data())}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class od{constructor(e,t){this.hasPendingWrites=e,this.fromCache=t}isEqual(e){return this.hasPendingWrites===e.hasPendingWrites&&this.fromCache===e.fromCache}}class ad extends Eh{constructor(e,t,n,r,s,i){super(e,t,n,r,i),this._firestore=e,this._firestoreImpl=e,this.metadata=s}exists(){return super.exists()}data(e={}){if(this._document){if(this._converter){const t=new ud(this._firestore,this._userDataWriter,this._key,this._document,this.metadata,null);return this._converter.fromFirestore(t,e)}return this._userDataWriter.convertValue(this._document.data.value,e.serverTimestamps)}}get(e,t={}){if(this._document){const n=this._document.data.field(xh("DocumentSnapshot.get",e));if(null!==n)return this._userDataWriter.convertValue(n,t.serverTimestamps)}}}class ud extends ad{data(e={}){return super.data(e)}}class cd{constructor(e,t,n,r){this._firestore=e,this._userDataWriter=t,this._snapshot=r,this.metadata=new od(r.hasPendingWrites,r.fromCache),this.query=n}get docs(){const e=[];return this.forEach(t=>e.push(t)),e}get size(){return this._snapshot.docs.size}get empty(){return 0===this.size}forEach(e,t){this._snapshot.docs.forEach(n=>{e.call(t,new ud(this._firestore,this._userDataWriter,n.key,n,new od(this._snapshot.mutatedKeys.has(n.key),this._snapshot.fromCache),this.query.converter))})}docChanges(e={}){const t=!!e.includeMetadataChanges;if(t&&this._snapshot.excludesMetadataChanges)throw new D(C.INVALID_ARGUMENT,"To include metadata changes with your document changes, you must also pass { includeMetadataChanges:true } to onSnapshot().");return this._cachedChanges&&this._cachedChangesIncludeMetadataChanges===t||(this._cachedChanges=(function(e,t){if(e._snapshot.oldDocs.isEmpty()){let t=0;return e._snapshot.docChanges.map(n=>{const r=new ud(e._firestore,e._userDataWriter,n.doc.key,n.doc,new od(e._snapshot.mutatedKeys.has(n.doc.key),e._snapshot.fromCache),e.query.converter);return n.doc,{type:"added",doc:r,oldIndex:-1,newIndex:t++}})}{let n=e._snapshot.oldDocs;return e._snapshot.docChanges.filter(e=>t||3!==e.type).map(t=>{const r=new ud(e._firestore,e._userDataWriter,t.doc.key,t.doc,new od(e._snapshot.mutatedKeys.has(t.doc.key),e._snapshot.fromCache),e.query.converter);let s=-1,i=-1;return 0!==t.type&&(s=n.indexOf(t.doc.key),n=n.delete(t.doc.key)),1!==t.type&&(n=n.add(t.doc),i=n.indexOf(t.doc.key)),{type:ld(t.type),doc:r,oldIndex:s,newIndex:i}})}})(this,t),this._cachedChangesIncludeMetadataChanges=t),this._cachedChanges}}function ld(e){switch(e){case 0:return"added";case 2:case 3:return"modified";case 1:return"removed";default:return T()}}function hd(e,t){return e instanceof ad&&t instanceof ad?e._firestore===t._firestore&&e._key.isEqual(t._key)&&(null===e._document?null===t._document:e._document.isEqual(t._document))&&e._converter===t._converter:e instanceof cd&&t instanceof cd&&e._firestore===t._firestore&&El(e.query,t.query)&&e.metadata.isEqual(t.metadata)&&e._snapshot.isEqual(t._snapshot)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function dd(e){e=dl(e,wl);const t=dl(e.firestore,Nl);return Jc(Pl(t),e._key).then(n=>xd(t,e,n))}class fd extends Xh{constructor(e){super(),this.firestore=e}convertBytes(e){return new $l(e)}convertReference(e){const t=this.convertDocumentKey(e,this.firestore._databaseId);return new wl(this.firestore,null,t)}}function md(e){e=dl(e,wl);const t=dl(e.firestore,Nl),n=Pl(t),r=new fd(t);return Wc(n,e._key).then(n=>new ad(t,r,e._key,n,new od(null!==n&&n.hasLocalMutations,!0),e.converter))}function gd(e){e=dl(e,wl);const t=dl(e.firestore,Nl);return Jc(Pl(t),e._key,{source:"server"}).then(n=>xd(t,e,n))}function pd(e){e=dl(e,yl);const t=dl(e.firestore,Nl),n=Pl(t),r=new fd(t);return Ch(e._query),Yc(n,e._query).then(n=>new cd(t,r,e,n))}function yd(e){e=dl(e,yl);const t=dl(e.firestore,Nl),n=Pl(t),r=new fd(t);return Hc(n,e._query).then(n=>new cd(t,r,e,n))}function wd(e){e=dl(e,yl);const t=dl(e.firestore,Nl),n=Pl(t),r=new fd(t);return Yc(n,e._query,{source:"server"}).then(n=>new cd(t,r,e,n))}function vd(e,t,n){e=dl(e,wl);const r=dl(e.firestore,Nl),s=Zh(e.converter,t,n);return Sd(r,[ih(sh(r),"setDoc",e._key,s,null!==e.converter,n).toMutation(e._key,kr.none())])}function bd(e,t,n,...r){e=dl(e,wl);const s=dl(e.firestore,Nl),i=sh(s);let o;return o="string"==typeof(t=(0,l.getModularInstance)(t))||t instanceof Ql?fh(i,"updateDoc",e._key,t,n,r):dh(i,"updateDoc",e._key,t),Sd(s,[o.toMutation(e._key,kr.exists(!0))])}function Id(e){return Sd(dl(e.firestore,Nl),[new Gr(e._key,kr.none())])}function _d(e,t){const n=dl(e.firestore,Nl),r=_l(e),s=Zh(e.converter,t);return Sd(n,[ih(sh(e.firestore),"addDoc",r._key,s,null!==e.converter,{}).toMutation(r._key,kr.exists(!1))]).then(()=>r)}function Td(e,...t){var n,r,s;e=(0,l.getModularInstance)(e);let i={includeMetadataChanges:!1,source:"default"},o=0;"object"!=typeof t[o]||xl(t[o])||(i=t[o],o++);const a={includeMetadataChanges:i.includeMetadataChanges,source:i.source};if(xl(t[o])){const e=t[o];t[o]=null===(n=e.next)||void 0===n?void 0:n.bind(e),t[o+1]=null===(r=e.error)||void 0===r?void 0:r.bind(e),t[o+2]=null===(s=e.complete)||void 0===s?void 0:s.bind(e)}let u,c,h;if(e instanceof wl)c=dl(e.firestore,Nl),h=Ln(e._key.path),u={next:n=>{t[o]&&t[o](xd(c,e,n))},error:t[o+1],complete:t[o+2]};else{const n=dl(e,yl);c=dl(n.firestore,Nl),h=n._query;const r=new fd(c);u={next:e=>{t[o]&&t[o](new cd(c,r,n,e))},error:t[o+1],complete:t[o+2]},Ch(e._query)}return(function(e,t,n,r){const s=new kc(r),i=new Ou(t,s,n);return e.asyncQueue.enqueueAndForget(async()=>xu(await Kc(e),i)),()=>{s.Za(),e.asyncQueue.enqueueAndForget(async()=>Cu(await Kc(e),i))}})(Pl(c),h,a,u)}function Ed(e,t){return Zc(Pl(e=dl(e,Nl)),xl(t)?t:{next:t})}function Sd(e,t){return(function(e,t){const n=new N;return e.asyncQueue.enqueueAndForget(async()=>Hu(await zc(e),t,n)),n.promise})(Pl(e),t)}function xd(e,t,n){const r=n.docs.get(t._key),s=new fd(e);return new ad(e,s,t._key,r,new od(n.hasPendingWrites,n.fromCache),t.converter)}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Cd(e){return Dd(e,{count:rd()})}function Dd(e,t){const n=dl(e.firestore,Nl),r=Pl(n),s=at(t,(e,t)=>new Jr(t,e.aggregateType,e._internalFieldPath));return Xc(r,e._query,s).then(t=>(function(e,t,n){const r=new fd(e);return new Kl(t,r,n)}
+/**
+    * @license
+    * Copyright 2023 Google LLC
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    *   http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
+    */)(n,e,t))}class Nd{constructor(e){this.kind="memory",this._onlineComponentProvider=Nc.provider,(null==e?void 0:e.garbageCollector)?this._offlineComponentProvider=e.garbageCollector._offlineComponentProvider:this._offlineComponentProvider=Sc.provider}toJSON(){return{kind:this.kind}}}class Ad{constructor(e){let t;this.kind="persistent",(null==e?void 0:e.tabManager)?(e.tabManager._initialize(e),t=e.tabManager):(t=qd(void 0),t._initialize(e)),this._onlineComponentProvider=t._onlineComponentProvider,this._offlineComponentProvider=t._offlineComponentProvider}toJSON(){return{kind:this.kind}}}class kd{constructor(){this.kind="memoryEager",this._offlineComponentProvider=Sc.provider}toJSON(){return{kind:this.kind}}}class Pd{constructor(e){this.kind="memoryLru",this._offlineComponentProvider={build:()=>new xc(e)}}toJSON(){return{kind:this.kind}}}function Od(){return new kd}function Rd(e){return new Pd(null==e?void 0:e.cacheSizeBytes)}function Fd(e){return new Nd(e)}function Md(e){return new Ad(e)}class Ld{constructor(e){this.forceOwnership=e,this.kind="persistentSingleTab"}toJSON(){return{kind:this.kind}}_initialize(e){this._onlineComponentProvider=Nc.provider,this._offlineComponentProvider={build:t=>new Cc(t,null==e?void 0:e.cacheSizeBytes,this.forceOwnership)}}}class Vd{constructor(){this.kind="PersistentMultipleTab"}toJSON(){return{kind:this.kind}}_initialize(e){this._onlineComponentProvider=Nc.provider,this._offlineComponentProvider={build:t=>new Dc(t,null==e?void 0:e.cacheSizeBytes)}}}function qd(e){return new Ld(null==e?void 0:e.forceOwnership)}function Ud(){return new Vd}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const Bd={maxAttempts:5};
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class jd{constructor(e,t){this._firestore=e,this._commitHandler=t,this._mutations=[],this._committed=!1,this._dataReader=sh(e)}set(e,t,n){this._verifyNotCommitted();const r=zd(e,this._firestore),s=Zh(r.converter,t,n),i=ih(this._dataReader,"WriteBatch.set",r._key,s,null!==r.converter,n);return this._mutations.push(i.toMutation(r._key,kr.none())),this}update(e,t,n,...r){this._verifyNotCommitted();const s=zd(e,this._firestore);let i;return i="string"==typeof(t=(0,l.getModularInstance)(t))||t instanceof Ql?fh(this._dataReader,"WriteBatch.update",s._key,t,n,r):dh(this._dataReader,"WriteBatch.update",s._key,t),this._mutations.push(i.toMutation(s._key,kr.exists(!0))),this}delete(e){this._verifyNotCommitted();const t=zd(e,this._firestore);return this._mutations=this._mutations.concat(new Gr(t._key,kr.none())),this}commit(){return this._verifyNotCommitted(),this._committed=!0,this._mutations.length>0?this._commitHandler(this._mutations):Promise.resolve()}_verifyNotCommitted(){if(this._committed)throw new D(C.FAILED_PRECONDITION,"A write batch can no longer be used after commit() has been called.")}}function zd(e,t){if((e=(0,l.getModularInstance)(e)).firestore!==t)throw new D(C.INVALID_ARGUMENT,"Provided document reference is from a different Firestore instance.");return e}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class Gd extends class{constructor(e,t){this._firestore=e,this._transaction=t,this._dataReader=sh(e)}get(e){const t=zd(e,this._firestore),n=new ed(this._firestore);return this._transaction.lookup([t._key]).then(e=>{if(!e||1!==e.length)return T();const r=e[0];if(r.isFoundDocument())return new Eh(this._firestore,n,r.key,r,t.converter);if(r.isNoDocument())return new Eh(this._firestore,n,t._key,null,t.converter);throw T()})}set(e,t,n){const r=zd(e,this._firestore),s=Zh(r.converter,t,n),i=ih(this._dataReader,"Transaction.set",r._key,s,null!==r.converter,n);return this._transaction.set(r._key,i),this}update(e,t,n,...r){const s=zd(e,this._firestore);let i;return i="string"==typeof(t=(0,l.getModularInstance)(t))||t instanceof Ql?fh(this._dataReader,"Transaction.update",s._key,t,n,r):dh(this._dataReader,"Transaction.update",s._key,t),this._transaction.update(s._key,i),this}delete(e){const t=zd(e,this._firestore);return this._transaction.delete(t._key),this}}{constructor(e,t){super(e,t),this._firestore=e}get(e){const t=zd(e,this._firestore),n=new fd(this._firestore);return super.get(e).then(e=>new ad(this._firestore,n,t._key,e._document,new od(!1,!1),t.converter))}}function Kd(e,t,n){e=dl(e,Nl);const r=Object.assign(Object.assign({},Bd),n);return(function(e){if(e.maxAttempts<1)throw new D(C.INVALID_ARGUMENT,"Max attempts must be at least 1")})(r),(function(e,t,n){const r=new N;return e.asyncQueue.enqueueAndForget(async()=>{const s=await Gc(e);new Rc(e.asyncQueue,s,n,t,r).au()}),r.promise})(Pl(e),n=>t(new Gd(e,n)),r)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function $d(){return new oh("deleteField")}function Qd(){return new uh("serverTimestamp")}function Wd(...e){return new ch("arrayUnion",e)}function Jd(...e){return new lh("arrayRemove",e)}function Hd(e){return new hh("increment",e)}function Yd(e){return new Yl(e)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function Xd(e){return Pl(e=dl(e,Nl)),new jd(e,t=>Sd(e,t))
+/**
+   * @license
+   * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */}function Zd(e,t){const n=Pl(e=dl(e,Nl));if(!n._uninitializedComponentsProvider||"memory"===n._uninitializedComponentsProvider._offline.kind)return I("Cannot enable indexes when persistence is disabled"),Promise.resolve();const r=(function(e){const t="string"==typeof e?(function(e){try{return JSON.parse(e)}catch(e){throw new D(C.INVALID_ARGUMENT,"Failed to parse JSON: "+(null==e?void 0:e.message))}})(e):e,n=[];if(Array.isArray(t.indexes))for(const e of t.indexes){const t=ef(e,"collectionGroup"),r=[];if(Array.isArray(e.fields))for(const t of e.fields){const e=Ih("setIndexConfiguration",ef(t,"fieldPath"));"CONTAINS"===t.arrayConfig?r.push(new te(e,2)):"ASCENDING"===t.order?r.push(new te(e,0)):"DESCENDING"===t.order&&r.push(new te(e,1))}n.push(new Y(Y.UNKNOWN_ID,t,r,re.empty()))}return n})(t);return nl(n,r)}function ef(e,t){if("string"!=typeof e[t])throw new D(C.INVALID_ARGUMENT,"Missing string value for: "+t);return e[t]}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class tf{constructor(e){this._firestore=e,this.type="PersistentCacheIndexManager"}}function nf(e){var t;e=dl(e,Nl);const n=uf.get(e);if(n)return n;if("persistent"!==(null===(t=Pl(e)._uninitializedComponentsProvider)||void 0===t?void 0:t._offline.kind))return null;const r=new tf(e);return uf.set(e,r),r}function rf(e){af(e,!0)}function sf(e){af(e,!1)}function of(e){sl(Pl(e._firestore)).then(e=>v("deleting all persistent cache indexes succeeded")).catch(e=>I("deleting all persistent cache indexes failed",e))}function af(e,t){rl(Pl(e._firestore),t).then(e=>v(`setting persistent cache index auto creation isEnabled=${t} succeeded`)).catch(e=>I(`setting persistent cache index auto creation isEnabled=${t} failed`,e))}const uf=new WeakMap;
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function cf(e){var t;const n=null===(t=Pl(dl(e.firestore,Nl))._onlineComponents)||void 0===t?void 0:t.datastore.serializer;return void 0===n?null:zs(n,Bn(e._query))._t}function lf(e,t){var n;const r=at(t,(e,t)=>new Jr(t,e.aggregateType,e._internalFieldPath)),s=null===(n=Pl(dl(e.firestore,Nl))._onlineComponents)||void 0===n?void 0:n.datastore.serializer;return void 0===s?null:Gs(s,jn(e._query),r,!0).request}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class hf{constructor(){throw new Error("instances of this class should not be created")}static onExistenceFilterMismatch(e){return df.instance.onExistenceFilterMismatch(e)}}class df{constructor(){this.Uu=new Map}static get instance(){return ff||(ff=new df,(function(e){if(ts)throw new Error("a TestingHooksSpi instance is already set");ts=e})(ff)),ff}et(e){this.Uu.forEach(t=>t(e))}onExistenceFilterMismatch(e){const t=Symbol(),n=this.Uu;return n.set(t,e),()=>n.delete(t)}}let ff=null;!(function(e,t=!0){!(function(e){g=e})(a.SDK_VERSION),(0,a._registerComponent)(new u.Component("firestore",(e,{instanceIdentifier:n,options:r})=>{const s=e.getProvider("app").getImmediate(),i=new Nl(new O(e.getProvider("auth-internal")),new L(e.getProvider("app-check-internal")),(function(e,t){if(!Object.prototype.hasOwnProperty.apply(e.options,["projectId"]))throw new D(C.INVALID_ARGUMENT,'"projectId" not provided in firebase.initializeApp.');return new Ct(e.options.projectId,t)})(s,n),s);return r=Object.assign({useFetchStreams:t},r),i._setSettings(r),i},"PUBLIC").setMultipleInstances(!0)),(0,a.registerVersion)(f,"4.7.3",e),(0,a.registerVersion)(f,"4.7.3","esm2017")})()},674,[675,676,678,677,681,682]);
+__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"FirebaseError",{enumerable:!0,get:function(){return n.FirebaseError}}),Object.defineProperty(_e,"SDK_VERSION",{enumerable:!0,get:function(){return ne}}),Object.defineProperty(_e,"_DEFAULT_ENTRY_NAME",{enumerable:!0,get:function(){return L}}),Object.defineProperty(_e,"_addComponent",{enumerable:!0,get:function(){return W}}),Object.defineProperty(_e,"_addOrOverwriteComponent",{enumerable:!0,get:function(){return q}}),Object.defineProperty(_e,"_apps",{enumerable:!0,get:function(){return T}}),Object.defineProperty(_e,"_clearComponents",{enumerable:!0,get:function(){return Z}}),Object.defineProperty(_e,"_components",{enumerable:!0,get:function(){return J}}),Object.defineProperty(_e,"_getProvider",{enumerable:!0,get:function(){return Y}}),Object.defineProperty(_e,"_isFirebaseApp",{enumerable:!0,get:function(){return Q}}),Object.defineProperty(_e,"_isFirebaseServerApp",{enumerable:!0,get:function(){return X}}),Object.defineProperty(_e,"_registerComponent",{enumerable:!0,get:function(){return K}}),Object.defineProperty(_e,"_removeServiceInstance",{enumerable:!0,get:function(){return G}}),Object.defineProperty(_e,"_serverApps",{enumerable:!0,get:function(){return V}}),Object.defineProperty(_e,"deleteApp",{enumerable:!0,get:function(){return le}}),Object.defineProperty(_e,"getApp",{enumerable:!0,get:function(){return se}}),Object.defineProperty(_e,"getApps",{enumerable:!0,get:function(){return ce}}),Object.defineProperty(_e,"initializeApp",{enumerable:!0,get:function(){return ie}}),Object.defineProperty(_e,"initializeServerApp",{enumerable:!0,get:function(){return oe}}),Object.defineProperty(_e,"onLog",{enumerable:!0,get:function(){return pe}}),Object.defineProperty(_e,"registerVersion",{enumerable:!0,get:function(){return fe}}),Object.defineProperty(_e,"setLogLevel",{enumerable:!0,get:function(){return ue}});var e=r(d[0]),t=r(d[1]),n=r(d[2]),o=r(d[3]);
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+class s{constructor(e){this.container=e}getPlatformInfoString(){return this.container.getProviders().map(e=>{if(c(e)){const t=e.getImmediate();return`${t.library}/${t.version}`}return null}).filter(e=>e).join(' ')}}function c(e){const t=e.getComponent();return"VERSION"===(null==t?void 0:t.type)}const l="@firebase/app",f="0.10.13",p=new t.Logger('@firebase/app'),u="@firebase/app-compat",h="@firebase/analytics-compat",b="@firebase/analytics",v="@firebase/app-check-compat",w="@firebase/app-check",y="@firebase/auth",_="@firebase/auth-compat",C="@firebase/database",D="@firebase/data-connect",O="@firebase/database-compat",E="@firebase/functions",P="@firebase/functions-compat",j="@firebase/installations",S="@firebase/installations-compat",I="@firebase/messaging",A="@firebase/messaging-compat",F="@firebase/performance",$="@firebase/performance-compat",N="@firebase/remote-config",R="@firebase/remote-config-compat",k="@firebase/storage",x="@firebase/storage-compat",B="@firebase/firestore",z="@firebase/vertexai-preview",H="@firebase/firestore-compat",M="firebase",L='[DEFAULT]',U={[l]:'fire-core',[u]:'fire-core-compat',[b]:'fire-analytics',[h]:'fire-analytics-compat',[w]:'fire-app-check',[v]:'fire-app-check-compat',[y]:'fire-auth',[_]:'fire-auth-compat',[C]:'fire-rtdb',[D]:'fire-data-connect',[O]:'fire-rtdb-compat',[E]:'fire-fn',[P]:'fire-fn-compat',[j]:'fire-iid',[S]:'fire-iid-compat',[I]:'fire-fcm',[A]:'fire-fcm-compat',[F]:'fire-perf',[$]:'fire-perf-compat',[N]:'fire-rc',[R]:'fire-rc-compat',[k]:'fire-gcs',[x]:'fire-gcs-compat',[B]:'fire-fst',[H]:'fire-fst-compat',[z]:'fire-vertex','fire-js':'fire-js',[M]:'fire-js-all'},T=new Map,V=new Map,J=new Map;function W(e,t){try{e.container.addComponent(t)}catch(n){p.debug(`Component ${t.name} failed to register with FirebaseApp ${e.name}`,n)}}function q(e,t){e.container.addOrOverwriteComponent(t)}function K(e){const t=e.name;if(J.has(t))return p.debug(`There were multiple attempts to register component ${t}.`),!1;J.set(t,e);for(const t of T.values())W(t,e);for(const t of V.values())W(t,e);return!0}function Y(e,t){const n=e.container.getProvider('heartbeat').getImmediate({optional:!0});return n&&n.triggerHeartbeat(),e.container.getProvider(t)}function G(e,t,n=L){Y(e,t).clearInstance(n)}function Q(e){return void 0!==e.options}function X(e){return void 0!==e.settings}function Z(){J.clear()}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const ee={"no-app":"No Firebase App '{$appName}' has been created - call initializeApp() first","bad-app-name":"Illegal App name: '{$appName}'","duplicate-app":"Firebase App named '{$appName}' already exists with different options or config","app-deleted":"Firebase App named '{$appName}' already deleted","server-app-deleted":'Firebase Server App has been deleted',"no-options":'Need to provide options, when not being deployed to hosting via source.',"invalid-app-argument":"firebase.{$appName}() takes either no argument or a Firebase App instance.","invalid-log-argument":'First argument to `onLog` must be null or a function.',"idb-open":'Error thrown when opening IndexedDB. Original error: {$originalErrorMessage}.',"idb-get":'Error thrown when reading from IndexedDB. Original error: {$originalErrorMessage}.',"idb-set":'Error thrown when writing to IndexedDB. Original error: {$originalErrorMessage}.',"idb-delete":'Error thrown when deleting from IndexedDB. Original error: {$originalErrorMessage}.',"finalization-registry-not-supported":'FirebaseServerApp deleteOnDeref field defined but the JS runtime does not support FinalizationRegistry.',"invalid-server-app-environment":'FirebaseServerApp is not for use in browser environments.'},te=new n.ErrorFactory('app','Firebase',ee);
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+class re{constructor(t,n,o){this._isDeleted=!1,this._options=Object.assign({},t),this._config=Object.assign({},n),this._name=n.name,this._automaticDataCollectionEnabled=n.automaticDataCollectionEnabled,this._container=o,this.container.addComponent(new e.Component('app',()=>this,"PUBLIC"))}get automaticDataCollectionEnabled(){return this.checkDestroyed(),this._automaticDataCollectionEnabled}set automaticDataCollectionEnabled(e){this.checkDestroyed(),this._automaticDataCollectionEnabled=e}get name(){return this.checkDestroyed(),this._name}get options(){return this.checkDestroyed(),this._options}get config(){return this.checkDestroyed(),this._config}get container(){return this._container}get isDeleted(){return this._isDeleted}set isDeleted(e){this._isDeleted=e}checkDestroyed(){if(this.isDeleted)throw te.create("app-deleted",{appName:this._name})}}
+/**
+   * @license
+   * Copyright 2023 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ae extends re{constructor(e,t,n,o){const s=void 0!==t.automaticDataCollectionEnabled&&t.automaticDataCollectionEnabled,c={name:n,automaticDataCollectionEnabled:s};if(void 0!==e.apiKey)super(e,c,o);else{super(e.options,c,o)}this._serverConfig=Object.assign({automaticDataCollectionEnabled:s},t),this._finalizationRegistry=null,'undefined'!=typeof FinalizationRegistry&&(this._finalizationRegistry=new FinalizationRegistry(()=>{this.automaticCleanup()})),this._refCount=0,this.incRefCount(this._serverConfig.releaseOnDeref),this._serverConfig.releaseOnDeref=void 0,t.releaseOnDeref=void 0,fe(l,f,'serverapp')}toJSON(){}get refCount(){return this._refCount}incRefCount(e){this.isDeleted||(this._refCount++,void 0!==e&&null!==this._finalizationRegistry&&this._finalizationRegistry.register(e,this))}decRefCount(){return this.isDeleted?0:--this._refCount}automaticCleanup(){le(this)}get settings(){return this.checkDestroyed(),this._serverConfig}checkDestroyed(){if(this.isDeleted)throw te.create("server-app-deleted")}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const ne="10.14.1";function ie(t,o={}){let s=t;if('object'!=typeof o){o={name:o}}const c=Object.assign({name:L,automaticDataCollectionEnabled:!1},o),l=c.name;if('string'!=typeof l||!l)throw te.create("bad-app-name",{appName:String(l)});if(s||(s=(0,n.getDefaultAppConfig)()),!s)throw te.create("no-options");const f=T.get(l);if(f){if((0,n.deepEqual)(s,f.options)&&(0,n.deepEqual)(c,f.config))return f;throw te.create("duplicate-app",{appName:l})}const p=new e.ComponentContainer(l);for(const e of J.values())p.addComponent(e);const u=new re(s,c,p);return T.set(l,u),u}function oe(t,o){if((0,n.isBrowser)()&&!(0,n.isWebWorker)())throw te.create("invalid-server-app-environment");let s;void 0===o.automaticDataCollectionEnabled&&(o.automaticDataCollectionEnabled=!1),s=Q(t)?t.options:t;const c=Object.assign(Object.assign({},o),s);void 0!==c.releaseOnDeref&&delete c.releaseOnDeref;if(void 0!==o.releaseOnDeref&&'undefined'==typeof FinalizationRegistry)throw te.create("finalization-registry-not-supported",{});const l=''+(f=JSON.stringify(c),[...f].reduce((e,t)=>Math.imul(31,e)+t.charCodeAt(0)|0,0));var f;const p=V.get(l);if(p)return p.incRefCount(o.releaseOnDeref),p;const u=new e.ComponentContainer(l);for(const e of J.values())u.addComponent(e);const h=new ae(s,o,l,u);return V.set(l,h),h}function se(e=L){const t=T.get(e);if(!t&&e===L&&(0,n.getDefaultAppConfig)())return ie();if(!t)throw te.create("no-app",{appName:e});return t}function ce(){return Array.from(T.values())}async function le(e){let t=!1;const n=e.name;if(T.has(n))t=!0,T.delete(n);else if(V.has(n)){e.decRefCount()<=0&&(V.delete(n),t=!0)}t&&(await Promise.all(e.container.getProviders().map(e=>e.delete())),e.isDeleted=!0)}function fe(t,n,o){var s;let c=null!==(s=U[t])&&void 0!==s?s:t;o&&(c+=`-${o}`);const l=c.match(/\s|\//),f=n.match(/\s|\//);if(l||f){const e=[`Unable to register library "${c}" with version "${n}":`];return l&&e.push(`library name "${c}" contains illegal characters (whitespace or "/")`),l&&f&&e.push('and'),f&&e.push(`version name "${n}" contains illegal characters (whitespace or "/")`),void p.warn(e.join(' '))}K(new e.Component(`${c}-version`,()=>({library:c,version:n}),"VERSION"))}function pe(e,n){if(null!==e&&'function'!=typeof e)throw te.create("invalid-log-argument");(0,t.setUserLogHandler)(e,n)}function ue(e){(0,t.setLogLevel)(e)}
+/**
+   * @license
+   * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const he='firebase-heartbeat-store';let de=null;function be(){return de||(de=(0,o.openDB)("firebase-heartbeat-database",1,{upgrade:(e,t)=>{if(0===t)try{e.createObjectStore(he)}catch(e){console.warn(e)}}}).catch(e=>{throw te.create("idb-open",{originalErrorMessage:e.message})})),de}async function ge(e){try{const t=(await be()).transaction(he),n=await t.objectStore(he).get(ve(e));return await t.done,n}catch(e){if(e instanceof n.FirebaseError)p.warn(e.message);else{const t=te.create("idb-get",{originalErrorMessage:null==e?void 0:e.message});p.warn(t.message)}}}async function me(e,t){try{const n=(await be()).transaction(he,'readwrite'),o=n.objectStore(he);await o.put(t,ve(e)),await n.done}catch(e){if(e instanceof n.FirebaseError)p.warn(e.message);else{const t=te.create("idb-set",{originalErrorMessage:null==e?void 0:e.message});p.warn(t.message)}}}function ve(e){return`${e.name}!${e.options.appId}`}
+/**
+   * @license
+   * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class we{constructor(e){this.container=e,this._heartbeatsCache=null;const t=this.container.getProvider('app').getImmediate();this._storage=new De(t),this._heartbeatsCachePromise=this._storage.read().then(e=>(this._heartbeatsCache=e,e))}async triggerHeartbeat(){var e,t;try{const n=this.container.getProvider('platform-logger').getImmediate().getPlatformInfoString(),o=ye();if(null==(null===(e=this._heartbeatsCache)||void 0===e?void 0:e.heartbeats)&&(this._heartbeatsCache=await this._heartbeatsCachePromise,null==(null===(t=this._heartbeatsCache)||void 0===t?void 0:t.heartbeats)))return;if(this._heartbeatsCache.lastSentHeartbeatDate===o||this._heartbeatsCache.heartbeats.some(e=>e.date===o))return;return this._heartbeatsCache.heartbeats.push({date:o,agent:n}),this._heartbeatsCache.heartbeats=this._heartbeatsCache.heartbeats.filter(e=>{const t=new Date(e.date).valueOf();return Date.now()-t<=2592e6}),this._storage.overwrite(this._heartbeatsCache)}catch(e){p.warn(e)}}async getHeartbeatsHeader(){var e;try{if(null===this._heartbeatsCache&&await this._heartbeatsCachePromise,null==(null===(e=this._heartbeatsCache)||void 0===e?void 0:e.heartbeats)||0===this._heartbeatsCache.heartbeats.length)return'';const t=ye(),{heartbeatsToSend:o,unsentEntries:s}=Ce(this._heartbeatsCache.heartbeats),c=(0,n.base64urlEncodeWithoutPadding)(JSON.stringify({version:2,heartbeats:o}));return this._heartbeatsCache.lastSentHeartbeatDate=t,s.length>0?(this._heartbeatsCache.heartbeats=s,await this._storage.overwrite(this._heartbeatsCache)):(this._heartbeatsCache.heartbeats=[],this._storage.overwrite(this._heartbeatsCache)),c}catch(e){return p.warn(e),''}}}function ye(){return(new Date).toISOString().substring(0,10)}function Ce(e,t=1024){const n=[];let o=e.slice();for(const s of e){const e=n.find(e=>e.agent===s.agent);if(e){if(e.dates.push(s.date),Oe(n)>t){e.dates.pop();break}}else if(n.push({agent:s.agent,dates:[s.date]}),Oe(n)>t){n.pop();break}o=o.slice(1)}return{heartbeatsToSend:n,unsentEntries:o}}class De{constructor(e){this.app=e,this._canUseIndexedDBPromise=this.runIndexedDBEnvironmentCheck()}async runIndexedDBEnvironmentCheck(){return!!(0,n.isIndexedDBAvailable)()&&(0,n.validateIndexedDBOpenable)().then(()=>!0).catch(()=>!1)}async read(){if(await this._canUseIndexedDBPromise){const e=await ge(this.app);return(null==e?void 0:e.heartbeats)?e:{heartbeats:[]}}return{heartbeats:[]}}async overwrite(e){var t;if(await this._canUseIndexedDBPromise){const n=await this.read();return me(this.app,{lastSentHeartbeatDate:null!==(t=e.lastSentHeartbeatDate)&&void 0!==t?t:n.lastSentHeartbeatDate,heartbeats:e.heartbeats})}}async add(e){var t;if(await this._canUseIndexedDBPromise){const n=await this.read();return me(this.app,{lastSentHeartbeatDate:null!==(t=e.lastSentHeartbeatDate)&&void 0!==t?t:n.lastSentHeartbeatDate,heartbeats:[...n.heartbeats,...e.heartbeats]})}}}function Oe(e){return(0,n.base64urlEncodeWithoutPadding)(JSON.stringify({version:2,heartbeats:e})).length}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */var Ee;Ee='',K(new e.Component('platform-logger',e=>new s(e),"PRIVATE")),K(new e.Component('heartbeat',e=>new we(e),"PRIVATE")),fe(l,f,Ee),fe(l,f,'esm2017'),fe('fire-js','')},675,[676,678,677,679]);
+__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"Component",{enumerable:!0,get:function(){return t}}),Object.defineProperty(_e,"ComponentContainer",{enumerable:!0,get:function(){return c}}),Object.defineProperty(_e,"Provider",{enumerable:!0,get:function(){return s}});var e=r(d[0]);class t{constructor(e,t,n){this.name=e,this.instanceFactory=t,this.type=n,this.multipleInstances=!1,this.serviceProps={},this.instantiationMode="LAZY",this.onInstanceCreated=null}setInstantiationMode(e){return this.instantiationMode=e,this}setMultipleInstances(e){return this.multipleInstances=e,this}setServiceProps(e){return this.serviceProps=e,this}setInstanceCreatedCallback(e){return this.onInstanceCreated=e,this}}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const n='[DEFAULT]';
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class s{constructor(e,t){this.name=e,this.container=t,this.component=null,this.instances=new Map,this.instancesDeferred=new Map,this.instancesOptions=new Map,this.onInitCallbacks=new Map}get(t){const n=this.normalizeInstanceIdentifier(t);if(!this.instancesDeferred.has(n)){const t=new e.Deferred;if(this.instancesDeferred.set(n,t),this.isInitialized(n)||this.shouldAutoInitialize())try{const e=this.getOrInitializeService({instanceIdentifier:n});e&&t.resolve(e)}catch(e){}}return this.instancesDeferred.get(n).promise}getImmediate(e){var t;const n=this.normalizeInstanceIdentifier(null==e?void 0:e.identifier),s=null!==(t=null==e?void 0:e.optional)&&void 0!==t&&t;if(!this.isInitialized(n)&&!this.shouldAutoInitialize()){if(s)return null;throw Error(`Service ${this.name} is not available`)}try{return this.getOrInitializeService({instanceIdentifier:n})}catch(e){if(s)return null;throw e}}getComponent(){return this.component}setComponent(e){if(e.name!==this.name)throw Error(`Mismatching Component ${e.name} for Provider ${this.name}.`);if(this.component)throw Error(`Component for ${this.name} has already been provided`);if(this.component=e,this.shouldAutoInitialize()){if(o(e))try{this.getOrInitializeService({instanceIdentifier:n})}catch(e){}for(const[e,t]of this.instancesDeferred.entries()){const n=this.normalizeInstanceIdentifier(e);try{const e=this.getOrInitializeService({instanceIdentifier:n});t.resolve(e)}catch(e){}}}}clearInstance(e=n){this.instancesDeferred.delete(e),this.instancesOptions.delete(e),this.instances.delete(e)}async delete(){const e=Array.from(this.instances.values());await Promise.all([...e.filter(e=>'INTERNAL'in e).map(e=>e.INTERNAL.delete()),...e.filter(e=>'_delete'in e).map(e=>e._delete())])}isComponentSet(){return null!=this.component}isInitialized(e=n){return this.instances.has(e)}getOptions(e=n){return this.instancesOptions.get(e)||{}}initialize(e={}){const{options:t={}}=e,n=this.normalizeInstanceIdentifier(e.instanceIdentifier);if(this.isInitialized(n))throw Error(`${this.name}(${n}) has already been initialized`);if(!this.isComponentSet())throw Error(`Component ${this.name} has not been registered yet`);const s=this.getOrInitializeService({instanceIdentifier:n,options:t});for(const[e,t]of this.instancesDeferred.entries()){n===this.normalizeInstanceIdentifier(e)&&t.resolve(s)}return s}onInit(e,t){var n;const s=this.normalizeInstanceIdentifier(t),o=null!==(n=this.onInitCallbacks.get(s))&&void 0!==n?n:new Set;o.add(e),this.onInitCallbacks.set(s,o);const c=this.instances.get(s);return c&&e(c,s),()=>{o.delete(e)}}invokeOnInitCallbacks(e,t){const n=this.onInitCallbacks.get(t);if(n)for(const s of n)try{s(e,t)}catch(e){}}getOrInitializeService({instanceIdentifier:e,options:t={}}){let s=this.instances.get(e);if(!s&&this.component&&(s=this.component.instanceFactory(this.container,{instanceIdentifier:(o=e,o===n?void 0:o),options:t}),this.instances.set(e,s),this.instancesOptions.set(e,t),this.invokeOnInitCallbacks(s,e),this.component.onInstanceCreated))try{this.component.onInstanceCreated(this.container,e,s)}catch(e){}var o;return s||null}normalizeInstanceIdentifier(e=n){return this.component?this.component.multipleInstances?e:n:e}shouldAutoInitialize(){return!!this.component&&"EXPLICIT"!==this.component.instantiationMode}}function o(e){return"EAGER"===e.instantiationMode}
+/**
+   * @license
+   * Copyright 2019 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class c{constructor(e){this.name=e,this.providers=new Map}addComponent(e){const t=this.getProvider(e.name);if(t.isComponentSet())throw new Error(`Component ${e.name} has already been registered with ${this.name}`);t.setComponent(e)}addOrOverwriteComponent(e){this.getProvider(e.name).isComponentSet()&&this.providers.delete(e.name),this.addComponent(e)}getProvider(e){if(this.providers.has(e))return this.providers.get(e);const t=new s(e,this);return this.providers.set(e,t),t}getProviders(){return Array.from(this.providers.values())}}},676,[677]);
+__d(function(g,_r,_i,_a2,m,_e,_d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"CONSTANTS",{enumerable:!0,get:function(){return e}}),Object.defineProperty(_e,"DecodeBase64StringError",{enumerable:!0,get:function(){return s}}),Object.defineProperty(_e,"Deferred",{enumerable:!0,get:function(){return j}}),Object.defineProperty(_e,"ErrorFactory",{enumerable:!0,get:function(){return V}}),Object.defineProperty(_e,"FirebaseError",{enumerable:!0,get:function(){return F}}),Object.defineProperty(_e,"MAX_VALUE_MILLIS",{enumerable:!0,get:function(){return Se}}),Object.defineProperty(_e,"RANDOM_FACTOR",{enumerable:!0,get:function(){return Ae}}),Object.defineProperty(_e,"Sha1",{enumerable:!0,get:function(){return ue}}),Object.defineProperty(_e,"areCookiesEnabled",{enumerable:!0,get:function(){return U}}),Object.defineProperty(_e,"assert",{enumerable:!0,get:function(){return t}}),Object.defineProperty(_e,"assertionError",{enumerable:!0,get:function(){return r}}),Object.defineProperty(_e,"async",{enumerable:!0,get:function(){return le}}),Object.defineProperty(_e,"base64",{enumerable:!0,get:function(){return i}}),Object.defineProperty(_e,"base64Decode",{enumerable:!0,get:function(){return a}}),Object.defineProperty(_e,"base64Encode",{enumerable:!0,get:function(){return c}}),Object.defineProperty(_e,"base64urlEncodeWithoutPadding",{enumerable:!0,get:function(){return u}}),Object.defineProperty(_e,"calculateBackoffMillis",{enumerable:!0,get:function(){return Ce}}),Object.defineProperty(_e,"contains",{enumerable:!0,get:function(){return Y}}),Object.defineProperty(_e,"createMockUserToken",{enumerable:!0,get:function(){return P}}),Object.defineProperty(_e,"createSubscribe",{enumerable:!0,get:function(){return ae}}),Object.defineProperty(_e,"decode",{enumerable:!0,get:function(){return G}}),Object.defineProperty(_e,"deepCopy",{enumerable:!0,get:function(){return f}}),Object.defineProperty(_e,"deepEqual",{enumerable:!0,get:function(){return re}}),Object.defineProperty(_e,"deepExtend",{enumerable:!0,get:function(){return l}}),Object.defineProperty(_e,"errorPrefix",{enumerable:!0,get:function(){return pe}}),Object.defineProperty(_e,"extractQuerystring",{enumerable:!0,get:function(){return ce}}),Object.defineProperty(_e,"getDefaultAppConfig",{enumerable:!0,get:function(){return E}}),Object.defineProperty(_e,"getDefaultEmulatorHost",{enumerable:!0,get:function(){return O}}),Object.defineProperty(_e,"getDefaultEmulatorHostnameAndPort",{enumerable:!0,get:function(){return _}}),Object.defineProperty(_e,"getDefaults",{enumerable:!0,get:function(){return y}}),Object.defineProperty(_e,"getExperimentalSetting",{enumerable:!0,get:function(){return v}}),Object.defineProperty(_e,"getGlobal",{enumerable:!0,get:function(){return d}}),Object.defineProperty(_e,"getModularInstance",{enumerable:!0,get:function(){return De}}),Object.defineProperty(_e,"getUA",{enumerable:!0,get:function(){return S}}),Object.defineProperty(_e,"isAdmin",{enumerable:!0,get:function(){return X}}),Object.defineProperty(_e,"isBrowser",{enumerable:!0,get:function(){return w}}),Object.defineProperty(_e,"isBrowserExtension",{enumerable:!0,get:function(){return T}}),Object.defineProperty(_e,"isCloudflareWorker",{enumerable:!0,get:function(){return D}}),Object.defineProperty(_e,"isElectron",{enumerable:!0,get:function(){return k}}),Object.defineProperty(_e,"isEmpty",{enumerable:!0,get:function(){return ee}}),Object.defineProperty(_e,"isIE",{enumerable:!0,get:function(){return M}}),Object.defineProperty(_e,"isIndexedDBAvailable",{enumerable:!0,get:function(){return L}}),Object.defineProperty(_e,"isMobileCordova",{enumerable:!0,get:function(){return A}}),Object.defineProperty(_e,"isNode",{enumerable:!0,get:function(){return C}}),Object.defineProperty(_e,"isNodeSdk",{enumerable:!0,get:function(){return I}}),Object.defineProperty(_e,"isReactNative",{enumerable:!0,get:function(){return N}}),Object.defineProperty(_e,"isSafari",{enumerable:!0,get:function(){return W}}),Object.defineProperty(_e,"isUWP",{enumerable:!0,get:function(){return B}}),Object.defineProperty(_e,"isValidFormat",{enumerable:!0,get:function(){return Q}}),Object.defineProperty(_e,"isValidTimestamp",{enumerable:!0,get:function(){return q}}),Object.defineProperty(_e,"isWebWorker",{enumerable:!0,get:function(){return x}}),Object.defineProperty(_e,"issuedAtTime",{enumerable:!0,get:function(){return K}}),Object.defineProperty(_e,"jsonEval",{enumerable:!0,get:function(){return J}}),Object.defineProperty(_e,"map",{enumerable:!0,get:function(){return te}}),Object.defineProperty(_e,"ordinal",{enumerable:!0,get:function(){return we}}),Object.defineProperty(_e,"promiseWithTimeout",{enumerable:!0,get:function(){return oe}}),Object.defineProperty(_e,"querystring",{enumerable:!0,get:function(){return ie}}),Object.defineProperty(_e,"querystringDecode",{enumerable:!0,get:function(){return se}}),Object.defineProperty(_e,"safeGet",{enumerable:!0,get:function(){return Z}}),Object.defineProperty(_e,"stringLength",{enumerable:!0,get:function(){return Ee}}),Object.defineProperty(_e,"stringToByteArray",{enumerable:!0,get:function(){return Oe}}),Object.defineProperty(_e,"stringify",{enumerable:!0,get:function(){return H}}),Object.defineProperty(_e,"uuidv4",{enumerable:!0,get:function(){return ve}}),Object.defineProperty(_e,"validateArgCount",{enumerable:!0,get:function(){return be}}),Object.defineProperty(_e,"validateCallback",{enumerable:!0,get:function(){return ge}}),Object.defineProperty(_e,"validateContextObject",{enumerable:!0,get:function(){return me}}),Object.defineProperty(_e,"validateIndexedDBOpenable",{enumerable:!0,get:function(){return R}}),Object.defineProperty(_e,"validateNamespace",{enumerable:!0,get:function(){return ye}});
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+const e={NODE_CLIENT:!1,NODE_ADMIN:!1,SDK_VERSION:'${JSCORE_VERSION}'},t=function(e,t){if(!e)throw r(t)},r=function(t){return new Error('Firebase Database ('+e.SDK_VERSION+') INTERNAL ASSERT FAILED: '+t)},n=function(e){const t=[];let r=0;for(let n=0;n<e.length;n++){let o=e.charCodeAt(n);o<128?t[r++]=o:o<2048?(t[r++]=o>>6|192,t[r++]=63&o|128):55296==(64512&o)&&n+1<e.length&&56320==(64512&e.charCodeAt(n+1))?(o=65536+((1023&o)<<10)+(1023&e.charCodeAt(++n)),t[r++]=o>>18|240,t[r++]=o>>12&63|128,t[r++]=o>>6&63|128,t[r++]=63&o|128):(t[r++]=o>>12|224,t[r++]=o>>6&63|128,t[r++]=63&o|128)}return t},o=function(e){const t=[];let r=0,n=0;for(;r<e.length;){const o=e[r++];if(o<128)t[n++]=String.fromCharCode(o);else if(o>191&&o<224){const i=e[r++];t[n++]=String.fromCharCode((31&o)<<6|63&i)}else if(o>239&&o<365){const i=((7&o)<<18|(63&e[r++])<<12|(63&e[r++])<<6|63&e[r++])-65536;t[n++]=String.fromCharCode(55296+(i>>10)),t[n++]=String.fromCharCode(56320+(1023&i))}else{const i=e[r++],s=e[r++];t[n++]=String.fromCharCode((15&o)<<12|(63&i)<<6|63&s)}}return t.join('')},i={byteToCharMap_:null,charToByteMap_:null,byteToCharMapWebSafe_:null,charToByteMapWebSafe_:null,ENCODED_VALS_BASE:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",get ENCODED_VALS(){return this.ENCODED_VALS_BASE+'+/='},get ENCODED_VALS_WEBSAFE(){return this.ENCODED_VALS_BASE+'-_.'},HAS_NATIVE_SUPPORT:'function'==typeof atob,encodeByteArray(e,t){if(!Array.isArray(e))throw Error('encodeByteArray takes an array as a parameter');this.init_();const r=t?this.byteToCharMapWebSafe_:this.byteToCharMap_,n=[];for(let t=0;t<e.length;t+=3){const o=e[t],i=t+1<e.length,s=i?e[t+1]:0,c=t+2<e.length,u=c?e[t+2]:0,a=o>>2,f=(3&o)<<4|s>>4;let l=(15&s)<<2|u>>6,h=63&u;c||(h=64,i||(l=64)),n.push(r[a],r[f],r[l],r[h])}return n.join('')},encodeString(e,t){return this.HAS_NATIVE_SUPPORT&&!t?btoa(e):this.encodeByteArray(n(e),t)},decodeString(e,t){return this.HAS_NATIVE_SUPPORT&&!t?atob(e):o(this.decodeStringToByteArray(e,t))},decodeStringToByteArray(e,t){this.init_();const r=t?this.charToByteMapWebSafe_:this.charToByteMap_,n=[];for(let t=0;t<e.length;){const o=r[e.charAt(t++)],i=t<e.length?r[e.charAt(t)]:0;++t;const c=t<e.length?r[e.charAt(t)]:64;++t;const u=t<e.length?r[e.charAt(t)]:64;if(++t,null==o||null==i||null==c||null==u)throw new s;const a=o<<2|i>>4;if(n.push(a),64!==c){const e=i<<4&240|c>>2;if(n.push(e),64!==u){const e=c<<6&192|u;n.push(e)}}}return n},init_(){if(!this.byteToCharMap_){this.byteToCharMap_={},this.charToByteMap_={},this.byteToCharMapWebSafe_={},this.charToByteMapWebSafe_={};for(let e=0;e<this.ENCODED_VALS.length;e++)this.byteToCharMap_[e]=this.ENCODED_VALS.charAt(e),this.charToByteMap_[this.byteToCharMap_[e]]=e,this.byteToCharMapWebSafe_[e]=this.ENCODED_VALS_WEBSAFE.charAt(e),this.charToByteMapWebSafe_[this.byteToCharMapWebSafe_[e]]=e,e>=this.ENCODED_VALS_BASE.length&&(this.charToByteMap_[this.ENCODED_VALS_WEBSAFE.charAt(e)]=e,this.charToByteMapWebSafe_[this.ENCODED_VALS.charAt(e)]=e)}}};
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class s extends Error{constructor(){super(...arguments),this.name='DecodeBase64StringError'}}const c=function(e){const t=n(e);return i.encodeByteArray(t,!0)},u=function(e){return c(e).replace(/\./g,'')},a=function(e){try{return i.decodeString(e,!0)}catch(e){console.error('base64Decode failed: ',e)}return null};
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+function f(e){return l(void 0,e)}function l(e,t){if(!(t instanceof Object))return t;switch(t.constructor){case Date:return new Date(t.getTime());case Object:void 0===e&&(e={});break;case Array:e=[];break;default:return t}for(const r in t)t.hasOwnProperty(r)&&h(r)&&(e[r]=l(e[r],t[r]));return e}function h(e){return'__proto__'!==e}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function d(){if('undefined'!=typeof self)return self;if('undefined'!=typeof window)return window;if(void 0!==g)return g;throw new Error('Unable to locate global object.')}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const b=()=>{if('undefined'==typeof process||void 0===process.env)return;const e=process.env.__FIREBASE_DEFAULTS__;return e?JSON.parse(e):void 0},p=()=>{if('undefined'==typeof document)return;let e;try{e=document.cookie.match(/__FIREBASE_DEFAULTS__=([^;]+)/)}catch(e){return}const t=e&&a(e[1]);return t&&JSON.parse(t)},y=()=>{try{return d().__FIREBASE_DEFAULTS__||b()||p()}catch(e){return void console.info(`Unable to get __FIREBASE_DEFAULTS__ due to: ${e}`)}},O=e=>{var t,r;return null===(r=null===(t=y())||void 0===t?void 0:t.emulatorHosts)||void 0===r?void 0:r[e]},_=e=>{const t=O(e);if(!t)return;const r=t.lastIndexOf(':');if(r<=0||r+1===t.length)throw new Error(`Invalid host ${t} with no separate hostname and port!`);const n=parseInt(t.substring(r+1),10);return'['===t[0]?[t.substring(1,r-1),n]:[t.substring(0,r),n]},E=()=>{var e;return null===(e=y())||void 0===e?void 0:e.config},v=e=>{var t;return null===(t=y())||void 0===t?void 0:t[`_${e}`]};
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+class j{constructor(){this.reject=()=>{},this.resolve=()=>{},this.promise=new Promise((e,t)=>{this.resolve=e,this.reject=t})}wrapCallback(e){return(t,r)=>{t?this.reject(t):this.resolve(r),'function'==typeof e&&(this.promise.catch(()=>{}),1===e.length?e(t):e(t,r))}}}
+/**
+   * @license
+   * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function P(e,t){if(e.uid)throw new Error('The "uid" field is no longer supported by mockUserToken. Please use "sub" instead for Firebase Auth User ID.');const r=t||'demo-project',n=e.iat||0,o=e.sub||e.user_id;if(!o)throw new Error("mockUserToken must contain 'sub' or 'user_id' field!");const i=Object.assign({iss:`https://securetoken.google.com/${r}`,aud:r,iat:n,exp:n+3600,auth_time:n,sub:o,user_id:o,firebase:{sign_in_provider:'custom',identities:{}}},e);return[u(JSON.stringify({alg:'none',type:'JWT'})),u(JSON.stringify(i)),''].join('.')}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function S(){return'undefined'!=typeof navigator&&'string'==typeof navigator.userAgent?navigator.userAgent:''}function A(){return'undefined'!=typeof window&&!!(window.cordova||window.phonegap||window.PhoneGap)&&/ios|iphone|ipod|ipad|android|blackberry|iemobile/i.test(S())}function C(){var e;const t=null===(e=y())||void 0===e?void 0:e.forceEnvironment;if('node'===t)return!0;if('browser'===t)return!1;try{return'[object process]'===Object.prototype.toString.call(g.process)}catch(e){return!1}}function w(){return'undefined'!=typeof window||x()}function x(){return'undefined'!=typeof WorkerGlobalScope&&'undefined'!=typeof self&&self instanceof WorkerGlobalScope}function D(){return'undefined'!=typeof navigator&&'Cloudflare-Workers'===navigator.userAgent}function T(){const e='object'==typeof chrome?chrome.runtime:'object'==typeof browser?browser.runtime:void 0;return'object'==typeof e&&void 0!==e.id}function N(){return'object'==typeof navigator&&'ReactNative'===navigator.product}function k(){return S().indexOf('Electron/')>=0}function M(){const e=S();return e.indexOf('MSIE ')>=0||e.indexOf('Trident/')>=0}function B(){return S().indexOf('MSAppHost/')>=0}function I(){return!0===e.NODE_CLIENT||!0===e.NODE_ADMIN}function W(){return!C()&&!!navigator.userAgent&&navigator.userAgent.includes('Safari')&&!navigator.userAgent.includes('Chrome')}function L(){try{return'object'==typeof indexedDB}catch(e){return!1}}function R(){return new Promise((e,t)=>{try{let r=!0;const n='validate-browser-context-for-indexeddb-analytics-module',o=self.indexedDB.open(n);o.onsuccess=()=>{o.result.close(),r||self.indexedDB.deleteDatabase(n),e(!0)},o.onupgradeneeded=()=>{r=!1},o.onerror=()=>{var e;t((null===(e=o.error)||void 0===e?void 0:e.message)||'')}}catch(e){t(e)}})}function U(){return!('undefined'==typeof navigator||!navigator.cookieEnabled)}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class F extends Error{constructor(e,t,r){super(t),this.code=e,this.customData=r,this.name="FirebaseError",Object.setPrototypeOf(this,F.prototype),Error.captureStackTrace&&Error.captureStackTrace(this,V.prototype.create)}}class V{constructor(e,t,r){this.service=e,this.serviceName=t,this.errors=r}create(e,...t){const r=t[0]||{},n=`${this.service}/${e}`,o=this.errors[e],i=o?$(o,r):'Error',s=`${this.serviceName}: ${i} (${n}).`;return new F(n,s,r)}}function $(e,t){return e.replace(z,(e,r)=>{const n=t[r];return null!=n?String(n):`<${r}?>`})}const z=/\{\$([^}]+)}/g;
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function J(e){return JSON.parse(e)}function H(e){return JSON.stringify(e)}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const G=function(e){let t={},r={},n={},o='';try{const i=e.split('.');t=J(a(i[0])||''),r=J(a(i[1])||''),o=i[2],n=r.d||{},delete r.d}catch(e){}return{header:t,claims:r,data:n,signature:o}},q=function(e){const t=G(e).claims,r=Math.floor((new Date).getTime()/1e3);let n=0,o=0;return'object'==typeof t&&(t.hasOwnProperty('nbf')?n=t.nbf:t.hasOwnProperty('iat')&&(n=t.iat),o=t.hasOwnProperty('exp')?t.exp:n+86400),!!r&&!!n&&!!o&&r>=n&&r<=o},K=function(e){const t=G(e).claims;return'object'==typeof t&&t.hasOwnProperty('iat')?t.iat:null},Q=function(e){const t=G(e).claims;return!!t&&'object'==typeof t&&t.hasOwnProperty('iat')},X=function(e){const t=G(e).claims;return'object'==typeof t&&!0===t.admin};
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+function Y(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function Z(e,t){return Object.prototype.hasOwnProperty.call(e,t)?e[t]:void 0}function ee(e){for(const t in e)if(Object.prototype.hasOwnProperty.call(e,t))return!1;return!0}function te(e,t,r){const n={};for(const o in e)Object.prototype.hasOwnProperty.call(e,o)&&(n[o]=t.call(r,e[o],o,e));return n}function re(e,t){if(e===t)return!0;const r=Object.keys(e),n=Object.keys(t);for(const o of r){if(!n.includes(o))return!1;const r=e[o],i=t[o];if(ne(r)&&ne(i)){if(!re(r,i))return!1}else if(r!==i)return!1}for(const e of n)if(!r.includes(e))return!1;return!0}function ne(e){return null!==e&&'object'==typeof e}
+/**
+   * @license
+   * Copyright 2022 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function oe(e,t=2e3){const r=new j;return setTimeout(()=>r.reject('timeout!'),t),e.then(r.resolve,r.reject),r.promise}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function ie(e){const t=[];for(const[r,n]of Object.entries(e))Array.isArray(n)?n.forEach(e=>{t.push(encodeURIComponent(r)+'='+encodeURIComponent(e))}):t.push(encodeURIComponent(r)+'='+encodeURIComponent(n));return t.length?'&'+t.join('&'):''}function se(e){const t={};return e.replace(/^\?/,'').split('&').forEach(e=>{if(e){const[r,n]=e.split('=');t[decodeURIComponent(r)]=decodeURIComponent(n)}}),t}function ce(e){const t=e.indexOf('?');if(!t)return'';const r=e.indexOf('#',t);return e.substring(t,r>0?r:void 0)}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */class ue{constructor(){this.chain_=[],this.buf_=[],this.W_=[],this.pad_=[],this.inbuf_=0,this.total_=0,this.blockSize=64,this.pad_[0]=128;for(let e=1;e<this.blockSize;++e)this.pad_[e]=0;this.reset()}reset(){this.chain_[0]=1732584193,this.chain_[1]=4023233417,this.chain_[2]=2562383102,this.chain_[3]=271733878,this.chain_[4]=3285377520,this.inbuf_=0,this.total_=0}compress_(e,t){t||(t=0);const r=this.W_;if('string'==typeof e)for(let n=0;n<16;n++)r[n]=e.charCodeAt(t)<<24|e.charCodeAt(t+1)<<16|e.charCodeAt(t+2)<<8|e.charCodeAt(t+3),t+=4;else for(let n=0;n<16;n++)r[n]=e[t]<<24|e[t+1]<<16|e[t+2]<<8|e[t+3],t+=4;for(let e=16;e<80;e++){const t=r[e-3]^r[e-8]^r[e-14]^r[e-16];r[e]=4294967295&(t<<1|t>>>31)}let n,o,i=this.chain_[0],s=this.chain_[1],c=this.chain_[2],u=this.chain_[3],a=this.chain_[4];for(let e=0;e<80;e++){e<40?e<20?(n=u^s&(c^u),o=1518500249):(n=s^c^u,o=1859775393):e<60?(n=s&c|u&(s|c),o=2400959708):(n=s^c^u,o=3395469782);const t=(i<<5|i>>>27)+n+a+o+r[e]&4294967295;a=u,u=c,c=4294967295&(s<<30|s>>>2),s=i,i=t}this.chain_[0]=this.chain_[0]+i&4294967295,this.chain_[1]=this.chain_[1]+s&4294967295,this.chain_[2]=this.chain_[2]+c&4294967295,this.chain_[3]=this.chain_[3]+u&4294967295,this.chain_[4]=this.chain_[4]+a&4294967295}update(e,t){if(null==e)return;void 0===t&&(t=e.length);const r=t-this.blockSize;let n=0;const o=this.buf_;let i=this.inbuf_;for(;n<t;){if(0===i)for(;n<=r;)this.compress_(e,n),n+=this.blockSize;if('string'==typeof e){for(;n<t;)if(o[i]=e.charCodeAt(n),++i,++n,i===this.blockSize){this.compress_(o),i=0;break}}else for(;n<t;)if(o[i]=e[n],++i,++n,i===this.blockSize){this.compress_(o),i=0;break}}this.inbuf_=i,this.total_+=t}digest(){const e=[];let t=8*this.total_;this.inbuf_<56?this.update(this.pad_,56-this.inbuf_):this.update(this.pad_,this.blockSize-(this.inbuf_-56));for(let e=this.blockSize-1;e>=56;e--)this.buf_[e]=255&t,t/=256;this.compress_(this.buf_);let r=0;for(let t=0;t<5;t++)for(let n=24;n>=0;n-=8)e[r]=this.chain_[t]>>n&255,++r;return e}}function ae(e,t){const r=new fe(e,t);return r.subscribe.bind(r)}class fe{constructor(e,t){this.observers=[],this.unsubscribes=[],this.observerCount=0,this.task=Promise.resolve(),this.finalized=!1,this.onNoObservers=t,this.task.then(()=>{e(this)}).catch(e=>{this.error(e)})}next(e){this.forEachObserver(t=>{t.next(e)})}error(e){this.forEachObserver(t=>{t.error(e)}),this.close(e)}complete(){this.forEachObserver(e=>{e.complete()}),this.close()}subscribe(e,t,r){let n;if(void 0===e&&void 0===t&&void 0===r)throw new Error('Missing Observer.');n=he(e,['next','error','complete'])?e:{next:e,error:t,complete:r},void 0===n.next&&(n.next=de),void 0===n.error&&(n.error=de),void 0===n.complete&&(n.complete=de);const o=this.unsubscribeOne.bind(this,this.observers.length);return this.finalized&&this.task.then(()=>{try{this.finalError?n.error(this.finalError):n.complete()}catch(e){}}),this.observers.push(n),o}unsubscribeOne(e){void 0!==this.observers&&void 0!==this.observers[e]&&(delete this.observers[e],this.observerCount-=1,0===this.observerCount&&void 0!==this.onNoObservers&&this.onNoObservers(this))}forEachObserver(e){if(!this.finalized)for(let t=0;t<this.observers.length;t++)this.sendOne(t,e)}sendOne(e,t){this.task.then(()=>{if(void 0!==this.observers&&void 0!==this.observers[e])try{t(this.observers[e])}catch(e){'undefined'!=typeof console&&console.error&&console.error(e)}})}close(e){this.finalized||(this.finalized=!0,void 0!==e&&(this.finalError=e),this.task.then(()=>{this.observers=void 0,this.onNoObservers=void 0}))}}function le(e,t){return(...r)=>{Promise.resolve(!0).then(()=>{e(...r)}).catch(e=>{t&&t(e)})}}function he(e,t){if('object'!=typeof e||null===e)return!1;for(const r of t)if(r in e&&'function'==typeof e[r])return!0;return!1}function de(){}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const be=function(e,t,r,n){let o;if(n<t?o='at least '+t:n>r&&(o=0===r?'none':'no more than '+r),o){throw new Error(e+' failed: Was called with '+n+(1===n?' argument.':' arguments.')+' Expects '+o+'.')}};function pe(e,t){return`${e} failed: ${t} argument `}function ye(e,t,r){if((!r||t)&&'string'!=typeof t)throw new Error(pe(e,'namespace')+'must be a valid firebase namespace.')}function ge(e,t,r,n){if((!n||r)&&'function'!=typeof r)throw new Error(pe(e,t)+'must be a valid function.')}function me(e,t,r,n){if((!n||r)&&('object'!=typeof r||null===r))throw new Error(pe(e,t)+'must be a valid context object.')}
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */const Oe=function(e){const r=[];let n=0;for(let o=0;o<e.length;o++){let i=e.charCodeAt(o);if(i>=55296&&i<=56319){const r=i-55296;o++,t(o<e.length,'Surrogate pair missing trail surrogate.');i=65536+(r<<10)+(e.charCodeAt(o)-56320)}i<128?r[n++]=i:i<2048?(r[n++]=i>>6|192,r[n++]=63&i|128):i<65536?(r[n++]=i>>12|224,r[n++]=i>>6&63|128,r[n++]=63&i|128):(r[n++]=i>>18|240,r[n++]=i>>12&63|128,r[n++]=i>>6&63|128,r[n++]=63&i|128)}return r},Ee=function(e){let t=0;for(let r=0;r<e.length;r++){const n=e.charCodeAt(r);n<128?t++:n<2048?t+=2:n>=55296&&n<=56319?(t+=4,r++):t+=3}return t},ve=function(){return'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,e=>{const t=16*Math.random()|0;return('x'===e?t:3&t|8).toString(16)})},je=1e3,Pe=2,Se=144e5,Ae=.5;function Ce(e,t=je,r=Pe){const n=t*Math.pow(r,e),o=Math.round(Ae*n*(Math.random()-.5)*2);return Math.min(Se,n+o)}
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function we(e){return Number.isFinite(e)?e+xe(e):`${e}`}function xe(e){const t=(e=Math.abs(e))%100;if(t>=10&&t<=20)return'th';const r=e%10;return 1===r?'st':2===r?'nd':3===r?'rd':'th'}
+/**
+   * @license
+   * Copyright 2021 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */function De(e){return e&&e._delegate?e._delegate:e}},677,[]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"LogLevel",{enumerable:!0,get:function(){return n}}),Object.defineProperty(e,"Logger",{enumerable:!0,get:function(){return h}}),Object.defineProperty(e,"setLogLevel",{enumerable:!0,get:function(){return L}}),Object.defineProperty(e,"setUserLogHandler",{enumerable:!0,get:function(){return f}});
+/**
+   * @license
+   * Copyright 2017 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+const t=[];var n;!(function(t){t[t.DEBUG=0]="DEBUG",t[t.VERBOSE=1]="VERBOSE",t[t.INFO=2]="INFO",t[t.WARN=3]="WARN",t[t.ERROR=4]="ERROR",t[t.SILENT=5]="SILENT"})(n||(n={}));const l={debug:n.DEBUG,verbose:n.VERBOSE,info:n.INFO,warn:n.WARN,error:n.ERROR,silent:n.SILENT},o=n.INFO,s={[n.DEBUG]:'log',[n.VERBOSE]:'log',[n.INFO]:'info',[n.WARN]:'warn',[n.ERROR]:'error'},u=(t,n,...l)=>{if(n<t.logLevel)return;const o=(new Date).toISOString(),u=s[n];if(!u)throw new Error(`Attempted to log a message with an invalid logType (value: ${n})`);console[u](`[${o}]  ${t.name}:`,...l)};class h{constructor(n){this.name=n,this._logLevel=o,this._logHandler=u,this._userLogHandler=null,t.push(this)}get logLevel(){return this._logLevel}set logLevel(t){if(!(t in n))throw new TypeError(`Invalid value "${t}" assigned to \`logLevel\``);this._logLevel=t}setLogLevel(t){this._logLevel='string'==typeof t?l[t]:t}get logHandler(){return this._logHandler}set logHandler(t){if('function'!=typeof t)throw new TypeError('Value assigned to `logHandler` must be a function');this._logHandler=t}get userLogHandler(){return this._userLogHandler}set userLogHandler(t){this._userLogHandler=t}debug(...t){this._userLogHandler&&this._userLogHandler(this,n.DEBUG,...t),this._logHandler(this,n.DEBUG,...t)}log(...t){this._userLogHandler&&this._userLogHandler(this,n.VERBOSE,...t),this._logHandler(this,n.VERBOSE,...t)}info(...t){this._userLogHandler&&this._userLogHandler(this,n.INFO,...t),this._logHandler(this,n.INFO,...t)}warn(...t){this._userLogHandler&&this._userLogHandler(this,n.WARN,...t),this._logHandler(this,n.WARN,...t)}error(...t){this._userLogHandler&&this._userLogHandler(this,n.ERROR,...t),this._logHandler(this,n.ERROR,...t)}}function L(n){t.forEach(t=>{t.setLogLevel(n)})}function f(o,s){for(const u of t){let t=null;s&&s.level&&(t=l[s.level]),u.userLogHandler=null===o?null:(l,s,...u)=>{const h=u.map(t=>{if(null==t)return null;if('string'==typeof t)return t;if('number'==typeof t||'boolean'==typeof t)return t.toString();if(t instanceof Error)return t.message;try{return JSON.stringify(t)}catch(t){return null}}).filter(t=>t).join(' ');s>=(null!=t?t:l.logLevel)&&o({level:n[s].toLowerCase(),message:h,args:u,type:l.name})}}}},678,[]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"unwrap",{enumerable:!0,get:function(){return n.u}}),Object.defineProperty(e,"wrap",{enumerable:!0,get:function(){return n.w}}),Object.defineProperty(e,"deleteDB",{enumerable:!0,get:function(){return o}}),Object.defineProperty(e,"openDB",{enumerable:!0,get:function(){return t}});var n=r(d[0]);function t(t,o,{blocked:s,upgrade:c,blocking:u,terminated:l}={}){const f=indexedDB.open(t,o),b=(0,n.w)(f);return c&&f.addEventListener('upgradeneeded',t=>{c((0,n.w)(f.result),t.oldVersion,t.newVersion,(0,n.w)(f.transaction),t)}),s&&f.addEventListener('blocked',n=>s(n.oldVersion,n.newVersion,n)),b.then(n=>{l&&n.addEventListener('close',()=>l()),u&&n.addEventListener('versionchange',n=>u(n.oldVersion,n.newVersion,n))}).catch(()=>{}),b}function o(t,{blocked:o}={}){const s=indexedDB.deleteDatabase(t);return o&&s.addEventListener('blocked',n=>o(n.oldVersion,n)),(0,n.w)(s).then(()=>{})}const s=['get','getKey','getAll','getAllKeys','count'],c=['put','add','delete','clear'],u=new Map;function l(n,t){if(!(n instanceof IDBDatabase)||t in n||'string'!=typeof t)return;if(u.get(t))return u.get(t);const o=t.replace(/FromIndex$/,''),l=t!==o,f=c.includes(o);if(!(o in(l?IDBIndex:IDBObjectStore).prototype)||!f&&!s.includes(o))return;const b=async function(n,...t){const s=this.transaction(n,f?'readwrite':'readonly');let c=s.store;return l&&(c=c.index(t.shift())),(await Promise.all([c[o](...t),f&&s.done]))[0]};return u.set(t,b),b}(0,n.r)(n=>Object.assign({},n,{get:(t,o,s)=>l(t,o)||n.get(t,o,s),has:(t,o)=>!!l(t,o)||n.has(t,o)}))},679,[680]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"a",{enumerable:!0,get:function(){return p}}),Object.defineProperty(e,"i",{enumerable:!0,get:function(){return t}}),Object.defineProperty(e,"r",{enumerable:!0,get:function(){return l}}),Object.defineProperty(e,"u",{enumerable:!0,get:function(){return B}}),Object.defineProperty(e,"w",{enumerable:!0,get:function(){return I}});const t=(t,n)=>n.some(n=>t instanceof n);let n,o;const s=new WeakMap,c=new WeakMap,u=new WeakMap,f=new WeakMap,p=new WeakMap;function b(t){const n=new Promise((n,o)=>{const s=()=>{t.removeEventListener('success',c),t.removeEventListener('error',u)},c=()=>{n(I(t.result)),s()},u=()=>{o(t.error),s()};t.addEventListener('success',c),t.addEventListener('error',u)});return n.then(n=>{n instanceof IDBCursor&&s.set(n,t)}).catch(()=>{}),p.set(n,t),n}function v(t){if(c.has(t))return;const n=new Promise((n,o)=>{const s=()=>{t.removeEventListener('complete',c),t.removeEventListener('error',u),t.removeEventListener('abort',u)},c=()=>{n(),s()},u=()=>{o(t.error||new DOMException('AbortError','AbortError')),s()};t.addEventListener('complete',c),t.addEventListener('error',u),t.addEventListener('abort',u)});c.set(t,n)}let D={get(t,n,o){if(t instanceof IDBTransaction){if('done'===n)return c.get(t);if('objectStoreNames'===n)return t.objectStoreNames||u.get(t);if('store'===n)return o.objectStoreNames[1]?void 0:o.objectStore(o.objectStoreNames[0])}return I(t[n])},set:(t,n,o)=>(t[n]=o,!0),has:(t,n)=>t instanceof IDBTransaction&&('done'===n||'store'===n)||n in t};function l(t){D=t(D)}function y(c){return'function'==typeof c?(f=c)!==IDBDatabase.prototype.transaction||'objectStoreNames'in IDBTransaction.prototype?(o||(o=[IDBCursor.prototype.advance,IDBCursor.prototype.continue,IDBCursor.prototype.continuePrimaryKey])).includes(f)?function(...t){return f.apply(B(this),t),I(s.get(this))}:function(...t){return I(f.apply(B(this),t))}:function(t,...n){const o=f.call(B(this),t,...n);return u.set(o,t.sort?t.sort():[t]),I(o)}:(c instanceof IDBTransaction&&v(c),t(c,n||(n=[IDBDatabase,IDBObjectStore,IDBIndex,IDBCursor,IDBTransaction]))?new Proxy(c,D):c);var f}function I(t){if(t instanceof IDBRequest)return b(t);if(f.has(t))return f.get(t);const n=y(t);return n!==t&&(f.set(t,n),p.set(n,t)),n}const B=t=>p.get(t)},680,[]);
+__d(function(_g,_r,i,_a,_m,_e,_d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"Integer",{enumerable:!0,get:function(){return t}}),Object.defineProperty(_e,"Md5",{enumerable:!0,get:function(){return r}}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return o}});var t,r,e='undefined'!=typeof globalThis?globalThis:'undefined'!=typeof window?window:void 0!==_g?_g:'undefined'!=typeof self?self:{},o={};(function(){var e;
+/** @license
+           Copyright The Closure Library Authors.
+           SPDX-License-Identifier: Apache-2.0
+           */function n(){this.blockSize=-1,this.blockSize=64,this.g=Array(4),this.B=Array(this.blockSize),this.o=this.h=0,this.s()}function h(t,r,e){e||(e=0);var o=Array(16);if("string"==typeof r)for(var n=0;16>n;++n)o[n]=r.charCodeAt(e++)|r.charCodeAt(e++)<<8|r.charCodeAt(e++)<<16|r.charCodeAt(e++)<<24;else for(n=0;16>n;++n)o[n]=r[e++]|r[e++]<<8|r[e++]<<16|r[e++]<<24;r=t.g[0],e=t.g[1],n=t.g[2];var h=t.g[3],f=r+(h^e&(n^h))+o[0]+3614090360&4294967295;f=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=(e=(n=(h=(r=e+(f<<7&4294967295|f>>>25))+((f=h+(n^r&(e^n))+o[1]+3905402710&4294967295)<<12&4294967295|f>>>20))+((f=n+(e^h&(r^e))+o[2]+606105819&4294967295)<<17&4294967295|f>>>15))+((f=e+(r^n&(h^r))+o[3]+3250441966&4294967295)<<22&4294967295|f>>>10))+((f=r+(h^e&(n^h))+o[4]+4118548399&4294967295)<<7&4294967295|f>>>25))+((f=h+(n^r&(e^n))+o[5]+1200080426&4294967295)<<12&4294967295|f>>>20))+((f=n+(e^h&(r^e))+o[6]+2821735955&4294967295)<<17&4294967295|f>>>15))+((f=e+(r^n&(h^r))+o[7]+4249261313&4294967295)<<22&4294967295|f>>>10))+((f=r+(h^e&(n^h))+o[8]+1770035416&4294967295)<<7&4294967295|f>>>25))+((f=h+(n^r&(e^n))+o[9]+2336552879&4294967295)<<12&4294967295|f>>>20))+((f=n+(e^h&(r^e))+o[10]+4294925233&4294967295)<<17&4294967295|f>>>15))+((f=e+(r^n&(h^r))+o[11]+2304563134&4294967295)<<22&4294967295|f>>>10))+((f=r+(h^e&(n^h))+o[12]+1804603682&4294967295)<<7&4294967295|f>>>25))+((f=h+(n^r&(e^n))+o[13]+4254626195&4294967295)<<12&4294967295|f>>>20))+((f=n+(e^h&(r^e))+o[14]+2792965006&4294967295)<<17&4294967295|f>>>15))+((f=e+(r^n&(h^r))+o[15]+1236535329&4294967295)<<22&4294967295|f>>>10))+((f=r+(n^h&(e^n))+o[1]+4129170786&4294967295)<<5&4294967295|f>>>27))+((f=h+(e^n&(r^e))+o[6]+3225465664&4294967295)<<9&4294967295|f>>>23))+((f=n+(r^e&(h^r))+o[11]+643717713&4294967295)<<14&4294967295|f>>>18))+((f=e+(h^r&(n^h))+o[0]+3921069994&4294967295)<<20&4294967295|f>>>12))+((f=r+(n^h&(e^n))+o[5]+3593408605&4294967295)<<5&4294967295|f>>>27))+((f=h+(e^n&(r^e))+o[10]+38016083&4294967295)<<9&4294967295|f>>>23))+((f=n+(r^e&(h^r))+o[15]+3634488961&4294967295)<<14&4294967295|f>>>18))+((f=e+(h^r&(n^h))+o[4]+3889429448&4294967295)<<20&4294967295|f>>>12))+((f=r+(n^h&(e^n))+o[9]+568446438&4294967295)<<5&4294967295|f>>>27))+((f=h+(e^n&(r^e))+o[14]+3275163606&4294967295)<<9&4294967295|f>>>23))+((f=n+(r^e&(h^r))+o[3]+4107603335&4294967295)<<14&4294967295|f>>>18))+((f=e+(h^r&(n^h))+o[8]+1163531501&4294967295)<<20&4294967295|f>>>12))+((f=r+(n^h&(e^n))+o[13]+2850285829&4294967295)<<5&4294967295|f>>>27))+((f=h+(e^n&(r^e))+o[2]+4243563512&4294967295)<<9&4294967295|f>>>23))+((f=n+(r^e&(h^r))+o[7]+1735328473&4294967295)<<14&4294967295|f>>>18))+((f=e+(h^r&(n^h))+o[12]+2368359562&4294967295)<<20&4294967295|f>>>12))+((f=r+(e^n^h)+o[5]+4294588738&4294967295)<<4&4294967295|f>>>28))+((f=h+(r^e^n)+o[8]+2272392833&4294967295)<<11&4294967295|f>>>21))+((f=n+(h^r^e)+o[11]+1839030562&4294967295)<<16&4294967295|f>>>16))+((f=e+(n^h^r)+o[14]+4259657740&4294967295)<<23&4294967295|f>>>9))+((f=r+(e^n^h)+o[1]+2763975236&4294967295)<<4&4294967295|f>>>28))+((f=h+(r^e^n)+o[4]+1272893353&4294967295)<<11&4294967295|f>>>21))+((f=n+(h^r^e)+o[7]+4139469664&4294967295)<<16&4294967295|f>>>16))+((f=e+(n^h^r)+o[10]+3200236656&4294967295)<<23&4294967295|f>>>9))+((f=r+(e^n^h)+o[13]+681279174&4294967295)<<4&4294967295|f>>>28))+((f=h+(r^e^n)+o[0]+3936430074&4294967295)<<11&4294967295|f>>>21))+((f=n+(h^r^e)+o[3]+3572445317&4294967295)<<16&4294967295|f>>>16))+((f=e+(n^h^r)+o[6]+76029189&4294967295)<<23&4294967295|f>>>9))+((f=r+(e^n^h)+o[9]+3654602809&4294967295)<<4&4294967295|f>>>28))+((f=h+(r^e^n)+o[12]+3873151461&4294967295)<<11&4294967295|f>>>21))+((f=n+(h^r^e)+o[15]+530742520&4294967295)<<16&4294967295|f>>>16))+((f=e+(n^h^r)+o[2]+3299628645&4294967295)<<23&4294967295|f>>>9))+((f=r+(n^(e|~h))+o[0]+4096336452&4294967295)<<6&4294967295|f>>>26))+((f=h+(e^(r|~n))+o[7]+1126891415&4294967295)<<10&4294967295|f>>>22))+((f=n+(r^(h|~e))+o[14]+2878612391&4294967295)<<15&4294967295|f>>>17))+((f=e+(h^(n|~r))+o[5]+4237533241&4294967295)<<21&4294967295|f>>>11))+((f=r+(n^(e|~h))+o[12]+1700485571&4294967295)<<6&4294967295|f>>>26))+((f=h+(e^(r|~n))+o[3]+2399980690&4294967295)<<10&4294967295|f>>>22))+((f=n+(r^(h|~e))+o[10]+4293915773&4294967295)<<15&4294967295|f>>>17))+((f=e+(h^(n|~r))+o[1]+2240044497&4294967295)<<21&4294967295|f>>>11))+((f=r+(n^(e|~h))+o[8]+1873313359&4294967295)<<6&4294967295|f>>>26))+((f=h+(e^(r|~n))+o[15]+4264355552&4294967295)<<10&4294967295|f>>>22))+((f=n+(r^(h|~e))+o[6]+2734768916&4294967295)<<15&4294967295|f>>>17))+((f=e+(h^(n|~r))+o[13]+1309151649&4294967295)<<21&4294967295|f>>>11))+((h=(r=e+((f=r+(n^(e|~h))+o[4]+4149444226&4294967295)<<6&4294967295|f>>>26))+((f=h+(e^(r|~n))+o[11]+3174756917&4294967295)<<10&4294967295|f>>>22))^((n=h+((f=n+(r^(h|~e))+o[2]+718787259&4294967295)<<15&4294967295|f>>>17))|~r))+o[9]+3951481745&4294967295,t.g[0]=t.g[0]+r&4294967295,t.g[1]=t.g[1]+(n+(f<<21&4294967295|f>>>11))&4294967295,t.g[2]=t.g[2]+n&4294967295,t.g[3]=t.g[3]+h&4294967295}function f(t,r){var e=u;return Object.prototype.hasOwnProperty.call(e,t)?e[t]:e[t]=r(t)}function s(t,r){this.h=r;for(var e=[],o=!0,n=t.length-1;0<=n;n--){var h=0|t[n];o&&h==r||(e[n]=h,o=!1)}this.g=e}!(function(t,r){function e(){}e.prototype=r.prototype,t.D=r.prototype,t.prototype=new e,t.prototype.constructor=t,t.C=function(t,e,o){for(var n=Array(arguments.length-2),h=2;h<arguments.length;h++)n[h-2]=arguments[h];return r.prototype[e].apply(t,n)}})(n,function(){this.blockSize=-1}),n.prototype.s=function(){this.g[0]=1732584193,this.g[1]=4023233417,this.g[2]=2562383102,this.g[3]=271733878,this.o=this.h=0},n.prototype.u=function(t,r){void 0===r&&(r=t.length);for(var e=r-this.blockSize,o=this.B,n=this.h,f=0;f<r;){if(0==n)for(;f<=e;)h(this,t,f),f+=this.blockSize;if("string"==typeof t){for(;f<r;)if(o[n++]=t.charCodeAt(f++),n==this.blockSize){h(this,o),n=0;break}}else for(;f<r;)if(o[n++]=t[f++],n==this.blockSize){h(this,o),n=0;break}}this.h=n,this.o+=r},n.prototype.v=function(){var t=Array((56>this.h?this.blockSize:2*this.blockSize)-this.h);t[0]=128;for(var r=1;r<t.length-8;++r)t[r]=0;var e=8*this.o;for(r=t.length-8;r<t.length;++r)t[r]=255&e,e/=256;for(this.u(t),t=Array(16),r=e=0;4>r;++r)for(var o=0;32>o;o+=8)t[e++]=this.g[r]>>>o&255;return t};var u={};function a(t){return-128<=t&&128>t?f(t,function(t){return new s([0|t],0>t?-1:0)}):new s([0|t],0>t?-1:0)}function g(t){if(isNaN(t)||!isFinite(t))return p;if(0>t)return v(g(-t));for(var r=[],e=1,o=0;t>=e;o++)r[o]=t/e|0,e*=4294967296;return new s(r,0)}var p=a(0),l=a(1),c=a(16777216);function d(t){if(0!=t.h)return!1;for(var r=0;r<t.g.length;r++)if(0!=t.g[r])return!1;return!0}function y(t){return-1==t.h}function v(t){for(var r=t.g.length,e=[],o=0;o<r;o++)e[o]=~t.g[o];return new s(e,~t.h).add(l)}function w(t,r){return t.add(v(r))}function b(t,r){for(;(65535&t[r])!=t[r];)t[r+1]+=t[r]>>>16,t[r]&=65535,r++}function m(t,r){this.g=t,this.h=r}function M(t,r){if(d(r))throw Error("division by zero");if(d(t))return new m(p,p);if(y(t))return r=M(v(t),r),new m(v(r.g),v(r.h));if(y(r))return r=M(t,v(r)),new m(v(r.g),r.h);if(30<t.g.length){if(y(t)||y(r))throw Error("slowDivide_ only works with positive integers.");for(var e=l,o=r;0>=o.l(t);)e=j(e),o=j(o);var n=S(e,1),h=S(o,1);for(o=S(o,2),e=S(e,2);!d(o);){var f=h.add(o);0>=f.l(t)&&(n=n.add(e),h=f),o=S(o,1),e=S(e,1)}return r=w(t,n.j(r)),new m(n,r)}for(n=p;0<=t.l(r);){for(e=Math.max(1,Math.floor(t.m()/r.m())),o=48>=(o=Math.ceil(Math.log(e)/Math.LN2))?1:Math.pow(2,o-48),f=(h=g(e)).j(r);y(f)||0<f.l(t);)f=(h=g(e-=o)).j(r);d(h)&&(h=l),n=n.add(h),t=w(t,f)}return new m(n,t)}function j(t){for(var r=t.g.length+1,e=[],o=0;o<r;o++)e[o]=t.i(o)<<1|t.i(o-1)>>>31;return new s(e,t.h)}function S(t,r){var e=r>>5;r%=32;for(var o=t.g.length-e,n=[],h=0;h<o;h++)n[h]=0<r?t.i(h+e)>>>r|t.i(h+e+1)<<32-r:t.i(h+e);return new s(n,t.h)}(e=s.prototype).m=function(){if(y(this))return-v(this).m();for(var t=0,r=1,e=0;e<this.g.length;e++){var o=this.i(e);t+=(0<=o?o:4294967296+o)*r,r*=4294967296}return t},e.toString=function(t){if(2>(t=t||10)||36<t)throw Error("radix out of range: "+t);if(d(this))return"0";if(y(this))return"-"+v(this).toString(t);for(var r=g(Math.pow(t,6)),e=this,o="";;){var n=M(e,r).g,h=((0<(e=w(e,n.j(r))).g.length?e.g[0]:e.h)>>>0).toString(t);if(d(e=n))return h+o;for(;6>h.length;)h="0"+h;o=h+o}},e.i=function(t){return 0>t?0:t<this.g.length?this.g[t]:this.h},e.l=function(t){return y(t=w(this,t))?-1:d(t)?0:1},e.abs=function(){return y(this)?v(this):this},e.add=function(t){for(var r=Math.max(this.g.length,t.g.length),e=[],o=0,n=0;n<=r;n++){var h=o+(65535&this.i(n))+(65535&t.i(n)),f=(h>>>16)+(this.i(n)>>>16)+(t.i(n)>>>16);o=f>>>16,h&=65535,f&=65535,e[n]=f<<16|h}return new s(e,-2147483648&e[e.length-1]?-1:0)},e.j=function(t){if(d(this)||d(t))return p;if(y(this))return y(t)?v(this).j(v(t)):v(v(this).j(t));if(y(t))return v(this.j(v(t)));if(0>this.l(c)&&0>t.l(c))return g(this.m()*t.m());for(var r=this.g.length+t.g.length,e=[],o=0;o<2*r;o++)e[o]=0;for(o=0;o<this.g.length;o++)for(var n=0;n<t.g.length;n++){var h=this.i(o)>>>16,f=65535&this.i(o),u=t.i(n)>>>16,a=65535&t.i(n);e[2*o+2*n]+=f*a,b(e,2*o+2*n),e[2*o+2*n+1]+=h*a,b(e,2*o+2*n+1),e[2*o+2*n+1]+=f*u,b(e,2*o+2*n+1),e[2*o+2*n+2]+=h*u,b(e,2*o+2*n+2)}for(o=0;o<r;o++)e[o]=e[2*o+1]<<16|e[2*o];for(o=r;o<2*r;o++)e[o]=0;return new s(e,0)},e.A=function(t){return M(this,t).h},e.and=function(t){for(var r=Math.max(this.g.length,t.g.length),e=[],o=0;o<r;o++)e[o]=this.i(o)&t.i(o);return new s(e,this.h&t.h)},e.or=function(t){for(var r=Math.max(this.g.length,t.g.length),e=[],o=0;o<r;o++)e[o]=this.i(o)|t.i(o);return new s(e,this.h|t.h)},e.xor=function(t){for(var r=Math.max(this.g.length,t.g.length),e=[],o=0;o<r;o++)e[o]=this.i(o)^t.i(o);return new s(e,this.h^t.h)},n.prototype.digest=n.prototype.v,n.prototype.reset=n.prototype.s,n.prototype.update=n.prototype.u,r=o.Md5=n,s.prototype.add=s.prototype.add,s.prototype.multiply=s.prototype.j,s.prototype.modulo=s.prototype.A,s.prototype.compare=s.prototype.l,s.prototype.toNumber=s.prototype.m,s.prototype.toString=s.prototype.toString,s.prototype.getBits=s.prototype.i,s.fromNumber=g,s.fromString=function t(r,e){if(0==r.length)throw Error("number format error: empty string");if(2>(e=e||10)||36<e)throw Error("radix out of range: "+e);if("-"==r.charAt(0))return v(t(r.substring(1),e));if(0<=r.indexOf("-"))throw Error('number format error: interior "-" character');for(var o=g(Math.pow(e,8)),n=p,h=0;h<r.length;h+=8){var f=Math.min(8,r.length-h),s=parseInt(r.substring(h,h+f),e);8>f?(f=g(Math.pow(e,f)),n=n.j(f).add(g(s))):n=(n=n.j(o)).add(g(s))}return n},t=o.Integer=s}).apply(void 0!==e?e:'undefined'!=typeof self?self:'undefined'!=typeof window?window:{})},681,[]);
+__d(function(_g,_r,i,_a,_m,_e,_d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"ErrorCode",{enumerable:!0,get:function(){return r}}),Object.defineProperty(_e,"Event",{enumerable:!0,get:function(){return h}}),Object.defineProperty(_e,"EventType",{enumerable:!0,get:function(){return s}}),Object.defineProperty(_e,"FetchXmlHttpFactory",{enumerable:!0,get:function(){return e}}),Object.defineProperty(_e,"Stat",{enumerable:!0,get:function(){return o}}),Object.defineProperty(_e,"WebChannel",{enumerable:!0,get:function(){return n}}),Object.defineProperty(_e,"XhrIo",{enumerable:!0,get:function(){return t}}),Object.defineProperty(_e,"createWebChannelTransport",{enumerable:!0,get:function(){return l}}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return c}}),Object.defineProperty(_e,"getStatEventTarget",{enumerable:!0,get:function(){return a}});var t,e,n,s,r,o,h,a,l,u='undefined'!=typeof globalThis?globalThis:'undefined'!=typeof window?window:void 0!==_g?_g:'undefined'!=typeof self?self:{},c={};(function(){var f,g="function"==typeof Object.defineProperties?Object.defineProperty:function(t,e,n){return t==Array.prototype||t==Object.prototype||(t[e]=n.value),t};var p=(function(t){t=["object"==typeof globalThis&&globalThis,t,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof u&&u];for(var e=0;e<t.length;++e){var n=t[e];if(n&&n.Math==Math)return n}throw Error("Cannot find global object")})(this);function d(t,e){t instanceof String&&(t+="");var n=0,s=!1,r={next:function(){if(!s&&n<t.length){var r=n++;return{value:e(r,t[r]),done:!1}}return s=!0,{done:!0,value:void 0}}};return r[Symbol.iterator]=function(){return r},r}!(function(t,e){if(e)t:{var n=p;t=t.split(".");for(var s=0;s<t.length-1;s++){var r=t[s];if(!(r in n))break t;n=n[r]}(e=e(s=n[t=t[t.length-1]]))!=s&&null!=e&&g(n,t,{configurable:!0,writable:!0,value:e})}})("Array.prototype.values",function(t){return t||function(){return d(this,function(t,e){return e})}});
+/** @license
+        Copyright The Closure Library Authors.
+        SPDX-License-Identifier: Apache-2.0
+        */
+var y=y||{},v=this||self;function m(t){var e=typeof t;return"array"==(e="object"!=e?e:t?Array.isArray(t)?"array":e:"null")||"object"==e&&"number"==typeof t.length}function b(t){var e=typeof t;return"object"==e&&null!=t||"function"==e}function w(t,e,n){return t.call.apply(t.bind,arguments)}function T(t,e,n){if(!t)throw Error();if(2<arguments.length){var s=Array.prototype.slice.call(arguments,2);return function(){var n=Array.prototype.slice.call(arguments);return Array.prototype.unshift.apply(n,s),t.apply(e,n)}}return function(){return t.apply(e,arguments)}}function S(t,e,n){return(S=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?w:T).apply(null,arguments)}function j(t,e){var n=Array.prototype.slice.call(arguments,1);return function(){var e=n.slice();return e.push.apply(e,arguments),t.apply(this,e)}}function E(t,e){function n(){}n.prototype=e.prototype,t.aa=e.prototype,t.prototype=new n,t.prototype.constructor=t,t.Qb=function(t,n,s){for(var r=Array(arguments.length-2),o=2;o<arguments.length;o++)r[o-2]=arguments[o];return e.prototype[n].apply(t,r)}}function C(t){const e=t.length;if(0<e){const n=Array(e);for(let s=0;s<e;s++)n[s]=t[s];return n}return[]}function A(t,e){for(let e=1;e<arguments.length;e++){const n=arguments[e];if(m(n)){const e=t.length||0,s=n.length||0;t.length=e+s;for(let r=0;r<s;r++)t[e+r]=n[r]}else t.push(n)}}function O(t){return/^[\s\xa0]*$/.test(t)}function P(){var t=v.navigator;return t&&(t=t.userAgent)?t:""}function I(t){return I[" "](t),t}I[" "]=function(){};var R=!(-1==P().indexOf("Gecko")||-1!=P().toLowerCase().indexOf("webkit")&&-1==P().indexOf("Edge")||-1!=P().indexOf("Trident")||-1!=P().indexOf("MSIE")||-1!=P().indexOf("Edge"));function x(t,e,n){for(const s in t)e.call(n,t[s],s,t)}function _(t,e){for(const n in t)e.call(void 0,t[n],n,t)}function M(t){const e={};for(const n in t)e[n]=t[n];return e}const D="constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(" ");function L(t,e){let n,s;for(let e=1;e<arguments.length;e++){for(n in s=arguments[e],s)t[n]=s[n];for(let e=0;e<D.length;e++)n=D[e],Object.prototype.hasOwnProperty.call(s,n)&&(t[n]=s[n])}}function H(t){var e=1;t=t.split(":");const n=[];for(;0<e&&t.length;)n.push(t.shift()),e--;return t.length&&n.push(t.join(":")),n}function X(t){v.setTimeout(()=>{throw t},0)}function k(){var t=K;let e=null;return t.g&&(e=t.g,t.g=t.g.next,t.g||(t.h=null),e.next=null),e}var B=new class{constructor(t,e){this.i=t,this.j=e,this.h=0,this.g=null}get(){let t;return 0<this.h?(this.h--,t=this.g,this.g=t.next,t.next=null):t=this.i(),t}}(()=>new F,t=>t.reset());class F{constructor(){this.next=this.g=this.h=null}set(t,e){this.h=t,this.g=e,this.next=null}reset(){this.next=this.g=this.h=null}}let N,U=!1,K=new class{constructor(){this.h=this.g=null}add(t,e){const n=B.get();n.set(t,e),this.h?this.h.next=n:this.g=n,this.h=n}},G=()=>{const t=v.Promise.resolve(void 0);N=()=>{t.then(Y)}};var Y=()=>{for(var t;t=k();){try{t.h.call(t.g)}catch(t){X(t)}var e=B;e.j(t),100>e.h&&(e.h++,t.next=e.g,e.g=t)}U=!1};function J(){this.s=this.s,this.C=this.C}function W(t,e){this.type=t,this.g=this.target=e,this.defaultPrevented=!1}J.prototype.s=!1,J.prototype.ma=function(){this.s||(this.s=!0,this.N())},J.prototype.N=function(){if(this.C)for(;this.C.length;)this.C.shift()()},W.prototype.h=function(){this.defaultPrevented=!0};var q=(function(){if(!v.addEventListener||!Object.defineProperty)return!1;var t=!1,e=Object.defineProperty({},"passive",{get:function(){t=!0}});try{const t=()=>{};v.addEventListener("test",t,e),v.removeEventListener("test",t,e)}catch(t){}return t})();function V(t,e){if(W.call(this,t?t.type:""),this.relatedTarget=this.g=this.target=null,this.button=this.screenY=this.screenX=this.clientY=this.clientX=0,this.key="",this.metaKey=this.shiftKey=this.altKey=this.ctrlKey=!1,this.state=null,this.pointerId=0,this.pointerType="",this.i=null,t){var n=this.type=t.type,s=t.changedTouches&&t.changedTouches.length?t.changedTouches[0]:null;if(this.target=t.target||t.srcElement,this.g=e,e=t.relatedTarget){if(R){t:{try{I(e.nodeName);var r=!0;break t}catch(t){}r=!1}r||(e=null)}}else"mouseover"==n?e=t.fromElement:"mouseout"==n&&(e=t.toElement);this.relatedTarget=e,s?(this.clientX=void 0!==s.clientX?s.clientX:s.pageX,this.clientY=void 0!==s.clientY?s.clientY:s.pageY,this.screenX=s.screenX||0,this.screenY=s.screenY||0):(this.clientX=void 0!==t.clientX?t.clientX:t.pageX,this.clientY=void 0!==t.clientY?t.clientY:t.pageY,this.screenX=t.screenX||0,this.screenY=t.screenY||0),this.button=t.button,this.key=t.key||"",this.ctrlKey=t.ctrlKey,this.altKey=t.altKey,this.shiftKey=t.shiftKey,this.metaKey=t.metaKey,this.pointerId=t.pointerId||0,this.pointerType="string"==typeof t.pointerType?t.pointerType:z[t.pointerType]||"",this.state=t.state,this.i=t,t.defaultPrevented&&V.aa.h.call(this)}}E(V,W);var z={2:"touch",3:"pen",4:"mouse"};V.prototype.h=function(){V.aa.h.call(this);var t=this.i;t.preventDefault?t.preventDefault():t.returnValue=!1};var Z="closure_listenable_"+(1e6*Math.random()|0),$=0;function Q(t,e,n,s,r){this.listener=t,this.proxy=null,this.src=e,this.type=n,this.capture=!!s,this.ha=r,this.key=++$,this.da=this.fa=!1}function tt(t){t.da=!0,t.listener=null,t.proxy=null,t.src=null,t.ha=null}function et(t){this.src=t,this.g={},this.h=0}function nt(t,e){var n=e.type;if(n in t.g){var s,r=t.g[n],o=Array.prototype.indexOf.call(r,e,void 0);(s=0<=o)&&Array.prototype.splice.call(r,o,1),s&&(tt(e),0==t.g[n].length&&(delete t.g[n],t.h--))}}function it(t,e,n,s){for(var r=0;r<t.length;++r){var o=t[r];if(!o.da&&o.listener==e&&o.capture==!!n&&o.ha==s)return r}return-1}et.prototype.add=function(t,e,n,s,r){var o=t.toString();(t=this.g[o])||(t=this.g[o]=[],this.h++);var h=it(t,e,s,r);return-1<h?(e=t[h],n||(e.fa=!1)):((e=new Q(e,this.src,o,!!s,r)).fa=n,t.push(e)),e};var st="closure_lm_"+(1e6*Math.random()|0),rt={};function ot(t,e,n,s,r){if(s&&s.once)return lt(t,e,n,s,r);if(Array.isArray(e)){for(var o=0;o<e.length;o++)ot(t,e[o],n,s,r);return null}return n=yt(n),t&&t[Z]?t.K(e,n,b(s)?!!s.capture:!!s,r):ht(t,e,n,!1,s,r)}function ht(t,e,n,s,r,o){if(!e)throw Error("Invalid event type");var h=b(r)?!!r.capture:!!r,a=pt(t);if(a||(t[st]=a=new et(t)),(n=a.add(e,n,s,h,o)).proxy)return n;if(s=at(),n.proxy=s,s.src=t,s.listener=n,t.addEventListener)q||(r=h),void 0===r&&(r=!1),t.addEventListener(e.toString(),s,r);else if(t.attachEvent)t.attachEvent(ft(e.toString()),s);else{if(!t.addListener||!t.removeListener)throw Error("addEventListener and attachEvent are unavailable.");t.addListener(s)}return n}function at(){const t=gt;return function e(n){return t.call(e.src,e.listener,n)}}function lt(t,e,n,s,r){if(Array.isArray(e)){for(var o=0;o<e.length;o++)lt(t,e[o],n,s,r);return null}return n=yt(n),t&&t[Z]?t.L(e,n,b(s)?!!s.capture:!!s,r):ht(t,e,n,!0,s,r)}function ut(t,e,n,s,r){if(Array.isArray(e))for(var o=0;o<e.length;o++)ut(t,e[o],n,s,r);else s=b(s)?!!s.capture:!!s,n=yt(n),t&&t[Z]?(t=t.i,(e=String(e).toString())in t.g&&(-1<(n=it(o=t.g[e],n,s,r))&&(tt(o[n]),Array.prototype.splice.call(o,n,1),0==o.length&&(delete t.g[e],t.h--)))):t&&(t=pt(t))&&(e=t.g[e.toString()],t=-1,e&&(t=it(e,n,s,r)),(n=-1<t?e[t]:null)&&ct(n))}function ct(t){if("number"!=typeof t&&t&&!t.da){var e=t.src;if(e&&e[Z])nt(e.i,t);else{var n=t.type,s=t.proxy;e.removeEventListener?e.removeEventListener(n,s,t.capture):e.detachEvent?e.detachEvent(ft(n),s):e.addListener&&e.removeListener&&e.removeListener(s),(n=pt(e))?(nt(n,t),0==n.h&&(n.src=null,e[st]=null)):tt(t)}}}function ft(t){return t in rt?rt[t]:rt[t]="on"+t}function gt(t,e){if(t.da)t=!0;else{e=new V(e,this);var n=t.listener,s=t.ha||t.src;t.fa&&ct(t),t=n.call(s,e)}return t}function pt(t){return(t=t[st])instanceof et?t:null}var dt="__closure_events_fn_"+(1e9*Math.random()>>>0);function yt(t){return"function"==typeof t?t:(t[dt]||(t[dt]=function(e){return t.handleEvent(e)}),t[dt])}function vt(){J.call(this),this.i=new et(this),this.M=this,this.F=null}function mt(t,e){var n,s=t.F;if(s)for(n=[];s;s=s.F)n.push(s);if(t=t.M,s=e.type||e,"string"==typeof e)e=new W(e,t);else if(e instanceof W)e.target=e.target||t;else{var r=e;L(e=new W(s,t),r)}if(r=!0,n)for(var o=n.length-1;0<=o;o--){var h=e.g=n[o];r=bt(h,s,!0,e)&&r}if(r=bt(h=e.g=t,s,!0,e)&&r,r=bt(h,s,!1,e)&&r,n)for(o=0;o<n.length;o++)r=bt(h=e.g=n[o],s,!1,e)&&r}function bt(t,e,n,s){if(!(e=t.i.g[String(e)]))return!0;e=e.concat();for(var r=!0,o=0;o<e.length;++o){var h=e[o];if(h&&!h.da&&h.capture==n){var a=h.listener,l=h.ha||h.src;h.fa&&nt(t.i,h),r=!1!==a.call(l,s)&&r}}return r&&!s.defaultPrevented}function wt(t,e,n){if("function"==typeof t)n&&(t=S(t,n));else{if(!t||"function"!=typeof t.handleEvent)throw Error("Invalid listener argument");t=S(t.handleEvent,t)}return 2147483647<Number(e)?-1:v.setTimeout(t,e||0)}function Tt(t){t.g=wt(()=>{t.g=null,t.i&&(t.i=!1,Tt(t))},t.l);const e=t.h;t.h=null,t.m.apply(null,e)}E(vt,J),vt.prototype[Z]=!0,vt.prototype.removeEventListener=function(t,e,n,s){ut(this,t,e,n,s)},vt.prototype.N=function(){if(vt.aa.N.call(this),this.i){var t,e=this.i;for(t in e.g){for(var n=e.g[t],s=0;s<n.length;s++)tt(n[s]);delete e.g[t],e.h--}}this.F=null},vt.prototype.K=function(t,e,n,s){return this.i.add(String(t),e,!1,n,s)},vt.prototype.L=function(t,e,n,s){return this.i.add(String(t),e,!0,n,s)};class St extends J{constructor(t,e){super(),this.m=t,this.l=e,this.h=null,this.i=!1,this.g=null}j(t){this.h=arguments,this.g?this.i=!0:Tt(this)}N(){super.N(),this.g&&(v.clearTimeout(this.g),this.g=null,this.i=!1,this.h=null)}}function jt(t){J.call(this),this.h=t,this.g={}}E(jt,J);var Et=[];function Ct(t){x(t.g,function(t,e){this.g.hasOwnProperty(e)&&ct(t)},t),t.g={}}jt.prototype.N=function(){jt.aa.N.call(this),Ct(this)},jt.prototype.handleEvent=function(){throw Error("EventHandler.handleEvent not implemented")};var At=v.JSON.stringify,Ot=v.JSON.parse,Pt=class{stringify(t){return v.JSON.stringify(t,void 0)}parse(t){return v.JSON.parse(t,void 0)}};function It(){}function Rt(t){return t.h||(t.h=t.i())}function xt(){}It.prototype.h=null;var _t={OPEN:"a",kb:"b",Ja:"c",wb:"d"};function Mt(){W.call(this,"d")}function Dt(){W.call(this,"c")}E(Mt,W),E(Dt,W);var Lt={},Ht=null;function Xt(){return Ht=Ht||new vt}function kt(t){W.call(this,Lt.La,t)}function Bt(t){const e=Xt();mt(e,new kt(e))}function Ft(t,e){W.call(this,Lt.STAT_EVENT,t),this.stat=e}function Nt(t){const e=Xt();mt(e,new Ft(e,t))}function Ut(t,e){W.call(this,Lt.Ma,t),this.size=e}function Kt(t,e){if("function"!=typeof t)throw Error("Fn must not be null and must be a function");return v.setTimeout(function(){t()},e)}function Gt(){this.g=!0}function Yt(t,e,n,s,r,o){t.info(function(){if(t.g)if(o)for(var h="",a=o.split("&"),l=0;l<a.length;l++){var u=a[l].split("=");if(1<u.length){var c=u[0];u=u[1];var f=c.split("_");h=2<=f.length&&"type"==f[1]?h+(c+"=")+u+"&":h+(c+"=redacted&")}}else h=null;else h=o;return"XMLHTTP REQ ("+s+") [attempt "+r+"]: "+e+"\n"+n+"\n"+h})}function Jt(t,e,n,s,r,o,h){t.info(function(){return"XMLHTTP RESP ("+s+") [ attempt "+r+"]: "+e+"\n"+n+"\n"+o+" "+h})}function Wt(t,e,n,s){t.info(function(){return"XMLHTTP TEXT ("+e+"): "+Vt(t,n)+(s?" "+s:"")})}function qt(t,e){t.info(function(){return"TIMEOUT: "+e})}function Vt(t,e){if(!t.g)return e;if(!e)return null;try{var n=JSON.parse(e);if(n)for(t=0;t<n.length;t++)if(Array.isArray(n[t])){var s=n[t];if(!(2>s.length)){var r=s[1];if(Array.isArray(r)&&!(1>r.length)){var o=r[0];if("noop"!=o&&"stop"!=o&&"close"!=o)for(var h=1;h<r.length;h++)r[h]=""}}}return At(n)}catch(t){return e}}Lt.La="serverreachability",E(kt,W),Lt.STAT_EVENT="statevent",E(Ft,W),Lt.Ma="timingevent",E(Ut,W),Gt.prototype.xa=function(){this.g=!1},Gt.prototype.info=function(){};var zt,Zt={NO_ERROR:0,gb:1,tb:2,sb:3,nb:4,rb:5,ub:6,Ia:7,TIMEOUT:8,xb:9},$t={lb:"complete",Hb:"success",Ja:"error",Ia:"abort",zb:"ready",Ab:"readystatechange",TIMEOUT:"timeout",vb:"incrementaldata",yb:"progress",ob:"downloadprogress",Pb:"uploadprogress"};function Qt(){}function te(t,e,n,s){this.j=t,this.i=e,this.l=n,this.R=s||1,this.U=new jt(this),this.I=45e3,this.H=null,this.o=!1,this.m=this.A=this.v=this.L=this.F=this.S=this.B=null,this.D=[],this.g=null,this.C=0,this.s=this.u=null,this.X=-1,this.J=!1,this.O=0,this.M=null,this.W=this.K=this.T=this.P=!1,this.h=new ee}function ee(){this.i=null,this.g="",this.h=!1}E(Qt,It),Qt.prototype.g=function(){return new XMLHttpRequest},Qt.prototype.i=function(){return{}},zt=new Qt;var ne={},ie={};function se(t,e,n){t.L=1,t.v=De(Pe(e)),t.m=n,t.P=!0,re(t,null)}function re(t,e){t.F=Date.now(),ae(t),t.A=Pe(t.v);var n=t.A,s=t.R;Array.isArray(s)||(s=[String(s)]),qe(n.i,"t",s),t.C=0,n=t.j.J,t.h=new ee,t.g=Nn(t.j,n?e:null,!t.m),0<t.O&&(t.M=new St(S(t.Y,t,t.g),t.O)),e=t.U,n=t.g,s=t.ca;var r="readystatechange";Array.isArray(r)||(r&&(Et[0]=r.toString()),r=Et);for(var o=0;o<r.length;o++){var h=ot(n,r[o],s||e.handleEvent,!1,e.h||e);if(!h)break;e.g[h.key]=h}e=t.H?M(t.H):{},t.m?(t.u||(t.u="POST"),e["Content-Type"]="application/x-www-form-urlencoded",t.g.ea(t.A,t.u,t.m,e)):(t.u="GET",t.g.ea(t.A,t.u,null,e)),Bt(),Yt(t.i,t.u,t.A,t.l,t.R,t.m)}function oe(t){return!!t.g&&("GET"==t.u&&2!=t.L&&t.j.Ca)}function he(t,e){var n=t.C,s=e.indexOf("\n",n);return-1==s?ie:(n=Number(e.substring(n,s)),isNaN(n)?ne:(s+=1)+n>e.length?ie:(e=e.slice(s,s+n),t.C=s+n,e))}function ae(t){t.S=Date.now()+t.I,le(t,t.I)}function le(t,e){if(null!=t.B)throw Error("WatchDog timer not null");t.B=Kt(S(t.ba,t),e)}function ue(t){t.B&&(v.clearTimeout(t.B),t.B=null)}function ce(t){0==t.j.G||t.J||Hn(t.j,t)}function fe(t){ue(t);var e=t.M;e&&"function"==typeof e.ma&&e.ma(),t.M=null,Ct(t.U),t.g&&(e=t.g,t.g=null,e.abort(),e.ma())}function ge(t,e){try{var n=t.j;if(0!=n.G&&(n.g==t||me(n.h,t)))if(!t.K&&me(n.h,t)&&3==n.G){try{var s=n.Da.g.parse(e)}catch(t){s=null}if(Array.isArray(s)&&3==s.length){var r=s;if(0==r[0]){t:if(!n.u){if(n.g){if(!(n.g.F+3e3<t.F))break t;Ln(n),En(n)}_n(n),Nt(18)}}else n.za=r[1],0<n.za-n.T&&37500>r[2]&&n.F&&0==n.v&&!n.C&&(n.C=Kt(S(n.Za,n),6e3));if(1>=ve(n.h)&&n.ca){try{n.ca()}catch(t){}n.ca=void 0}}else kn(n,11)}else if((t.K||n.g==t)&&Ln(n),!O(e))for(r=n.Da.g.parse(e),e=0;e<r.length;e++){let u=r[e];if(n.T=u[0],u=u[1],2==n.G)if("c"==u[0]){n.K=u[1],n.ia=u[2];const e=u[3];null!=e&&(n.la=e,n.j.info("VER="+n.la));const r=u[4];null!=r&&(n.Aa=r,n.j.info("SVER="+n.Aa));const c=u[5];null!=c&&"number"==typeof c&&0<c&&(s=1.5*c,n.L=s,n.j.info("backChannelRequestTimeoutMs_="+s)),s=n;const f=t.g;if(f){const t=f.g?f.g.getResponseHeader("X-Client-Wire-Protocol"):null;if(t){var o=s.h;o.g||-1==t.indexOf("spdy")&&-1==t.indexOf("quic")&&-1==t.indexOf("h2")||(o.j=o.l,o.g=new Set,o.h&&(be(o,o.h),o.h=null))}if(s.D){const t=f.g?f.g.getResponseHeader("X-HTTP-Session-Id"):null;t&&(s.ya=t,Me(s.I,s.D,t))}}n.G=3,n.l&&n.l.ua(),n.ba&&(n.R=Date.now()-t.F,n.j.info("Handshake RTT: "+n.R+"ms"));var h=t;if((s=n).qa=Fn(s,s.J?s.ia:null,s.W),h.K){we(s.h,h);var a=h,l=s.L;l&&(a.I=l),a.B&&(ue(a),ae(a)),s.g=h}else xn(s);0<n.i.length&&An(n)}else"stop"!=u[0]&&"close"!=u[0]||kn(n,7);else 3==n.G&&("stop"==u[0]||"close"==u[0]?"stop"==u[0]?kn(n,7):jn(n):"noop"!=u[0]&&n.l&&n.l.ta(u),n.v=0)}Bt()}catch(t){}}te.prototype.ca=function(t){t=t.target;const e=this.M;e&&3==mn(t)?e.j():this.Y(t)},te.prototype.Y=function(t){try{if(t==this.g)t:{const f=mn(this.g);var e=this.g.Ba();this.g.Z();if(!(3>f)&&(3!=f||this.g&&(this.h.h||this.g.oa()||bn(this.g)))){this.J||4!=f||7==e||Bt(),ue(this);var n=this.g.Z();this.X=n;e:if(oe(this)){var s=bn(this.g);t="";var r=s.length,o=4==mn(this.g);if(!this.h.i){if("undefined"==typeof TextDecoder){fe(this),ce(this);var h="";break e}this.h.i=new v.TextDecoder}for(e=0;e<r;e++)this.h.h=!0,t+=this.h.i.decode(s[e],{stream:!(o&&e==r-1)});s.length=0,this.h.g+=t,this.C=0,h=this.h.g}else h=this.g.oa();if(this.o=200==n,Jt(this.i,this.u,this.A,this.l,this.R,f,n),this.o){if(this.T&&!this.K){e:{if(this.g){var a,l=this.g;if((a=l.g?l.g.getResponseHeader("X-HTTP-Initial-Response"):null)&&!O(a)){var u=a;break e}}u=null}if(!(n=u)){this.o=!1,this.s=3,Nt(12),fe(this),ce(this);break t}Wt(this.i,this.l,n,"Initial handshake response via X-HTTP-Initial-Response"),this.K=!0,ge(this,n)}if(this.P){let t;for(n=!0;!this.J&&this.C<h.length;){if(t=he(this,h),t==ie){4==f&&(this.s=4,Nt(14),n=!1),Wt(this.i,this.l,null,"[Incomplete Response]");break}if(t==ne){this.s=4,Nt(15),Wt(this.i,this.l,h,"[Invalid Chunk]"),n=!1;break}Wt(this.i,this.l,t,null),ge(this,t)}if(oe(this)&&0!=this.C&&(this.h.g=this.h.g.slice(this.C),this.C=0),4!=f||0!=h.length||this.h.h||(this.s=1,Nt(16),n=!1),this.o=this.o&&n,n){if(0<h.length&&!this.W){this.W=!0;var c=this.j;c.g==this&&c.ba&&!c.M&&(c.j.info("Great, no buffering proxy detected. Bytes received: "+h.length),Mn(c),c.M=!0,Nt(11))}}else Wt(this.i,this.l,h,"[Invalid Chunked Response]"),fe(this),ce(this)}else Wt(this.i,this.l,h,null),ge(this,h);4==f&&fe(this),this.o&&!this.J&&(4==f?Hn(this.j,this):(this.o=!1,ae(this)))}else wn(this.g),400==n&&0<h.indexOf("Unknown SID")?(this.s=3,Nt(12)):(this.s=0,Nt(13)),fe(this),ce(this)}}}catch(t){}},te.prototype.cancel=function(){this.J=!0,fe(this)},te.prototype.ba=function(){this.B=null;const t=Date.now();0<=t-this.S?(qt(this.i,this.A),2!=this.L&&(Bt(),Nt(17)),fe(this),this.s=2,ce(this)):le(this,this.S-t)};var pe=class{constructor(t,e){this.g=t,this.map=e}};function de(t){this.l=t||10,v.PerformanceNavigationTiming?t=0<(t=v.performance.getEntriesByType("navigation")).length&&("hq"==t[0].nextHopProtocol||"h2"==t[0].nextHopProtocol):t=!!(v.chrome&&v.chrome.loadTimes&&v.chrome.loadTimes()&&v.chrome.loadTimes().wasFetchedViaSpdy),this.j=t?this.l:1,this.g=null,1<this.j&&(this.g=new Set),this.h=null,this.i=[]}function ye(t){return!!t.h||!!t.g&&t.g.size>=t.j}function ve(t){return t.h?1:t.g?t.g.size:0}function me(t,e){return t.h?t.h==e:!!t.g&&t.g.has(e)}function be(t,e){t.g?t.g.add(e):t.h=e}function we(t,e){t.h&&t.h==e?t.h=null:t.g&&t.g.has(e)&&t.g.delete(e)}function Te(t){if(null!=t.h)return t.i.concat(t.h.D);if(null!=t.g&&0!==t.g.size){let e=t.i;for(const n of t.g.values())e=e.concat(n.D);return e}return C(t.i)}function Se(t){if(t.V&&"function"==typeof t.V)return t.V();if("undefined"!=typeof Map&&t instanceof Map||"undefined"!=typeof Set&&t instanceof Set)return Array.from(t.values());if("string"==typeof t)return t.split("");if(m(t)){for(var e=[],n=t.length,s=0;s<n;s++)e.push(t[s]);return e}for(s in e=[],n=0,t)e[n++]=t[s];return e}function je(t){if(t.na&&"function"==typeof t.na)return t.na();if(!t.V||"function"!=typeof t.V){if("undefined"!=typeof Map&&t instanceof Map)return Array.from(t.keys());if(!("undefined"!=typeof Set&&t instanceof Set)){if(m(t)||"string"==typeof t){var e=[];t=t.length;for(var n=0;n<t;n++)e.push(n);return e}e=[],n=0;for(const s in t)e[n++]=s;return e}}}function Ee(t,e){if(t.forEach&&"function"==typeof t.forEach)t.forEach(e,void 0);else if(m(t)||"string"==typeof t)Array.prototype.forEach.call(t,e,void 0);else for(var n=je(t),s=Se(t),r=s.length,o=0;o<r;o++)e.call(void 0,s[o],n&&n[o],t)}de.prototype.cancel=function(){if(this.i=Te(this),this.h)this.h.cancel(),this.h=null;else if(this.g&&0!==this.g.size){for(const t of this.g.values())t.cancel();this.g.clear()}};var Ce=RegExp("^(?:([^:/?#.]+):)?(?://(?:([^\\\\/?#]*)@)?([^\\\\/?#]*?)(?::([0-9]+))?(?=[\\\\/?#]|$))?([^?#]+)?(?:\\?([^#]*))?(?:#([\\s\\S]*))?$");function Ae(t,e){if(t){t=t.split("&");for(var n=0;n<t.length;n++){var s=t[n].indexOf("="),r=null;if(0<=s){var o=t[n].substring(0,s);r=t[n].substring(s+1)}else o=t[n];e(o,r?decodeURIComponent(r.replace(/\+/g," ")):"")}}}function Oe(t){if(this.g=this.o=this.j="",this.s=null,this.m=this.l="",this.h=!1,t instanceof Oe){this.h=t.h,Ie(this,t.j),this.o=t.o,this.g=t.g,Re(this,t.s),this.l=t.l;var e=t.i,n=new Ge;n.i=e.i,e.g&&(n.g=new Map(e.g),n.h=e.h),xe(this,n),this.m=t.m}else t&&(e=String(t).match(Ce))?(this.h=!1,Ie(this,e[1]||"",!0),this.o=Le(e[2]||""),this.g=Le(e[3]||"",!0),Re(this,e[4]),this.l=Le(e[5]||"",!0),xe(this,e[6]||"",!0),this.m=Le(e[7]||"")):(this.h=!1,this.i=new Ge(null,this.h))}function Pe(t){return new Oe(t)}function Ie(t,e,n){t.j=n?Le(e,!0):e,t.j&&(t.j=t.j.replace(/:$/,""))}function Re(t,e){if(e){if(e=Number(e),isNaN(e)||0>e)throw Error("Bad port number "+e);t.s=e}else t.s=null}function xe(t,e,n){e instanceof Ge?(t.i=e,ze(t.i,t.h)):(n||(e=He(e,Ue)),t.i=new Ge(e,t.h))}function Me(t,e,n){t.i.set(e,n)}function De(t){return Me(t,"zx",Math.floor(2147483648*Math.random()).toString(36)+Math.abs(Math.floor(2147483648*Math.random())^Date.now()).toString(36)),t}function Le(t,e){return t?e?decodeURI(t.replace(/%25/g,"%2525")):decodeURIComponent(t):""}function He(t,e,n){return"string"==typeof t?(t=encodeURI(t).replace(e,Xe),n&&(t=t.replace(/%25([0-9a-fA-F]{2})/g,"%$1")),t):null}function Xe(t){return"%"+((t=t.charCodeAt(0))>>4&15).toString(16)+(15&t).toString(16)}Oe.prototype.toString=function(){var t=[],e=this.j;e&&t.push(He(e,Be,!0),":");var n=this.g;return(n||"file"==e)&&(t.push("//"),(e=this.o)&&t.push(He(e,Be,!0),"@"),t.push(encodeURIComponent(String(n)).replace(/%25([0-9a-fA-F]{2})/g,"%$1")),null!=(n=this.s)&&t.push(":",String(n))),(n=this.l)&&(this.g&&"/"!=n.charAt(0)&&t.push("/"),t.push(He(n,"/"==n.charAt(0)?Ne:Fe,!0))),(n=this.i.toString())&&t.push("?",n),(n=this.m)&&t.push("#",He(n,Ke)),t.join("")};var ke,Be=/[#\/\?@]/g,Fe=/[#\?:]/g,Ne=/[#\?]/g,Ue=/[#\?@]/g,Ke=/#/g;function Ge(t,e){this.h=this.g=null,this.i=t||null,this.j=!!e}function Ye(t){t.g||(t.g=new Map,t.h=0,t.i&&Ae(t.i,function(e,n){t.add(decodeURIComponent(e.replace(/\+/g," ")),n)}))}function Je(t,e){Ye(t),e=Ve(t,e),t.g.has(e)&&(t.i=null,t.h-=t.g.get(e).length,t.g.delete(e))}function We(t,e){return Ye(t),e=Ve(t,e),t.g.has(e)}function qe(t,e,n){Je(t,e),0<n.length&&(t.i=null,t.g.set(Ve(t,e),C(n)),t.h+=n.length)}function Ve(t,e){return e=String(e),t.j&&(e=e.toLowerCase()),e}function ze(t,e){e&&!t.j&&(Ye(t),t.i=null,t.g.forEach(function(t,e){var n=e.toLowerCase();e!=n&&(Je(this,e),qe(this,n,t))},t)),t.j=e}function Ze(t,e){const n=new Gt;if(v.Image){const s=new Image;s.onload=j(Qe,n,"TestLoadImage: loaded",!0,e,s),s.onerror=j(Qe,n,"TestLoadImage: error",!1,e,s),s.onabort=j(Qe,n,"TestLoadImage: abort",!1,e,s),s.ontimeout=j(Qe,n,"TestLoadImage: timeout",!1,e,s),v.setTimeout(function(){s.ontimeout&&s.ontimeout()},1e4),s.src=t}else e(!1)}function $e(t,e){const n=new Gt,s=new AbortController,r=setTimeout(()=>{s.abort(),Qe(n,"TestPingServer: timeout",!1,e)},1e4);fetch(t,{signal:s.signal}).then(t=>{clearTimeout(r),t.ok?Qe(n,"TestPingServer: ok",!0,e):Qe(n,"TestPingServer: server error",!1,e)}).catch(()=>{clearTimeout(r),Qe(n,"TestPingServer: error",!1,e)})}function Qe(t,e,n,s,r){try{r&&(r.onload=null,r.onerror=null,r.onabort=null,r.ontimeout=null),s(n)}catch(t){}}function tn(){this.g=new Pt}function en(t,e,n){const s=n||"";try{Ee(t,function(t,n){let r=t;b(t)&&(r=At(t)),e.push(s+n+"="+encodeURIComponent(r))})}catch(t){throw e.push(s+"type="+encodeURIComponent("_badmap")),t}}function nn(t){this.l=t.Ub||null,this.j=t.eb||!1}function sn(t,e){vt.call(this),this.D=t,this.o=e,this.m=void 0,this.status=this.readyState=0,this.responseType=this.responseText=this.response=this.statusText="",this.onreadystatechange=null,this.u=new Headers,this.h=null,this.B="GET",this.A="",this.g=!1,this.v=this.j=this.l=null}function rn(t){t.j.read().then(t.Pa.bind(t)).catch(t.ga.bind(t))}function on(t){t.readyState=4,t.l=null,t.j=null,t.v=null,hn(t)}function hn(t){t.onreadystatechange&&t.onreadystatechange.call(t)}function an(t){let e="";return x(t,function(t,n){e+=n,e+=":",e+=t,e+="\r\n"}),e}function ln(t,e,n){t:{for(s in n){var s=!1;break t}s=!0}s||(n=an(n),"string"==typeof t?null!=n&&encodeURIComponent(String(n)):Me(t,e,n))}function un(t){vt.call(this),this.headers=new Map,this.o=t||null,this.h=!1,this.v=this.g=null,this.D="",this.m=0,this.l="",this.j=this.B=this.u=this.A=!1,this.I=null,this.H="",this.J=!1}(f=Ge.prototype).add=function(t,e){Ye(this),this.i=null,t=Ve(this,t);var n=this.g.get(t);return n||this.g.set(t,n=[]),n.push(e),this.h+=1,this},f.forEach=function(t,e){Ye(this),this.g.forEach(function(n,s){n.forEach(function(n){t.call(e,n,s,this)},this)},this)},f.na=function(){Ye(this);const t=Array.from(this.g.values()),e=Array.from(this.g.keys()),n=[];for(let s=0;s<e.length;s++){const r=t[s];for(let t=0;t<r.length;t++)n.push(e[s])}return n},f.V=function(t){Ye(this);let e=[];if("string"==typeof t)We(this,t)&&(e=e.concat(this.g.get(Ve(this,t))));else{t=Array.from(this.g.values());for(let n=0;n<t.length;n++)e=e.concat(t[n])}return e},f.set=function(t,e){return Ye(this),this.i=null,We(this,t=Ve(this,t))&&(this.h-=this.g.get(t).length),this.g.set(t,[e]),this.h+=1,this},f.get=function(t,e){return t&&0<(t=this.V(t)).length?String(t[0]):e},f.toString=function(){if(this.i)return this.i;if(!this.g)return"";const t=[],e=Array.from(this.g.keys());for(var n=0;n<e.length;n++){var s=e[n];const o=encodeURIComponent(String(s)),h=this.V(s);for(s=0;s<h.length;s++){var r=o;""!==h[s]&&(r+="="+encodeURIComponent(String(h[s]))),t.push(r)}}return this.i=t.join("&")},E(nn,It),nn.prototype.g=function(){return new sn(this.l,this.j)},nn.prototype.i=(ke={},function(){return ke}),E(sn,vt),(f=sn.prototype).open=function(t,e){if(0!=this.readyState)throw this.abort(),Error("Error reopening a connection");this.B=t,this.A=e,this.readyState=1,hn(this)},f.send=function(t){if(1!=this.readyState)throw this.abort(),Error("need to call open() first. ");this.g=!0;const e={headers:this.u,method:this.B,credentials:this.m,cache:void 0};t&&(e.body=t),(this.D||v).fetch(new Request(this.A,e)).then(this.Sa.bind(this),this.ga.bind(this))},f.abort=function(){this.response=this.responseText="",this.u=new Headers,this.status=0,this.j&&this.j.cancel("Request was aborted.").catch(()=>{}),1<=this.readyState&&this.g&&4!=this.readyState&&(this.g=!1,on(this)),this.readyState=0},f.Sa=function(t){if(this.g&&(this.l=t,this.h||(this.status=this.l.status,this.statusText=this.l.statusText,this.h=t.headers,this.readyState=2,hn(this)),this.g&&(this.readyState=3,hn(this),this.g)))if("arraybuffer"===this.responseType)t.arrayBuffer().then(this.Qa.bind(this),this.ga.bind(this));else if(void 0!==v.ReadableStream&&"body"in t){if(this.j=t.body.getReader(),this.o){if(this.responseType)throw Error('responseType must be empty for "streamBinaryChunks" mode responses.');this.response=[]}else this.response=this.responseText="",this.v=new TextDecoder;rn(this)}else t.text().then(this.Ra.bind(this),this.ga.bind(this))},f.Pa=function(t){if(this.g){if(this.o&&t.value)this.response.push(t.value);else if(!this.o){var e=t.value?t.value:new Uint8Array(0);(e=this.v.decode(e,{stream:!t.done}))&&(this.response=this.responseText+=e)}t.done?on(this):hn(this),3==this.readyState&&rn(this)}},f.Ra=function(t){this.g&&(this.response=this.responseText=t,on(this))},f.Qa=function(t){this.g&&(this.response=t,on(this))},f.ga=function(){this.g&&on(this)},f.setRequestHeader=function(t,e){this.u.append(t,e)},f.getResponseHeader=function(t){return this.h&&this.h.get(t.toLowerCase())||""},f.getAllResponseHeaders=function(){if(!this.h)return"";const t=[],e=this.h.entries();for(var n=e.next();!n.done;)n=n.value,t.push(n[0]+": "+n[1]),n=e.next();return t.join("\r\n")},Object.defineProperty(sn.prototype,"withCredentials",{get:function(){return"include"===this.m},set:function(t){this.m=t?"include":"same-origin"}}),E(un,vt);var cn=/^https?$/i,fn=["POST","PUT"];function gn(t,e){t.h=!1,t.g&&(t.j=!0,t.g.abort(),t.j=!1),t.l=e,t.m=5,pn(t),yn(t)}function pn(t){t.A||(t.A=!0,mt(t,"complete"),mt(t,"error"))}function dn(t){if(t.h&&void 0!==y&&(!t.v[1]||4!=mn(t)||2!=t.Z()))if(t.u&&4==mn(t))wt(t.Ea,0,t);else if(mt(t,"readystatechange"),4==mn(t)){t.h=!1;try{const h=t.Z();t:switch(h){case 200:case 201:case 202:case 204:case 206:case 304:case 1223:var e=!0;break t;default:e=!1}var n;if(!(n=e)){var s;if(s=0===h){var r=String(t.D).match(Ce)[1]||null;!r&&v.self&&v.self.location&&(r=v.self.location.protocol.slice(0,-1)),s=!cn.test(r?r.toLowerCase():"")}n=s}if(n)mt(t,"complete"),mt(t,"success");else{t.m=6;try{var o=2<mn(t)?t.g.statusText:""}catch(t){o=""}t.l=o+" ["+t.Z()+"]",pn(t)}}finally{yn(t)}}}function yn(t,e){if(t.g){vn(t);const n=t.g,s=t.v[0]?()=>{}:null;t.g=null,t.v=null,e||mt(t,"ready");try{n.onreadystatechange=s}catch(t){}}}function vn(t){t.I&&(v.clearTimeout(t.I),t.I=null)}function mn(t){return t.g?t.g.readyState:0}function bn(t){try{if(!t.g)return null;if("response"in t.g)return t.g.response;switch(t.H){case"":case"text":return t.g.responseText;case"arraybuffer":if("mozResponseArrayBuffer"in t.g)return t.g.mozResponseArrayBuffer}return null}catch(t){return null}}function wn(t){const e={};t=(t.g&&2<=mn(t)&&t.g.getAllResponseHeaders()||"").split("\r\n");for(let s=0;s<t.length;s++){if(O(t[s]))continue;var n=H(t[s]);const r=n[0];if("string"!=typeof(n=n[1]))continue;n=n.trim();const o=e[r]||[];e[r]=o,o.push(n)}_(e,function(t){return t.join(", ")})}function Tn(t,e,n){return n&&n.internalChannelParams&&n.internalChannelParams[t]||e}function Sn(t){this.Aa=0,this.i=[],this.j=new Gt,this.ia=this.qa=this.I=this.W=this.g=this.ya=this.D=this.H=this.m=this.S=this.o=null,this.Ya=this.U=0,this.Va=Tn("failFast",!1,t),this.F=this.C=this.u=this.s=this.l=null,this.X=!0,this.za=this.T=-1,this.Y=this.v=this.B=0,this.Ta=Tn("baseRetryDelayMs",5e3,t),this.cb=Tn("retryDelaySeedMs",1e4,t),this.Wa=Tn("forwardChannelMaxRetries",2,t),this.wa=Tn("forwardChannelRequestTimeoutMs",2e4,t),this.pa=t&&t.xmlHttpFactory||void 0,this.Xa=t&&t.Tb||void 0,this.Ca=t&&t.useFetchStreams||!1,this.L=void 0,this.J=t&&t.supportsCrossDomainXhr||!1,this.K="",this.h=new de(t&&t.concurrentRequestLimit),this.Da=new tn,this.P=t&&t.fastHandshake||!1,this.O=t&&t.encodeInitMessageHeaders||!1,this.P&&this.O&&(this.O=!1),this.Ua=t&&t.Rb||!1,t&&t.xa&&this.j.xa(),t&&t.forceLongPolling&&(this.X=!1),this.ba=!this.P&&this.X&&t&&t.detectBufferingProxy||!1,this.ja=void 0,t&&t.longPollingTimeout&&0<t.longPollingTimeout&&(this.ja=t.longPollingTimeout),this.ca=void 0,this.R=0,this.M=!1,this.ka=this.A=null}function jn(t){if(Cn(t),3==t.G){var e=t.U++,n=Pe(t.I);if(Me(n,"SID",t.K),Me(n,"RID",e),Me(n,"TYPE","terminate"),In(t,n),(e=new te(t,t.j,e)).L=2,e.v=De(Pe(n)),n=!1,v.navigator&&v.navigator.sendBeacon)try{n=v.navigator.sendBeacon(e.v.toString(),"")}catch(t){}!n&&v.Image&&((new Image).src=e.v,n=!0),n||(e.g=Nn(e.j,null),e.g.ea(e.v)),e.F=Date.now(),ae(e)}Bn(t)}function En(t){t.g&&(Mn(t),t.g.cancel(),t.g=null)}function Cn(t){En(t),t.u&&(v.clearTimeout(t.u),t.u=null),Ln(t),t.h.cancel(),t.s&&("number"==typeof t.s&&v.clearTimeout(t.s),t.s=null)}function An(t){if(!ye(t.h)&&!t.s){t.s=!0;var e=t.Ga;N||G(),U||(N(),U=!0),K.add(e,t),t.B=0}}function On(t,e){return!(ve(t.h)>=t.h.j-(t.s?1:0))&&(t.s?(t.i=e.D.concat(t.i),!0):!(1==t.G||2==t.G||t.B>=(t.Va?0:t.Wa))&&(t.s=Kt(S(t.Ga,t,e),Xn(t,t.B)),t.B++,!0))}function Pn(t,e){var n;n=e?e.l:t.U++;const s=Pe(t.I);Me(s,"SID",t.K),Me(s,"RID",n),Me(s,"AID",t.T),In(t,s),t.m&&t.o&&ln(s,t.m,t.o),n=new te(t,t.j,n,t.B+1),null===t.m&&(n.H=t.o),e&&(t.i=e.D.concat(t.i)),e=Rn(t,n,1e3),n.I=Math.round(.5*t.wa)+Math.round(.5*t.wa*Math.random()),be(t.h,n),se(n,s,e)}function In(t,e){t.H&&x(t.H,function(t,n){Me(e,n,t)}),t.l&&Ee({},function(t,n){Me(e,n,t)})}function Rn(t,e,n){n=Math.min(t.i.length,n);var s=t.l?S(t.l.Na,t.l,t):null;t:{var r=t.i;let e=-1;for(;;){const t=["count="+n];-1==e?0<n?(e=r[0].g,t.push("ofs="+e)):e=0:t.push("ofs="+e);let o=!0;for(let h=0;h<n;h++){let n=r[h].g;const a=r[h].map;if(n-=e,0>n)e=Math.max(0,r[h].g-100),o=!1;else try{en(a,t,"req"+n+"_")}catch(t){s&&s(a)}}if(o){s=t.join("&");break t}}}return t=t.i.splice(0,n),e.D=t,s}function xn(t){if(!t.g&&!t.u){t.Y=1;var e=t.Fa;N||G(),U||(N(),U=!0),K.add(e,t),t.v=0}}function _n(t){return!(t.g||t.u||3<=t.v)&&(t.Y++,t.u=Kt(S(t.Fa,t),Xn(t,t.v)),t.v++,!0)}function Mn(t){null!=t.A&&(v.clearTimeout(t.A),t.A=null)}function Dn(t){t.g=new te(t,t.j,"rpc",t.Y),null===t.m&&(t.g.H=t.o),t.g.O=0;var e=Pe(t.qa);Me(e,"RID","rpc"),Me(e,"SID",t.K),Me(e,"AID",t.T),Me(e,"CI",t.F?"0":"1"),!t.F&&t.ja&&Me(e,"TO",t.ja),Me(e,"TYPE","xmlhttp"),In(t,e),t.m&&t.o&&ln(e,t.m,t.o),t.L&&(t.g.I=t.L);var n=t.g;t=t.ia,n.L=1,n.v=De(Pe(e)),n.m=null,n.P=!0,re(n,t)}function Ln(t){null!=t.C&&(v.clearTimeout(t.C),t.C=null)}function Hn(t,e){var n=null;if(t.g==e){Ln(t),Mn(t),t.g=null;var s=2}else{if(!me(t.h,e))return;n=e.D,we(t.h,e),s=1}if(0!=t.G)if(e.o)if(1==s){n=e.m?e.m.length:0,e=Date.now()-e.F;var r=t.B;mt(s=Xt(),new Ut(s,n)),An(t)}else xn(t);else if(3==(r=e.s)||0==r&&0<e.X||!(1==s&&On(t,e)||2==s&&_n(t)))switch(n&&0<n.length&&(e=t.h,e.i=e.i.concat(n)),r){case 1:kn(t,5);break;case 4:kn(t,10);break;case 3:kn(t,6);break;default:kn(t,2)}}function Xn(t,e){let n=t.Ta+Math.floor(Math.random()*t.cb);return t.isActive()||(n*=2),n*e}function kn(t,e){if(t.j.info("Error code "+e),2==e){var n=S(t.fb,t),s=t.Xa;const e=!s;s=new Oe(s||"//www.google.com/images/cleardot.gif"),v.location&&"http"==v.location.protocol||Ie(s,"https"),De(s),e?Ze(s.toString(),n):$e(s.toString(),n)}else Nt(2);t.G=0,t.l&&t.l.sa(e),Bn(t),Cn(t)}function Bn(t){if(t.G=0,t.ka=[],t.l){const e=Te(t.h);0==e.length&&0==t.i.length||(A(t.ka,e),A(t.ka,t.i),t.h.i.length=0,C(t.i),t.i.length=0),t.l.ra()}}function Fn(t,e,n){var s=n instanceof Oe?Pe(n):new Oe(n);if(""!=s.g)e&&(s.g=e+"."+s.g),Re(s,s.s);else{var r=v.location;s=r.protocol,e=e?e+"."+r.hostname:r.hostname,r=+r.port;var o=new Oe(null);s&&Ie(o,s),e&&(o.g=e),r&&Re(o,r),n&&(o.l=n),s=o}return n=t.D,e=t.ya,n&&e&&Me(s,n,e),Me(s,"VER",t.la),In(t,s),s}function Nn(t,e,n){if(e&&!t.J)throw Error("Can't create secondary domain capable XhrIo object.");return(e=t.Ca&&!t.pa?new un(new nn({eb:n})):new un(t.pa)).Ha(t.J),e}function Un(){}function Kn(){}function Gn(t,e){vt.call(this),this.g=new Sn(e),this.l=t,this.h=e&&e.messageUrlParams||null,t=e&&e.messageHeaders||null,e&&e.clientProtocolHeaderRequired&&(t?t["X-Client-Protocol"]="webchannel":t={"X-Client-Protocol":"webchannel"}),this.g.o=t,t=e&&e.initMessageHeaders||null,e&&e.messageContentType&&(t?t["X-WebChannel-Content-Type"]=e.messageContentType:t={"X-WebChannel-Content-Type":e.messageContentType}),e&&e.va&&(t?t["X-WebChannel-Client-Profile"]=e.va:t={"X-WebChannel-Client-Profile":e.va}),this.g.S=t,(t=e&&e.Sb)&&!O(t)&&(this.g.m=t),this.v=e&&e.supportsCrossDomainXhr||!1,this.u=e&&e.sendRawJson||!1,(e=e&&e.httpSessionIdParam)&&!O(e)&&(this.g.D=e,null!==(t=this.h)&&e in t&&(e in(t=this.h)&&delete t[e])),this.j=new Wn(this)}function Yn(t){Mt.call(this),t.__headers__&&(this.headers=t.__headers__,this.statusCode=t.__status__,delete t.__headers__,delete t.__status__);var e=t.__sm__;if(e){t:{for(const n in e){t=n;break t}t=void 0}(this.i=t)&&(t=this.i,e=null!==e&&t in e?e[t]:void 0),this.data=e}else this.data=t}function Jn(){Dt.call(this),this.status=1}function Wn(t){this.g=t}(f=un.prototype).Ha=function(t){this.J=t},f.ea=function(t,e,n,s){if(this.g)throw Error("[goog.net.XhrIo] Object is active with another request="+this.D+"; newUri="+t);e=e?e.toUpperCase():"GET",this.D=t,this.l="",this.m=0,this.A=!1,this.h=!0,this.g=this.o?this.o.g():zt.g(),this.v=this.o?Rt(this.o):Rt(zt),this.g.onreadystatechange=S(this.Ea,this);try{this.B=!0,this.g.open(e,String(t),!0),this.B=!1}catch(t){return void gn(this,t)}if(t=n||"",n=new Map(this.headers),s)if(Object.getPrototypeOf(s)===Object.prototype)for(var r in s)n.set(r,s[r]);else{if("function"!=typeof s.keys||"function"!=typeof s.get)throw Error("Unknown input type for opt_headers: "+String(s));for(const t of s.keys())n.set(t,s.get(t))}s=Array.from(n.keys()).find(t=>"content-type"==t.toLowerCase()),r=v.FormData&&t instanceof v.FormData,!(0<=Array.prototype.indexOf.call(fn,e,void 0))||s||r||n.set("Content-Type","application/x-www-form-urlencoded;charset=utf-8");for(const[t,e]of n)this.g.setRequestHeader(t,e);this.H&&(this.g.responseType=this.H),"withCredentials"in this.g&&this.g.withCredentials!==this.J&&(this.g.withCredentials=this.J);try{vn(this),this.u=!0,this.g.send(t),this.u=!1}catch(t){gn(this,t)}},f.abort=function(t){this.g&&this.h&&(this.h=!1,this.j=!0,this.g.abort(),this.j=!1,this.m=t||7,mt(this,"complete"),mt(this,"abort"),yn(this))},f.N=function(){this.g&&(this.h&&(this.h=!1,this.j=!0,this.g.abort(),this.j=!1),yn(this,!0)),un.aa.N.call(this)},f.Ea=function(){this.s||(this.B||this.u||this.j?dn(this):this.bb())},f.bb=function(){dn(this)},f.isActive=function(){return!!this.g},f.Z=function(){try{return 2<mn(this)?this.g.status:-1}catch(t){return-1}},f.oa=function(){try{return this.g?this.g.responseText:""}catch(t){return""}},f.Oa=function(t){if(this.g){var e=this.g.responseText;return t&&0==e.indexOf(t)&&(e=e.substring(t.length)),Ot(e)}},f.Ba=function(){return this.m},f.Ka=function(){return"string"==typeof this.l?this.l:String(this.l)},(f=Sn.prototype).la=8,f.G=1,f.connect=function(t,e,n,s){Nt(0),this.W=t,this.H=e||{},n&&void 0!==s&&(this.H.OSID=n,this.H.OAID=s),this.F=this.X,this.I=Fn(this,null,this.W),An(this)},f.Ga=function(t){if(this.s)if(this.s=null,1==this.G){if(!t){this.U=Math.floor(1e5*Math.random()),t=this.U++;const r=new te(this,this.j,t);let o=this.o;if(this.S&&(o?(o=M(o),L(o,this.S)):o=this.S),null!==this.m||this.O||(r.H=o,o=null),this.P)t:{for(var e=0,n=0;n<this.i.length;n++){var s=this.i[n];if(void 0===(s="__data__"in s.map&&"string"==typeof(s=s.map.__data__)?s.length:void 0))break;if(4096<(e+=s)){e=n;break t}if(4096===e||n===this.i.length-1){e=n+1;break t}}e=1e3}else e=1e3;e=Rn(this,r,e),Me(n=Pe(this.I),"RID",t),Me(n,"CVER",22),this.D&&Me(n,"X-HTTP-Session-Id",this.D),In(this,n),o&&(this.O?e="headers="+encodeURIComponent(String(an(o)))+"&"+e:this.m&&ln(n,this.m,o)),be(this.h,r),this.Ua&&Me(n,"TYPE","init"),this.P?(Me(n,"$req",e),Me(n,"SID","null"),r.T=!0,se(r,n,null)):se(r,n,e),this.G=2}}else 3==this.G&&(t?Pn(this,t):0==this.i.length||ye(this.h)||Pn(this))},f.Fa=function(){if(this.u=null,Dn(this),this.ba&&!(this.M||null==this.g||0>=this.R)){var t=2*this.R;this.j.info("BP detection timer enabled: "+t),this.A=Kt(S(this.ab,this),t)}},f.ab=function(){this.A&&(this.A=null,this.j.info("BP detection timeout reached."),this.j.info("Buffering proxy detected and switch to long-polling!"),this.F=!1,this.M=!0,Nt(10),En(this),Dn(this))},f.Za=function(){null!=this.C&&(this.C=null,En(this),_n(this),Nt(19))},f.fb=function(t){t?(this.j.info("Successfully pinged google.com"),Nt(2)):(this.j.info("Failed to ping google.com"),Nt(1))},f.isActive=function(){return!!this.l&&this.l.isActive(this)},(f=Un.prototype).ua=function(){},f.ta=function(){},f.sa=function(){},f.ra=function(){},f.isActive=function(){return!0},f.Na=function(){},Kn.prototype.g=function(t,e){return new Gn(t,e)},E(Gn,vt),Gn.prototype.m=function(){this.g.l=this.j,this.v&&(this.g.J=!0),this.g.connect(this.l,this.h||void 0)},Gn.prototype.close=function(){jn(this.g)},Gn.prototype.o=function(t){var e=this.g;if("string"==typeof t){var n={};n.__data__=t,t=n}else this.u&&((n={}).__data__=At(t),t=n);e.i.push(new pe(e.Ya++,t)),3==e.G&&An(e)},Gn.prototype.N=function(){this.g.l=null,delete this.j,jn(this.g),delete this.g,Gn.aa.N.call(this)},E(Yn,Mt),E(Jn,Dt),E(Wn,Un),Wn.prototype.ua=function(){mt(this.g,"a")},Wn.prototype.ta=function(t){mt(this.g,new Yn(t))},Wn.prototype.sa=function(t){mt(this.g,new Jn)},Wn.prototype.ra=function(){mt(this.g,"b")},Kn.prototype.createWebChannel=Kn.prototype.g,Gn.prototype.send=Gn.prototype.o,Gn.prototype.open=Gn.prototype.m,Gn.prototype.close=Gn.prototype.close,l=c.createWebChannelTransport=function(){return new Kn},a=c.getStatEventTarget=function(){return Xt()},h=c.Event=Lt,o=c.Stat={mb:0,pb:1,qb:2,Jb:3,Ob:4,Lb:5,Mb:6,Kb:7,Ib:8,Nb:9,PROXY:10,NOPROXY:11,Gb:12,Cb:13,Db:14,Bb:15,Eb:16,Fb:17,ib:18,hb:19,jb:20},Zt.NO_ERROR=0,Zt.TIMEOUT=8,Zt.HTTP_ERROR=6,r=c.ErrorCode=Zt,$t.COMPLETE="complete",s=c.EventType=$t,xt.EventType=_t,_t.OPEN="a",_t.CLOSE="b",_t.ERROR="c",_t.MESSAGE="d",vt.prototype.listen=vt.prototype.K,n=c.WebChannel=xt,e=c.FetchXmlHttpFactory=nn,un.prototype.listenOnce=un.prototype.L,un.prototype.getLastError=un.prototype.Ka,un.prototype.getLastErrorCode=un.prototype.Ba,un.prototype.getStatus=un.prototype.Z,un.prototype.getResponseJson=un.prototype.Oa,un.prototype.getResponseText=un.prototype.oa,un.prototype.send=un.prototype.ea,un.prototype.setWithCredentials=un.prototype.Ha,t=c.XhrIo=un}).apply(void 0!==u?u:'undefined'!=typeof self?self:'undefined'!=typeof window?window:{})},682,[]);
+__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"useAsyncStorage",{enumerable:!0,get:function(){return n.useAsyncStorage}}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return o}});var e,t=r(d[0]),u=(e=t)&&e.__esModule?e:{default:e},n=r(d[1]),o=u.default},683,[684,688]);
+__d(function(g,r,_i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return i}});var e,t=r(d[0]);const o=((e=t)&&e.__esModule?e:{default:e}).default.bind({concatArrays:!0,ignoreUndefined:!0});function n(e,t){const n=window.localStorage.getItem(e);if(n){const l=JSON.parse(n),c=JSON.parse(t),s=JSON.stringify(o(l,c));window.localStorage.setItem(e,s)}else window.localStorage.setItem(e,t)}function l(e,t){return new Promise((o,n)=>{try{const n=e();t?.(null,n),o(n)}catch(e){t?.(e),n(e)}})}function c(e,t,o){return Promise.all(e).then(e=>{const n=o?.(e)??null;return t?.(null,n),Promise.resolve(n)},e=>(t?.(e),Promise.reject(e)))}const s={getItem:(e,t)=>l(()=>window.localStorage.getItem(e),t),setItem:(e,t,o)=>l(()=>window.localStorage.setItem(e,t),o),removeItem:(e,t)=>l(()=>window.localStorage.removeItem(e),t),mergeItem:(e,t,o)=>l(()=>n(e,t),o),clear:e=>l(()=>window.localStorage.clear(),e),getAllKeys:e=>l(()=>{const e=window.localStorage.length,t=[];for(let o=0;o<e;o+=1){const e=window.localStorage.key(o)||"";t.push(e)}return t},e),flushGetRequests:()=>{},multiGet:(e,t)=>c(e.map(e=>s.getItem(e)),t,t=>t.map((t,o)=>[e[o],t])),multiSet:(e,t)=>c(e.map(e=>s.setItem(e[0],e[1])),t),multiRemove:(e,t)=>c(e.map(e=>s.removeItem(e)),t),multiMerge:(e,t)=>c(e.map(e=>s.mergeItem(e[0],e[1])),t)};var i=s},684,[685]);
+__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return u}});var e,t=r(d[0]),u=((e=t)&&e.__esModule?e:{default:e}).default},685,[686]);
+__d(function(g,r,i,a,m,e,d){'use strict';const t=r(d[0]),{hasOwnProperty:n}=Object.prototype,{propertyIsEnumerable:o}=Object,c=(t,n,o)=>Object.defineProperty(t,n,{value:o,writable:!0,enumerable:!0,configurable:!0}),s=this,f={concatArrays:!1,ignoreUndefined:!1},l=t=>{const c=[];for(const o in t)n.call(t,o)&&c.push(o);if(Object.getOwnPropertySymbols){const n=Object.getOwnPropertySymbols(t);for(const s of n)o.call(t,s)&&c.push(s)}return c};function u(n){return Array.isArray(n)?y(n):t(n)?p(n):n}function y(t){const n=t.slice(0,0);return l(t).forEach(o=>{c(n,o,u(t[o]))}),n}function p(t){const n=null===Object.getPrototypeOf(t)?Object.create(null):{};return l(t).forEach(o=>{c(n,o,u(t[o]))}),n}const b=(t,n,o,s)=>(o.forEach(o=>{void 0===n[o]&&s.ignoreUndefined||(o in t&&t[o]!==Object.getPrototypeOf(t)?c(t,o,h(t[o],n[o],s)):c(t,o,u(n[o])))}),t),O=(t,o,s)=>{let f=t.slice(0,0),y=0;return[t,o].forEach(o=>{const p=[];for(let s=0;s<o.length;s++)n.call(o,s)&&(p.push(String(s)),c(f,y++,o===t?o[s]:u(o[s])));f=b(f,o,l(o).filter(t=>!p.includes(t)),s)}),f};function h(n,o,c){return c.concatArrays&&Array.isArray(n)&&Array.isArray(o)?O(n,o,c):t(o)&&t(n)?b(n,o,l(o),c):u(o)}m.exports=function(...n){const o=h(u(f),this!==s&&this||{},f);let c={_:{}};for(const s of n)if(void 0!==s){if(!t(s))throw new TypeError('`'+s+'` is not an Option Object');c=h(c,{_:s},o)}return c._}},686,[687]);
+__d(function(g,r,i,a,m,e,d){'use strict';m.exports=t=>{if('[object Object]'!==Object.prototype.toString.call(t))return!1;const o=Object.getPrototypeOf(t);return null===o||o===Object.prototype}},687,[]);
+__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),_e.useAsyncStorage=function(e){return{getItem:(...t)=>u.default.getItem(e,...t),setItem:(...t)=>u.default.setItem(e,...t),mergeItem:(...t)=>u.default.mergeItem(e,...t),removeItem:(...t)=>u.default.removeItem(e,...t)}};var e,t=r(d[0]),u=(e=t)&&e.__esModule?e:{default:e}},688,[684]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"db",{enumerable:!0,get:function(){return o}});var t=r(d[0]),n=r(d[1]);const p=(0,t.initializeApp)({apiKey:'AIzaSyDYyrhwTQiYvPTELm6wy1Nj_psVlSkidz8',authDomain:'twintuna-diary.firebaseapp.com',projectId:'twintuna-diary',storageBucket:'twintuna-diary.firebasestorage.app',messagingSenderId:'909367084937',appId:'1:909367084937:web:3ea0bc28517d911c580358'}),o=(0,n.getFirestore)(p)},689,[690,673]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0});var t=r(d[0]);Object.keys(t).forEach(function(n){'default'===n||Object.prototype.hasOwnProperty.call(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:function(){return t[n]}})});
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+/**
+   * @license
+   * Copyright 2020 Google LLC
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *   http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+(0,t.registerVersion)("firebase","10.14.1",'app')},690,[675]);
+__d(function(g,r,_i,_a,_m,_e,_d){"use strict";function e(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return w}});var t=r(_d[0]),o=e(r(_d[1])),l=e(r(_d[2])),n=e(r(_d[3])),i=e(r(_d[4])),d=e(r(_d[5])),a=e(r(_d[6])),s=e(r(_d[7])),c=e(r(_d[8])),u=e(r(_d[9]));r(_d[10]);var f=r(_d[11]),h=(function(e){if(e&&e.__esModule)return e;var t={};return e&&Object.keys(e).forEach(function(o){var l=Object.getOwnPropertyDescriptor(e,o);Object.defineProperty(t,o,l.get?l:{enumerable:!0,get:function(){return e[o]}})}),t.default=e,t})(r(_d[12])),m=r(_d[13]),p=r(_d[14]);const b=[{emoji:'\ud83d\ude04',label:'Joy/\uc2e0\ub098\uc694'},{emoji:'\ud83e\udd70',label:'Love/\uc124\ub808\uc694'},{emoji:'\ud83d\ude0a',label:'Good/\uc88b\uc544\uc694'},{emoji:'\ud83d\ude10',label:'Meh/\uadf8\ub0e5\uc694'},{emoji:'\ud83d\ude34',label:'Tired/\ud53c\uace4\ud574\uc694'},{emoji:'\ud83d\ude22',label:'Sad/\uc2ac\ud37c\uc694'},{emoji:'\ud83d\ude20',label:'Angry/\ud654\ub098\uc694'},{emoji:'\ud83d\ude30',label:'Anxious/\ubd88\uc548\ud574\uc694'}],j=[{emoji:'\u2600\ufe0f',label:'Clear/\ub9d1\uc74c'},{emoji:'\u26c5',label:'Cloudy/\uad6c\ub984'},{emoji:'\ud83c\udf27\ufe0f',label:'Rain/\ube44'},{emoji:'\u2744\ufe0f',label:'Snow/\ub208'},{emoji:'\ud83c\udf29\ufe0f',label:'Storm/\ubc88\uac1c'},{emoji:'\ud83c\udf08',label:'Rainbow/\ubb34\uc9c0\uac1c'}],y=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],x=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],C=['\uc77c','\uc6d4','\ud654','\uc218','\ubaa9','\uae08','\ud1a0'];function S(e){const[t,o,l]=e.split('-').map(Number),n=new Date(t,o-1,l).getDay();return`${y[o-1]} ${l}, ${t} (${x[n]}) / ${t}\ub144 ${o}\uc6d4 ${l}\uc77c (${C[n]})`}function w(){const e=(0,f.useRouter)(),{date:a}=(0,f.useLocalSearchParams)(),{getEntry:y,upsertEntry:x,deleteEntry:C}=(0,m.useDiary)(),w=a?y(a):void 0,[B,v]=(0,t.useState)(w?.mood),[z,k]=(0,t.useState)(w?.weather),[M,R]=(0,t.useState)(w?.text??''),[A,I]=(0,t.useState)(w?.photo_uris??[]),[W,P]=(0,t.useState)(w?.schedule??''),[D,O]=(0,t.useState)(!w),[L,V]=(0,t.useState)(!1),[H,E]=(0,t.useState)(!1);async function _(){const{status:e}=await h.requestMediaLibraryPermissionsAsync();if('granted'!==e)return void Alert.alert('\uad8c\ud55c \ud544\uc694','\uc0ac\uc9c4 \uc811\uadfc \uad8c\ud55c\uc774 \ud544\uc694\ud574\uc694.');const t=await h.launchImageLibraryAsync({mediaTypes:h.MediaTypeOptions.Images,allowsMultipleSelection:!0,quality:.8});t.canceled||I(e=>[...e,...t.assets.map(e=>e.uri)])}async function $(){const{status:e}=await h.requestCameraPermissionsAsync();if('granted'!==e)return void Alert.alert('\uad8c\ud55c \ud544\uc694','\uce74\uba54\ub77c \uad8c\ud55c\uc774 \ud544\uc694\ud574\uc694.');const t=await h.launchCameraAsync({quality:.8});t.canceled||I(e=>[...e,t.assets[0].uri])}return(0,t.useEffect)(()=>{w?(v(w.mood),k(w.weather),R(w.text??''),I(w.photo_uris??[]),P(w.schedule??''),O(!1)):O(!0)},[a]),(0,p.jsx)(s.default,{style:T.safe,children:(0,p.jsxs)(u.default,{style:{flex:1},behavior:void 0,children:[(0,p.jsxs)(o.default,{style:T.header,children:[(0,p.jsx)(n.default,{onPress:()=>e.back(),style:T.backBtn,children:(0,p.jsx)(l.default,{style:T.backArrow,children:"\u2039"})}),(0,p.jsx)(l.default,{style:T.dateLabel,children:a?S(a):''}),w&&D?(0,p.jsx)(n.default,{onPress:()=>E(!0),style:T.editBtn,children:(0,p.jsx)(l.default,{style:T.deleteTxt,children:"Delete / \uc0ad\uc81c"})}):(0,p.jsx)(o.default,{style:{width:44}})]}),H&&(0,p.jsxs)(o.default,{style:T.deleteConfirmBar,children:[(0,p.jsx)(l.default,{style:T.deleteConfirmTxt,children:"Delete this diary? / \uc774 \ub0a0\uc758 \uc77c\uae30\ub97c \uc0ad\uc81c\ud560\uae4c\uc694?"}),(0,p.jsxs)(o.default,{style:T.deleteConfirmBtns,children:[(0,p.jsx)(n.default,{style:T.deleteConfirmCancel,onPress:()=>E(!1),children:(0,p.jsx)(l.default,{style:T.deleteConfirmCancelTxt,children:"Cancel / \ucde8\uc18c"})}),(0,p.jsx)(n.default,{style:T.deleteConfirmOk,onPress:function(){a&&(C(a),e.back())},children:(0,p.jsx)(l.default,{style:T.deleteConfirmOkTxt,children:"Delete / \uc0ad\uc81c"})})]})]}),(0,p.jsxs)(c.default,{contentContainerStyle:T.content,keyboardShouldPersistTaps:"handled",children:[(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Mood / \uc624\ub298\uc758 \uae30\ubd84"}),(0,p.jsx)(o.default,{style:T.emojiRow,children:b.map(e=>(0,p.jsx)(n.default,{style:[T.emojiBtn,B===e.emoji&&T.emojiBtnActive,!D&&B!==e.emoji&&T.emojiBtnDisabled],onPress:()=>D&&v(B===e.emoji?void 0:e.emoji),activeOpacity:D?.7:1,children:(0,p.jsx)(l.default,{style:[T.emojiIcon,!D&&B!==e.emoji&&T.emojiDim],children:e.emoji})},e.emoji))}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Weather / \uc624\ub298\uc758 \ub0a0\uc528"}),(0,p.jsx)(o.default,{style:T.emojiRow,children:j.map(e=>(0,p.jsx)(n.default,{style:[T.emojiBtn,z===e.emoji&&T.emojiBtnActive,!D&&z!==e.emoji&&T.emojiBtnDisabled],onPress:()=>D&&k(z===e.emoji?void 0:e.emoji),activeOpacity:D?.7:1,children:(0,p.jsx)(l.default,{style:[T.emojiIcon,!D&&z!==e.emoji&&T.emojiDim],children:e.emoji})},e.emoji))}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Schedule / \uc77c\uc815"}),D?(0,p.jsx)(i.default,{style:T.scheduleInput,placeholder:"\uc624\ub298\uc758 \uc77c\uc815\uc744 \uc785\ub825\ud558\uc138\uc694 \ud83d\udc08\u200d\u2b1b",placeholderTextColor:"#c5a890",value:W,onChangeText:P,returnKeyType:"done"}):(0,p.jsx)(o.default,{style:T.scheduleView,children:(0,p.jsx)(l.default,{style:W?T.scheduleContent:T.textEmpty,children:W||'No schedule / \uc77c\uc815 \uc5c6\uc74c'})}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Today / \uc624\ub298 \ud558\ub8e8"}),D?(0,p.jsx)(i.default,{style:T.textInput,multiline:!0,placeholder:"How was your day? / \uc624\ub298\uc740 \uc5b4\ub5a4 \ud558\ub8e8\uc600\ub098\uc694? \u270d\ufe0f",placeholderTextColor:"#c5a890",value:M,onChangeText:R,textAlignVertical:"top",autoFocus:!!w}):(0,p.jsx)(o.default,{style:T.textView,children:(0,p.jsx)(l.default,{style:M?T.textContent:T.textEmpty,children:M||'No entry / \uae30\ub85d \uc5c6\uc74c'})}),(0,p.jsx)(l.default,{style:T.sectionLabel,children:"Photo / \uc0ac\uc9c4"}),A.length>0&&(0,p.jsx)(o.default,{style:T.photoGrid,children:A.map((e,t)=>(0,p.jsxs)(o.default,{style:T.photoThumbContainer,children:[(0,p.jsx)(d.default,{source:{uri:e},style:T.photoThumb,resizeMode:"cover"}),D&&(0,p.jsx)(n.default,{style:T.photoRemoveBtn,onPress:()=>I(e=>e.filter((e,o)=>o!==t)),children:(0,p.jsx)(l.default,{style:T.photoRemoveTxt,children:"\u2715"})})]},e+t))}),D?L?(0,p.jsxs)(o.default,{style:T.photoMenuRow,children:[(0,p.jsxs)(n.default,{style:T.photoMenuBtn,onPress:async()=>{V(!1),await $()},activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoMenuIcon,children:"\ud83d\udcf8"}),(0,p.jsx)(l.default,{style:T.photoMenuTxt,children:"Camera / \uce74\uba54\ub77c"})]}),(0,p.jsxs)(n.default,{style:T.photoMenuBtn,onPress:async()=>{V(!1),await _()},activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoMenuIcon,children:"\ud83d\uddbc\ufe0f"}),(0,p.jsx)(l.default,{style:T.photoMenuTxt,children:"Album / \uc568\ubc94"})]}),(0,p.jsxs)(n.default,{style:[T.photoMenuBtn,T.photoMenuCancel],onPress:()=>V(!1),activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoMenuIcon,children:"\u2715"}),(0,p.jsx)(l.default,{style:T.photoMenuTxt,children:"Cancel / \ucde8\uc18c"})]})]}):(0,p.jsxs)(n.default,{style:T.photoAddBtn,onPress:()=>V(!0),activeOpacity:.7,children:[(0,p.jsx)(l.default,{style:T.photoAddIcon,children:"\ud83d\udcf7"}),(0,p.jsx)(l.default,{style:T.photoAddTxt,children:"Add Photo / \uc0ac\uc9c4 \ucd94\uac00"})]}):0===A.length?(0,p.jsx)(o.default,{style:T.photoEmpty,children:(0,p.jsx)(l.default,{style:T.textEmpty,children:"No photos / \uc0ac\uc9c4 \uc5c6\uc74c"})}):null,!D&&w?(0,p.jsx)(n.default,{style:T.editBtnBottom,onPress:()=>O(!0),activeOpacity:.8,children:(0,p.jsx)(l.default,{style:T.editBtnTxt,children:"Edit / \ud3b8\uc9d1"})}):D?(0,p.jsx)(n.default,{style:T.saveBtn,onPress:function(){a&&(x({date:a,mood:B,weather:z,text:M.trim(),photo_uris:A,schedule:W.trim()}),O(!1))},activeOpacity:.8,children:(0,p.jsx)(l.default,{style:T.saveTxt,children:"Save / \uc800\uc7a5\ud558\uae30"})}):null]})]})})}const T=a.default.create({safe:{flex:1,backgroundColor:'#fdf6f0'},header:{flexDirection:'row',alignItems:'center',paddingHorizontal:16,paddingTop:8,paddingBottom:12,borderBottomWidth:1,borderBottomColor:'#f0e0d0'},backBtn:{width:44,height:40,justifyContent:'center'},backArrow:{fontSize:30,color:'#c9a882',lineHeight:34},dateLabel:{flex:1,textAlign:'center',fontSize:15,fontWeight:'600',color:'#3d2c1e'},editBtn:{width:44,alignItems:'flex-end'},deleteTxt:{fontSize:13,color:'#e05c5c'},content:{padding:20,paddingBottom:40},sectionLabel:{fontSize:13,fontWeight:'600',color:'#a08070',marginBottom:10,marginTop:20,textTransform:'uppercase',letterSpacing:.5},emojiRow:{flexDirection:'row',flexWrap:'wrap',gap:8},emojiBtn:{alignItems:'center',paddingHorizontal:10,paddingVertical:8,borderRadius:14,backgroundColor:'#fff',borderWidth:1.5,borderColor:'#f0e0d0',minWidth:60},emojiBtnActive:{borderColor:'#c9a882',backgroundColor:'#fff4ec'},emojiBtnDisabled:{opacity:.3},emojiIcon:{fontSize:22},emojiDim:{opacity:.4},emojiLabel:{fontSize:11,color:'#b09080',marginTop:2},emojiLabelActive:{color:'#8b5e3c',fontWeight:'600'},scheduleInput:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',paddingHorizontal:16,paddingVertical:12,fontSize:15,color:'#3d2c1e'},scheduleView:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',paddingHorizontal:16,paddingVertical:12},scheduleContent:{fontSize:15,color:'#3d2c1e'},textInput:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',padding:16,minHeight:160,fontSize:15,color:'#3d2c1e',lineHeight:24},textView:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',padding:16,minHeight:80},textContent:{fontSize:15,color:'#3d2c1e',lineHeight:24},textEmpty:{fontSize:14,color:'#c5a890'},photoMenuRow:{flexDirection:'row',gap:8},photoMenuBtn:{flex:1,backgroundColor:'#fff',borderRadius:14,borderWidth:1.5,borderColor:'#f0e0d0',paddingVertical:14,alignItems:'center',gap:4},photoMenuCancel:{borderColor:'#f0c0c0',backgroundColor:'#fff8f8'},photoMenuIcon:{fontSize:22},photoMenuTxt:{fontSize:12,color:'#a08070'},photoGrid:{flexDirection:'row',flexWrap:'wrap',gap:8,marginBottom:8},photoThumbContainer:{position:'relative',width:'47%',aspectRatio:1,borderRadius:12,overflow:'hidden'},photoThumb:{width:'100%',height:'100%'},photoRemoveBtn:{position:'absolute',top:10,right:10,backgroundColor:'rgba(0,0,0,0.45)',width:28,height:28,borderRadius:14,alignItems:'center',justifyContent:'center'},photoRemoveTxt:{color:'#fff',fontSize:13,fontWeight:'700'},photoAddBtn:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',borderStyle:'dashed',height:100,alignItems:'center',justifyContent:'center',gap:6},photoAddIcon:{fontSize:28},photoAddTxt:{fontSize:13,color:'#b09080'},photoEmpty:{backgroundColor:'#fff',borderRadius:16,borderWidth:1.5,borderColor:'#f0e0d0',padding:16,alignItems:'center'},editBtnBottom:{borderRadius:16,paddingVertical:15,alignItems:'center',marginTop:24,borderWidth:1.5,borderColor:'#c9a882',backgroundColor:'#fff'},editBtnTxt:{fontSize:16,fontWeight:'600',color:'#c9a882',letterSpacing:.5},saveBtn:{backgroundColor:'#c9a882',borderRadius:16,paddingVertical:15,alignItems:'center',marginTop:24},saveTxt:{fontSize:16,fontWeight:'700',color:'#fff',letterSpacing:.5},deleteConfirmBar:{flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingHorizontal:16,paddingVertical:10,backgroundColor:'#fff4f4',borderBottomWidth:1,borderBottomColor:'#f5d0d0'},deleteConfirmTxt:{fontSize:13,color:'#3d2c1e',flex:1},deleteConfirmBtns:{flexDirection:'row',gap:8},deleteConfirmCancel:{paddingHorizontal:14,paddingVertical:6,borderRadius:10,borderWidth:1,borderColor:'#d0b0a0'},deleteConfirmCancelTxt:{fontSize:13,color:'#8b5e3c'},deleteConfirmOk:{paddingHorizontal:14,paddingVertical:6,borderRadius:10,backgroundColor:'#e05c5c'},deleteConfirmOkTxt:{fontSize:13,color:'#fff',fontWeight:'600'}})},691,[32,274,135,477,391,327,148,489,282,480,126,12,692,672,7]);
+__d(function(g,r,i,a,m,_e,d){"use strict";Object.defineProperty(_e,'__esModule',{value:!0}),_e.getCameraPermissionsAsync=l,_e.getMediaLibraryPermissionsAsync=y,_e.requestCameraPermissionsAsync=f,_e.requestMediaLibraryPermissionsAsync=b,Object.defineProperty(_e,"useMediaLibraryPermissions",{enumerable:!0,get:function(){return P}}),Object.defineProperty(_e,"useCameraPermissions",{enumerable:!0,get:function(){return w}}),_e.getPendingResultAsync=async function(){if(s.default.getPendingResultAsync)return s.default.getPendingResultAsync();return null},_e.launchCameraAsync=async function(e={}){if(!s.default.launchCameraAsync)throw new n.UnavailabilityError('ImagePicker','launchCameraAsync');const t=(0,o.mapDeprecatedOptions)(e);return await s.default.launchCameraAsync(c(t))},_e.launchImageLibraryAsync=async function(e={}){const t=(0,o.mapDeprecatedOptions)(e);if(!s.default.launchImageLibraryAsync)throw new n.UnavailabilityError('ImagePicker','launchImageLibraryAsync');t?.allowsEditing&&t.allowsMultipleSelection&&console.warn("[expo-image-picker] `allowsEditing` is not supported when `allowsMultipleSelection` is enabled and will be ignored.Disable either 'allowsEditing' or 'allowsMultipleSelection' in 'launchImageLibraryAsync' to fix this warning.");return await s.default.launchImageLibraryAsync(t)},Object.defineProperty(_e,"PermissionStatus",{enumerable:!0,get:function(){return n.PermissionStatus}});var e,n=r(d[0]),t=r(d[1]),s=(e=t)&&e.__esModule?e:{default:e},o=r(d[2]),u=r(d[3]);function c(e){const{aspect:t,quality:s,videoMaxDuration:o}=e;if(null!=t){const[e,s]=t;if(e<=0||s<=0)throw new n.CodedError('ERR_INVALID_ARGUMENT',`Invalid aspect ratio values ${e}:${s}. Provide positive numbers.`)}if(s&&(s<0||s>1))throw new n.CodedError('ERR_INVALID_ARGUMENT',`Invalid 'quality' value ${s}. Provide a value between 0 and 1.`);if(o&&o<0)throw new n.CodedError('ERR_INVALID_ARGUMENT',`Invalid 'videoMaxDuration' value ${o}. Provide a non-negative number.`);return e}async function l(){return s.default.getCameraPermissionsAsync()}async function y(e=!1){return s.default.getMediaLibraryPermissionsAsync(e)}async function f(){return s.default.requestCameraPermissionsAsync()}async function b(e=!1){return(0,s.default.requestMediaLibraryPermissionsAsync)(e)}Object.keys(u).forEach(function(e){'default'===e||Object.prototype.hasOwnProperty.call(_e,e)||Object.defineProperty(_e,e,{enumerable:!0,get:function(){return u[e]}})});const P=(0,n.createPermissionHook)({getMethod:e=>y(e?.writeOnly),requestMethod:e=>b(e?.writeOnly)}),w=(0,n.createPermissionHook)({getMethod:l,requestMethod:f})},692,[533,693,695,694]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return c}});var t=r(d[0]),s=r(d[1]),n=r(d[2]);const o={images:'image/*',videos:'video/mp4,video/quicktime,video/x-m4v,video/*',livePhotos:''};var c={launchImageLibraryAsync:async({mediaTypes:s=['images'],allowsMultipleSelection:n=!1,base64:o=!1})=>t.Platform.isDOMAvailable?await u({mediaTypes:s,allowsMultipleSelection:n,base64:o}):{canceled:!0,assets:null},launchCameraAsync:async({mediaTypes:s=['images'],allowsMultipleSelection:n=!1,base64:o=!1,cameraType:c})=>t.Platform.isDOMAvailable?await u({mediaTypes:s,allowsMultipleSelection:n,capture:c??!0,base64:o}):{canceled:!0,assets:null},getCameraPermissionsAsync:async()=>l(),requestCameraPermissionsAsync:async()=>l(),getMediaLibraryPermissionsAsync:async t=>l(),requestMediaLibraryPermissionsAsync:async t=>l()};function l(){return{status:t.PermissionStatus.GRANTED,expires:'never',granted:!0,canAskAgain:!0}}function u({mediaTypes:t,capture:o=!1,allowsMultipleSelection:c=!1,base64:l}){const u=b((0,n.parseMediaTypes)(t)),h=document.createElement('input');if(h.style.display='none',h.setAttribute('type','file'),h.setAttribute('accept',u),h.setAttribute('id',String(Math.random())),h.setAttribute('data-testid','file-input'),c&&h.setAttribute('multiple','multiple'),o)switch(o){case!0:h.setAttribute('capture','camera');break;case s.CameraType.front:h.setAttribute('capture','user');break;case s.CameraType.back:h.setAttribute('capture','environment')}return document.body.appendChild(h),new Promise(t=>{h.addEventListener('change',async()=>{if(h.files?.length){const s=c?h.files:[h.files[0]];try{const n=await Promise.all(Array.from(s).map(t=>f(t,{base64:l})));t({canceled:!1,assets:n})}catch(s){t(Promise.reject(s))}}else t({canceled:!0,assets:null});document.body.removeChild(h)}),h.addEventListener('cancel',()=>{h.dispatchEvent(new Event('change'))});const s=new MouseEvent('click');h.dispatchEvent(s)})}async function h(t){return new Promise(s=>{const n=new Image;n.onload=()=>{s({width:n.naturalWidth??n.width,height:n.naturalHeight??n.height})},n.onerror=()=>s({width:0,height:0}),n.src=t})}async function p(t){return new Promise(s=>{const n=document.createElement('video');n.preload='metadata',n.onloadedmetadata=()=>{s({width:n.videoWidth,height:n.videoHeight,duration:n.duration})},n.onerror=()=>s({width:0,height:0,duration:0}),n.src=t})}async function y(t){return new Promise((s,n)=>{const o=new FileReader;o.onerror=()=>{n(new Error('Failed to read the selected media because the operation failed.'))},o.onload=t=>{const o=t.target?.result;'string'==typeof o?s(o.split(',')[1]):n(new Error('Failed to read file as base64'))},o.readAsDataURL(t)})}async function f(t,s){const n=t.type,o=URL.createObjectURL(t);try{let c,l;if(n.startsWith('image/'))c=await h(o);else{if(!n.startsWith('video/'))throw new Error(`Unsupported file type: ${n}. Only images and videos are supported.`);c=await p(o)}return s.base64&&(l=await y(t)),Object.assign({uri:o,width:c.width,height:c.height,type:n.startsWith('image/')?'image':'video',mimeType:n,fileName:t.name,fileSize:t.size,file:t},void 0!==c.duration&&{duration:c.duration},l&&{base64:l})}catch(t){throw t}}function b(t){const s=t.filter(t=>'livePhotos'!==t);if(0===s.length)return'image/*';let n='';for(const t of s)n.includes(o[t])||(n=n.concat(',',o[t]));return n}},693,[533,694,695]);
+__d(function(g,r,i,a,m,e,d){"use strict";var t,n,o,u,c,l;Object.defineProperty(e,'__esModule',{value:!0}),Object.defineProperty(e,"MediaTypeOptions",{enumerable:!0,get:function(){return t}}),Object.defineProperty(e,"VideoExportPreset",{enumerable:!0,get:function(){return n}}),Object.defineProperty(e,"UIImagePickerControllerQualityType",{enumerable:!0,get:function(){return o}}),Object.defineProperty(e,"UIImagePickerPresentationStyle",{enumerable:!0,get:function(){return u}}),Object.defineProperty(e,"UIImagePickerPreferredAssetRepresentationMode",{enumerable:!0,get:function(){return c}}),Object.defineProperty(e,"CameraType",{enumerable:!0,get:function(){return l}}),(function(t){t.All="All",t.Videos="Videos",t.Images="Images"})(t||(t={})),(function(t){t[t.Passthrough=0]="Passthrough",t[t.LowQuality=1]="LowQuality",t[t.MediumQuality=2]="MediumQuality",t[t.HighestQuality=3]="HighestQuality",t[t.H264_640x480=4]="H264_640x480",t[t.H264_960x540=5]="H264_960x540",t[t.H264_1280x720=6]="H264_1280x720",t[t.H264_1920x1080=7]="H264_1920x1080",t[t.H264_3840x2160=8]="H264_3840x2160",t[t.HEVC_1920x1080=9]="HEVC_1920x1080",t[t.HEVC_3840x2160=10]="HEVC_3840x2160"})(n||(n={})),(function(t){t[t.High=0]="High",t[t.Medium=1]="Medium",t[t.Low=2]="Low",t[t.VGA640x480=3]="VGA640x480",t[t.IFrame1280x720=4]="IFrame1280x720",t[t.IFrame960x540=5]="IFrame960x540"})(o||(o={})),(function(t){t.FULL_SCREEN="fullScreen",t.PAGE_SHEET="pageSheet",t.FORM_SHEET="formSheet",t.CURRENT_CONTEXT="currentContext",t.OVER_FULL_SCREEN="overFullScreen",t.OVER_CURRENT_CONTEXT="overCurrentContext",t.POPOVER="popover",t.AUTOMATIC="automatic"})(u||(u={})),(function(t){t.Automatic="automatic",t.Compatible="compatible",t.Current="current"})(c||(c={})),(function(t){t.back="back",t.front="front"})(l||(l={}))},694,[]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,'__esModule',{value:!0}),e.parseMediaTypes=n,e.mapDeprecatedOptions=function(s){if(!s.mediaTypes)return s;return Object.assign({},s,{mediaTypes:n(s.mediaTypes??[])})};var s=r(d[0]);function n(n){const p={Images:['images'],Videos:['videos'],All:['images','videos']};return n===s.MediaTypeOptions.Images||n===s.MediaTypeOptions.Videos||n===s.MediaTypeOptions.All?(console.warn('[expo-image-picker] `ImagePicker.MediaTypeOptions` have been deprecated. Use `ImagePicker.MediaType` or an array of `ImagePicker.MediaType` instead.'),p[n]):'string'==typeof n?[n]:n}},695,[694]);
+__d(function(g,r,_i,a,_m,_e,_d){"use strict";function e(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(_e,'__esModule',{value:!0}),Object.defineProperty(_e,"default",{enumerable:!0,get:function(){return w}});var t=r(_d[0]),n=e(r(_d[1])),o=e(r(_d[2])),l=e(r(_d[3])),i=e(r(_d[4])),d=e(r(_d[5])),s=e(r(_d[6])),c=e(r(_d[7]));r(_d[8]);var f=r(_d[9]),u=e(r(_d[10])),h=r(_d[11]),x=r(_d[12]);const y=['Sun/\uc77c','Mon/\uc6d4','Tue/\ud654','Wed/\uc218','Thu/\ubaa9','Fri/\uae08','Sat/\ud1a0'],m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],p='@twintuna_diary:appName',j='TwinTuna_Diary';function b(e,t){return new Date(e,t+1,0).getDate()}function S(e,t){return new Date(e,t,1).getDay()}function C(e,t,n){return`${e}-${String(t+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`}function w(){const e=(0,f.useRouter)(),{getEntry:d,diaryId:w,connectDiary:z}=(0,h.useDiary)(),[B,v]=(0,t.useState)(!1),[P,W]=(0,t.useState)(''),[D,R]=(0,t.useState)(''),A=new Date,[H,I]=(0,t.useState)(A.getFullYear()),[k,L]=(0,t.useState)(A.getMonth()),[M,N]=(0,t.useState)(j),[_,O]=(0,t.useState)(!1),[V,E]=(0,t.useState)(j);function F(){const e=V.trim()||j;N(e),E(e),u.default.setItem(p,e),O(!1)}(0,t.useEffect)(()=>{u.default.getItem(p).then(e=>{e&&(N(e),E(e))})},[]);const X=b(H,k),$=S(H,k),J=C(A.getFullYear(),A.getMonth(),A.getDate()),Y=[...Array($).fill(null),...Array.from({length:X},(e,t)=>t+1)];for(;Y.length%7!=0;)Y.push(null);return(0,x.jsx)(s.default,{style:T.safe,children:(0,x.jsxs)(c.default,{contentContainerStyle:T.scroll,children:[(0,x.jsxs)(n.default,{style:T.header,children:[_?(0,x.jsxs)(n.default,{style:T.nameEditRow,children:[(0,x.jsx)(i.default,{style:T.nameInput,value:V,onChangeText:E,autoFocus:!0,selectTextOnFocus:!0,returnKeyType:"done",onSubmitEditing:F,maxLength:30}),(0,x.jsx)(l.default,{onPress:F,style:T.nameConfirmBtn,children:(0,x.jsx)(o.default,{style:T.nameConfirmTxt,children:"Done / \uc644\ub8cc"})})]}):(0,x.jsx)(l.default,{onLongPress:()=>{E(M),O(!0)},activeOpacity:.8,children:(0,x.jsx)(o.default,{style:T.appTitle,children:M})}),!_&&(0,x.jsx)(o.default,{style:T.nameHint,children:"Long press to rename / \uae38\uac8c \ub20c\ub7ec\uc11c \uc774\ub984 \ubcc0\uacbd"}),!_&&(0,x.jsx)(l.default,{onPress:()=>{v(!0),R('')},style:T.shareBtn,children:(0,x.jsx)(o.default,{style:T.shareBtnTxt,children:"\ud83d\udd17 \uc5f0\uacb0 / Connect"})})]}),B&&(0,x.jsxs)(n.default,{style:T.sharePanel,children:[(0,x.jsx)(o.default,{style:T.sharePanelTitle,children:"\ud83d\udcce \uacf5\uc720 \ucf54\ub4dc / Share Code"}),(0,x.jsxs)(n.default,{style:T.myCodeRow,children:[(0,x.jsx)(o.default,{style:T.myCodeLabel,children:"\ub0b4 \ucf54\ub4dc"}),(0,x.jsx)(o.default,{style:T.myCode,children:w}),(0,x.jsx)(l.default,{onPress:()=>{navigator.clipboard?.writeText(w),R('\ubcf5\uc0ac\ub410\uc5b4\uc694!'),setTimeout(()=>R(''),2e3)},style:T.copyBtn,children:(0,x.jsx)(o.default,{style:T.copyBtnTxt,children:"\ubcf5\uc0ac"})})]}),(0,x.jsx)(o.default,{style:T.shareDivider,children:"\ud30c\ud2b8\ub108 \ucf54\ub4dc \uc785\ub825 / Enter partner's code"}),(0,x.jsxs)(n.default,{style:T.connectRow,children:[(0,x.jsx)(i.default,{style:T.connectInput,value:P,onChangeText:e=>W(e.toUpperCase()),placeholder:"XXXXXX",placeholderTextColor:"#c5a890",autoCapitalize:"characters",maxLength:6}),(0,x.jsx)(l.default,{style:T.connectBtn,onPress:async()=>{P.length<6?R('6\uc790\ub9ac \ucf54\ub4dc\ub97c \uc785\ub825\ud558\uc138\uc694'):(await z(P),W(''),v(!1),R(''))},children:(0,x.jsx)(o.default,{style:T.connectBtnTxt,children:"\uc5f0\uacb0"})})]}),D?(0,x.jsx)(o.default,{style:T.connectMsg,children:D}):null,(0,x.jsx)(l.default,{onPress:()=>v(!1),style:T.sharePanelClose,children:(0,x.jsx)(o.default,{style:T.sharePanelCloseTxt,children:"\ub2eb\uae30"})})]}),(0,x.jsxs)(n.default,{style:T.monthNav,children:[(0,x.jsx)(l.default,{onPress:()=>{0===k?(L(11),I(e=>e-1)):L(e=>e-1)},style:T.navBtn,children:(0,x.jsx)(o.default,{style:T.navArrow,children:"\u2039"})}),(0,x.jsxs)(o.default,{style:T.monthLabel,children:[m[k]," / ",k+1,"\uc6d4 ",H]}),(0,x.jsx)(l.default,{onPress:()=>{11===k?(L(0),I(e=>e+1)):L(e=>e+1)},style:T.navBtn,children:(0,x.jsx)(o.default,{style:T.navArrow,children:"\u203a"})})]}),(0,x.jsx)(n.default,{style:T.weekRow,children:y.map((e,t)=>(0,x.jsx)(o.default,{style:[T.weekLabel,0===t&&T.sun,6===t&&T.sat],children:e},e))}),(0,x.jsx)(n.default,{style:T.grid,children:Y.map((t,i)=>{if(!t)return(0,x.jsx)(n.default,{style:T.cell},`empty-${i}`);const s=C(H,k,t),c=d(s),f=s===J,u=i%7;return(0,x.jsxs)(l.default,{style:[T.cell,f&&T.todayCell],onPress:()=>e.push({pathname:'/entry',params:{date:s}}),activeOpacity:.7,children:[(0,x.jsx)(o.default,{style:[T.dayNum,0===u&&T.sun,6===u&&T.sat,f&&T.todayNum],children:t}),c?.mood?(0,x.jsx)(o.default,{style:T.icon,children:c.mood}):null,c?.schedule?.trim()?(0,x.jsx)(o.default,{style:T.schedulePreview,numberOfLines:1,ellipsizeMode:"tail",children:c.schedule.trim()}):null]},s)})}),(0,x.jsx)(n.default,{style:T.legend,children:(0,x.jsx)(o.default,{style:T.legendText,children:"Tap a date to write / \ub0a0\uc9dc\ub97c \ud0ed\ud574\uc11c \uc77c\uae30\ub97c \uc368\ubcf4\uc138\uc694 \u270f\ufe0f"})})]})})}const T=d.default.create({safe:{flex:1,backgroundColor:'#fdf6f0'},scroll:{paddingBottom:40},header:{alignItems:'center',paddingTop:24,paddingBottom:4},appTitle:{fontSize:22,fontWeight:'700',color:'#3d2c1e',letterSpacing:.5},nameHint:{fontSize:11,color:'#c9b8a8',marginTop:3},nameEditRow:{flexDirection:'row',alignItems:'center',gap:8},nameInput:{fontSize:20,fontWeight:'700',color:'#3d2c1e',borderBottomWidth:2,borderBottomColor:'#c9a882',paddingVertical:2,paddingHorizontal:4,minWidth:120,textAlign:'center'},nameConfirmBtn:{backgroundColor:'#c9a882',borderRadius:10,paddingHorizontal:12,paddingVertical:6},nameConfirmTxt:{color:'#fff',fontWeight:'700',fontSize:13},monthNav:{flexDirection:'row',alignItems:'center',justifyContent:'center',paddingVertical:12,gap:24},navBtn:{padding:8},navArrow:{fontSize:28,color:'#c9a882',lineHeight:30},monthLabel:{fontSize:18,fontWeight:'600',color:'#3d2c1e',minWidth:160,textAlign:'center'},weekRow:{flexDirection:'row',paddingHorizontal:8,paddingBottom:4},weekLabel:{flex:1,textAlign:'center',fontSize:12,fontWeight:'600',color:'#a08070'},grid:{flexDirection:'row',flexWrap:'wrap',paddingHorizontal:8},cell:{width:"14.285714285714286%",minHeight:48,alignItems:'center',paddingVertical:4,borderRadius:12},todayCell:{backgroundColor:'#ffe8d2'},dayNum:{fontSize:13,color:'#5a3e2b',fontWeight:'500'},todayNum:{fontWeight:'700',color:'#c96a30'},sun:{color:'#e05c5c'},sat:{color:'#5b8ee0'},icon:{fontSize:14,lineHeight:18},schedulePreview:{fontSize:9,color:'#8b6f56',width:'92%',textAlign:'center',lineHeight:12},legend:{alignItems:'center',marginTop:20},legendText:{fontSize:12,color:'#b09080'},shareBtn:{marginTop:8,paddingVertical:5,paddingHorizontal:14,borderRadius:12,backgroundColor:'#fff0e6',borderWidth:1,borderColor:'#e8c9a8'},shareBtnTxt:{fontSize:12,color:'#a07050',fontWeight:'600'},sharePanel:{marginHorizontal:16,marginBottom:8,backgroundColor:'#fff',borderRadius:18,padding:18,borderWidth:1.5,borderColor:'#f0e0d0'},sharePanelTitle:{fontSize:14,fontWeight:'700',color:'#3d2c1e',marginBottom:12,textAlign:'center'},myCodeRow:{flexDirection:'row',alignItems:'center',backgroundColor:'#fdf0e8',borderRadius:12,padding:10,marginBottom:12,gap:8},myCodeLabel:{fontSize:12,color:'#a08070'},myCode:{flex:1,fontSize:22,fontWeight:'800',color:'#c96a30',letterSpacing:3,textAlign:'center'},copyBtn:{backgroundColor:'#c9a882',borderRadius:8,paddingHorizontal:10,paddingVertical:5},copyBtnTxt:{fontSize:12,color:'#fff',fontWeight:'700'},shareDivider:{fontSize:11,color:'#b09080',textAlign:'center',marginBottom:10},connectRow:{flexDirection:'row',gap:8},connectInput:{flex:1,backgroundColor:'#fdf6f0',borderRadius:12,borderWidth:1.5,borderColor:'#f0e0d0',paddingHorizontal:14,paddingVertical:10,fontSize:20,fontWeight:'700',color:'#3d2c1e',letterSpacing:3,textAlign:'center'},connectBtn:{backgroundColor:'#c9a882',borderRadius:12,paddingHorizontal:16,justifyContent:'center'},connectBtnTxt:{color:'#fff',fontWeight:'700',fontSize:14},connectMsg:{fontSize:12,color:'#c96a30',textAlign:'center',marginTop:8},sharePanelClose:{alignItems:'center',marginTop:12},sharePanelCloseTxt:{fontSize:12,color:'#b09080'}})},696,[32,274,135,477,391,148,489,282,126,12,683,672,7]);
+__d(function(g,r,i,a,_m,e,d){"use strict";var t=this&&this.__createBinding||(Object.create?function(t,n,o,c){void 0===c&&(c=o);var u=Object.getOwnPropertyDescriptor(n,o);u&&!("get"in u?!n.__esModule:u.writable||u.configurable)||(u={enumerable:!0,get:function(){return n[o]}}),Object.defineProperty(t,c,u)}:function(t,n,o,c){void 0===c&&(c=o),t[c]=n[o]}),n=this&&this.__exportStar||function(n,o){for(var c in n)"default"===c||Object.prototype.hasOwnProperty.call(o,c)||t(o,n,c)};Object.defineProperty(e,"__esModule",{value:!0}),n(r(d[0]),e)},697,[698]);
+__d(function(g,r,i,a,m,e,d){"use strict";var t=r(d[0]),n=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(e,"__esModule",{value:!0}),e.Head=void 0;const u=r(d[1]),l=(n(r(d[2])),r(d[3]));function o({children:n}){return t.jsx(l.Helmet,{children:n})}e.Head=({children:n})=>(0,u.useIsFocused)()?t.jsx(o,{children:n}):null,e.Head.Provider=l.HelmetProvider},698,[7,17,32,699]);
+__d(function(g,r,_i,a,m,e,d){"use strict";var t=r(d[0]);const s=["children"],n=["children"];var i,o=Object.create,c=Object.defineProperty,l=Object.getOwnPropertyDescriptor,p=Object.getOwnPropertyNames,u=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty,y=(t,s,n,i)=>{if(s&&"object"==typeof s||"function"==typeof s)for(let o of p(s))h.call(t,o)||o===n||c(t,o,{get:()=>s[o],enumerable:!(i=l(s,o))||i.enumerable});return t},b=(t,s,n)=>(n=null!=t?o(u(t)):{},y(!s&&t&&t.__esModule?n:c(n,"default",{value:t,enumerable:!0}),t)),f={};((t,s)=>{for(var n in s)c(t,n,{get:s[n],enumerable:!0})})(f,{Helmet:()=>Oe,HelmetData:()=>ce,HelmetProvider:()=>pe}),m.exports=(i=f,y(c({},"__esModule",{value:!0}),i));var T=b(r(d[1])),O=b(r(d[2])),A=b(r(d[3])),j=b(r(d[1])),C=b(r(d[1])),w=(t=>(t.BASE="base",t.BODY="body",t.HEAD="head",t.HTML="html",t.LINK="link",t.META="meta",t.NOSCRIPT="noscript",t.SCRIPT="script",t.STYLE="style",t.TITLE="title",t.FRAGMENT="Symbol(react.fragment)",t))(w||{}),x={rel:["amphtml","canonical","alternate"]},v={type:["application/ld+json"]},$={charset:"",name:["generator","robots","description"],property:["og:type","og:title","og:url","og:image","og:image:alt","og:description","twitter:url","twitter:title","twitter:description","twitter:image","twitter:image:alt","twitter:card","twitter:site"]},k=Object.values(w),S={accesskey:"accessKey",charset:"charSet",class:"className",contenteditable:"contentEditable",contextmenu:"contextMenu","http-equiv":"httpEquiv",itemprop:"itemProp",tabindex:"tabIndex"},M=Object.entries(S).reduce((t,[s,n])=>(t[n]=s,t),{}),E="data-rh",P="defaultTitle",H="defer",D="encodeSpecialCharacters",L="onChangeClientState",I="titleTemplate",U="prioritizeSeoTags",N=(t,s)=>{for(let n=t.length-1;n>=0;n-=1){const i=t[n];if(Object.prototype.hasOwnProperty.call(i,s))return i[s]}return null},q=t=>{let s=N(t,"title");const n=N(t,I);if(Array.isArray(s)&&(s=s.join("")),n&&s)return n.replace(/%s/g,()=>s);const i=N(t,P);return s||i||void 0},_=t=>N(t,L)||(()=>{}),R=(t,s)=>s.filter(s=>void 0!==s[t]).map(s=>s[t]).reduce((t,s)=>Object.assign({},t,s),{}),z=(t,s)=>s.filter(t=>void 0!==t.base).map(t=>t.base).reverse().reduce((s,n)=>{if(!s.length){const i=Object.keys(n);for(let o=0;o<i.length;o+=1){const c=i[o].toLowerCase();if(-1!==t.indexOf(c)&&n[c])return s.concat(n)}}return s},[]),B=(t,s,n)=>{const i={};return n.filter(s=>{return!!Array.isArray(s[t])||(void 0!==s[t]&&(n=`Helmet: ${t} should be of type "Array". Instead found type "${typeof s[t]}"`,console&&"function"==typeof console.warn&&console.warn(n)),!1);var n}).map(s=>s[t]).reverse().reduce((t,n)=>{const o={};n.filter(t=>{let n;const c=Object.keys(t);for(let i=0;i<c.length;i+=1){const o=c[i],l=o.toLowerCase();-1===s.indexOf(l)||"rel"===n&&"canonical"===t[n].toLowerCase()||"rel"===l&&"stylesheet"===t[l].toLowerCase()||(n=l),-1===s.indexOf(o)||"innerHTML"!==o&&"cssText"!==o&&"itemprop"!==o||(n=o)}if(!n||!t[n])return!1;const l=t[n].toLowerCase();return i[n]||(i[n]={}),o[n]||(o[n]={}),!i[n][l]&&(o[n][l]=!0,!0)}).reverse().forEach(s=>t.push(s));const c=Object.keys(o);for(let t=0;t<c.length;t+=1){const s=c[t],n=Object.assign({},i[s],o[s]);i[s]=n}return t},[]).reverse()},F=(t,s)=>{if(Array.isArray(t)&&t.length)for(let n=0;n<t.length;n+=1){if(t[n][s])return!0}return!1},Y=t=>Array.isArray(t)?t.join(""):t,K=(t,s)=>{const n=Object.keys(t);for(let i=0;i<n.length;i+=1)if(s[n[i]]&&s[n[i]].includes(t[n[i]]))return!0;return!1},G=(t,s)=>Array.isArray(t)?t.reduce((t,n)=>(K(n,s)?t.priority.push(n):t.default.push(n),t),{priority:[],default:[]}):{default:t,priority:[]},W=(t,s)=>Object.assign({},t,{[s]:void 0}),J=["noscript","script","style"],Q=(t,s=!0)=>!1===s?String(t):String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#x27;"),V=t=>Object.keys(t).reduce((s,n)=>{const i=void 0!==t[n]?`${n}="${t[n]}"`:`${n}`;return s?`${s} ${i}`:i},""),X=(t,s,n,i)=>{const o=V(n),c=Y(s);return o?`<${t} ${E}="true" ${o}>${Q(c,i)}</${t}>`:`<${t} ${E}="true">${Q(c,i)}</${t}>`},Z=(t,s,n=!0)=>s.reduce((s,i)=>{const o=i,c=Object.keys(o).filter(t=>!("innerHTML"===t||"cssText"===t)).reduce((t,s)=>{const i=void 0===o[s]?s:`${s}="${Q(o[s],n)}"`;return t?`${t} ${i}`:i},""),l=o.innerHTML||o.cssText||"",p=-1===J.indexOf(t);return`${s}<${t} ${E}="true" ${c}${p?"/>":`>${l}</${t}>`}`},""),ee=(t,s={})=>Object.keys(t).reduce((s,n)=>(s[S[n]||n]=t[n],s),s),te=(t,s,n)=>{const i=ee(n,{key:s,[E]:!0});return[C.default.createElement("title",i,s)]},re=(t,s)=>s.map((s,n)=>{const i={key:n,[E]:!0};return Object.keys(s).forEach(t=>{const n=S[t]||t;if("innerHTML"===n||"cssText"===n){const t=s.innerHTML||s.cssText;i.dangerouslySetInnerHTML={__html:t}}else i[n]=s[t]}),C.default.createElement(t,i)}),se=(t,s,n=!0)=>{switch(t){case"title":return{toComponent:()=>te(0,s.title,s.titleAttributes),toString:()=>X(t,s.title,s.titleAttributes,n)};case"bodyAttributes":case"htmlAttributes":return{toComponent:()=>ee(s),toString:()=>V(s)};default:return{toComponent:()=>re(t,s),toString:()=>Z(t,s,n)}}},ne=({metaTags:t,linkTags:s,scriptTags:n,encode:i})=>{const o=G(t,$),c=G(s,x),l=G(n,v);return{priorityMethods:{toComponent:()=>[...re("meta",o.priority),...re("link",c.priority),...re("script",l.priority)],toString:()=>`${se("meta",o.priority,i)} ${se("link",c.priority,i)} ${se("script",l.priority,i)}`},metaTags:o.default,linkTags:c.default,scriptTags:l.default}},ie=t=>{const{baseTag:s,bodyAttributes:n,encode:i=!0,htmlAttributes:o,noscriptTags:c,styleTags:l,title:p="",titleAttributes:u,prioritizeSeoTags:h}=t;let{linkTags:y,metaTags:b,scriptTags:f}=t,T={toComponent:()=>{},toString:()=>""};return h&&({priorityMethods:T,linkTags:y,metaTags:b,scriptTags:f}=ne(t)),{priority:T,base:se("base",s,i),bodyAttributes:se("bodyAttributes",n,i),htmlAttributes:se("htmlAttributes",o,i),link:se("link",y,i),meta:se("meta",b,i),noscript:se("noscript",c,i),script:se("script",f,i),style:se("style",l,i),title:se("title",{title:p,titleAttributes:u},i)}},oe=[],ae=!("undefined"==typeof window||!window.document||!window.document.createElement),ce=class{instances=[];canUseDOM=ae;value={setHelmet:t=>{this.context.helmet=t},helmetInstances:{get:()=>this.canUseDOM?oe:this.instances,add:t=>{(this.canUseDOM?oe:this.instances).push(t)},remove:t=>{const s=(this.canUseDOM?oe:this.instances).indexOf(t);(this.canUseDOM?oe:this.instances).splice(s,1)}}};constructor(t,s){this.context=t,this.canUseDOM=s||!1,s||(t.helmet=ie({baseTag:[],bodyAttributes:{},encodeSpecialCharacters:!0,htmlAttributes:{},linkTags:[],metaTags:[],noscriptTags:[],scriptTags:[],styleTags:[],title:"",titleAttributes:{}}))}},le=j.default.createContext({}),pe=class t extends j.Component{static canUseDOM=ae;constructor(s){super(s),this.helmetData=new ce(this.props.context||{},t.canUseDOM)}render(){return j.default.createElement(le.Provider,{value:this.helmetData.value},this.props.children)}},ue=r(d[1]),de=b(r(d[4])),he=(t,s)=>{const n=document.head||document.querySelector("head"),i=n.querySelectorAll(`${t}[${E}]`),o=[].slice.call(i),c=[];let l;return s&&s.length&&s.forEach(s=>{const n=document.createElement(t);for(const t in s)if(Object.prototype.hasOwnProperty.call(s,t))if("innerHTML"===t)n.innerHTML=s.innerHTML;else if("cssText"===t)n.styleSheet?n.styleSheet.cssText=s.cssText:n.appendChild(document.createTextNode(s.cssText));else{const i=t,o=void 0===s[i]?"":s[i];n.setAttribute(t,o)}n.setAttribute(E,"true"),o.some((t,s)=>(l=s,n.isEqualNode(t)))?o.splice(l,1):c.push(n)}),o.forEach(t=>t.parentNode?.removeChild(t)),c.forEach(t=>n.appendChild(t)),{oldTags:o,newTags:c}},me=(t,s)=>{const n=document.getElementsByTagName(t)[0];if(!n)return;const i=n.getAttribute(E),o=i?i.split(","):[],c=[...o],l=Object.keys(s);for(const t of l){const i=s[t]||"";n.getAttribute(t)!==i&&n.setAttribute(t,i),-1===o.indexOf(t)&&o.push(t);const l=c.indexOf(t);-1!==l&&c.splice(l,1)}for(let t=c.length-1;t>=0;t-=1)n.removeAttribute(c[t]);o.length===c.length?n.removeAttribute(E):n.getAttribute(E)!==l.join(",")&&n.setAttribute(E,l.join(","))},ge=(t,s)=>{void 0!==t&&document.title!==t&&(document.title=Y(t)),me("title",s)},ye=(t,s)=>{const{baseTag:n,bodyAttributes:i,htmlAttributes:o,linkTags:c,metaTags:l,noscriptTags:p,onChangeClientState:u,scriptTags:h,styleTags:y,title:b,titleAttributes:f}=t;me("body",i),me("html",o),ge(b,f);const T={baseTag:he("base",n),linkTags:he("link",c),metaTags:he("meta",l),noscriptTags:he("noscript",p),scriptTags:he("script",h),styleTags:he("style",y)},O={},A={};Object.keys(T).forEach(t=>{const{newTags:s,oldTags:n}=T[t];s.length&&(O[t]=s),n.length&&(A[t]=T[t].oldTags)}),s&&s(),u(t,O,A)},be=null,fe=t=>{be&&cancelAnimationFrame(be),t.defer?be=requestAnimationFrame(()=>{ye(t,()=>{be=null})}):(ye(t),be=null)},Te=class extends ue.Component{rendered=!1;shouldComponentUpdate(t){return!(0,de.default)(t,this.props)}componentDidUpdate(){this.emitChange()}componentWillUnmount(){const{helmetInstances:t}=this.props.context;t.remove(this),this.emitChange()}emitChange(){const{helmetInstances:t,setHelmet:s}=this.props.context;let n=null;const i=(o=t.get().map(t=>{const s=Object.assign({},t.props);return delete s.context,s}),{baseTag:z(["href"],o),bodyAttributes:R("bodyAttributes",o),defer:N(o,H),encode:N(o,D),htmlAttributes:R("htmlAttributes",o),linkTags:B("link",["rel","href"],o),metaTags:B("meta",["name","charset","http-equiv","property","itemprop"],o),noscriptTags:B("noscript",["innerHTML"],o),onChangeClientState:_(o),scriptTags:B("script",["src","innerHTML"],o),styleTags:B("style",["cssText"],o),title:q(o),titleAttributes:R("titleAttributes",o),prioritizeSeoTags:F(o,U)});var o;pe.canUseDOM?fe(i):ie&&(n=ie(i)),s(n)}init(){if(this.rendered)return;this.rendered=!0;const{helmetInstances:t}=this.props.context;t.add(this),this.emitChange()}render(){return this.init(),null}},Oe=class extends T.Component{static defaultProps={defer:!0,encodeSpecialCharacters:!0,prioritizeSeoTags:!1};shouldComponentUpdate(t){return!(0,O.default)(W(this.props,"helmetData"),W(t,"helmetData"))}mapNestedChildrenToProps(t,s){if(!s)return null;switch(t.type){case"script":case"noscript":return{innerHTML:s};case"style":return{cssText:s};default:throw new Error(`<${t.type} /> elements are self-closing and can not contain children. Refer to our API for more information.`)}}flattenArrayTypeChildren(t,s,n,i){return Object.assign({},s,{[t.type]:[...s[t.type]||[],Object.assign({},n,this.mapNestedChildrenToProps(t,i))]})}mapObjectTypeChildren(t,s,n,i){switch(t.type){case"title":return Object.assign({},s,{[t.type]:i,titleAttributes:Object.assign({},n)});case"body":return Object.assign({},s,{bodyAttributes:Object.assign({},n)});case"html":return Object.assign({},s,{htmlAttributes:Object.assign({},n)});default:return Object.assign({},s,{[t.type]:Object.assign({},n)})}}mapArrayTypeChildrenToProps(t,s){let n=Object.assign({},s);return Object.keys(t).forEach(s=>{n=Object.assign({},n,{[s]:t[s]})}),n}warnOnInvalidChildren(t,s){return(0,A.default)(k.some(s=>t.type===s),"function"==typeof t.type?"You may be attempting to nest <Helmet> components within each other, which is not allowed. Refer to our API for more information.":`Only elements types ${k.join(", ")} are allowed. Helmet does not support rendering <${t.type}> elements. Refer to our API for more information.`),(0,A.default)(!s||"string"==typeof s||Array.isArray(s)&&!s.some(t=>"string"!=typeof t),`Helmet expects a string as a child of <${t.type}>. Did you forget to wrap your children in braces? ( <${t.type}>{\`\`}</${t.type}> ) Refer to our API for more information.`),!0}mapChildrenToProps(n,i){let o={};return T.default.Children.forEach(n,n=>{if(!n||!n.props)return;const c=n.props,{children:l}=c,p=t(c,s),u=Object.keys(p).reduce((t,s)=>(t[M[s]||s]=p[s],t),{});let{type:h}=n;switch("symbol"==typeof h?h=h.toString():this.warnOnInvalidChildren(n,l),h){case"Symbol(react.fragment)":i=this.mapChildrenToProps(l,i);break;case"link":case"meta":case"noscript":case"script":case"style":o=this.flattenArrayTypeChildren(n,o,u,l);break;default:i=this.mapObjectTypeChildren(n,i,u,l)}}),this.mapArrayTypeChildrenToProps(o,i)}render(){const s=this.props,{children:i}=s,o=t(s,n);let c=Object.assign({},o),{helmetData:l}=o;if(i&&(c=this.mapChildrenToProps(i,c)),l&&!(l instanceof ce)){l=new ce(l.context,!0),delete c.helmetData}return l?T.default.createElement(Te,Object.assign({},c,{context:l.value})):T.default.createElement(le.Consumer,null,t=>T.default.createElement(Te,Object.assign({},c,{context:t})))}}},699,[19,32,700,567,701]);
+__d(function(g,r,_i,_a,m,e,d){var t='undefined'!=typeof Element,n='function'==typeof Map,f='function'==typeof Set,o='function'==typeof ArrayBuffer&&!!ArrayBuffer.isView;function i(u,a){if(u===a)return!0;if(u&&a&&'object'==typeof u&&'object'==typeof a){if(u.constructor!==a.constructor)return!1;var c,s,l,p;if(Array.isArray(u)){if((c=u.length)!=a.length)return!1;for(s=c;0!==s--;)if(!i(u[s],a[s]))return!1;return!0}if(n&&u instanceof Map&&a instanceof Map){if(u.size!==a.size)return!1;for(p=u.entries();!(s=p.next()).done;)if(!a.has(s.value[0]))return!1;for(p=u.entries();!(s=p.next()).done;)if(!i(s.value[1],a.get(s.value[0])))return!1;return!0}if(f&&u instanceof Set&&a instanceof Set){if(u.size!==a.size)return!1;for(p=u.entries();!(s=p.next()).done;)if(!a.has(s.value[0]))return!1;return!0}if(o&&ArrayBuffer.isView(u)&&ArrayBuffer.isView(a)){if((c=u.length)!=a.length)return!1;for(s=c;0!==s--;)if(u[s]!==a[s])return!1;return!0}if(u.constructor===RegExp)return u.source===a.source&&u.flags===a.flags;if(u.valueOf!==Object.prototype.valueOf&&'function'==typeof u.valueOf&&'function'==typeof a.valueOf)return u.valueOf()===a.valueOf();if(u.toString!==Object.prototype.toString&&'function'==typeof u.toString&&'function'==typeof a.toString)return u.toString()===a.toString();if((c=(l=Object.keys(u)).length)!==Object.keys(a).length)return!1;for(s=c;0!==s--;)if(!Object.prototype.hasOwnProperty.call(a,l[s]))return!1;if(t&&u instanceof Element)return!1;for(s=c;0!==s--;)if(('_owner'!==l[s]&&'__v'!==l[s]&&'__o'!==l[s]||!u.$$typeof)&&!i(u[l[s]],a[l[s]]))return!1;return!0}return u!=u&&a!=a}m.exports=function(t,n){try{return i(t,n)}catch(t){if((t.message||'').match(/stack|recursion/i))return console.warn('react-fast-compare cannot handle circular refs'),!1;throw t}}},700,[]);
+__d(function(g,r,i,a,m,e,d){m.exports=function(t,n,o,f){var c=o?o.call(f,t,n):void 0;if(void 0!==c)return!!c;if(t===n)return!0;if("object"!=typeof t||!t||"object"!=typeof n||!n)return!1;var u=Object.keys(t),v=Object.keys(n);if(u.length!==v.length)return!1;for(var l=Object.prototype.hasOwnProperty.bind(n),b=0;b<u.length;b++){var p=u[b];if(!l(p))return!1;var y=t[p],j=n[p];if(!1===(c=o?o.call(f,y,j,p):void 0)||void 0===c&&y!==j)return!1}return!0}},701,[]);
+__d(function(g,r,i,a,m,e,d){"use strict";Object.defineProperty(e,"__esModule",{value:!0})},702,[]);
+__d(function(g,r,_i,a,_m,_e,d){"use strict";var e,t=r(d[0]),n=this&&this.__createBinding||(Object.create?function(e,t,n,o){void 0===o&&(o=n);var i=Object.getOwnPropertyDescriptor(t,n);i&&!("get"in i?!t.__esModule:i.writable||i.configurable)||(i={enumerable:!0,get:function(){return t[n]}}),Object.defineProperty(e,o,i)}:function(e,t,n,o){void 0===o&&(o=n),e[o]=t[n]}),o=this&&this.__setModuleDefault||(Object.create?function(e,t){Object.defineProperty(e,"default",{enumerable:!0,value:t})}:function(e,t){e.default=t}),i=this&&this.__importStar||(e=function(t){return e=Object.getOwnPropertyNames||function(e){var t=[];for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[t.length]=n);return t},e(t)},function(t){if(t&&t.__esModule)return t;var i={};if(null!=t)for(var c=e(t),u=0;u<c.length;u++)"default"!==c[u]&&n(i,t,c[u]);return o(i,t),i});Object.defineProperty(_e,"__esModule",{value:!0}),_e.renderRootComponent=function(e){try{setTimeout(()=>{f._internal_preventAutoHideAsync?.()}),u.startTransition(()=>{(0,c.registerRootComponent)(e)})}catch(e){f.hideAsync();const n=b(e);(0,c.registerRootComponent)(()=>t.jsx(s.View,{})),console.error(n),console.error("A runtime error has occurred while rendering the root component."),setTimeout(()=>{throw n})}};const c=r(d[1]),u=i(r(d[2])),s=r(d[3]),f=i(r(d[4]));function l(e){if('[object Object]'!==Object.prototype.toString.call(e))return!1;const t=Object.getPrototypeOf(e);return null===t||t===Object.prototype}function p(e){return e&&'object'==typeof e&&'string'==typeof e.name&&'string'==typeof e.message}function b(e){return p(e)?e:l(e)?new Error(JSON.stringify(e)):new Error(String(e))}},703,[7,513,32,447,512]);
 __r(515);
 __r(3);
 __r(0);
