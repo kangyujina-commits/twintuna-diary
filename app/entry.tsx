@@ -14,6 +14,7 @@ import {
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import * as ImagePicker from 'expo-image-picker'
 import { useDiary, Mood, Weather } from '../src/context/DiaryContext'
+import { useTheme } from '../src/context/ThemeContext'
 
 const MOODS: { emoji: Mood; label: string }[] = [
   { emoji: '😄', label: 'Joy/신나요' },
@@ -50,6 +51,7 @@ export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
   const { getEntry, upsertEntry, deleteEntry, nickname } = useDiary()
+  const { colors } = useTheme()
 
   const existing = date ? getEntry(date) : undefined
 
@@ -120,20 +122,20 @@ export default function EntryScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
         {/* Header */}
-        <View style={styles.header}>
+        <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-            <Text style={styles.backArrow}>‹</Text>
+            <Text style={[styles.backArrow, { color: colors.accent }]}>‹</Text>
           </TouchableOpacity>
-          <Text style={styles.dateLabel}>{date ? formatDate(date) : ''}</Text>
+          <Text style={[styles.dateLabel, { color: colors.text }]}>{date ? formatDate(date) : ''}</Text>
           {existing && isEditing ? (
             <TouchableOpacity onPress={() => setShowDeleteConfirm(true)} style={styles.editBtn}>
-              <Text style={styles.deleteTxt}>Delete / 삭제</Text>
+              <Text style={styles.deleteTxt}>삭제</Text>
             </TouchableOpacity>
           ) : (
             <View style={{ width: 44 }} />
@@ -142,14 +144,14 @@ export default function EntryScreen() {
 
         {/* 삭제 확인 */}
         {showDeleteConfirm && (
-          <View style={styles.deleteConfirmBar}>
-            <Text style={styles.deleteConfirmTxt}>Delete this diary? / 이 날의 일기를 삭제할까요?</Text>
+          <View style={[styles.deleteConfirmBar, { backgroundColor: colors.card, borderBottomColor: colors.cardBorder }]}>
+            <Text style={[styles.deleteConfirmTxt, { color: colors.text }]}>이 날의 일기를 삭제할까요?</Text>
             <View style={styles.deleteConfirmBtns}>
-              <TouchableOpacity style={styles.deleteConfirmCancel} onPress={() => setShowDeleteConfirm(false)}>
-                <Text style={styles.deleteConfirmCancelTxt}>Cancel / 취소</Text>
+              <TouchableOpacity style={[styles.deleteConfirmCancel, { borderColor: colors.accent }]} onPress={() => setShowDeleteConfirm(false)}>
+                <Text style={[styles.deleteConfirmCancelTxt, { color: colors.accentText }]}>취소</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.deleteConfirmOk} onPress={handleDelete}>
-                <Text style={styles.deleteConfirmOkTxt}>Delete / 삭제</Text>
+                <Text style={styles.deleteConfirmOkTxt}>삭제</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -158,18 +160,18 @@ export default function EntryScreen() {
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           {/* 작성자 */}
           {!isEditing && existing?.author && (
-            <View style={styles.authorBadge}>
-              <Text style={styles.authorText}>✍️ {existing.author}</Text>
+            <View style={[styles.authorBadge, { backgroundColor: colors.todayBg }]}>
+              <Text style={[styles.authorText, { color: colors.todayText }]}>✍️ {existing.author}</Text>
             </View>
           )}
 
           {/* Mood */}
-          <Text style={styles.sectionLabel}>Mood / 오늘의 기분</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Mood / 오늘의 기분</Text>
           <View style={styles.emojiRow}>
             {MOODS.map((m) => (
               <TouchableOpacity
                 key={m.emoji}
-                style={[styles.emojiBtn, mood === m.emoji && styles.emojiBtnActive, !isEditing && mood !== m.emoji && styles.emojiBtnDisabled]}
+                style={[styles.emojiBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }, mood === m.emoji && { borderColor: colors.accent, backgroundColor: colors.todayBg }, !isEditing && mood !== m.emoji && styles.emojiBtnDisabled]}
                 onPress={() => isEditing && setMood(mood === m.emoji ? undefined : m.emoji)}
                 activeOpacity={isEditing ? 0.7 : 1}
               >
@@ -212,12 +214,12 @@ export default function EntryScreen() {
           </View>
 
           {/* Weather */}
-          <Text style={styles.sectionLabel}>Weather / 오늘의 날씨</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Weather / 오늘의 날씨</Text>
           <View style={styles.emojiRow}>
             {WEATHERS.map((w) => (
               <TouchableOpacity
                 key={w.emoji}
-                style={[styles.emojiBtn, weather === w.emoji && styles.emojiBtnActive, !isEditing && weather !== w.emoji && styles.emojiBtnDisabled]}
+                style={[styles.emojiBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }, weather === w.emoji && { borderColor: colors.accent, backgroundColor: colors.todayBg }, !isEditing && weather !== w.emoji && styles.emojiBtnDisabled]}
                 onPress={() => isEditing && setWeather(weather === w.emoji ? undefined : w.emoji)}
                 activeOpacity={isEditing ? 0.7 : 1}
               >
@@ -259,47 +261,43 @@ export default function EntryScreen() {
           </View>
 
           {/* Schedule */}
-          <Text style={styles.sectionLabel}>Schedule / 일정</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Schedule / 일정</Text>
           {isEditing ? (
             <TextInput
-              style={styles.scheduleInput}
+              style={[styles.scheduleInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
               placeholder="오늘의 일정을 입력하세요 🐈‍⬛"
-              placeholderTextColor="#c5a890"
-              value={schedule}
-              onChangeText={setSchedule}
-              returnKeyType="done"
+              placeholderTextColor={colors.hint}
+              value={schedule} onChangeText={setSchedule} returnKeyType="done"
             />
           ) : (
-            <View style={styles.scheduleView}>
-              <Text style={schedule ? styles.scheduleContent : styles.textEmpty}>
-                {schedule || 'No schedule / 일정 없음'}
+            <View style={[styles.scheduleView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={schedule ? [styles.scheduleContent, { color: colors.text }] : [styles.textEmpty, { color: colors.hint }]}>
+                {schedule || '일정 없음'}
               </Text>
             </View>
           )}
 
           {/* Text */}
-          <Text style={styles.sectionLabel}>Today / 오늘 하루</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Today / 오늘 하루</Text>
           {isEditing ? (
             <TextInput
-              style={styles.textInput}
+              style={[styles.textInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
               multiline
-              placeholder="How was your day? / 오늘은 어떤 하루였나요? ✍️"
-              placeholderTextColor="#c5a890"
-              value={text}
-              onChangeText={setText}
-              textAlignVertical="top"
-              autoFocus={!!existing}
+              placeholder="오늘은 어떤 하루였나요? ✍️"
+              placeholderTextColor={colors.hint}
+              value={text} onChangeText={setText}
+              textAlignVertical="top" autoFocus={!!existing}
             />
           ) : (
-            <View style={styles.textView}>
-              <Text style={text ? styles.textContent : styles.textEmpty}>
-                {text || 'No entry / 기록 없음'}
+            <View style={[styles.textView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={text ? [styles.textContent, { color: colors.text }] : [styles.textEmpty, { color: colors.hint }]}>
+                {text || '기록 없음'}
               </Text>
             </View>
           )}
 
           {/* Photo */}
-          <Text style={styles.sectionLabel}>Photo / 사진</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Photo / 사진</Text>
           {photoUris.length > 0 && (
             <View style={styles.photoGrid}>
               {photoUris.map((uri, idx) => (
@@ -320,39 +318,39 @@ export default function EntryScreen() {
           {isEditing ? (
             showPhotoMenu ? (
               <View style={styles.photoMenuRow}>
-                <TouchableOpacity style={styles.photoMenuBtn} onPress={async () => { setShowPhotoMenu(false); await takePhoto() }} activeOpacity={0.7}>
+                <TouchableOpacity style={[styles.photoMenuBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={async () => { setShowPhotoMenu(false); await takePhoto() }} activeOpacity={0.7}>
                   <Text style={styles.photoMenuIcon}>📸</Text>
-                  <Text style={styles.photoMenuTxt}>Camera / 카메라</Text>
+                  <Text style={[styles.photoMenuTxt, { color: colors.textMuted }]}>카메라</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.photoMenuBtn} onPress={async () => { setShowPhotoMenu(false); await pickPhoto() }} activeOpacity={0.7}>
+                <TouchableOpacity style={[styles.photoMenuBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={async () => { setShowPhotoMenu(false); await pickPhoto() }} activeOpacity={0.7}>
                   <Text style={styles.photoMenuIcon}>🖼️</Text>
-                  <Text style={styles.photoMenuTxt}>Album / 앨범</Text>
+                  <Text style={[styles.photoMenuTxt, { color: colors.textMuted }]}>앨범</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.photoMenuBtn, styles.photoMenuCancel]} onPress={() => setShowPhotoMenu(false)} activeOpacity={0.7}>
+                <TouchableOpacity style={[styles.photoMenuBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={() => setShowPhotoMenu(false)} activeOpacity={0.7}>
                   <Text style={styles.photoMenuIcon}>✕</Text>
-                  <Text style={styles.photoMenuTxt}>Cancel / 취소</Text>
+                  <Text style={[styles.photoMenuTxt, { color: colors.textMuted }]}>취소</Text>
                 </TouchableOpacity>
               </View>
             ) : (
-              <TouchableOpacity style={styles.photoAddBtn} onPress={() => setShowPhotoMenu(true)} activeOpacity={0.7}>
+              <TouchableOpacity style={[styles.photoAddBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={() => setShowPhotoMenu(true)} activeOpacity={0.7}>
                 <Text style={styles.photoAddIcon}>📷</Text>
-                <Text style={styles.photoAddTxt}>Add Photo / 사진 추가</Text>
+                <Text style={[styles.photoAddTxt, { color: colors.textMuted }]}>사진 추가</Text>
               </TouchableOpacity>
             )
           ) : photoUris.length === 0 ? (
-            <View style={styles.photoEmpty}>
-              <Text style={styles.textEmpty}>No photos / 사진 없음</Text>
+            <View style={[styles.photoEmpty, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.textEmpty, { color: colors.hint }]}>사진 없음</Text>
             </View>
           ) : null}
 
           {/* 버튼 */}
           {!isEditing && existing ? (
-            <TouchableOpacity style={styles.editBtnBottom} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
-              <Text style={styles.editBtnTxt}>Edit / 편집</Text>
+            <TouchableOpacity style={[styles.editBtnBottom, { borderColor: colors.accent }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
+              <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
             </TouchableOpacity>
           ) : isEditing ? (
-            <TouchableOpacity style={styles.saveBtn} onPress={handleSave} activeOpacity={0.8}>
-              <Text style={styles.saveTxt}>Save / 저장하기</Text>
+            <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
+              <Text style={styles.saveTxt}>저장하기</Text>
             </TouchableOpacity>
           ) : null}
         </ScrollView>
