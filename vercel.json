@@ -1,5 +1,5 @@
 {
-  "buildCommand": "",
+  "buildCommand": "npm run build:web",
   "outputDirectory": "dist",
   "framework": null
 }
