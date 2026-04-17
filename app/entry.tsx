@@ -339,7 +339,7 @@ export default function EntryScreen() {
           {/* 버튼 */}
           {!isEditing && existing ? (
             <View style={styles.bottomBtnRow}>
-              <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
+              <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent, backgroundColor: colors.card, marginTop: 0 }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
                 <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
               </TouchableOpacity>
               {(!existing.author || existing.author === nickname) && (
@@ -555,7 +555,7 @@ const styles = StyleSheet.create({
   authorBadge: { alignSelf: 'flex-start', backgroundColor: '#fff0e6', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 5, marginBottom: 4 },
   authorText: { fontSize: 13, color: '#a07050', fontWeight: '600' },
 
-  bottomBtnRow: { flexDirection: 'row', gap: 10, marginTop: 24 },
+  bottomBtnRow: { flexDirection: 'row', gap: 10, marginTop: 24, alignItems: 'center' },
   deleteBtnBottom: { width: 52, height: 52, borderRadius: 16, backgroundColor: '#fff0f0', borderWidth: 1.5, borderColor: '#f5c0c0', alignItems: 'center', justifyContent: 'center' },
   deleteBtnTxt: { fontSize: 20 },
 })
