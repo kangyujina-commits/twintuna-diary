@@ -55,6 +55,7 @@ export default function EntryScreen() {
   const [text, setText] = useState(existing?.text ?? '')
   const [photoUri, setPhotoUri] = useState<string | undefined>(existing?.photo_uri)
   const [isEditing, setIsEditing] = useState(!existing)
+  const [showPhotoMenu, setShowPhotoMenu] = useState(false)
 
   useEffect(() => {
     if (existing) {
@@ -99,13 +100,6 @@ export default function EntryScreen() {
     }
   }
 
-  function showPhotoOptions() {
-    Alert.alert('사진 추가', '', [
-      { text: '카메라로 찍기', onPress: takePhoto },
-      { text: '앨범에서 선택', onPress: pickPhoto },
-      { text: '취소', style: 'cancel' },
-    ])
-  }
 
   function handleSave() {
     if (!date) return
@@ -231,10 +225,27 @@ export default function EntryScreen() {
               )}
             </View>
           ) : isEditing ? (
-            <TouchableOpacity style={styles.photoAddBtn} onPress={showPhotoOptions} activeOpacity={0.7}>
-              <Text style={styles.photoAddIcon}>📷</Text>
-              <Text style={styles.photoAddTxt}>사진 추가</Text>
-            </TouchableOpacity>
+            showPhotoMenu ? (
+              <View style={styles.photoMenuRow}>
+                <TouchableOpacity style={styles.photoMenuBtn} onPress={async () => { setShowPhotoMenu(false); await takePhoto() }} activeOpacity={0.7}>
+                  <Text style={styles.photoMenuIcon}>📸</Text>
+                  <Text style={styles.photoMenuTxt}>카메라</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.photoMenuBtn} onPress={async () => { setShowPhotoMenu(false); await pickPhoto() }} activeOpacity={0.7}>
+                  <Text style={styles.photoMenuIcon}>🖼️</Text>
+                  <Text style={styles.photoMenuTxt}>앨범</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.photoMenuBtn, styles.photoMenuCancel]} onPress={() => setShowPhotoMenu(false)} activeOpacity={0.7}>
+                  <Text style={styles.photoMenuIcon}>✕</Text>
+                  <Text style={styles.photoMenuTxt}>취소</Text>
+                </TouchableOpacity>
+              </View>
+            ) : (
+              <TouchableOpacity style={styles.photoAddBtn} onPress={() => setShowPhotoMenu(true)} activeOpacity={0.7}>
+                <Text style={styles.photoAddIcon}>📷</Text>
+                <Text style={styles.photoAddTxt}>사진 추가</Text>
+              </TouchableOpacity>
+            )
           ) : (
             <View style={styles.photoEmpty}>
               <Text style={styles.textEmpty}>사진 없음</Text>
@@ -326,6 +337,21 @@ const styles = StyleSheet.create({
   },
   textContent: { fontSize: 15, color: '#3d2c1e', lineHeight: 24 },
   textEmpty: { fontSize: 14, color: '#c5a890' },
+
+  photoMenuRow: { flexDirection: 'row', gap: 8 },
+  photoMenuBtn: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderRadius: 14,
+    borderWidth: 1.5,
+    borderColor: '#f0e0d0',
+    paddingVertical: 14,
+    alignItems: 'center',
+    gap: 4,
+  },
+  photoMenuCancel: { borderColor: '#f0c0c0', backgroundColor: '#fff8f8' },
+  photoMenuIcon: { fontSize: 22 },
+  photoMenuTxt: { fontSize: 12, color: '#a08070' },
 
   photoContainer: { position: 'relative', borderRadius: 16, overflow: 'hidden' },
   photo: { width: '100%', height: 220, borderRadius: 16 },
