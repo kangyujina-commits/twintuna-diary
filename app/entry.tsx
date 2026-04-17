@@ -98,11 +98,7 @@ export default function EntryScreen() {
             <Text style={styles.backArrow}>‹</Text>
           </TouchableOpacity>
           <Text style={styles.dateLabel}>{date ? formatDate(date) : ''}</Text>
-          {existing && !isEditing ? (
-            <TouchableOpacity onPress={() => setIsEditing(true)} style={styles.editBtn}>
-              <Text style={styles.editTxt}>편집</Text>
-            </TouchableOpacity>
-          ) : existing && isEditing ? (
+          {existing && isEditing ? (
             <TouchableOpacity onPress={handleDelete} style={styles.editBtn}>
               <Text style={styles.deleteTxt}>삭제</Text>
             </TouchableOpacity>
@@ -182,11 +178,15 @@ export default function EntryScreen() {
           )}
 
           {/* 버튼 */}
-          {isEditing && (
+          {!isEditing && existing ? (
+            <TouchableOpacity style={styles.editBtnBottom} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
+              <Text style={styles.editBtnTxt}>편집</Text>
+            </TouchableOpacity>
+          ) : isEditing ? (
             <TouchableOpacity style={styles.saveBtn} onPress={handleSave} activeOpacity={0.8}>
               <Text style={styles.saveTxt}>저장하기</Text>
             </TouchableOpacity>
-          )}
+          ) : null}
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -263,6 +263,17 @@ const styles = StyleSheet.create({
   },
   textContent: { fontSize: 15, color: '#3d2c1e', lineHeight: 24 },
   textEmpty: { fontSize: 15, color: '#c5a890' },
+
+  editBtnBottom: {
+    borderRadius: 16,
+    paddingVertical: 15,
+    alignItems: 'center',
+    marginTop: 24,
+    borderWidth: 1.5,
+    borderColor: '#c9a882',
+    backgroundColor: '#fff',
+  },
+  editBtnTxt: { fontSize: 16, fontWeight: '600', color: '#c9a882', letterSpacing: 0.5 },
 
   saveBtn: {
     backgroundColor: '#c9a882',
