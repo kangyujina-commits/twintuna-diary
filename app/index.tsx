@@ -158,16 +158,12 @@ export default function CalendarScreen() {
                 </Text>
                 {entry?.mood
                   ? <Text style={styles.icon}>{entry.mood}</Text>
-                  : entry?.text?.trim()
-                    ? <Text style={styles.icon}>✏️</Text>
-                    : entry?.schedule?.trim()
-                      ? <Text style={styles.icon}>🐈‍⬛</Text>
-                      : null}
-                {entry?.weather
-                  ? <Text style={styles.icon}>{entry.weather}</Text>
-                  : entry?.photo_uris?.length
-                    ? <Text style={styles.icon}>📷</Text>
-                    : null}
+                  : null}
+                {entry?.schedule?.trim()
+                  ? <Text style={styles.schedulePreview} numberOfLines={1} ellipsizeMode="tail">
+                      {entry.schedule.trim()}
+                    </Text>
+                  : null}
               </TouchableOpacity>
             )
           })}
@@ -240,6 +236,13 @@ const styles = StyleSheet.create({
   sun: { color: '#e05c5c' },
   sat: { color: '#5b8ee0' },
   icon: { fontSize: 14, lineHeight: 18 },
+  schedulePreview: {
+    fontSize: 9,
+    color: '#8b6f56',
+    width: '92%',
+    textAlign: 'center',
+    lineHeight: 12,
+  },
 
   legend: { alignItems: 'center', marginTop: 20 },
   legendText: { fontSize: 12, color: '#b09080' },
