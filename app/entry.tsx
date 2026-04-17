@@ -169,9 +169,6 @@ export default function EntryScreen() {
                 <Text style={[styles.emojiIcon, !isEditing && mood !== m.emoji && styles.emojiDim]}>
                   {m.emoji}
                 </Text>
-                <Text style={[styles.emojiLabel, mood === m.emoji && styles.emojiLabelActive]}>
-                  {m.label}
-                </Text>
               </TouchableOpacity>
             ))}
           </View>
@@ -192,9 +189,6 @@ export default function EntryScreen() {
               >
                 <Text style={[styles.emojiIcon, !isEditing && weather !== w.emoji && styles.emojiDim]}>
                   {w.emoji}
-                </Text>
-                <Text style={[styles.emojiLabel, weather === w.emoji && styles.emojiLabelActive]}>
-                  {w.label}
                 </Text>
               </TouchableOpacity>
             ))}
