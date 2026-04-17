@@ -156,8 +156,16 @@ export default function CalendarScreen() {
                 >
                   {day}
                 </Text>
-                {entry?.mood && <Text style={styles.icon}>{entry.mood}</Text>}
-                {entry?.weather && <Text style={styles.icon}>{entry.weather}</Text>}
+                {entry?.mood
+                  ? <Text style={styles.icon}>{entry.mood}</Text>
+                  : entry?.text?.trim()
+                    ? <Text style={styles.icon}>✏️</Text>
+                    : null}
+                {entry?.weather
+                  ? <Text style={styles.icon}>{entry.weather}</Text>
+                  : entry?.photo_uris?.length
+                    ? <Text style={styles.icon}>📷</Text>
+                    : null}
               </TouchableOpacity>
             )
           })}
