@@ -53,7 +53,7 @@ export default function EntryScreen() {
   const [mood, setMood] = useState<Mood | undefined>(existing?.mood)
   const [weather, setWeather] = useState<Weather | undefined>(existing?.weather)
   const [text, setText] = useState(existing?.text ?? '')
-  const [photoUri, setPhotoUri] = useState<string | undefined>(existing?.photo_uri)
+  const [photoUris, setPhotoUris] = useState<string[]>(existing?.photo_uris ?? [])
   const [isEditing, setIsEditing] = useState(!existing)
   const [showPhotoMenu, setShowPhotoMenu] = useState(false)
 
@@ -62,7 +62,7 @@ export default function EntryScreen() {
       setMood(existing.mood)
       setWeather(existing.weather)
       setText(existing.text ?? '')
-      setPhotoUri(existing.photo_uri)
+      setPhotoUris(existing.photo_uris ?? [])
       setIsEditing(false)
     } else {
       setIsEditing(true)
@@ -77,11 +77,11 @@ export default function EntryScreen() {
     }
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
+      allowsMultipleSelection: true,
       quality: 0.8,
     })
     if (!result.canceled) {
-      setPhotoUri(result.assets[0].uri)
+      setPhotoUris((prev) => [...prev, ...result.assets.map((a) => a.uri)])
     }
   }
 
@@ -91,19 +91,15 @@ export default function EntryScreen() {
       Alert.alert('권한 필요', '카메라 권한이 필요해요.')
       return
     }
-    const result = await ImagePicker.launchCameraAsync({
-      allowsEditing: true,
-      quality: 0.8,
-    })
+    const result = await ImagePicker.launchCameraAsync({ quality: 0.8 })
     if (!result.canceled) {
-      setPhotoUri(result.assets[0].uri)
+      setPhotoUris((prev) => [...prev, result.assets[0].uri])
     }
   }
 
-
   function handleSave() {
     if (!date) return
-    upsertEntry({ date, mood, weather, text: text.trim(), photo_uri: photoUri })
+    upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: photoUris })
     setIsEditing(false)
   }
 
@@ -215,16 +211,24 @@ export default function EntryScreen() {
 
           {/* Photo */}
           <Text style={styles.sectionLabel}>사진</Text>
-          {photoUri ? (
-            <View style={styles.photoContainer}>
-              <Image source={{ uri: photoUri }} style={styles.photo} resizeMode="cover" />
-              {isEditing && (
-                <TouchableOpacity style={styles.photoRemoveBtn} onPress={() => setPhotoUri(undefined)}>
-                  <Text style={styles.photoRemoveTxt}>✕</Text>
-                </TouchableOpacity>
-              )}
+          {photoUris.length > 0 && (
+            <View style={styles.photoGrid}>
+              {photoUris.map((uri, idx) => (
+                <View key={uri + idx} style={styles.photoThumbContainer}>
+                  <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
+                  {isEditing && (
+                    <TouchableOpacity
+                      style={styles.photoRemoveBtn}
+                      onPress={() => setPhotoUris((prev) => prev.filter((_, i) => i !== idx))}
+                    >
+                      <Text style={styles.photoRemoveTxt}>✕</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              ))}
             </View>
-          ) : isEditing ? (
+          )}
+          {isEditing ? (
             showPhotoMenu ? (
               <View style={styles.photoMenuRow}>
                 <TouchableOpacity style={styles.photoMenuBtn} onPress={async () => { setShowPhotoMenu(false); await takePhoto() }} activeOpacity={0.7}>
@@ -246,11 +250,11 @@ export default function EntryScreen() {
                 <Text style={styles.photoAddTxt}>사진 추가</Text>
               </TouchableOpacity>
             )
-          ) : (
+          ) : photoUris.length === 0 ? (
             <View style={styles.photoEmpty}>
               <Text style={styles.textEmpty}>사진 없음</Text>
             </View>
-          )}
+          ) : null}
 
           {/* 버튼 */}
           {!isEditing && existing ? (
@@ -353,8 +357,9 @@ const styles = StyleSheet.create({
   photoMenuIcon: { fontSize: 22 },
   photoMenuTxt: { fontSize: 12, color: '#a08070' },
 
-  photoContainer: { position: 'relative', borderRadius: 16, overflow: 'hidden' },
-  photo: { width: '100%', height: 220, borderRadius: 16 },
+  photoGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 8 },
+  photoThumbContainer: { position: 'relative', width: '47%', aspectRatio: 1, borderRadius: 12, overflow: 'hidden' },
+  photoThumb: { width: '100%', height: '100%' },
   photoRemoveBtn: {
     position: 'absolute',
     top: 10,

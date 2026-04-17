@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Expo Dev Server",
+      "runtimeExecutable": "/Users/yjk/.nvm/versions/node/v24.14.1/bin/node",
+      "runtimeArgs": ["/Users/yjk/.nvm/versions/node/v24.14.1/bin/npm", "run", "start"],
+      "port": 8082
+    },
+    {
+      "name": "Expo Web",
+      "runtimeExecutable": "/Users/yjk/.nvm/versions/node/v24.14.1/bin/node",
+      "runtimeArgs": ["/Users/yjk/.nvm/versions/node/v24.14.1/bin/npm", "run", "web"],
+      "port": 8082
+    }
+  ]
+}
