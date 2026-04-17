@@ -339,13 +339,19 @@ export default function EntryScreen() {
           {/* 버튼 */}
           {!isEditing && existing ? (
             <View style={styles.bottomBtnRow}>
-              <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent, backgroundColor: colors.card, marginTop: 0 }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
-                <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
-              </TouchableOpacity>
-              {(!existing.author || existing.author === nickname) && (
-                <TouchableOpacity style={[styles.deleteBtnBottom]} onPress={() => setShowDeleteConfirm(true)} activeOpacity={0.8}>
-                  <Text style={styles.deleteBtnTxt}>🗑️</Text>
-                </TouchableOpacity>
+              {(!existing.author || existing.author === nickname) ? (
+                <>
+                  <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent, backgroundColor: colors.card, marginTop: 0 }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
+                    <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.deleteBtnBottom} onPress={() => setShowDeleteConfirm(true)} activeOpacity={0.8}>
+                    <Text style={styles.deleteBtnTxt}>🗑️</Text>
+                  </TouchableOpacity>
+                </>
+              ) : (
+                <View style={[styles.editBtnBottom, { flex: 1, backgroundColor: colors.card, borderColor: colors.cardBorder, marginTop: 0 }]}>
+                  <Text style={[styles.editBtnTxt, { color: colors.textMuted }]}>읽기 전용</Text>
+                </View>
               )}
             </View>
           ) : isEditing ? (
