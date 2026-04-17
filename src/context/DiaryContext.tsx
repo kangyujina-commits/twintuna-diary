@@ -10,6 +10,7 @@ export interface DiaryEntry {
   mood?: Mood
   weather?: Weather
   text?: string
+  photo_uri?: string
 }
 
 interface DiaryContextValue {
