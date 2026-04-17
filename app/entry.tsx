@@ -10,7 +10,6 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
-  Alert,
 } from 'react-native'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import * as ImagePicker from 'expo-image-picker'
@@ -56,6 +55,7 @@ export default function EntryScreen() {
   const [photoUris, setPhotoUris] = useState<string[]>(existing?.photo_uris ?? [])
   const [isEditing, setIsEditing] = useState(!existing)
   const [showPhotoMenu, setShowPhotoMenu] = useState(false)
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
   useEffect(() => {
     if (existing) {
@@ -105,17 +105,8 @@ export default function EntryScreen() {
 
   function handleDelete() {
     if (!date) return
-    Alert.alert('일기 삭제', '이 날의 일기를 삭제할까요?', [
-      { text: '취소', style: 'cancel' },
-      {
-        text: '삭제',
-        style: 'destructive',
-        onPress: () => {
-          deleteEntry(date)
-          router.back()
-        },
-      },
-    ])
+    deleteEntry(date)
+    router.back()
   }
 
   return (
@@ -131,13 +122,28 @@ export default function EntryScreen() {
           </TouchableOpacity>
           <Text style={styles.dateLabel}>{date ? formatDate(date) : ''}</Text>
           {existing && isEditing ? (
-            <TouchableOpacity onPress={handleDelete} style={styles.editBtn}>
+            <TouchableOpacity onPress={() => setShowDeleteConfirm(true)} style={styles.editBtn}>
               <Text style={styles.deleteTxt}>삭제</Text>
             </TouchableOpacity>
           ) : (
             <View style={{ width: 44 }} />
           )}
         </View>
+
+        {/* 삭제 확인 */}
+        {showDeleteConfirm && (
+          <View style={styles.deleteConfirmBar}>
+            <Text style={styles.deleteConfirmTxt}>이 날의 일기를 삭제할까요?</Text>
+            <View style={styles.deleteConfirmBtns}>
+              <TouchableOpacity style={styles.deleteConfirmCancel} onPress={() => setShowDeleteConfirm(false)}>
+                <Text style={styles.deleteConfirmCancelTxt}>취소</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.deleteConfirmOk} onPress={handleDelete}>
+                <Text style={styles.deleteConfirmOkTxt}>삭제</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           {/* Mood */}
@@ -415,4 +421,32 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   saveTxt: { fontSize: 16, fontWeight: '700', color: '#fff', letterSpacing: 0.5 },
+
+  deleteConfirmBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    backgroundColor: '#fff4f4',
+    borderBottomWidth: 1,
+    borderBottomColor: '#f5d0d0',
+  },
+  deleteConfirmTxt: { fontSize: 13, color: '#3d2c1e', flex: 1 },
+  deleteConfirmBtns: { flexDirection: 'row', gap: 8 },
+  deleteConfirmCancel: {
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#d0b0a0',
+  },
+  deleteConfirmCancelTxt: { fontSize: 13, color: '#8b5e3c' },
+  deleteConfirmOk: {
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderRadius: 10,
+    backgroundColor: '#e05c5c',
+  },
+  deleteConfirmOkTxt: { fontSize: 13, color: '#fff', fontWeight: '600' },
 })
