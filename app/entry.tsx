@@ -179,9 +179,9 @@ export default function EntryScreen() {
               </TouchableOpacity>
             )}
             {isEditing && showCustomMood && (
-              <View style={[styles.emojiBtn, styles.emojiBtnActive, { width: 64 }]}>
+              <View style={[styles.emojiBtn, { width: 64, backgroundColor: colors.todayBg, borderColor: colors.accent }]}>
                 <TextInput
-                  style={styles.customEmojiInput}
+                  style={[styles.customEmojiInput, { color: colors.text }]}
                   value={customMoodInput}
                   onChangeText={(t) => {
                     setCustomMoodInput(t)
@@ -195,14 +195,13 @@ export default function EntryScreen() {
                 />
               </View>
             )}
-            {/* 선택된 커스텀 이모지 표시 (프리셋 아닐 때) */}
             {mood && !MOODS.find((m) => m.emoji === mood) && !showCustomMood && (
               <TouchableOpacity
-                style={[styles.emojiBtn, styles.emojiBtnActive]}
+                style={[styles.emojiBtn, { backgroundColor: colors.todayBg, borderColor: colors.accent }]}
                 onPress={() => isEditing && setMood(undefined)}
                 activeOpacity={isEditing ? 0.7 : 1}
               >
-                <Text style={styles.emojiIcon}>{mood}</Text>
+                <Text style={[styles.emojiIcon, { color: colors.text }]}>{mood}</Text>
               </TouchableOpacity>
             )}
           </View>
@@ -227,9 +226,9 @@ export default function EntryScreen() {
               </TouchableOpacity>
             )}
             {isEditing && showCustomWeather && (
-              <View style={[styles.emojiBtn, styles.emojiBtnActive, { width: 64 }]}>
+              <View style={[styles.emojiBtn, { width: 64, backgroundColor: colors.todayBg, borderColor: colors.accent }]}>
                 <TextInput
-                  style={styles.customEmojiInput}
+                  style={[styles.customEmojiInput, { color: colors.text }]}
                   value={customWeatherInput}
                   onChangeText={(t) => {
                     setCustomWeatherInput(t)
@@ -245,11 +244,11 @@ export default function EntryScreen() {
             )}
             {weather && !WEATHERS.find((w) => w.emoji === weather) && !showCustomWeather && (
               <TouchableOpacity
-                style={[styles.emojiBtn, styles.emojiBtnActive]}
+                style={[styles.emojiBtn, { backgroundColor: colors.todayBg, borderColor: colors.accent }]}
                 onPress={() => isEditing && setWeather(undefined)}
                 activeOpacity={isEditing ? 0.7 : 1}
               >
-                <Text style={styles.emojiIcon}>{weather}</Text>
+                <Text style={[styles.emojiIcon, { color: colors.text }]}>{weather}</Text>
               </TouchableOpacity>
             )}
           </View>
@@ -407,7 +406,7 @@ const styles = StyleSheet.create({
   emojiDim: { opacity: 0.4 },
   emojiLabel: { fontSize: 11, color: '#b09080', marginTop: 2 },
   emojiLabelActive: { color: '#8b5e3c', fontWeight: '600' },
-  customEmojiInput: { fontSize: 22, textAlign: 'center', width: 40 },
+  customEmojiInput: { fontSize: 22, textAlign: 'center', width: 40, color: '#3d2c1e' },
 
   scheduleInput: {
     backgroundColor: '#fff',
