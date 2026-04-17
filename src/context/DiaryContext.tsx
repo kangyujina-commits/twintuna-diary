@@ -1,12 +1,14 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { collection, doc, setDoc, deleteDoc, onSnapshot } from 'firebase/firestore'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { db } from '../firebase'
 
 export type Mood = '😊' | '😄' | '😐' | '😢' | '😠' | '😴' | '🥰' | '😰'
 export type Weather = '☀️' | '⛅' | '🌧️' | '❄️' | '🌩️' | '🌈'
 
 export interface DiaryEntry {
   id: string
-  date: string   // 'YYYY-MM-DD'
+  date: string
   mood?: Mood
   weather?: Weather
   text?: string
@@ -14,55 +16,68 @@ export interface DiaryEntry {
   schedule?: string
 }
 
-interface DiaryContextValue {
-  entries: DiaryEntry[]
-  getEntry: (date: string) => DiaryEntry | undefined
-  upsertEntry: (entry: Omit<DiaryEntry, 'id'> & { id?: string }) => void
-  deleteEntry: (date: string) => void
+const DIARY_ID_KEY = '@twintuna_diary:diaryId'
+
+function generateCode() {
+  return Math.random().toString(36).substring(2, 8).toUpperCase()
 }
 
-const STORAGE_KEY = '@twintuna_diary:entries'
+interface DiaryContextValue {
+  diaryId: string
+  entries: Record<string, DiaryEntry>
+  getEntry: (date: string) => DiaryEntry | undefined
+  upsertEntry: (entry: DiaryEntry) => Promise<void>
+  deleteEntry: (date: string) => Promise<void>
+  connectDiary: (code: string) => Promise<void>
+}
 
 const DiaryContext = createContext<DiaryContextValue | null>(null)
 
 export function DiaryProvider({ children }: { children: ReactNode }) {
-  const [entries, setEntriesState] = useState<DiaryEntry[]>([])
-  const [loaded, setLoaded] = useState(false)
+  const [diaryId, setDiaryId] = useState('')
+  const [entries, setEntries] = useState<Record<string, DiaryEntry>>({})
 
   useEffect(() => {
-    AsyncStorage.getItem(STORAGE_KEY).then((json) => {
-      if (json) setEntriesState(JSON.parse(json))
-      setLoaded(true)
+    AsyncStorage.getItem(DIARY_ID_KEY).then((saved) => {
+      const id = saved || generateCode()
+      if (!saved) AsyncStorage.setItem(DIARY_ID_KEY, id)
+      setDiaryId(id)
     })
   }, [])
 
-  function setEntries(updater: DiaryEntry[] | ((prev: DiaryEntry[]) => DiaryEntry[])) {
-    setEntriesState((prev) => {
-      const next = typeof updater === 'function' ? updater(prev) : updater
-      AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next))
-      return next
+  useEffect(() => {
+    if (!diaryId) return
+    const unsub = onSnapshot(collection(db, 'diaries', diaryId, 'entries'), (snap) => {
+      const next: Record<string, DiaryEntry> = {}
+      snap.forEach((d) => { next[d.id] = d.data() as DiaryEntry })
+      setEntries(next)
     })
+    return unsub
+  }, [diaryId])
+
+  const getEntry = (date: string) => entries[date]
+
+  async function upsertEntry(entry: DiaryEntry) {
+    if (!diaryId) return
+    await setDoc(doc(db, 'diaries', diaryId, 'entries', entry.date), entry)
   }
 
-  const getEntry = (date: string) => entries.find((e) => e.date === date)
-
-  function upsertEntry(entry: Omit<DiaryEntry, 'id'> & { id?: string }) {
-    setEntries((prev) => {
-      const existing = prev.find((e) => e.date === entry.date)
-      if (existing) {
-        return prev.map((e) => (e.date === entry.date ? { ...e, ...entry, id: e.id } : e))
-      }
-      return [...prev, { id: Date.now().toString(), ...entry }]
-    })
+  async function deleteEntry(date: string) {
+    if (!diaryId) return
+    await deleteDoc(doc(db, 'diaries', diaryId, 'entries', date))
   }
 
-  const deleteEntry = (date: string) =>
-    setEntries((prev) => prev.filter((e) => e.date !== date))
+  async function connectDiary(code: string) {
+    const newId = code.trim().toUpperCase()
+    await AsyncStorage.setItem(DIARY_ID_KEY, newId)
+    setEntries({})
+    setDiaryId(newId)
+  }
 
-  if (!loaded) return null
+  if (!diaryId) return null
 
   return (
-    <DiaryContext.Provider value={{ entries, getEntry, upsertEntry, deleteEntry }}>
+    <DiaryContext.Provider value={{ diaryId, entries, getEntry, upsertEntry, deleteEntry, connectDiary }}>
       {children}
     </DiaryContext.Provider>
   )

@@ -7,6 +7,7 @@ import {
   StyleSheet,
   SafeAreaView,
   ScrollView,
+  Platform,
 } from 'react-native'
 import { useRouter } from 'expo-router'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -31,7 +32,10 @@ function toDateString(year: number, month: number, day: number) {
 
 export default function CalendarScreen() {
   const router = useRouter()
-  const { getEntry } = useDiary()
+  const { getEntry, diaryId, connectDiary } = useDiary()
+  const [showShare, setShowShare] = useState(false)
+  const [connectInput, setConnectInput] = useState('')
+  const [connectMsg, setConnectMsg] = useState('')
 
   const today = new Date()
   const [year, setYear] = useState(today.getFullYear())
@@ -103,7 +107,66 @@ export default function CalendarScreen() {
           {!editingName && (
             <Text style={styles.nameHint}>Long press to rename / 길게 눌러서 이름 변경</Text>
           )}
+          {!editingName && (
+            <TouchableOpacity onPress={() => { setShowShare(true); setConnectMsg('') }} style={styles.shareBtn}>
+              <Text style={styles.shareBtnTxt}>🔗 연결 / Connect</Text>
+            </TouchableOpacity>
+          )}
         </View>
+
+        {/* 공유 코드 패널 */}
+        {showShare && (
+          <View style={styles.sharePanel}>
+            <Text style={styles.sharePanelTitle}>📎 공유 코드 / Share Code</Text>
+            <View style={styles.myCodeRow}>
+              <Text style={styles.myCodeLabel}>내 코드</Text>
+              <Text style={styles.myCode}>{diaryId}</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  if (Platform.OS === 'web') {
+                    navigator.clipboard?.writeText(diaryId)
+                  }
+                  setConnectMsg('복사됐어요!')
+                  setTimeout(() => setConnectMsg(''), 2000)
+                }}
+                style={styles.copyBtn}
+              >
+                <Text style={styles.copyBtnTxt}>복사</Text>
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.shareDivider}>파트너 코드 입력 / Enter partner's code</Text>
+            <View style={styles.connectRow}>
+              <TextInput
+                style={styles.connectInput}
+                value={connectInput}
+                onChangeText={(t) => setConnectInput(t.toUpperCase())}
+                placeholder="XXXXXX"
+                placeholderTextColor="#c5a890"
+                autoCapitalize="characters"
+                maxLength={6}
+              />
+              <TouchableOpacity
+                style={styles.connectBtn}
+                onPress={async () => {
+                  if (connectInput.length < 6) {
+                    setConnectMsg('6자리 코드를 입력하세요')
+                    return
+                  }
+                  await connectDiary(connectInput)
+                  setConnectInput('')
+                  setShowShare(false)
+                  setConnectMsg('')
+                }}
+              >
+                <Text style={styles.connectBtnTxt}>연결</Text>
+              </TouchableOpacity>
+            </View>
+            {connectMsg ? <Text style={styles.connectMsg}>{connectMsg}</Text> : null}
+            <TouchableOpacity onPress={() => setShowShare(false)} style={styles.sharePanelClose}>
+              <Text style={styles.sharePanelCloseTxt}>닫기</Text>
+            </TouchableOpacity>
+          </View>
+        )}
 
         {/* Month nav */}
         <View style={styles.monthNav}>
@@ -246,4 +309,44 @@ const styles = StyleSheet.create({
 
   legend: { alignItems: 'center', marginTop: 20 },
   legendText: { fontSize: 12, color: '#b09080' },
+
+  shareBtn: { marginTop: 8, paddingVertical: 5, paddingHorizontal: 14, borderRadius: 12, backgroundColor: '#fff0e6', borderWidth: 1, borderColor: '#e8c9a8' },
+  shareBtnTxt: { fontSize: 12, color: '#a07050', fontWeight: '600' },
+
+  sharePanel: {
+    marginHorizontal: 16,
+    marginBottom: 8,
+    backgroundColor: '#fff',
+    borderRadius: 18,
+    padding: 18,
+    borderWidth: 1.5,
+    borderColor: '#f0e0d0',
+  },
+  sharePanelTitle: { fontSize: 14, fontWeight: '700', color: '#3d2c1e', marginBottom: 12, textAlign: 'center' },
+  myCodeRow: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#fdf0e8', borderRadius: 12, padding: 10, marginBottom: 12, gap: 8 },
+  myCodeLabel: { fontSize: 12, color: '#a08070' },
+  myCode: { flex: 1, fontSize: 22, fontWeight: '800', color: '#c96a30', letterSpacing: 3, textAlign: 'center' },
+  copyBtn: { backgroundColor: '#c9a882', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5 },
+  copyBtnTxt: { fontSize: 12, color: '#fff', fontWeight: '700' },
+  shareDivider: { fontSize: 11, color: '#b09080', textAlign: 'center', marginBottom: 10 },
+  connectRow: { flexDirection: 'row', gap: 8 },
+  connectInput: {
+    flex: 1,
+    backgroundColor: '#fdf6f0',
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: '#f0e0d0',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#3d2c1e',
+    letterSpacing: 3,
+    textAlign: 'center',
+  },
+  connectBtn: { backgroundColor: '#c9a882', borderRadius: 12, paddingHorizontal: 16, justifyContent: 'center' },
+  connectBtnTxt: { color: '#fff', fontWeight: '700', fontSize: 14 },
+  connectMsg: { fontSize: 12, color: '#c96a30', textAlign: 'center', marginTop: 8 },
+  sharePanelClose: { alignItems: 'center', marginTop: 12 },
+  sharePanelCloseTxt: { fontSize: 12, color: '#b09080' },
 })
