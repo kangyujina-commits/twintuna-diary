@@ -17,7 +17,6 @@ import { useTheme } from '../src/context/ThemeContext'
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const DAYS_KO = ['일', '월', '화', '수', '목', '금', '토']
 const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-const APP_NAME_KEY = '@twintuna_diary:appName'
 const DEFAULT_NAME = 'TwinTuna_Diary'
 
 function getDaysInMonth(year: number, month: number) {
@@ -32,7 +31,7 @@ function toDateString(year: number, month: number, day: number) {
 
 export default function CalendarScreen() {
   const router = useRouter()
-  const { getEntry, diaryId, isConnected, nickname, setNickname, connectDiary } = useDiary()
+  const { getEntry, diaryId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary } = useDiary()
   const { isDark, colors, toggleTheme } = useTheme()
 
   const [showShare, setShowShare] = useState(false)
@@ -43,21 +42,15 @@ export default function CalendarScreen() {
   const today = new Date()
   const [year, setYear] = useState(today.getFullYear())
   const [month, setMonth] = useState(today.getMonth())
-  const [appName, setAppName] = useState(DEFAULT_NAME)
   const [editingName, setEditingName] = useState(false)
-  const [nameInput, setNameInput] = useState(DEFAULT_NAME)
+  const [nameInput, setNameInput] = useState(sharedAppName)
 
-  useEffect(() => {
-    AsyncStorage.getItem(APP_NAME_KEY).then((saved) => {
-      if (saved) { setAppName(saved); setNameInput(saved) }
-    })
-  }, [])
+  useEffect(() => { setNameInput(sharedAppName) }, [sharedAppName])
   useEffect(() => { setNicknameInput(nickname) }, [nickname])
 
   function saveName() {
     const trimmed = nameInput.trim() || DEFAULT_NAME
-    setAppName(trimmed); setNameInput(trimmed)
-    AsyncStorage.setItem(APP_NAME_KEY, trimmed)
+    setSharedAppName(trimmed)
     setEditingName(false)
   }
 
@@ -96,7 +89,7 @@ export default function CalendarScreen() {
               </View>
             ) : (
               <TouchableOpacity onLongPress={() => { setNameInput(appName); setEditingName(true) }} activeOpacity={0.8}>
-                <Text style={[styles.appTitle, { color: colors.text }]}>{appName}</Text>
+                <Text style={[styles.appTitle, { color: colors.text }]}>{sharedAppName}</Text>
               </TouchableOpacity>
             )}
             {!editingName && (

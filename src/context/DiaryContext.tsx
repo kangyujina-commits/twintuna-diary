@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
-import { collection, doc, setDoc, deleteDoc, onSnapshot } from 'firebase/firestore'
+import { collection, doc, setDoc, deleteDoc, onSnapshot, getDoc } from 'firebase/firestore'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { db } from '../firebase'
 
@@ -30,6 +30,8 @@ interface DiaryContextValue {
   isConnected: boolean
   nickname: string
   setNickname: (name: string) => Promise<void>
+  appName: string
+  setAppName: (name: string) => Promise<void>
   entries: Record<string, DiaryEntry>
   getEntry: (date: string) => DiaryEntry | undefined
   upsertEntry: (entry: DiaryEntry) => Promise<void>
@@ -43,6 +45,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   const [diaryId, setDiaryId] = useState('')
   const [isConnected, setIsConnected] = useState(false)
   const [nickname, setNicknameState] = useState('')
+  const [appName, setAppNameState] = useState('TwinTuna_Diary')
   const [entries, setEntries] = useState<Record<string, DiaryEntry>>({})
 
   useEffect(() => {
@@ -58,6 +61,16 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       setIsConnected(savedConnected === 'true')
     })
   }, [])
+
+  useEffect(() => {
+    if (!diaryId) return
+    // 앱 이름 실시간 동기화
+    const unsubMeta = onSnapshot(doc(db, 'diaries', diaryId), (snap) => {
+      const data = snap.data()
+      if (data?.appName) setAppNameState(data.appName)
+    })
+    return unsubMeta
+  }, [diaryId])
 
   useEffect(() => {
     if (!diaryId) return
@@ -96,10 +109,16 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setNicknameState(name)
   }
 
+  async function setAppName(name: string) {
+    if (!diaryId) return
+    await setDoc(doc(db, 'diaries', diaryId), { appName: name }, { merge: true })
+    setAppNameState(name)
+  }
+
   if (!diaryId) return null
 
   return (
-    <DiaryContext.Provider value={{ diaryId, isConnected, nickname, setNickname, entries, getEntry, upsertEntry, deleteEntry, connectDiary }}>
+    <DiaryContext.Provider value={{ diaryId, isConnected, nickname, setNickname, appName, setAppName, entries, getEntry, upsertEntry, deleteEntry, connectDiary }}>
       {children}
     </DiaryContext.Provider>
   )
