@@ -141,7 +141,7 @@ export default function EntryScreen() {
           {/* 작성자 */}
           {!isEditing && existing?.author && (
             <View style={[styles.authorBadge, { backgroundColor: colors.todayBg }]}>
-              <Text style={[styles.authorText, { color: colors.todayText }]}>✍️ {existing.author}</Text>
+              <Text style={[styles.authorText, { color: colors.todayText }]}>{existing.author}</Text>
             </View>
           )}
 
