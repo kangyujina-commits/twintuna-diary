@@ -133,13 +133,7 @@ export default function EntryScreen() {
             <Text style={[styles.backArrow, { color: colors.accent }]}>‹</Text>
           </TouchableOpacity>
           <Text style={[styles.dateLabel, { color: colors.text }]}>{date ? formatDate(date) : ''}</Text>
-          {existing && isEditing ? (
-            <TouchableOpacity onPress={() => setShowDeleteConfirm(true)} style={styles.editBtn}>
-              <Text style={styles.deleteTxt}>삭제</Text>
-            </TouchableOpacity>
-          ) : (
-            <View style={{ width: 44 }} />
-          )}
+          <View style={{ width: 44 }} />
         </View>
 
         {/* 삭제 확인 */}
@@ -345,9 +339,16 @@ export default function EntryScreen() {
 
           {/* 버튼 */}
           {!isEditing && existing ? (
-            <TouchableOpacity style={[styles.editBtnBottom, { borderColor: colors.accent }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
-              <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
-            </TouchableOpacity>
+            <View style={styles.bottomBtnRow}>
+              <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
+                <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
+              </TouchableOpacity>
+              {(!existing.author || existing.author === nickname) && (
+                <TouchableOpacity style={[styles.deleteBtnBottom]} onPress={() => setShowDeleteConfirm(true)} activeOpacity={0.8}>
+                  <Text style={styles.deleteBtnTxt}>🗑️</Text>
+                </TouchableOpacity>
+              )}
+            </View>
           ) : isEditing ? (
             <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
               <Text style={styles.saveTxt}>저장하기</Text>
@@ -554,4 +555,8 @@ const styles = StyleSheet.create({
 
   authorBadge: { alignSelf: 'flex-start', backgroundColor: '#fff0e6', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 5, marginBottom: 4 },
   authorText: { fontSize: 13, color: '#a07050', fontWeight: '600' },
+
+  bottomBtnRow: { flexDirection: 'row', gap: 10, marginTop: 24 },
+  deleteBtnBottom: { width: 52, height: 52, borderRadius: 16, backgroundColor: '#fff0f0', borderWidth: 1.5, borderColor: '#f5c0c0', alignItems: 'center', justifyContent: 'center' },
+  deleteBtnTxt: { fontSize: 20 },
 })
