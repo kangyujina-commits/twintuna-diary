@@ -9,8 +9,8 @@ export type Weather = '☀️' | '⛅' | '🌧️' | '❄️' | '🌩️' | '�
 export interface DiaryEntry {
   id: string
   date: string
-  mood?: Mood
-  weather?: Weather
+  mood?: string
+  weather?: string
   text?: string
   photo_uris?: string[]
   schedule?: string

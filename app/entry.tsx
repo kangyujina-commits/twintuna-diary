@@ -53,8 +53,12 @@ export default function EntryScreen() {
 
   const existing = date ? getEntry(date) : undefined
 
-  const [mood, setMood] = useState<Mood | undefined>(existing?.mood)
-  const [weather, setWeather] = useState<Weather | undefined>(existing?.weather)
+  const [mood, setMood] = useState<string | undefined>(existing?.mood)
+  const [weather, setWeather] = useState<string | undefined>(existing?.weather)
+  const [showCustomMood, setShowCustomMood] = useState(false)
+  const [showCustomWeather, setShowCustomWeather] = useState(false)
+  const [customMoodInput, setCustomMoodInput] = useState('')
+  const [customWeatherInput, setCustomWeatherInput] = useState('')
   const [text, setText] = useState(existing?.text ?? '')
   const [photoUris, setPhotoUris] = useState<string[]>(existing?.photo_uris ?? [])
   const [schedule, setSchedule] = useState(existing?.schedule ?? '')
@@ -165,19 +169,46 @@ export default function EntryScreen() {
             {MOODS.map((m) => (
               <TouchableOpacity
                 key={m.emoji}
-                style={[
-                  styles.emojiBtn,
-                  mood === m.emoji && styles.emojiBtnActive,
-                  !isEditing && mood !== m.emoji && styles.emojiBtnDisabled,
-                ]}
+                style={[styles.emojiBtn, mood === m.emoji && styles.emojiBtnActive, !isEditing && mood !== m.emoji && styles.emojiBtnDisabled]}
                 onPress={() => isEditing && setMood(mood === m.emoji ? undefined : m.emoji)}
                 activeOpacity={isEditing ? 0.7 : 1}
               >
-                <Text style={[styles.emojiIcon, !isEditing && mood !== m.emoji && styles.emojiDim]}>
-                  {m.emoji}
-                </Text>
+                <Text style={[styles.emojiIcon, !isEditing && mood !== m.emoji && styles.emojiDim]}>{m.emoji}</Text>
               </TouchableOpacity>
             ))}
+            {/* 커스텀 기분 */}
+            {isEditing && !showCustomMood && (
+              <TouchableOpacity style={styles.emojiBtn} onPress={() => setShowCustomMood(true)} activeOpacity={0.7}>
+                <Text style={styles.emojiIcon}>＋</Text>
+              </TouchableOpacity>
+            )}
+            {isEditing && showCustomMood && (
+              <View style={[styles.emojiBtn, styles.emojiBtnActive, { width: 64 }]}>
+                <TextInput
+                  style={styles.customEmojiInput}
+                  value={customMoodInput}
+                  onChangeText={(t) => {
+                    setCustomMoodInput(t)
+                    if (t.trim()) { setMood(t.trim()); }
+                  }}
+                  placeholder="😺"
+                  placeholderTextColor="#c5a890"
+                  autoFocus
+                  maxLength={4}
+                  onBlur={() => { if (!customMoodInput.trim()) setShowCustomMood(false) }}
+                />
+              </View>
+            )}
+            {/* 선택된 커스텀 이모지 표시 (프리셋 아닐 때) */}
+            {mood && !MOODS.find((m) => m.emoji === mood) && !showCustomMood && (
+              <TouchableOpacity
+                style={[styles.emojiBtn, styles.emojiBtnActive]}
+                onPress={() => isEditing && setMood(undefined)}
+                activeOpacity={isEditing ? 0.7 : 1}
+              >
+                <Text style={styles.emojiIcon}>{mood}</Text>
+              </TouchableOpacity>
+            )}
           </View>
 
           {/* Weather */}
@@ -186,19 +217,45 @@ export default function EntryScreen() {
             {WEATHERS.map((w) => (
               <TouchableOpacity
                 key={w.emoji}
-                style={[
-                  styles.emojiBtn,
-                  weather === w.emoji && styles.emojiBtnActive,
-                  !isEditing && weather !== w.emoji && styles.emojiBtnDisabled,
-                ]}
+                style={[styles.emojiBtn, weather === w.emoji && styles.emojiBtnActive, !isEditing && weather !== w.emoji && styles.emojiBtnDisabled]}
                 onPress={() => isEditing && setWeather(weather === w.emoji ? undefined : w.emoji)}
                 activeOpacity={isEditing ? 0.7 : 1}
               >
-                <Text style={[styles.emojiIcon, !isEditing && weather !== w.emoji && styles.emojiDim]}>
-                  {w.emoji}
-                </Text>
+                <Text style={[styles.emojiIcon, !isEditing && weather !== w.emoji && styles.emojiDim]}>{w.emoji}</Text>
               </TouchableOpacity>
             ))}
+            {/* 커스텀 날씨 */}
+            {isEditing && !showCustomWeather && (
+              <TouchableOpacity style={styles.emojiBtn} onPress={() => setShowCustomWeather(true)} activeOpacity={0.7}>
+                <Text style={styles.emojiIcon}>＋</Text>
+              </TouchableOpacity>
+            )}
+            {isEditing && showCustomWeather && (
+              <View style={[styles.emojiBtn, styles.emojiBtnActive, { width: 64 }]}>
+                <TextInput
+                  style={styles.customEmojiInput}
+                  value={customWeatherInput}
+                  onChangeText={(t) => {
+                    setCustomWeatherInput(t)
+                    if (t.trim()) { setWeather(t.trim()); }
+                  }}
+                  placeholder="🌊"
+                  placeholderTextColor="#c5a890"
+                  autoFocus
+                  maxLength={4}
+                  onBlur={() => { if (!customWeatherInput.trim()) setShowCustomWeather(false) }}
+                />
+              </View>
+            )}
+            {weather && !WEATHERS.find((w) => w.emoji === weather) && !showCustomWeather && (
+              <TouchableOpacity
+                style={[styles.emojiBtn, styles.emojiBtnActive]}
+                onPress={() => isEditing && setWeather(undefined)}
+                activeOpacity={isEditing ? 0.7 : 1}
+              >
+                <Text style={styles.emojiIcon}>{weather}</Text>
+              </TouchableOpacity>
+            )}
           </View>
 
           {/* Schedule */}
@@ -351,6 +408,7 @@ const styles = StyleSheet.create({
   emojiDim: { opacity: 0.4 },
   emojiLabel: { fontSize: 11, color: '#b09080', marginTop: 2 },
   emojiLabelActive: { color: '#8b5e3c', fontWeight: '600' },
+  customEmojiInput: { fontSize: 22, textAlign: 'center', width: 40 },
 
   scheduleInput: {
     backgroundColor: '#fff',
