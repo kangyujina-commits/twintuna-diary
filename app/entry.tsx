@@ -349,11 +349,7 @@ export default function EntryScreen() {
                     </TouchableOpacity>
                   </View>
                 </>
-              ) : (
-                <View style={[styles.editBtnBottom, { flex: 1, backgroundColor: colors.card, borderColor: colors.cardBorder, marginTop: 0 }]}>
-                  <Text style={[styles.editBtnTxt, { color: colors.textMuted }]}>읽기 전용</Text>
-                </View>
-              )}
+              ) : null}
             </View>
           ) : isEditing ? (
             <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
