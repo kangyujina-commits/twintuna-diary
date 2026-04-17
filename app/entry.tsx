@@ -51,19 +51,24 @@ export default function EntryScreen() {
   const [mood, setMood] = useState<Mood | undefined>(existing?.mood)
   const [weather, setWeather] = useState<Weather | undefined>(existing?.weather)
   const [text, setText] = useState(existing?.text ?? '')
+  // 기존 일기가 있으면 읽기 모드, 없으면 바로 편집 모드
+  const [isEditing, setIsEditing] = useState(!existing)
 
   useEffect(() => {
     if (existing) {
       setMood(existing.mood)
       setWeather(existing.weather)
       setText(existing.text ?? '')
+      setIsEditing(false)
+    } else {
+      setIsEditing(true)
     }
   }, [date])
 
   function handleSave() {
     if (!date) return
     upsertEntry({ date, mood, weather, text: text.trim() })
-    router.back()
+    setIsEditing(false)
   }
 
   function handleDelete() {
@@ -93,27 +98,37 @@ export default function EntryScreen() {
             <Text style={styles.backArrow}>‹</Text>
           </TouchableOpacity>
           <Text style={styles.dateLabel}>{date ? formatDate(date) : ''}</Text>
-          {existing ? (
-            <TouchableOpacity onPress={handleDelete} style={styles.deleteBtn}>
+          {existing && !isEditing ? (
+            <TouchableOpacity onPress={() => setIsEditing(true)} style={styles.editBtn}>
+              <Text style={styles.editTxt}>편집</Text>
+            </TouchableOpacity>
+          ) : existing && isEditing ? (
+            <TouchableOpacity onPress={handleDelete} style={styles.editBtn}>
               <Text style={styles.deleteTxt}>삭제</Text>
             </TouchableOpacity>
           ) : (
-            <View style={{ width: 40 }} />
+            <View style={{ width: 44 }} />
           )}
         </View>
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-          {/* Mood picker */}
+          {/* Mood */}
           <Text style={styles.sectionLabel}>오늘의 기분</Text>
           <View style={styles.emojiRow}>
             {MOODS.map((m) => (
               <TouchableOpacity
                 key={m.emoji}
-                style={[styles.emojiBtn, mood === m.emoji && styles.emojiBtnActive]}
-                onPress={() => setMood(mood === m.emoji ? undefined : m.emoji)}
-                activeOpacity={0.7}
+                style={[
+                  styles.emojiBtn,
+                  mood === m.emoji && styles.emojiBtnActive,
+                  !isEditing && mood !== m.emoji && styles.emojiBtnDisabled,
+                ]}
+                onPress={() => isEditing && setMood(mood === m.emoji ? undefined : m.emoji)}
+                activeOpacity={isEditing ? 0.7 : 1}
               >
-                <Text style={styles.emojiIcon}>{m.emoji}</Text>
+                <Text style={[styles.emojiIcon, !isEditing && mood !== m.emoji && styles.emojiDim]}>
+                  {m.emoji}
+                </Text>
                 <Text style={[styles.emojiLabel, mood === m.emoji && styles.emojiLabelActive]}>
                   {m.label}
                 </Text>
@@ -121,17 +136,23 @@ export default function EntryScreen() {
             ))}
           </View>
 
-          {/* Weather picker */}
+          {/* Weather */}
           <Text style={styles.sectionLabel}>오늘의 날씨</Text>
           <View style={styles.emojiRow}>
             {WEATHERS.map((w) => (
               <TouchableOpacity
                 key={w.emoji}
-                style={[styles.emojiBtn, weather === w.emoji && styles.emojiBtnActive]}
-                onPress={() => setWeather(weather === w.emoji ? undefined : w.emoji)}
-                activeOpacity={0.7}
+                style={[
+                  styles.emojiBtn,
+                  weather === w.emoji && styles.emojiBtnActive,
+                  !isEditing && weather !== w.emoji && styles.emojiBtnDisabled,
+                ]}
+                onPress={() => isEditing && setWeather(weather === w.emoji ? undefined : w.emoji)}
+                activeOpacity={isEditing ? 0.7 : 1}
               >
-                <Text style={styles.emojiIcon}>{w.emoji}</Text>
+                <Text style={[styles.emojiIcon, !isEditing && weather !== w.emoji && styles.emojiDim]}>
+                  {w.emoji}
+                </Text>
                 <Text style={[styles.emojiLabel, weather === w.emoji && styles.emojiLabelActive]}>
                   {w.label}
                 </Text>
@@ -139,22 +160,33 @@ export default function EntryScreen() {
             ))}
           </View>
 
-          {/* Text input */}
+          {/* Text */}
           <Text style={styles.sectionLabel}>오늘 하루</Text>
-          <TextInput
-            style={styles.textInput}
-            multiline
-            placeholder="오늘은 어떤 하루였나요? ✍️"
-            placeholderTextColor="#c5a890"
-            value={text}
-            onChangeText={setText}
-            textAlignVertical="top"
-          />
+          {isEditing ? (
+            <TextInput
+              style={styles.textInput}
+              multiline
+              placeholder="오늘은 어떤 하루였나요? ✍️"
+              placeholderTextColor="#c5a890"
+              value={text}
+              onChangeText={setText}
+              textAlignVertical="top"
+              autoFocus={!!existing}
+            />
+          ) : (
+            <View style={styles.textView}>
+              <Text style={text ? styles.textContent : styles.textEmpty}>
+                {text || '기록 없음'}
+              </Text>
+            </View>
+          )}
 
-          {/* Save button */}
-          <TouchableOpacity style={styles.saveBtn} onPress={handleSave} activeOpacity={0.8}>
-            <Text style={styles.saveTxt}>저장하기</Text>
-          </TouchableOpacity>
+          {/* 버튼 */}
+          {isEditing && (
+            <TouchableOpacity style={styles.saveBtn} onPress={handleSave} activeOpacity={0.8}>
+              <Text style={styles.saveTxt}>저장하기</Text>
+            </TouchableOpacity>
+          )}
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -173,10 +205,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#f0e0d0',
   },
-  backBtn: { width: 40, height: 40, justifyContent: 'center' },
+  backBtn: { width: 44, height: 40, justifyContent: 'center' },
   backArrow: { fontSize: 30, color: '#c9a882', lineHeight: 34 },
   dateLabel: { flex: 1, textAlign: 'center', fontSize: 15, fontWeight: '600', color: '#3d2c1e' },
-  deleteBtn: { width: 40, alignItems: 'flex-end' },
+  editBtn: { width: 44, alignItems: 'flex-end' },
+  editTxt: { fontSize: 13, color: '#c9a882', fontWeight: '600' },
   deleteTxt: { fontSize: 13, color: '#e05c5c' },
 
   content: { padding: 20, paddingBottom: 40 },
@@ -191,11 +224,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  emojiRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
+  emojiRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   emojiBtn: {
     alignItems: 'center',
     paddingHorizontal: 10,
@@ -206,11 +235,10 @@ const styles = StyleSheet.create({
     borderColor: '#f0e0d0',
     minWidth: 60,
   },
-  emojiBtnActive: {
-    borderColor: '#c9a882',
-    backgroundColor: '#fff4ec',
-  },
+  emojiBtnActive: { borderColor: '#c9a882', backgroundColor: '#fff4ec' },
+  emojiBtnDisabled: { opacity: 0.3 },
   emojiIcon: { fontSize: 22 },
+  emojiDim: { opacity: 0.4 },
   emojiLabel: { fontSize: 11, color: '#b09080', marginTop: 2 },
   emojiLabelActive: { color: '#8b5e3c', fontWeight: '600' },
 
@@ -225,6 +253,16 @@ const styles = StyleSheet.create({
     color: '#3d2c1e',
     lineHeight: 24,
   },
+  textView: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    borderWidth: 1.5,
+    borderColor: '#f0e0d0',
+    padding: 16,
+    minHeight: 160,
+  },
+  textContent: { fontSize: 15, color: '#3d2c1e', lineHeight: 24 },
+  textEmpty: { fontSize: 15, color: '#c5a890' },
 
   saveBtn: {
     backgroundColor: '#c9a882',

@@ -59,7 +59,6 @@ export default function CalendarScreen() {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.appTitle}>TwinTuna_Diary</Text>
-          <Text style={styles.subtitle}>나만의 감성 일기</Text>
         </View>
 
         {/* Month nav */}
