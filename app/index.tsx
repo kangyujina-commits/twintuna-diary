@@ -112,7 +112,7 @@ export default function CalendarScreen() {
               )}
               {nickname ? (
                 <View style={[styles.badge, { backgroundColor: colors.todayBg }]}>
-                  <Text style={[styles.badgeTxt, { color: colors.todayText }]}>✏️ {nickname}</Text>
+                  <Text style={[styles.badgeTxt, { color: colors.todayText }]}>{nickname}</Text>
                 </View>
               ) : null}
               <TouchableOpacity onPress={() => { setShowShare(true); setConnectMsg('') }}
