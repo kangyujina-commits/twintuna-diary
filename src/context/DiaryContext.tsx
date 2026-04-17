@@ -15,18 +15,25 @@ export interface DiaryEntry {
   photo_uris?: string[]
   schedule?: string
   author?: string
+  deviceId?: string
 }
 
 const DIARY_ID_KEY = '@twintuna_diary:diaryId'
 const NICKNAME_KEY = '@twintuna_diary:nickname'
 const CONNECTED_KEY = '@twintuna_diary:isConnected'
+const DEVICE_ID_KEY = '@twintuna_diary:deviceId'
 
 function generateCode() {
   return Math.random().toString(36).substring(2, 8).toUpperCase()
 }
 
+function generateDeviceId() {
+  return Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2)
+}
+
 interface DiaryContextValue {
   diaryId: string
+  deviceId: string
   isConnected: boolean
   nickname: string
   setNickname: (name: string) => Promise<void>
@@ -43,6 +50,7 @@ const DiaryContext = createContext<DiaryContextValue | null>(null)
 
 export function DiaryProvider({ children }: { children: ReactNode }) {
   const [diaryId, setDiaryId] = useState('')
+  const [deviceId, setDeviceId] = useState('')
   const [isConnected, setIsConnected] = useState(false)
   const [nickname, setNicknameState] = useState('')
   const [appName, setAppNameState] = useState('TwinTuna_Diary')
@@ -53,10 +61,14 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       AsyncStorage.getItem(DIARY_ID_KEY),
       AsyncStorage.getItem(NICKNAME_KEY),
       AsyncStorage.getItem(CONNECTED_KEY),
-    ]).then(([savedId, savedNick, savedConnected]) => {
+      AsyncStorage.getItem(DEVICE_ID_KEY),
+    ]).then(([savedId, savedNick, savedConnected, savedDeviceId]) => {
       const id = savedId || generateCode()
       if (!savedId) AsyncStorage.setItem(DIARY_ID_KEY, id)
+      const dId = savedDeviceId || generateDeviceId()
+      if (!savedDeviceId) AsyncStorage.setItem(DEVICE_ID_KEY, dId)
       setDiaryId(id)
+      setDeviceId(dId)
       setNicknameState(savedNick || '')
       setIsConnected(savedConnected === 'true')
     })
@@ -118,7 +130,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   if (!diaryId) return null
 
   return (
-    <DiaryContext.Provider value={{ diaryId, isConnected, nickname, setNickname, appName, setAppName, entries, getEntry, upsertEntry, deleteEntry, connectDiary }}>
+    <DiaryContext.Provider value={{ diaryId, deviceId, isConnected, nickname, setNickname, appName, setAppName, entries, getEntry, upsertEntry, deleteEntry, connectDiary }}>
       {children}
     </DiaryContext.Provider>
   )

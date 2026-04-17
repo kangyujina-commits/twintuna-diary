@@ -50,7 +50,7 @@ function formatDate(dateStr: string) {
 export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
-  const { getEntry, upsertEntry, deleteEntry, nickname } = useDiary()
+  const { getEntry, upsertEntry, deleteEntry, nickname, deviceId } = useDiary()
   const { colors } = useTheme()
 
   const existing = date ? getEntry(date) : undefined
@@ -111,7 +111,7 @@ export default function EntryScreen() {
 
   function handleSave() {
     if (!date) return
-    upsertEntry({ id: date, date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim(), author: nickname || undefined })
+    upsertEntry({ id: date, date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim(), author: nickname || undefined, deviceId: deviceId || undefined })
     setIsEditing(false)
   }
 
@@ -323,7 +323,7 @@ export default function EntryScreen() {
           ) : null}
 
           {/* 버튼 */}
-          {!isEditing && existing && (!existing.author || existing.author === nickname) ? (
+          {!isEditing && existing && (!existing.deviceId || existing.deviceId === deviceId) ? (
             <View style={{ marginTop: 24 }}>
               {showDeleteConfirm && (
                 <View style={[styles.deleteConfirmInline, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
