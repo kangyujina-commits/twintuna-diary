@@ -254,7 +254,7 @@ export default function CalendarScreen() {
 
                 {/* 기분 이모지 */}
                 {entry?.mood
-                  ? <Text style={styles.moodIcon}>{entry.mood}</Text>
+                  ? <Text style={[styles.moodIcon, { color: colors.text }]}>{entry.mood}</Text>
                   : null}
 
                 {/* 일정 텍스트 */}
