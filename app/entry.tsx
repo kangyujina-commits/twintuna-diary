@@ -136,20 +136,6 @@ export default function EntryScreen() {
           <View style={{ width: 44 }} />
         </View>
 
-        {/* 삭제 확인 */}
-        {showDeleteConfirm && (
-          <View style={[styles.deleteConfirmBar, { backgroundColor: colors.card, borderBottomColor: colors.cardBorder }]}>
-            <Text style={[styles.deleteConfirmTxt, { color: colors.text }]}>이 날의 일기를 삭제할까요?</Text>
-            <View style={styles.deleteConfirmBtns}>
-              <TouchableOpacity style={[styles.deleteConfirmCancel, { borderColor: colors.accent }]} onPress={() => setShowDeleteConfirm(false)}>
-                <Text style={[styles.deleteConfirmCancelTxt, { color: colors.accentText }]}>취소</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.deleteConfirmOk} onPress={handleDelete}>
-                <Text style={styles.deleteConfirmOkTxt}>삭제</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           {/* 작성자 */}
@@ -344,9 +330,24 @@ export default function EntryScreen() {
                   <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent, backgroundColor: colors.card, marginTop: 0 }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
                     <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.deleteBtnBottom} onPress={() => setShowDeleteConfirm(true)} activeOpacity={0.8}>
-                    <Text style={styles.deleteBtnTxt}>🗑️</Text>
-                  </TouchableOpacity>
+                  <View style={styles.deleteBtnWrapper}>
+                    {showDeleteConfirm && (
+                      <View style={[styles.deletePopup, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                        <Text style={[styles.deletePopupTxt, { color: colors.text }]}>삭제할까요?</Text>
+                        <View style={styles.deletePopupBtns}>
+                          <TouchableOpacity onPress={() => setShowDeleteConfirm(false)}>
+                            <Text style={[styles.deletePopupCancel, { color: colors.textMuted }]}>취소</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity onPress={handleDelete}>
+                            <Text style={styles.deletePopupOk}>삭제</Text>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    )}
+                    <TouchableOpacity style={styles.deleteBtnBottom} onPress={() => setShowDeleteConfirm(true)} activeOpacity={0.8}>
+                      <Text style={styles.deleteBtnTxt}>🗑️</Text>
+                    </TouchableOpacity>
+                  </View>
                 </>
               ) : (
                 <View style={[styles.editBtnBottom, { flex: 1, backgroundColor: colors.card, borderColor: colors.cardBorder, marginTop: 0 }]}>
@@ -530,38 +531,17 @@ const styles = StyleSheet.create({
   },
   saveTxt: { fontSize: 16, fontWeight: '700', color: '#fff', letterSpacing: 0.5 },
 
-  deleteConfirmBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    backgroundColor: '#fff4f4',
-    borderBottomWidth: 1,
-    borderBottomColor: '#f5d0d0',
-  },
-  deleteConfirmTxt: { fontSize: 13, color: '#3d2c1e', flex: 1 },
-  deleteConfirmBtns: { flexDirection: 'row', gap: 8 },
-  deleteConfirmCancel: {
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#d0b0a0',
-  },
-  deleteConfirmCancelTxt: { fontSize: 13, color: '#8b5e3c' },
-  deleteConfirmOk: {
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: 10,
-    backgroundColor: '#e05c5c',
-  },
-  deleteConfirmOkTxt: { fontSize: 13, color: '#fff', fontWeight: '600' },
 
   authorBadge: { alignSelf: 'flex-start', backgroundColor: '#fff0e6', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 5, marginBottom: 4 },
   authorText: { fontSize: 13, color: '#a07050', fontWeight: '600' },
 
   bottomBtnRow: { flexDirection: 'row', gap: 10, marginTop: 24, alignItems: 'center' },
+  deleteBtnWrapper: { position: 'relative', alignItems: 'center' },
   deleteBtnBottom: { width: 52, height: 52, borderRadius: 16, backgroundColor: '#fff0f0', borderWidth: 1.5, borderColor: '#f5c0c0', alignItems: 'center', justifyContent: 'center' },
   deleteBtnTxt: { fontSize: 20 },
+  deletePopup: { position: 'absolute', bottom: 60, right: 0, borderRadius: 14, borderWidth: 1.5, padding: 12, width: 130, shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 8, shadowOffset: { width: 0, height: 2 } },
+  deletePopupTxt: { fontSize: 12, fontWeight: '600', textAlign: 'center', marginBottom: 10 },
+  deletePopupBtns: { flexDirection: 'row', justifyContent: 'space-around' },
+  deletePopupCancel: { fontSize: 12, fontWeight: '600' },
+  deletePopupOk: { fontSize: 12, fontWeight: '700', color: '#e05c5c' },
 })
