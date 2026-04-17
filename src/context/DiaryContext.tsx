@@ -59,7 +59,8 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
 
   async function upsertEntry(entry: DiaryEntry) {
     if (!diaryId) return
-    await setDoc(doc(db, 'diaries', diaryId, 'entries', entry.date), entry)
+    const clean = Object.fromEntries(Object.entries(entry).filter(([, v]) => v !== undefined))
+    await setDoc(doc(db, 'diaries', diaryId, 'entries', entry.date), clean)
   }
 
   async function deleteEntry(date: string) {
