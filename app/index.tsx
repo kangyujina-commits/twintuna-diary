@@ -13,6 +13,8 @@ import { useRouter } from 'expo-router'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useDiary } from '../src/context/DiaryContext'
 import { useTheme } from '../src/context/ThemeContext'
+import { useLock } from '../src/context/LockContext'
+import PinScreen from '../src/components/PinScreen'
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const DAYS_KO = ['일', '월', '화', '수', '목', '금', '토']
@@ -33,8 +35,12 @@ export default function CalendarScreen() {
   const router = useRouter()
   const { getMyEntry, getEntriesForDate, diaryId, deviceId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary } = useDiary()
   const { isDark, colors, toggleTheme } = useTheme()
+  const { hasPin, removePin, setupPin } = useLock()
+  const [pinFirstInput, setPinFirstInput] = useState('')
+  const [pinStep, setPinStep] = useState<'first' | 'confirm' | null>(null)
 
   const [showShare, setShowShare] = useState(false)
+  const [showPinSetup, setShowPinSetup] = useState(false)
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
   const [nicknameInput, setNicknameInput] = useState('')
@@ -66,6 +72,20 @@ export default function CalendarScreen() {
     ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
   ]
   while (cells.length % 7 !== 0) cells.push(null)
+
+  // PIN 설정 플로우
+  if (showPinSetup && pinStep === null) {
+    return <PinScreen mode="setup" title="새 PIN 입력 (4자리)"
+      onSkip={() => setShowPinSetup(false)}
+      onConfirm={(p) => { setPinFirstInput(p); setPinStep('confirm') }} />
+  }
+  if (showPinSetup && pinStep === 'confirm') {
+    return <PinScreen mode="confirm" title="PIN 확인 (다시 입력)"
+      onConfirm={async (p) => {
+        if (p === pinFirstInput) { await setupPin(p); setShowPinSetup(false); setPinStep(null) }
+        else { setPinStep(null) }  // 불일치 → 처음부터
+      }} />
+  }
 
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
@@ -180,6 +200,25 @@ export default function CalendarScreen() {
               </TouchableOpacity>
             </View>
             {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
+            {/* PIN 설정/해제 */}
+            <View style={[styles.pinRow, { borderTopColor: colors.cardBorder }]}>
+              <Text style={[styles.pinLabel, { color: colors.textMuted }]}>🔒 잠금 PIN</Text>
+              {hasPin ? (
+                <TouchableOpacity
+                  onPress={() => { removePin(); setShowShare(false) }}
+                  style={[styles.pinBtn, { backgroundColor: '#fff0f0', borderColor: '#f5c0c0' }]}
+                >
+                  <Text style={{ fontSize: 12, fontWeight: '700', color: '#e05c5c' }}>해제</Text>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  onPress={() => { setShowShare(false); setShowPinSetup(true) }}
+                  style={[styles.pinBtn, { backgroundColor: colors.todayBg, borderColor: colors.accent }]}
+                >
+                  <Text style={[{ fontSize: 12, fontWeight: '700' }, { color: colors.accent }]}>설정</Text>
+                </TouchableOpacity>
+              )}
+            </View>
             <TouchableOpacity onPress={() => setShowShare(false)} style={styles.sharePanelClose}>
               <Text style={[styles.sharePanelCloseTxt, { color: colors.textMuted }]}>닫기</Text>
             </TouchableOpacity>
@@ -352,4 +391,8 @@ const styles = StyleSheet.create({
 
   legend: { alignItems: 'center', marginTop: 20 },
   legendText: { fontSize: 12 },
+
+  pinRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTopWidth: 1, paddingTop: 12, marginTop: 4 },
+  pinLabel: { fontSize: 13, fontWeight: '600' },
+  pinBtn: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 10, borderWidth: 1.5 },
 })
