@@ -537,7 +537,7 @@ const styles = StyleSheet.create({
   panelCloseTxt: { fontSize: 12 },
 
   // D-day
-  ddayRow: { alignItems: 'center', justifyContent: 'center', paddingVertical: 8, flexDirection: 'row', gap: 8 },
+  ddayRow: { alignSelf: 'center', alignItems: 'center', paddingVertical: 8, paddingHorizontal: 16, flexDirection: 'row', gap: 8 },
   ddayLabel: { fontSize: 12, fontWeight: '600' },
   ddayCount: { fontSize: 22, fontWeight: '800', letterSpacing: 1 },
   ddayEmpty: { fontSize: 13 },
