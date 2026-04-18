@@ -10,7 +10,6 @@ import {
   Platform,
 } from 'react-native'
 import { useRouter } from 'expo-router'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useDiary } from '../src/context/DiaryContext'
 import { useTheme } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'

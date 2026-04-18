@@ -7,8 +7,8 @@ import { LockProvider, useLock } from '../src/context/LockContext'
 import PinScreen from '../src/components/PinScreen'
 
 function AppContent() {
-  const { isDark, colors } = useTheme()
-  const { isLoaded, isLocked, hasPin, setupPin } = useLock()
+  const { isDark } = useTheme()
+  const { isLoaded, isLocked, setupPin } = useLock()
   const [pinStep, setPinStep] = useState<'setup' | 'confirm' | null>(null)
   const [firstPin, setFirstPin] = useState('')
 

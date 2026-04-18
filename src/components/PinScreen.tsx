@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Vibration } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native'
 import { useLock } from '../context/LockContext'
 import { useTheme } from '../context/ThemeContext'
 
