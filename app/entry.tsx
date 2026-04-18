@@ -123,21 +123,8 @@ export default function EntryScreen() {
 
   async function handleSave() {
     if (!date) return
-    setIsSaving(true)
-    try {
-      // 로컬 URI → Firebase Storage 업로드 후 https URL로 교체
-      const uploadedUris = await Promise.all(
-        photoUris.map((uri, idx) => {
-          if (uri.startsWith('https://')) return Promise.resolve(uri)
-          const path = `diaries/${diaryId}/${date}_${deviceId}_${idx}_${Date.now()}`
-          return uploadPhoto(uri, path)
-        })
-      )
-      await upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: uploadedUris, schedule: schedule.trim(), author: nickname || undefined })
-      setIsEditing(false)
-    } finally {
-      setIsSaving(false)
-    }
+    await upsertEntry({ date, mood, weather, text: text.trim(), schedule: schedule.trim(), author: nickname || undefined })
+    setIsEditing(false)
   }
 
   function handleDelete() {
@@ -351,52 +338,7 @@ export default function EntryScreen() {
             </View>
           )}
 
-          {/* Photo */}
-          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Photo / 사진</Text>
-          {photoUris.length > 0 && (
-            <View style={styles.photoGrid}>
-              {photoUris.map((uri, idx) => (
-                <View key={uri + idx} style={styles.photoThumbContainer}>
-                  <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
-                  {isEditing && (
-                    <TouchableOpacity
-                      style={styles.photoRemoveBtn}
-                      onPress={() => setPhotoUris((prev) => prev.filter((_, i) => i !== idx))}
-                    >
-                      <Text style={styles.photoRemoveTxt}>✕</Text>
-                    </TouchableOpacity>
-                  )}
-                </View>
-              ))}
-            </View>
-          )}
-          {isEditing ? (
-            showPhotoMenu ? (
-              <View style={styles.photoMenuRow}>
-                <TouchableOpacity style={[styles.photoMenuBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={async () => { setShowPhotoMenu(false); await takePhoto() }} activeOpacity={0.7}>
-                  <Text style={styles.photoMenuIcon}>📸</Text>
-                  <Text style={[styles.photoMenuTxt, { color: colors.textMuted }]}>카메라</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.photoMenuBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={async () => { setShowPhotoMenu(false); await pickPhoto() }} activeOpacity={0.7}>
-                  <Text style={styles.photoMenuIcon}>🖼️</Text>
-                  <Text style={[styles.photoMenuTxt, { color: colors.textMuted }]}>앨범</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.photoMenuBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={() => setShowPhotoMenu(false)} activeOpacity={0.7}>
-                  <Text style={styles.photoMenuIcon}>✕</Text>
-                  <Text style={[styles.photoMenuTxt, { color: colors.textMuted }]}>취소</Text>
-                </TouchableOpacity>
-              </View>
-            ) : (
-              <TouchableOpacity style={[styles.photoAddBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={() => setShowPhotoMenu(true)} activeOpacity={0.7}>
-                <Text style={styles.photoAddIcon}>📷</Text>
-                <Text style={[styles.photoAddTxt, { color: colors.textMuted }]}>사진 추가</Text>
-              </TouchableOpacity>
-            )
-          ) : photoUris.length === 0 ? (
-            <View style={[styles.photoEmpty, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.textEmpty, { color: colors.hint }]}>사진 없음</Text>
-            </View>
-          ) : null}
+          {/* Photo - Firebase Storage 업그레이드 후 활성화 예정 */}
 
           {/* 버튼 */}
           {!isEditing && myEntry ? (
@@ -424,13 +366,8 @@ export default function EntryScreen() {
               </View>
             </View>
           ) : isEditing ? (
-            <TouchableOpacity
-              style={[styles.saveBtn, { backgroundColor: isSaving ? colors.textMuted : colors.accent }]}
-              onPress={handleSave}
-              activeOpacity={0.8}
-              disabled={isSaving}
-            >
-              <Text style={styles.saveTxt}>{isSaving ? '저장 중...' : '저장하기'}</Text>
+            <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
+              <Text style={styles.saveTxt}>저장하기</Text>
             </TouchableOpacity>
           ) : null}
 
