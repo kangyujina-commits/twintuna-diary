@@ -147,6 +147,14 @@ export default function EntryScreen() {
 
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+          {/* 임시 디버그 */}
+          <View style={{ backgroundColor: '#eee', padding: 8, borderRadius: 8, marginBottom: 8 }}>
+            <Text style={{ fontSize: 10, color: '#555' }}>
+              📋 entries:{allEntries.length} / others:{otherEntries.length}{'\n'}
+              🔑 myDeviceId: {deviceId?.slice(-6)}{'\n'}
+              {allEntries.map(e => `  id:${e.id?.slice(-10)} dev:${(e.deviceId ?? 'none').slice(-6)}`).join('\n')}
+            </Text>
+          </View>
           {/* 상대방 일기 */}
           {otherEntries.map((other) => (
             <View key={other.id} style={[styles.otherEntry, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
