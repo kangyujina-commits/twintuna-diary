@@ -114,8 +114,9 @@ export default function CalendarScreen() {
               style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={styles.iconBtnTxt}>{isDark ? '☀️' : '🌙'}</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={openSettings}
-              style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+            <TouchableOpacity
+              onPress={() => showSettings ? closeSettings() : openSettings()}
+              style={[styles.iconBtn, { backgroundColor: showSettings ? colors.accent : colors.card, borderColor: colors.cardBorder }]}>
               <Text style={styles.iconBtnTxt}>⚙️</Text>
             </TouchableOpacity>
           </View>
@@ -271,9 +272,6 @@ export default function CalendarScreen() {
               </View>
             </View>
 
-            <TouchableOpacity onPress={closeSettings} style={styles.panelClose}>
-              <Text style={[styles.panelCloseTxt, { color: colors.textMuted }]}>닫기</Text>
-            </TouchableOpacity>
           </View>
         )}
 
