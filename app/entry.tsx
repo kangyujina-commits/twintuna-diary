@@ -55,8 +55,9 @@ export default function EntryScreen() {
 
   const myEntry = date ? getMyEntry(date) : undefined
   const allEntries = date ? getEntriesForDate(date) : []
-  // deviceId가 있으면 deviceId로만 판별, 없으면(구버전) id로 판별
-  const otherEntries = allEntries.filter(e => e.deviceId !== deviceId && (e.deviceId || e.id !== date))
+  // 내 entry id를 기준으로 제외 (포맷 무관하게 가장 정확)
+  const myEntryDocId = myEntry?.id ?? `${date}_${deviceId}`
+  const otherEntries = allEntries.filter(e => e.id !== myEntryDocId)
 
   const [mood, setMood] = useState<string | undefined>(myEntry?.mood)
   const [weather, setWeather] = useState<string | undefined>(myEntry?.weather)
@@ -87,7 +88,7 @@ export default function EntryScreen() {
       setSchedule('')
       setIsEditing(true)
     }
-  }, [date])
+  }, [date, myEntry?.id])
 
   async function pickPhoto() {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()

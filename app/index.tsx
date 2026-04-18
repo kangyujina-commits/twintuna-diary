@@ -159,7 +159,7 @@ export default function CalendarScreen() {
               </TouchableOpacity>
             </View>
 
-            <Text style={[styles.shareDivider, { color: colors.textLight }]}>파트너 코드 입력</Text>
+            <Text style={[styles.shareDivider, { color: colors.textLight }]}>↑ 이 코드를 파트너에게 알려주거나, 파트너 코드 입력</Text>
             <View style={styles.connectRow}>
               <TextInput
                 style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
@@ -220,8 +220,8 @@ export default function CalendarScreen() {
             const dateStr = toDateString(year, month, day)
             const myEntry = getMyEntry(dateStr)
             const allEntries = getEntriesForDate(dateStr)
-            // deviceId가 있으면 deviceId로만 판별, 없으면(구버전) id로 판별
-            const otherEntry = allEntries.find(e => e.deviceId !== deviceId && (e.deviceId || e.id !== dateStr))
+            const myEntryDocId = myEntry?.id ?? `${dateStr}_${deviceId}`
+            const otherEntry = allEntries.find(e => e.id !== myEntryDocId)
             const hasEntry = allEntries.length > 0
             const isToday = dateStr === todayStr
             const col = idx % 7
