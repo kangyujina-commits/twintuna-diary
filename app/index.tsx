@@ -265,6 +265,13 @@ export default function CalendarScreen() {
                       {(myEntry?.schedule || otherEntry?.schedule)!.trim()}
                     </Text>
                   : null}
+
+                {/* 남의 일기만 있고 내 일기가 없을 때 + 뱃지 */}
+                {!myEntry && otherEntry && (
+                  <View style={[styles.addEntryBadge, { backgroundColor: colors.accent }]}>
+                    <Text style={styles.addEntryBadgeTxt}>＋</Text>
+                  </View>
+                )}
               </TouchableOpacity>
             )
           })}
@@ -339,6 +346,8 @@ const styles = StyleSheet.create({
   moodRow: { flexDirection: 'row', gap: 1, marginTop: 2 },
   moodIcon: { fontSize: 14, lineHeight: 18 },
   schedulePreview: { fontSize: 9, width: '92%', textAlign: 'center', lineHeight: 12, marginTop: 1 },
+  addEntryBadge: { marginTop: 4, borderRadius: 7, paddingHorizontal: 6, paddingVertical: 1 },
+  addEntryBadgeTxt: { fontSize: 10, color: '#fff', fontWeight: '800' },
 
   legend: { alignItems: 'center', marginTop: 20 },
   legendText: { fontSize: 12 },
