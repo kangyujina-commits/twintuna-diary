@@ -31,7 +31,7 @@ function toDateString(year: number, month: number, day: number) {
 
 export default function CalendarScreen() {
   const router = useRouter()
-  const { getEntry, diaryId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary } = useDiary()
+  const { getMyEntry, getEntriesForDate, diaryId, deviceId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary } = useDiary()
   const { isDark, colors, toggleTheme } = useTheme()
 
   const [showShare, setShowShare] = useState(false)
@@ -218,10 +218,12 @@ export default function CalendarScreen() {
           {cells.map((day, idx) => {
             if (!day) return <View key={`empty-${idx}`} style={styles.cell} />
             const dateStr = toDateString(year, month, day)
-            const entry = getEntry(dateStr)
+            const myEntry = getMyEntry(dateStr)
+            const allEntries = getEntriesForDate(dateStr)
+            const otherEntry = allEntries.find(e => e.deviceId !== deviceId && e.id !== dateStr)
+            const hasEntry = allEntries.length > 0
             const isToday = dateStr === todayStr
             const col = idx % 7
-            const hasEntry = !!entry
 
             return (
               <TouchableOpacity
@@ -247,15 +249,20 @@ export default function CalendarScreen() {
                   </Text>
                 </View>
 
-                {/* 기분 이모지 */}
-                {entry?.mood
-                  ? <Text style={[styles.moodIcon, { color: colors.text }]}>{entry.mood}</Text>
-                  : null}
+                {/* 기분 이모지 - 나 / 상대 */}
+                <View style={styles.moodRow}>
+                  {myEntry?.mood
+                    ? <Text style={[styles.moodIcon, { color: colors.text }]}>{myEntry.mood}</Text>
+                    : null}
+                  {otherEntry?.mood
+                    ? <Text style={[styles.moodIcon, { color: colors.text, opacity: 0.6 }]}>{otherEntry.mood}</Text>
+                    : null}
+                </View>
 
-                {/* 일정 텍스트 */}
-                {entry?.schedule?.trim()
+                {/* 일정: 내 것 우선, 없으면 상대 것 */}
+                {(myEntry?.schedule || otherEntry?.schedule)
                   ? <Text style={[styles.schedulePreview, { color: colors.textMuted }]} numberOfLines={1} ellipsizeMode="tail">
-                      {entry.schedule.trim()}
+                      {(myEntry?.schedule || otherEntry?.schedule)!.trim()}
                     </Text>
                   : null}
               </TouchableOpacity>
@@ -329,7 +336,8 @@ const styles = StyleSheet.create({
   todayCircle: { width: 24, height: 24, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   dayNum: { fontSize: 13, fontWeight: '500' },
   todayNum: { fontWeight: '800', color: '#fff', fontSize: 13 },
-  moodIcon: { fontSize: 16, lineHeight: 20, marginTop: 2 },
+  moodRow: { flexDirection: 'row', gap: 1, marginTop: 2 },
+  moodIcon: { fontSize: 14, lineHeight: 18 },
   schedulePreview: { fontSize: 9, width: '92%', textAlign: 'center', lineHeight: 12, marginTop: 1 },
 
   legend: { alignItems: 'center', marginTop: 20 },

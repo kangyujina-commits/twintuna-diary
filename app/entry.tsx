@@ -50,33 +50,40 @@ function formatDate(dateStr: string) {
 export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
-  const { getEntry, upsertEntry, deleteEntry, nickname, deviceId } = useDiary()
+  const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId } = useDiary()
   const { colors } = useTheme()
 
-  const existing = date ? getEntry(date) : undefined
+  const myEntry = date ? getMyEntry(date) : undefined
+  const allEntries = date ? getEntriesForDate(date) : []
+  const otherEntries = allEntries.filter(e => e.deviceId !== deviceId && e.id !== date)
 
-  const [mood, setMood] = useState<string | undefined>(existing?.mood)
-  const [weather, setWeather] = useState<string | undefined>(existing?.weather)
+  const [mood, setMood] = useState<string | undefined>(myEntry?.mood)
+  const [weather, setWeather] = useState<string | undefined>(myEntry?.weather)
   const [showCustomMood, setShowCustomMood] = useState(false)
   const [showCustomWeather, setShowCustomWeather] = useState(false)
   const [customMoodInput, setCustomMoodInput] = useState('')
   const [customWeatherInput, setCustomWeatherInput] = useState('')
-  const [text, setText] = useState(existing?.text ?? '')
-  const [photoUris, setPhotoUris] = useState<string[]>(existing?.photo_uris ?? [])
-  const [schedule, setSchedule] = useState(existing?.schedule ?? '')
-  const [isEditing, setIsEditing] = useState(!existing)
+  const [text, setText] = useState(myEntry?.text ?? '')
+  const [photoUris, setPhotoUris] = useState<string[]>(myEntry?.photo_uris ?? [])
+  const [schedule, setSchedule] = useState(myEntry?.schedule ?? '')
+  const [isEditing, setIsEditing] = useState(!myEntry)
   const [showPhotoMenu, setShowPhotoMenu] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
   useEffect(() => {
-    if (existing) {
-      setMood(existing.mood)
-      setWeather(existing.weather)
-      setText(existing.text ?? '')
-      setPhotoUris(existing.photo_uris ?? [])
-      setSchedule(existing.schedule ?? '')
+    if (myEntry) {
+      setMood(myEntry.mood)
+      setWeather(myEntry.weather)
+      setText(myEntry.text ?? '')
+      setPhotoUris(myEntry.photo_uris ?? [])
+      setSchedule(myEntry.schedule ?? '')
       setIsEditing(false)
     } else {
+      setMood(undefined)
+      setWeather(undefined)
+      setText('')
+      setPhotoUris([])
+      setSchedule('')
       setIsEditing(true)
     }
   }, [date])
@@ -111,13 +118,13 @@ export default function EntryScreen() {
 
   function handleSave() {
     if (!date) return
-    upsertEntry({ id: date, date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim(), author: nickname || undefined, deviceId: deviceId || undefined })
+    upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim(), author: nickname || undefined })
     setIsEditing(false)
   }
 
   function handleDelete() {
-    if (!date) return
-    deleteEntry(date)
+    if (!myEntry) return
+    deleteEntry(myEntry.id)
     router.back()
   }
 
@@ -138,10 +145,29 @@ export default function EntryScreen() {
 
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-          {/* 작성자 */}
-          {!isEditing && existing?.author && (
+          {/* 상대방 일기 */}
+          {otherEntries.map((other) => (
+            <View key={other.id} style={[styles.otherEntry, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              {other.author && (
+                <Text style={[styles.otherAuthor, { color: colors.accent }]}>{other.author}</Text>
+              )}
+              <View style={styles.otherMoodRow}>
+                {other.mood && <Text style={styles.otherMoodIcon}>{other.mood}</Text>}
+                {other.weather && <Text style={styles.otherMoodIcon}>{other.weather}</Text>}
+              </View>
+              {other.schedule?.trim() ? (
+                <Text style={[styles.otherText, { color: colors.textMuted }]}>📅 {other.schedule}</Text>
+              ) : null}
+              {other.text?.trim() ? (
+                <Text style={[styles.otherText, { color: colors.text }]}>{other.text}</Text>
+              ) : null}
+            </View>
+          ))}
+
+          {/* 내 작성자 표시 */}
+          {!isEditing && myEntry?.author && (
             <View style={[styles.authorBadge, { backgroundColor: colors.todayBg }]}>
-              <Text style={[styles.authorText, { color: colors.todayText }]}>{existing.author}</Text>
+              <Text style={[styles.authorText, { color: colors.todayText }]}>{myEntry.author}</Text>
             </View>
           )}
 
@@ -323,13 +349,7 @@ export default function EntryScreen() {
           ) : null}
 
           {/* 버튼 */}
-          {!isEditing && existing && (
-            existing.deviceId
-              ? existing.deviceId === deviceId
-              : existing.author
-                ? existing.author === nickname
-                : true
-          ) ? (
+          {!isEditing && myEntry ? (
             <View style={{ marginTop: 24 }}>
               {showDeleteConfirm && (
                 <View style={[styles.deleteConfirmInline, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
@@ -353,7 +373,7 @@ export default function EntryScreen() {
                 </TouchableOpacity>
               </View>
             </View>
-          ) : isEditing ? (
+          ) : (!isEditing && !myEntry) ? null : isEditing ? (
             <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
               <Text style={styles.saveTxt}>저장하기</Text>
             </TouchableOpacity>
@@ -532,6 +552,12 @@ const styles = StyleSheet.create({
 
   authorBadge: { alignSelf: 'flex-start', backgroundColor: '#fff0e6', borderRadius: 10, paddingHorizontal: 12, paddingVertical: 5, marginBottom: 4 },
   authorText: { fontSize: 13, color: '#a07050', fontWeight: '600' },
+
+  otherEntry: { borderRadius: 16, borderWidth: 1.5, padding: 14, marginBottom: 16 },
+  otherAuthor: { fontSize: 12, fontWeight: '700', marginBottom: 6 },
+  otherMoodRow: { flexDirection: 'row', gap: 6, marginBottom: 6 },
+  otherMoodIcon: { fontSize: 20 },
+  otherText: { fontSize: 14, lineHeight: 20, marginTop: 4 },
 
   bottomBtnRow: { flexDirection: 'row', gap: 10, marginTop: 24, alignItems: 'center' },
   deleteBtnBottom: { width: 52, height: 52, borderRadius: 16, backgroundColor: '#fff0f0', borderWidth: 1.5, borderColor: '#f5c0c0', alignItems: 'center', justifyContent: 'center' },
