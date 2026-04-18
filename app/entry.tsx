@@ -164,17 +164,40 @@ export default function EntryScreen() {
               {other.text?.trim() ? (
                 <Text style={[styles.otherText, { color: colors.text }]}>{other.text}</Text>
               ) : null}
+              {other.photo_uris && other.photo_uris.length > 0 && (
+                <View style={[styles.photoGrid, { marginTop: 8 }]}>
+                  {other.photo_uris.map((uri, idx) => (
+                    <View key={uri + idx} style={styles.photoThumbContainer}>
+                      <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
+                    </View>
+                  ))}
+                </View>
+              )}
             </View>
           ))}
 
-          {/* 내 일기 구분선 */}
-          {otherEntries.length > 0 && (
+          {/* 남의 일기만 있고 내 일기 없을 때 → 버튼을 바로 여기에 */}
+          {otherEntries.length > 0 && !myEntry && !isEditing && (
+            <TouchableOpacity
+              style={[styles.saveBtn, { backgroundColor: colors.card, borderWidth: 1.5, borderColor: colors.accent, marginTop: 8 }]}
+              onPress={() => setIsEditing(true)}
+              activeOpacity={0.8}
+            >
+              <Text style={[styles.saveTxt, { color: colors.accent }]}>✏️ 내 일기 작성하기</Text>
+            </TouchableOpacity>
+          )}
+
+          {/* 내 일기 구분선 (편집 중이거나 내 일기가 있을 때) */}
+          {otherEntries.length > 0 && (myEntry || isEditing) && (
             <View style={[styles.myEntryDivider, { borderColor: colors.accent }]}>
               <Text style={[styles.myEntryDividerTxt, { color: colors.accent }]}>
-                {myEntry ? (myEntry.author || '내 일기') : '✏️ 내 일기 작성'}
+                {myEntry?.author || '내 일기'}
               </Text>
             </View>
           )}
+
+          {/* 내 폼 - 내 일기가 있거나 편집 중일 때만 표시 */}
+          {(myEntry || isEditing) && (<>
 
           {/* 내 작성자 표시 */}
           {!isEditing && myEntry?.author && otherEntries.length === 0 && (
@@ -385,20 +408,14 @@ export default function EntryScreen() {
                 </TouchableOpacity>
               </View>
             </View>
-          ) : (!isEditing && !myEntry && otherEntries.length > 0) ? (
-            /* 남의 일기만 있을 때 → "내 일기 작성" 버튼 */
-            <TouchableOpacity
-              style={[styles.saveBtn, { backgroundColor: colors.card, borderWidth: 1.5, borderColor: colors.accent, marginTop: 24 }]}
-              onPress={() => setIsEditing(true)}
-              activeOpacity={0.8}
-            >
-              <Text style={[styles.saveTxt, { color: colors.accent }]}>✏️ 내 일기 작성하기</Text>
-            </TouchableOpacity>
-          ) : (!isEditing && !myEntry) ? null : isEditing ? (
+          ) : isEditing ? (
             <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
               <Text style={styles.saveTxt}>저장하기</Text>
             </TouchableOpacity>
           ) : null}
+
+          </>)}
+        </ScrollView>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
