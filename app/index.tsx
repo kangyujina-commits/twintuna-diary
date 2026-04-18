@@ -32,42 +32,41 @@ function toDateString(year: number, month: number, day: number) {
 
 export default function CalendarScreen() {
   const router = useRouter()
-  const { getMyEntry, getEntriesForDate, entries, diaryId, deviceId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary, disconnectDiary } = useDiary()
+  const {
+    getMyEntry, getEntriesForDate, entries, diaryId, deviceId,
+    isConnected, nickname, setNickname,
+    appName: sharedAppName, setAppName: setSharedAppName,
+    connectDiary, disconnectDiary,
+  } = useDiary()
   const { isDark, colors, toggleTheme } = useTheme()
+  const { hasPin, removePin, setupPin } = useLock()
 
-  // 다른 기기 일기가 있으면 양쪽 모두 연결 중으로 표시
   const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
   const showConnected = isConnected || hasOtherDevice
-  const { hasPin, removePin, setupPin } = useLock()
+
+  // PIN 설정 플로우
+  const [showPinSetup, setShowPinSetup] = useState(false)
   const [pinFirstInput, setPinFirstInput] = useState('')
   const [pinStep, setPinStep] = useState<'first' | 'confirm' | null>(null)
 
-  const [showShare, setShowShare] = useState(false)
-  const [showPinSetup, setShowPinSetup] = useState(false)
+  // 설정 패널
+  const [showSettings, setShowSettings] = useState(false)
+  const [nameInput, setNameInput] = useState(sharedAppName)
+  const [nicknameInput, setNicknameInput] = useState('')
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
-  const [nicknameInput, setNicknameInput] = useState('')
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
 
   const today = new Date()
   const [year, setYear] = useState(today.getFullYear())
   const [month, setMonth] = useState(today.getMonth())
-  const [editingName, setEditingName] = useState(false)
-  const [nameInput, setNameInput] = useState(sharedAppName)
+  const todayStr = toDateString(today.getFullYear(), today.getMonth(), today.getDate())
 
   useEffect(() => { setNameInput(sharedAppName) }, [sharedAppName])
   useEffect(() => { setNicknameInput(nickname) }, [nickname])
 
-  function saveName() {
-    const trimmed = nameInput.trim() || DEFAULT_NAME
-    setSharedAppName(trimmed)
-    setEditingName(false)
-  }
-
   const daysInMonth = getDaysInMonth(year, month)
   const firstDay = getFirstDayOfWeek(year, month)
-  const todayStr = toDateString(today.getFullYear(), today.getMonth(), today.getDate())
-
   const prevMonth = () => month === 0 ? (setMonth(11), setYear(y => y - 1)) : setMonth(m => m - 1)
   const nextMonth = () => month === 11 ? (setMonth(0), setYear(y => y + 1)) : setMonth(m => m + 1)
 
@@ -77,7 +76,19 @@ export default function CalendarScreen() {
   ]
   while (cells.length % 7 !== 0) cells.push(null)
 
-  // PIN 설정 플로우
+  function openSettings() {
+    setNameInput(sharedAppName)
+    setConnectMsg('')
+    setDisconnectConfirm(false)
+    setShowSettings(true)
+  }
+  function closeSettings() {
+    setShowSettings(false)
+    setDisconnectConfirm(false)
+    setConnectMsg('')
+  }
+
+  // PIN 설정 플로우 화면 전환
   if (showPinSetup && pinStep === null) {
     return <PinScreen mode="setup" title="새 PIN 입력 (4자리)"
       onSkip={() => setShowPinSetup(false)}
@@ -87,7 +98,7 @@ export default function CalendarScreen() {
     return <PinScreen mode="confirm" title="PIN 확인 (다시 입력)"
       onConfirm={async (p) => {
         if (p === pinFirstInput) { await setupPin(p); setShowPinSetup(false); setPinStep(null) }
-        else { setPinStep(null) }  // 불일치 → 처음부터
+        else { setPinStep(null) }
       }} />
   }
 
@@ -95,167 +106,184 @@ export default function CalendarScreen() {
     <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
       <ScrollView contentContainerStyle={styles.scroll}>
 
-        {/* Header */}
+        {/* ── 헤더 ── */}
         <View style={styles.header}>
           <View style={styles.headerTop}>
-            {editingName ? (
-              <View style={styles.nameEditRow}>
-                <TextInput
-                  style={[styles.nameInput, { color: colors.text, borderBottomColor: colors.accent }]}
-                  value={nameInput}
-                  onChangeText={setNameInput}
-                  autoFocus selectTextOnFocus returnKeyType="done"
-                  onSubmitEditing={saveName} maxLength={30}
-                />
-                <TouchableOpacity onPress={saveName} style={[styles.nameConfirmBtn, { backgroundColor: colors.accent }]}>
-                  <Text style={styles.nameConfirmTxt}>완료</Text>
-                </TouchableOpacity>
-              </View>
-            ) : (
-              <View style={styles.titleRow}>
-                <Text style={[styles.appTitle, { color: colors.text }]}>{sharedAppName}</Text>
-                <TouchableOpacity
-                  onPress={() => { setNameInput(sharedAppName); setEditingName(true) }}
-                  style={[styles.editTitleBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}
-                >
-                  <Text style={styles.editTitleIcon}>✏️</Text>
-                </TouchableOpacity>
-              </View>
-            )}
-            {!editingName && (
-              <View style={{ flexDirection: 'row', gap: 6 }}>
-                <TouchableOpacity
-                  onPress={() => hasPin ? removePin() : setShowPinSetup(true)}
-                  style={[styles.themeBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}
-                >
-                  <Text style={styles.themeBtnIcon}>{hasPin ? '🔒' : '🔓'}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={toggleTheme} style={[styles.themeBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                  <Text style={styles.themeBtnIcon}>{isDark ? '☀️' : '🌙'}</Text>
-                </TouchableOpacity>
-              </View>
-            )}
+            <Text style={[styles.appTitle, { color: colors.text }]}>{sharedAppName}</Text>
+            <View style={styles.headerBtns}>
+              <TouchableOpacity onPress={toggleTheme}
+                style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={styles.iconBtnTxt}>{isDark ? '☀️' : '🌙'}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={openSettings}
+                style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={styles.iconBtnTxt}>⚙️</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
-          {!editingName && (
-            <View style={styles.statusRow}>
-              {showConnected && (
-                <View style={[styles.badge, { backgroundColor: colors.connectedBg }]}>
-                  <Text style={[styles.badgeTxt, { color: colors.connectedText }]}>🔗 연결 중</Text>
-                </View>
-              )}
-              {nickname ? (
-                <View style={[styles.badge, { backgroundColor: colors.todayBg }]}>
-                  <Text style={[styles.badgeTxt, { color: colors.todayText }]}>{nickname}</Text>
-                </View>
-              ) : null}
-              <TouchableOpacity onPress={() => { setShowShare(true); setConnectMsg('') }}
-                style={[styles.shareBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={[styles.shareBtnTxt, { color: colors.textMuted }]}>연결 설정</Text>
-              </TouchableOpacity>
-            </View>
-          )}
-        </View>
-
-        {/* 공유 패널 */}
-        {showShare && (
-          <View style={[styles.sharePanel, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-            <Text style={[styles.sharePanelTitle, { color: colors.text }]}>📎 공유 코드</Text>
-
-            <View style={[styles.nicknameRow, { backgroundColor: colors.inputBg }]}>
-              <Text style={[styles.nicknameLabel, { color: colors.textMuted }]}>내 이름</Text>
-              <TextInput
-                style={[styles.nicknameInput, { color: colors.text, borderBottomColor: colors.accent }]}
-                value={nicknameInput}
-                onChangeText={setNicknameInput}
-                placeholder="닉네임 입력"
-                placeholderTextColor={colors.hint}
-                maxLength={10} returnKeyType="done"
-                onSubmitEditing={() => setNickname(nicknameInput.trim())}
-                onBlur={() => setNickname(nicknameInput.trim())}
-              />
-            </View>
-
-            <View style={[styles.myCodeRow, { backgroundColor: colors.inputBg }]}>
-              <Text style={[styles.myCodeLabel, { color: colors.textMuted }]}>내 코드</Text>
-              <Text style={[styles.myCode, { color: colors.todayText }]}>{diaryId}</Text>
-              <TouchableOpacity
-                onPress={() => {
-                  if (Platform.OS === 'web') navigator.clipboard?.writeText(diaryId)
-                  setConnectMsg('복사됐어요!')
-                  setTimeout(() => setConnectMsg(''), 2000)
-                }}
-                style={[styles.copyBtn, { backgroundColor: colors.accent }]}
-              >
-                <Text style={styles.copyBtnTxt}>복사</Text>
-              </TouchableOpacity>
-            </View>
-
-            <Text style={[styles.shareDivider, { color: colors.textLight }]}>↑ 이 코드를 파트너에게 알려주거나, 파트너 코드 입력</Text>
-            <View style={styles.connectRow}>
-              <TextInput
-                style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
-                value={connectInput}
-                onChangeText={(t) => setConnectInput(t.toUpperCase())}
-                placeholder="XXXXXX" placeholderTextColor={colors.hint}
-                autoCapitalize="characters" maxLength={6}
-              />
-              <TouchableOpacity
-                style={[styles.connectBtn, { backgroundColor: colors.accent }]}
-                onPress={async () => {
-                  if (connectInput.length < 6) { setConnectMsg('6자리 코드를 입력하세요'); return }
-                  await connectDiary(connectInput)
-                  setConnectInput(''); setShowShare(false); setConnectMsg('')
-                }}
-              >
-                <Text style={styles.connectBtnTxt}>연결</Text>
-              </TouchableOpacity>
-            </View>
-            {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
-
-            {/* 연결 끊기 */}
+          {/* 상태 뱃지 */}
+          <View style={styles.statusRow}>
             {showConnected && (
-              <View style={[styles.disconnectBox, { borderTopColor: colors.cardBorder }]}>
-                {disconnectConfirm ? (
-                  <View style={styles.disconnectConfirmRow}>
-                    <Text style={[styles.disconnectConfirmTxt, { color: colors.textMuted }]}>정말 연결을 끊을까요?</Text>
-                    <View style={styles.disconnectBtnRow}>
-                      <TouchableOpacity
-                        style={[styles.disconnectCancelBtn, { borderColor: colors.cardBorder }]}
-                        onPress={() => setDisconnectConfirm(false)}
-                      >
-                        <Text style={[styles.disconnectCancelTxt, { color: colors.textMuted }]}>취소</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        style={styles.disconnectConfirmBtn}
-                        onPress={async () => {
-                          await disconnectDiary()
-                          setDisconnectConfirm(false)
-                          setShowShare(false)
-                        }}
-                      >
-                        <Text style={styles.disconnectConfirmBtnTxt}>끊기</Text>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                ) : (
-                  <TouchableOpacity
-                    style={[styles.disconnectBtn, { borderColor: '#e05c5c' }]}
-                    onPress={() => setDisconnectConfirm(true)}
-                  >
-                    <Text style={styles.disconnectBtnTxt}>🔌 연결 끊기</Text>
-                  </TouchableOpacity>
-                )}
+              <View style={[styles.badge, { backgroundColor: colors.connectedBg }]}>
+                <Text style={[styles.badgeTxt, { color: colors.connectedText }]}>🔗 연결 중</Text>
               </View>
             )}
+            {hasPin && (
+              <View style={[styles.badge, { backgroundColor: colors.card, borderColor: colors.cardBorder, borderWidth: 1 }]}>
+                <Text style={[styles.badgeTxt, { color: colors.textMuted }]}>🔒 PIN</Text>
+              </View>
+            )}
+            {nickname ? (
+              <View style={[styles.badge, { backgroundColor: colors.todayBg }]}>
+                <Text style={[styles.badgeTxt, { color: colors.todayText }]}>{nickname}</Text>
+              </View>
+            ) : null}
+          </View>
+        </View>
 
-            <TouchableOpacity onPress={() => { setShowShare(false); setDisconnectConfirm(false) }} style={styles.sharePanelClose}>
-              <Text style={[styles.sharePanelCloseTxt, { color: colors.textMuted }]}>닫기</Text>
+        {/* ── 설정 패널 ── */}
+        {showSettings && (
+          <View style={[styles.panel, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+            <Text style={[styles.panelTitle, { color: colors.text }]}>⚙️ 설정</Text>
+
+            {/* 다이어리 이름 */}
+            <View style={styles.section}>
+              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>📔 다이어리 이름</Text>
+              <View style={[styles.inputRow, { backgroundColor: colors.inputBg }]}>
+                <TextInput
+                  style={[styles.textInput, { color: colors.text, borderBottomColor: colors.accent }]}
+                  value={nameInput}
+                  onChangeText={setNameInput}
+                  placeholder={DEFAULT_NAME}
+                  placeholderTextColor={colors.hint}
+                  maxLength={30} returnKeyType="done"
+                  onSubmitEditing={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+                  onBlur={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+                />
+              </View>
+            </View>
+
+            {/* 내 닉네임 */}
+            <View style={styles.section}>
+              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>👤 내 이름</Text>
+              <View style={[styles.inputRow, { backgroundColor: colors.inputBg }]}>
+                <TextInput
+                  style={[styles.textInput, { color: colors.text, borderBottomColor: colors.accent }]}
+                  value={nicknameInput}
+                  onChangeText={setNicknameInput}
+                  placeholder="닉네임 입력"
+                  placeholderTextColor={colors.hint}
+                  maxLength={10} returnKeyType="done"
+                  onSubmitEditing={() => setNickname(nicknameInput.trim())}
+                  onBlur={() => setNickname(nicknameInput.trim())}
+                />
+              </View>
+            </View>
+
+            {/* 연결 */}
+            <View style={styles.section}>
+              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>🔗 파트너 연결</Text>
+              {/* 내 코드 */}
+              <View style={[styles.codeRow, { backgroundColor: colors.inputBg }]}>
+                <Text style={[styles.codeLabel, { color: colors.textMuted }]}>내 코드</Text>
+                <Text style={[styles.codeText, { color: colors.todayText }]}>{diaryId}</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    if (Platform.OS === 'web') navigator.clipboard?.writeText(diaryId)
+                    setConnectMsg('복사됐어요!')
+                    setTimeout(() => setConnectMsg(''), 2000)
+                  }}
+                  style={[styles.copyBtn, { backgroundColor: colors.accent }]}
+                >
+                  <Text style={styles.copyBtnTxt}>복사</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={[styles.codeHint, { color: colors.textLight }]}>↑ 이 코드를 파트너에게 알려주거나, 파트너 코드를 아래에 입력</Text>
+              {/* 파트너 코드 입력 */}
+              <View style={styles.connectRow}>
+                <TextInput
+                  style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
+                  value={connectInput}
+                  onChangeText={(t) => setConnectInput(t.toUpperCase())}
+                  placeholder="XXXXXX" placeholderTextColor={colors.hint}
+                  autoCapitalize="characters" maxLength={6}
+                />
+                <TouchableOpacity
+                  style={[styles.connectBtn, { backgroundColor: colors.accent }]}
+                  onPress={async () => {
+                    if (connectInput.length < 6) { setConnectMsg('6자리 코드를 입력하세요'); return }
+                    await connectDiary(connectInput)
+                    setConnectInput(''); closeSettings()
+                  }}
+                >
+                  <Text style={styles.connectBtnTxt}>연결</Text>
+                </TouchableOpacity>
+              </View>
+              {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
+
+              {/* 연결 끊기 */}
+              {showConnected && (
+                <View style={[styles.disconnectBox, { borderTopColor: colors.cardBorder }]}>
+                  {disconnectConfirm ? (
+                    <View style={styles.disconnectConfirmRow}>
+                      <Text style={[styles.disconnectConfirmTxt, { color: colors.textMuted }]}>정말 연결을 끊을까요?</Text>
+                      <View style={styles.disconnectBtnRow}>
+                        <TouchableOpacity
+                          style={[styles.disconnectCancelBtn, { borderColor: colors.cardBorder }]}
+                          onPress={() => setDisconnectConfirm(false)}
+                        >
+                          <Text style={[styles.disconnectCancelTxt, { color: colors.textMuted }]}>취소</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          style={styles.disconnectConfirmBtn}
+                          onPress={async () => { await disconnectDiary(); closeSettings() }}
+                        >
+                          <Text style={styles.disconnectConfirmBtnTxt}>끊기</Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  ) : (
+                    <TouchableOpacity
+                      style={[styles.disconnectBtn, { borderColor: '#e05c5c' }]}
+                      onPress={() => setDisconnectConfirm(true)}
+                    >
+                      <Text style={styles.disconnectBtnTxt}>🔌 연결 끊기</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              )}
+            </View>
+
+            {/* PIN 잠금 */}
+            <View style={[styles.section, styles.pinSection, { borderTopColor: colors.cardBorder }]}>
+              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>🔒 PIN 잠금</Text>
+              <View style={styles.pinRow}>
+                <Text style={[styles.pinStatus, { color: colors.text }]}>
+                  {hasPin ? '설정됨' : '설정 안 됨'}
+                </Text>
+                <TouchableOpacity
+                  style={[styles.pinBtn, { borderColor: hasPin ? '#e05c5c' : colors.accent, backgroundColor: hasPin ? 'transparent' : colors.accent }]}
+                  onPress={() => {
+                    closeSettings()
+                    if (hasPin) { removePin() }
+                    else { setShowPinSetup(true) }
+                  }}
+                >
+                  <Text style={[styles.pinBtnTxt, { color: hasPin ? '#e05c5c' : '#fff' }]}>
+                    {hasPin ? 'PIN 해제' : 'PIN 설정'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <TouchableOpacity onPress={closeSettings} style={styles.panelClose}>
+              <Text style={[styles.panelCloseTxt, { color: colors.textMuted }]}>닫기</Text>
             </TouchableOpacity>
           </View>
         )}
 
-        {/* 월 네비 */}
+        {/* ── 월 네비 ── */}
         <View style={styles.monthNav}>
           <TouchableOpacity onPress={prevMonth} style={styles.navBtn}>
             <Text style={[styles.navArrow, { color: colors.accent }]}>‹</Text>
@@ -268,7 +296,7 @@ export default function CalendarScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* 요일 헤더 */}
+        {/* ── 요일 헤더 ── */}
         <View style={styles.weekRow}>
           {DAYS.map((d, i) => (
             <Text key={d} style={[
@@ -282,7 +310,7 @@ export default function CalendarScreen() {
           ))}
         </View>
 
-        {/* 캘린더 그리드 */}
+        {/* ── 캘린더 그리드 ── */}
         <View style={styles.grid}>
           {cells.map((day, idx) => {
             if (!day) return <View key={`empty-${idx}`} style={styles.cell} />
@@ -306,7 +334,6 @@ export default function CalendarScreen() {
                 onPress={() => router.push({ pathname: '/entry', params: { date: dateStr } })}
                 activeOpacity={0.7}
               >
-                {/* 날짜 숫자 */}
                 <View style={[isToday && styles.todayCircle, isToday && { backgroundColor: colors.todayText }]}>
                   <Text style={[
                     styles.dayNum,
@@ -319,24 +346,17 @@ export default function CalendarScreen() {
                   </Text>
                 </View>
 
-                {/* 기분 이모지 - 나 / 상대 */}
                 <View style={styles.moodRow}>
-                  {myEntry?.mood
-                    ? <Text style={[styles.moodIcon, { color: colors.text }]}>{myEntry.mood}</Text>
-                    : null}
-                  {otherEntry?.mood
-                    ? <Text style={[styles.moodIcon, { color: colors.text, opacity: 0.6 }]}>{otherEntry.mood}</Text>
-                    : null}
+                  {myEntry?.mood ? <Text style={[styles.moodIcon, { color: colors.text }]}>{myEntry.mood}</Text> : null}
+                  {otherEntry?.mood ? <Text style={[styles.moodIcon, { color: colors.text, opacity: 0.6 }]}>{otherEntry.mood}</Text> : null}
                 </View>
 
-                {/* 일정: 내 것 우선, 없으면 상대 것 */}
                 {(myEntry?.schedule || otherEntry?.schedule)
                   ? <Text style={[styles.schedulePreview, { color: colors.textMuted }]} numberOfLines={1} ellipsizeMode="tail">
                       {(myEntry?.schedule || otherEntry?.schedule)!.trim()}
                     </Text>
                   : null}
 
-                {/* 남의 일기만 있고 내 일기가 없을 때 + 뱃지 */}
                 {!myEntry && otherEntry && (
                   <View style={[styles.addEntryBadge, { backgroundColor: colors.accent }]}>
                     <Text style={styles.addEntryBadgeTxt}>＋</Text>
@@ -359,46 +379,59 @@ const styles = StyleSheet.create({
   safe: { flex: 1 },
   scroll: { paddingBottom: 40 },
 
+  // 헤더
   header: { alignItems: 'center', paddingTop: 24, paddingBottom: 8 },
-  headerTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  appTitle: { fontSize: 22, fontWeight: '700', letterSpacing: 0.5 },
-  nameHint: { fontSize: 11, marginTop: 3 },
-  themeBtn: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
-  themeBtnIcon: { fontSize: 18 },
-
-  titleRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  editTitleBtn: { width: 28, height: 28, borderRadius: 10, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
-  editTitleIcon: { fontSize: 14 },
-  nameEditRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  nameInput: { fontSize: 20, fontWeight: '700', borderBottomWidth: 2, paddingVertical: 2, paddingHorizontal: 4, minWidth: 120, textAlign: 'center' },
-  nameConfirmBtn: { borderRadius: 10, paddingHorizontal: 12, paddingVertical: 6 },
-  nameConfirmTxt: { color: '#fff', fontWeight: '700', fontSize: 13 },
-
+  headerTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', paddingHorizontal: 20 },
+  appTitle: { fontSize: 22, fontWeight: '700', letterSpacing: 0.5, flex: 1 },
+  headerBtns: { flexDirection: 'row', gap: 6 },
+  iconBtn: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
+  iconBtnTxt: { fontSize: 18 },
   statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 8, flexWrap: 'wrap', justifyContent: 'center' },
   badge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 10 },
   badgeTxt: { fontSize: 11, fontWeight: '700' },
-  shareBtn: { paddingVertical: 4, paddingHorizontal: 12, borderRadius: 10, borderWidth: 1 },
-  shareBtnTxt: { fontSize: 11, fontWeight: '600' },
 
-  sharePanel: { marginHorizontal: 16, marginBottom: 8, borderRadius: 18, padding: 18, borderWidth: 1.5 },
-  sharePanelTitle: { fontSize: 14, fontWeight: '700', marginBottom: 12, textAlign: 'center' },
-  nicknameRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10, borderRadius: 12, padding: 10 },
-  nicknameLabel: { fontSize: 12, width: 44 },
-  nicknameInput: { flex: 1, fontSize: 15, fontWeight: '600', borderBottomWidth: 1.5, paddingVertical: 2 },
-  myCodeRow: { flexDirection: 'row', alignItems: 'center', borderRadius: 12, padding: 10, marginBottom: 12, gap: 8 },
-  myCodeLabel: { fontSize: 12 },
-  myCode: { flex: 1, fontSize: 22, fontWeight: '800', letterSpacing: 3, textAlign: 'center' },
+  // 설정 패널
+  panel: { marginHorizontal: 16, marginBottom: 8, borderRadius: 18, padding: 18, borderWidth: 1.5 },
+  panelTitle: { fontSize: 16, fontWeight: '800', marginBottom: 16, textAlign: 'center' },
+
+  section: { marginBottom: 14 },
+  sectionLabel: { fontSize: 12, fontWeight: '700', marginBottom: 8, letterSpacing: 0.3 },
+  inputRow: { borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8 },
+  textInput: { fontSize: 15, fontWeight: '600', borderBottomWidth: 1.5, paddingVertical: 4 },
+
+  codeRow: { flexDirection: 'row', alignItems: 'center', borderRadius: 12, padding: 10, marginBottom: 8, gap: 8 },
+  codeLabel: { fontSize: 12 },
+  codeText: { flex: 1, fontSize: 20, fontWeight: '800', letterSpacing: 3, textAlign: 'center' },
   copyBtn: { borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5 },
   copyBtnTxt: { fontSize: 12, color: '#fff', fontWeight: '700' },
-  shareDivider: { fontSize: 11, textAlign: 'center', marginBottom: 10 },
+  codeHint: { fontSize: 11, textAlign: 'center', marginBottom: 8 },
   connectRow: { flexDirection: 'row', gap: 8, alignItems: 'stretch' },
   connectInput: { flex: 1, borderRadius: 12, borderWidth: 1.5, paddingHorizontal: 14, paddingVertical: 10, fontSize: 18, fontWeight: '700', letterSpacing: 3, textAlign: 'center' },
   connectBtn: { borderRadius: 12, paddingHorizontal: 18, paddingVertical: 12, justifyContent: 'center', alignItems: 'center', minWidth: 60 },
   connectBtnTxt: { color: '#fff', fontWeight: '700', fontSize: 14 },
-  connectMsg: { fontSize: 12, textAlign: 'center', marginTop: 8 },
-  sharePanelClose: { alignItems: 'center', marginTop: 12 },
-  sharePanelCloseTxt: { fontSize: 12 },
+  connectMsg: { fontSize: 12, textAlign: 'center', marginTop: 6 },
 
+  disconnectBox: { borderTopWidth: 1, marginTop: 12, paddingTop: 12, alignItems: 'center' },
+  disconnectBtn: { borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
+  disconnectBtnTxt: { fontSize: 13, fontWeight: '700', color: '#e05c5c' },
+  disconnectConfirmRow: { alignItems: 'center', gap: 10 },
+  disconnectConfirmTxt: { fontSize: 13, fontWeight: '600' },
+  disconnectBtnRow: { flexDirection: 'row', gap: 10 },
+  disconnectCancelBtn: { borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
+  disconnectCancelTxt: { fontSize: 13, fontWeight: '600' },
+  disconnectConfirmBtn: { backgroundColor: '#e05c5c', borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
+  disconnectConfirmBtnTxt: { fontSize: 13, fontWeight: '700', color: '#fff' },
+
+  pinSection: { borderTopWidth: 1, paddingTop: 14, marginTop: 4, marginBottom: 0 },
+  pinRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  pinStatus: { fontSize: 14, fontWeight: '600' },
+  pinBtn: { borderRadius: 10, borderWidth: 1.5, paddingHorizontal: 16, paddingVertical: 7 },
+  pinBtnTxt: { fontSize: 13, fontWeight: '700' },
+
+  panelClose: { alignItems: 'center', marginTop: 16 },
+  panelCloseTxt: { fontSize: 12 },
+
+  // 캘린더
   monthNav: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, gap: 24 },
   navBtn: { padding: 8 },
   navArrow: { fontSize: 28, lineHeight: 30 },
@@ -421,19 +454,4 @@ const styles = StyleSheet.create({
 
   legend: { alignItems: 'center', marginTop: 20 },
   legendText: { fontSize: 12 },
-
-  pinRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTopWidth: 1, paddingTop: 12, marginTop: 4 },
-  pinLabel: { fontSize: 13, fontWeight: '600' },
-  pinBtn: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 10, borderWidth: 1.5 },
-
-  disconnectBox: { borderTopWidth: 1, marginTop: 14, paddingTop: 12 },
-  disconnectBtn: { alignSelf: 'center', borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
-  disconnectBtnTxt: { fontSize: 13, fontWeight: '700', color: '#e05c5c' },
-  disconnectConfirmRow: { alignItems: 'center', gap: 10 },
-  disconnectConfirmTxt: { fontSize: 13, fontWeight: '600' },
-  disconnectBtnRow: { flexDirection: 'row', gap: 10 },
-  disconnectCancelBtn: { borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
-  disconnectCancelTxt: { fontSize: 13, fontWeight: '600' },
-  disconnectConfirmBtn: { backgroundColor: '#e05c5c', borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
-  disconnectConfirmBtnTxt: { fontSize: 13, fontWeight: '700', color: '#fff' },
 })
