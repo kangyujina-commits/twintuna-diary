@@ -42,6 +42,9 @@ interface DiaryContextValue {
   diaryPin: string | null
   diaryPinLoaded: boolean
   setDiaryPin: (pin: string | null) => Promise<void>
+  // D-day (Firestore 공유)
+  dday: { label: string; date: string } | null
+  setDday: (dday: { label: string; date: string } | null) => Promise<void>
   // 날짜별 모든 entries (docId → entry)
   entries: Record<string, DiaryEntry>
   // 내 entry 가져오기
@@ -65,6 +68,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   const [entries, setEntries] = useState<Record<string, DiaryEntry>>({})
   const [diaryPin, setDiaryPinState] = useState<string | null>(null)
   const [diaryPinLoaded, setDiaryPinLoaded] = useState(false)
+  const [dday, setDdayState] = useState<{ label: string; date: string } | null>(null)
 
   useEffect(() => {
     Promise.all([
@@ -92,6 +96,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       if (data?.appName) setAppNameState(data.appName)
       setDiaryPinState(data?.pin ?? null)
       setDiaryPinLoaded(true)
+      setDdayState(data?.dday ?? null)
     })
     return unsubMeta
   }, [diaryId])
@@ -181,6 +186,12 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setDiaryPinState(pin)
   }
 
+  async function setDday(val: { label: string; date: string } | null) {
+    if (!diaryId) return
+    await setDoc(doc(db, 'diaries', diaryId), { dday: val ?? null }, { merge: true })
+    setDdayState(val)
+  }
+
   if (!diaryId) return null
 
   return (
@@ -188,6 +199,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       diaryId, deviceId, isConnected, nickname, setNickname,
       appName, setAppName,
       diaryPin, diaryPinLoaded, setDiaryPin,
+      dday, setDday,
       entries,
       getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, connectDiary, disconnectDiary,
     }}>

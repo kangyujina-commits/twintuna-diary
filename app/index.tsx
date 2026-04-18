@@ -37,6 +37,7 @@ export default function CalendarScreen() {
     isConnected, nickname, setNickname,
     appName: sharedAppName, setAppName: setSharedAppName,
     connectDiary, disconnectDiary,
+    dday, setDday,
   } = useDiary()
   const { isDark, colors, toggleTheme } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
@@ -56,6 +57,23 @@ export default function CalendarScreen() {
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
+
+  // D-day
+  const [showDdayEdit, setShowDdayEdit] = useState(false)
+  const [ddayLabelInput, setDdayLabelInput] = useState('')
+  const [ddayDateInput, setDdayDateInput] = useState('')
+
+  function calcDday(dateStr: string): string {
+    const [y, m, d] = dateStr.split('-').map(Number)
+    const target = new Date(y, m - 1, d)
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    target.setHours(0, 0, 0, 0)
+    const diff = Math.round((target.getTime() - today.getTime()) / 86400000)
+    if (diff === 0) return 'D-Day!'
+    if (diff < 0) return `D+${Math.abs(diff)}`
+    return `D-${diff}`
+  }
 
   const today = new Date()
   const [year, setYear] = useState(today.getFullYear())
@@ -275,6 +293,70 @@ export default function CalendarScreen() {
           </View>
         )}
 
+        {/* ── D-day 행 ── */}
+        {showDdayEdit ? (
+          <View style={[styles.ddayCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+            <TextInput
+              style={[styles.ddayLabelInput, { color: colors.text, borderBottomColor: colors.accent }]}
+              value={ddayLabelInput}
+              onChangeText={setDdayLabelInput}
+              placeholder="Label · 이름 (예: 처음 만난 날)"
+              placeholderTextColor={colors.hint}
+              maxLength={20}
+            />
+            <TextInput
+              style={[styles.ddayDateInput, { color: colors.text, borderBottomColor: colors.accent }]}
+              value={ddayDateInput}
+              onChangeText={setDdayDateInput}
+              placeholder="YYYY-MM-DD"
+              placeholderTextColor={colors.hint}
+              maxLength={10}
+              keyboardType="numeric"
+            />
+            <View style={styles.ddayEditBtns}>
+              {dday && (
+                <TouchableOpacity
+                  style={[styles.ddayRemoveBtn, { borderColor: '#e05c5c' }]}
+                  onPress={async () => { await setDday(null); setShowDdayEdit(false) }}
+                >
+                  <Text style={styles.ddayRemoveTxt}>Remove · 삭제</Text>
+                </TouchableOpacity>
+              )}
+              <TouchableOpacity
+                style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
+                onPress={async () => {
+                  const d = ddayDateInput.trim()
+                  const l = ddayLabelInput.trim()
+                  if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return
+                  await setDday({ label: l || 'D-day', date: d })
+                  setShowDdayEdit(false)
+                }}
+              >
+                <Text style={styles.ddaySaveTxt}>Save · 저장</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        ) : (
+          <TouchableOpacity
+            style={styles.ddayRow}
+            onPress={() => {
+              setDdayLabelInput(dday?.label ?? '')
+              setDdayDateInput(dday?.date ?? '')
+              setShowDdayEdit(true)
+            }}
+            activeOpacity={0.7}
+          >
+            {dday ? (
+              <>
+                <Text style={[styles.ddayLabel, { color: colors.textMuted }]}>{dday.label}</Text>
+                <Text style={[styles.ddayCount, { color: colors.accent }]}>{calcDday(dday.date)}</Text>
+              </>
+            ) : (
+              <Text style={[styles.ddayEmpty, { color: colors.hint }]}>＋ Add D-day · 날짜 추가</Text>
+            )}
+          </TouchableOpacity>
+        )}
+
         {/* ── 월 네비 ── */}
         <View style={styles.monthNav}>
           <TouchableOpacity onPress={prevMonth} style={styles.navBtn}>
@@ -418,6 +500,20 @@ const styles = StyleSheet.create({
 
   panelClose: { alignItems: 'center', marginTop: 4, marginBottom: 4 },
   panelCloseTxt: { fontSize: 12 },
+
+  // D-day
+  ddayRow: { alignItems: 'center', justifyContent: 'center', paddingVertical: 8, flexDirection: 'row', gap: 8 },
+  ddayLabel: { fontSize: 12, fontWeight: '600' },
+  ddayCount: { fontSize: 22, fontWeight: '800', letterSpacing: 1 },
+  ddayEmpty: { fontSize: 13 },
+  ddayCard: { marginHorizontal: 16, marginBottom: 4, borderRadius: 16, padding: 16, borderWidth: 1.5, gap: 10 },
+  ddayLabelInput: { fontSize: 14, fontWeight: '600', borderBottomWidth: 1.5, paddingVertical: 4 },
+  ddayDateInput: { fontSize: 18, fontWeight: '700', borderBottomWidth: 1.5, paddingVertical: 4, letterSpacing: 1 },
+  ddayEditBtns: { flexDirection: 'row', gap: 8, justifyContent: 'flex-end', marginTop: 4 },
+  ddayRemoveBtn: { borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 7 },
+  ddayRemoveTxt: { fontSize: 12, fontWeight: '700', color: '#e05c5c' },
+  ddaySaveBtn: { borderRadius: 10, paddingHorizontal: 18, paddingVertical: 7 },
+  ddaySaveTxt: { fontSize: 12, fontWeight: '700', color: '#fff' },
 
   // 캘린더
   monthNav: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, gap: 24 },
