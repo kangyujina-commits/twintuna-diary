@@ -32,7 +32,7 @@ function toDateString(year: number, month: number, day: number) {
 
 export default function CalendarScreen() {
   const router = useRouter()
-  const { getMyEntry, getEntriesForDate, entries, diaryId, deviceId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary } = useDiary()
+  const { getMyEntry, getEntriesForDate, entries, diaryId, deviceId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary, disconnectDiary } = useDiary()
   const { isDark, colors, toggleTheme } = useTheme()
 
   // 다른 기기 일기가 있으면 양쪽 모두 연결 중으로 표시
@@ -47,6 +47,7 @@ export default function CalendarScreen() {
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
   const [nicknameInput, setNicknameInput] = useState('')
+  const [disconnectConfirm, setDisconnectConfirm] = useState(false)
 
   const today = new Date()
   const [year, setYear] = useState(today.getFullYear())
@@ -211,7 +212,44 @@ export default function CalendarScreen() {
               </TouchableOpacity>
             </View>
             {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
-            <TouchableOpacity onPress={() => setShowShare(false)} style={styles.sharePanelClose}>
+
+            {/* 연결 끊기 */}
+            {showConnected && (
+              <View style={[styles.disconnectBox, { borderTopColor: colors.cardBorder }]}>
+                {disconnectConfirm ? (
+                  <View style={styles.disconnectConfirmRow}>
+                    <Text style={[styles.disconnectConfirmTxt, { color: colors.textMuted }]}>정말 연결을 끊을까요?</Text>
+                    <View style={styles.disconnectBtnRow}>
+                      <TouchableOpacity
+                        style={[styles.disconnectCancelBtn, { borderColor: colors.cardBorder }]}
+                        onPress={() => setDisconnectConfirm(false)}
+                      >
+                        <Text style={[styles.disconnectCancelTxt, { color: colors.textMuted }]}>취소</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={styles.disconnectConfirmBtn}
+                        onPress={async () => {
+                          await disconnectDiary()
+                          setDisconnectConfirm(false)
+                          setShowShare(false)
+                        }}
+                      >
+                        <Text style={styles.disconnectConfirmBtnTxt}>끊기</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                ) : (
+                  <TouchableOpacity
+                    style={[styles.disconnectBtn, { borderColor: '#e05c5c' }]}
+                    onPress={() => setDisconnectConfirm(true)}
+                  >
+                    <Text style={styles.disconnectBtnTxt}>🔌 연결 끊기</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            )}
+
+            <TouchableOpacity onPress={() => { setShowShare(false); setDisconnectConfirm(false) }} style={styles.sharePanelClose}>
               <Text style={[styles.sharePanelCloseTxt, { color: colors.textMuted }]}>닫기</Text>
             </TouchableOpacity>
           </View>
@@ -387,4 +425,15 @@ const styles = StyleSheet.create({
   pinRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTopWidth: 1, paddingTop: 12, marginTop: 4 },
   pinLabel: { fontSize: 13, fontWeight: '600' },
   pinBtn: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 10, borderWidth: 1.5 },
+
+  disconnectBox: { borderTopWidth: 1, marginTop: 14, paddingTop: 12 },
+  disconnectBtn: { alignSelf: 'center', borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
+  disconnectBtnTxt: { fontSize: 13, fontWeight: '700', color: '#e05c5c' },
+  disconnectConfirmRow: { alignItems: 'center', gap: 10 },
+  disconnectConfirmTxt: { fontSize: 13, fontWeight: '600' },
+  disconnectBtnRow: { flexDirection: 'row', gap: 10 },
+  disconnectCancelBtn: { borderWidth: 1.5, borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
+  disconnectCancelTxt: { fontSize: 13, fontWeight: '600' },
+  disconnectConfirmBtn: { backgroundColor: '#e05c5c', borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
+  disconnectConfirmBtnTxt: { fontSize: 13, fontWeight: '700', color: '#fff' },
 })

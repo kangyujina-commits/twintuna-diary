@@ -51,6 +51,7 @@ interface DiaryContextValue {
   upsertEntry: (entry: Omit<DiaryEntry, 'id'>) => Promise<void>
   deleteEntry: (docId: string) => Promise<void>
   connectDiary: (code: string) => Promise<void>
+  disconnectDiary: () => Promise<void>
 }
 
 const DiaryContext = createContext<DiaryContextValue | null>(null)
@@ -154,6 +155,15 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setDiaryId(newId)
   }
 
+  async function disconnectDiary() {
+    const newId = generateCode()
+    await AsyncStorage.setItem(DIARY_ID_KEY, newId)
+    await AsyncStorage.setItem(CONNECTED_KEY, 'false')
+    setEntries({})
+    setIsConnected(false)
+    setDiaryId(newId)
+  }
+
   async function setNickname(name: string) {
     await AsyncStorage.setItem(NICKNAME_KEY, name)
     setNicknameState(name)
@@ -179,7 +189,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       appName, setAppName,
       diaryPin, diaryPinLoaded, setDiaryPin,
       entries,
-      getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, connectDiary,
+      getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, connectDiary, disconnectDiary,
     }}>
       {children}
     </DiaryContext.Provider>
