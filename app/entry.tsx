@@ -15,6 +15,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router'
 import * as ImagePicker from 'expo-image-picker'
 import { useDiary, Mood, Weather } from '../src/context/DiaryContext'
 import { useTheme } from '../src/context/ThemeContext'
+import { uploadPhoto } from '../src/utils/uploadPhoto'
 
 const MOODS: { emoji: Mood; label: string }[] = [
   { emoji: '😄', label: 'Joy/신나요' },
@@ -50,7 +51,7 @@ function formatDate(dateStr: string) {
 export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
-  const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId } = useDiary()
+  const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId, diaryId } = useDiary()
   const { colors } = useTheme()
 
   const myEntry = date ? getMyEntry(date) : undefined
@@ -72,6 +73,7 @@ export default function EntryScreen() {
   const [isEditing, setIsEditing] = useState(!myEntry && otherEntries.length === 0)
   const [showPhotoMenu, setShowPhotoMenu] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
 
   useEffect(() => {
     if (myEntry) {
@@ -119,10 +121,23 @@ export default function EntryScreen() {
     }
   }
 
-  function handleSave() {
+  async function handleSave() {
     if (!date) return
-    upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: photoUris, schedule: schedule.trim(), author: nickname || undefined })
-    setIsEditing(false)
+    setIsSaving(true)
+    try {
+      // 로컬 URI → Firebase Storage 업로드 후 https URL로 교체
+      const uploadedUris = await Promise.all(
+        photoUris.map((uri, idx) => {
+          if (uri.startsWith('https://')) return Promise.resolve(uri)
+          const path = `diaries/${diaryId}/${date}_${deviceId}_${idx}_${Date.now()}`
+          return uploadPhoto(uri, path)
+        })
+      )
+      await upsertEntry({ date, mood, weather, text: text.trim(), photo_uris: uploadedUris, schedule: schedule.trim(), author: nickname || undefined })
+      setIsEditing(false)
+    } finally {
+      setIsSaving(false)
+    }
   }
 
   function handleDelete() {
@@ -409,8 +424,13 @@ export default function EntryScreen() {
               </View>
             </View>
           ) : isEditing ? (
-            <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
-              <Text style={styles.saveTxt}>저장하기</Text>
+            <TouchableOpacity
+              style={[styles.saveBtn, { backgroundColor: isSaving ? colors.textMuted : colors.accent }]}
+              onPress={handleSave}
+              activeOpacity={0.8}
+              disabled={isSaving}
+            >
+              <Text style={styles.saveTxt}>{isSaving ? '저장 중...' : '저장하기'}</Text>
             </TouchableOpacity>
           ) : null}
 
