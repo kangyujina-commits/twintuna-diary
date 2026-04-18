@@ -32,8 +32,12 @@ function toDateString(year: number, month: number, day: number) {
 
 export default function CalendarScreen() {
   const router = useRouter()
-  const { getMyEntry, getEntriesForDate, diaryId, deviceId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary } = useDiary()
+  const { getMyEntry, getEntriesForDate, entries, diaryId, deviceId, isConnected, nickname, setNickname, appName: sharedAppName, setAppName: setSharedAppName, connectDiary } = useDiary()
   const { isDark, colors, toggleTheme } = useTheme()
+
+  // 다른 기기 일기가 있으면 양쪽 모두 연결 중으로 표시
+  const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
+  const showConnected = isConnected || hasOtherDevice
   const { hasPin, removePin, setupPin } = useLock()
   const [pinFirstInput, setPinFirstInput] = useState('')
   const [pinStep, setPinStep] = useState<'first' | 'confirm' | null>(null)
@@ -134,7 +138,7 @@ export default function CalendarScreen() {
 
           {!editingName && (
             <View style={styles.statusRow}>
-              {isConnected && (
+              {showConnected && (
                 <View style={[styles.badge, { backgroundColor: colors.connectedBg }]}>
                   <Text style={[styles.badgeTxt, { color: colors.connectedText }]}>🔗 연결 중</Text>
                 </View>
@@ -349,9 +353,9 @@ const styles = StyleSheet.create({
   copyBtn: { borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5 },
   copyBtnTxt: { fontSize: 12, color: '#fff', fontWeight: '700' },
   shareDivider: { fontSize: 11, textAlign: 'center', marginBottom: 10 },
-  connectRow: { flexDirection: 'row', gap: 8 },
-  connectInput: { flex: 1, borderRadius: 12, borderWidth: 1.5, paddingHorizontal: 14, paddingVertical: 10, fontSize: 20, fontWeight: '700', letterSpacing: 3, textAlign: 'center' },
-  connectBtn: { borderRadius: 12, paddingHorizontal: 16, justifyContent: 'center' },
+  connectRow: { flexDirection: 'row', gap: 8, alignItems: 'stretch' },
+  connectInput: { flex: 1, borderRadius: 12, borderWidth: 1.5, paddingHorizontal: 14, paddingVertical: 10, fontSize: 18, fontWeight: '700', letterSpacing: 3, textAlign: 'center' },
+  connectBtn: { borderRadius: 12, paddingHorizontal: 18, paddingVertical: 12, justifyContent: 'center', alignItems: 'center', minWidth: 60 },
   connectBtnTxt: { color: '#fff', fontWeight: '700', fontSize: 14 },
   connectMsg: { fontSize: 12, textAlign: 'center', marginTop: 8 },
   sharePanelClose: { alignItems: 'center', marginTop: 12 },
