@@ -108,19 +108,19 @@ export default function CalendarScreen() {
 
         {/* ── 헤더 ── */}
         <View style={styles.header}>
-          <View style={styles.headerTop}>
-            <Text style={[styles.appTitle, { color: colors.text }]}>{sharedAppName}</Text>
-            <View style={styles.headerBtns}>
-              <TouchableOpacity onPress={toggleTheme}
-                style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={styles.iconBtnTxt}>{isDark ? '☀️' : '🌙'}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={openSettings}
-                style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={styles.iconBtnTxt}>⚙️</Text>
-              </TouchableOpacity>
-            </View>
+          {/* 버튼 행 (오른쪽) */}
+          <View style={styles.headerBtnRow}>
+            <TouchableOpacity onPress={toggleTheme}
+              style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={styles.iconBtnTxt}>{isDark ? '☀️' : '🌙'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={openSettings}
+              style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={styles.iconBtnTxt}>⚙️</Text>
+            </TouchableOpacity>
           </View>
+          {/* 타이틀 (가운데) */}
+          <Text style={[styles.appTitle, { color: colors.text }]}>{sharedAppName}</Text>
 
           {/* 상태 뱃지 */}
           <View style={styles.statusRow}>
@@ -144,46 +144,42 @@ export default function CalendarScreen() {
 
         {/* ── 설정 패널 ── */}
         {showSettings && (
-          <View style={[styles.panel, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+          <View style={styles.panelWrap}>
             <Text style={[styles.panelTitle, { color: colors.text }]}>⚙️ 설정</Text>
 
-            {/* 다이어리 이름 */}
-            <View style={styles.section}>
-              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>📔 다이어리 이름</Text>
-              <View style={[styles.inputRow, { backgroundColor: colors.inputBg }]}>
-                <TextInput
-                  style={[styles.textInput, { color: colors.text, borderBottomColor: colors.accent }]}
-                  value={nameInput}
-                  onChangeText={setNameInput}
-                  placeholder={DEFAULT_NAME}
-                  placeholderTextColor={colors.hint}
-                  maxLength={30} returnKeyType="done"
-                  onSubmitEditing={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
-                  onBlur={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
-                />
-              </View>
+            {/* ① 다이어리 이름 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📔 다이어리 이름</Text>
+              <TextInput
+                style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent }]}
+                value={nameInput}
+                onChangeText={setNameInput}
+                placeholder={DEFAULT_NAME}
+                placeholderTextColor={colors.hint}
+                maxLength={30} returnKeyType="done"
+                onSubmitEditing={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+                onBlur={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+              />
             </View>
 
-            {/* 내 닉네임 */}
-            <View style={styles.section}>
-              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>👤 내 이름</Text>
-              <View style={[styles.inputRow, { backgroundColor: colors.inputBg }]}>
-                <TextInput
-                  style={[styles.textInput, { color: colors.text, borderBottomColor: colors.accent }]}
-                  value={nicknameInput}
-                  onChangeText={setNicknameInput}
-                  placeholder="닉네임 입력"
-                  placeholderTextColor={colors.hint}
-                  maxLength={10} returnKeyType="done"
-                  onSubmitEditing={() => setNickname(nicknameInput.trim())}
-                  onBlur={() => setNickname(nicknameInput.trim())}
-                />
-              </View>
+            {/* ② 내 이름 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>👤 내 이름</Text>
+              <TextInput
+                style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent }]}
+                value={nicknameInput}
+                onChangeText={setNicknameInput}
+                placeholder="닉네임 입력"
+                placeholderTextColor={colors.hint}
+                maxLength={10} returnKeyType="done"
+                onSubmitEditing={() => setNickname(nicknameInput.trim())}
+                onBlur={() => setNickname(nicknameInput.trim())}
+              />
             </View>
 
-            {/* 연결 */}
-            <View style={styles.section}>
-              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>🔗 파트너 연결</Text>
+            {/* ③ 파트너 연결 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 파트너 연결</Text>
               {/* 내 코드 */}
               <View style={[styles.codeRow, { backgroundColor: colors.inputBg }]}>
                 <Text style={[styles.codeLabel, { color: colors.textMuted }]}>내 코드</Text>
@@ -200,7 +196,6 @@ export default function CalendarScreen() {
                 </TouchableOpacity>
               </View>
               <Text style={[styles.codeHint, { color: colors.textLight }]}>↑ 이 코드를 파트너에게 알려주거나, 파트너 코드를 아래에 입력</Text>
-              {/* 파트너 코드 입력 */}
               <View style={styles.connectRow}>
                 <TextInput
                   style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
@@ -222,7 +217,6 @@ export default function CalendarScreen() {
               </View>
               {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
 
-              {/* 연결 끊기 */}
               {showConnected && (
                 <View style={[styles.disconnectBox, { borderTopColor: colors.cardBorder }]}>
                   {disconnectConfirm ? (
@@ -255,9 +249,9 @@ export default function CalendarScreen() {
               )}
             </View>
 
-            {/* PIN 잠금 */}
-            <View style={[styles.section, styles.pinSection, { borderTopColor: colors.cardBorder }]}>
-              <Text style={[styles.sectionLabel, { color: colors.textMuted }]}>🔒 PIN 잠금</Text>
+            {/* ④ PIN 잠금 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN 잠금</Text>
               <View style={styles.pinRow}>
                 <Text style={[styles.pinStatus, { color: colors.text }]}>
                   {hasPin ? '설정됨' : '설정 안 됨'}
@@ -380,10 +374,9 @@ const styles = StyleSheet.create({
   scroll: { paddingBottom: 40 },
 
   // 헤더
-  header: { alignItems: 'center', paddingTop: 24, paddingBottom: 8 },
-  headerTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', paddingHorizontal: 20 },
-  appTitle: { fontSize: 22, fontWeight: '700', letterSpacing: 0.5, flex: 1 },
-  headerBtns: { flexDirection: 'row', gap: 6 },
+  header: { alignItems: 'center', paddingTop: 16, paddingBottom: 8 },
+  headerBtnRow: { flexDirection: 'row', gap: 6, alignSelf: 'flex-end', paddingRight: 20, marginBottom: 6 },
+  appTitle: { fontSize: 24, fontWeight: '800', letterSpacing: 0.5, textAlign: 'center' },
   iconBtn: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
   iconBtnTxt: { fontSize: 18 },
   statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 8, flexWrap: 'wrap', justifyContent: 'center' },
@@ -391,13 +384,11 @@ const styles = StyleSheet.create({
   badgeTxt: { fontSize: 11, fontWeight: '700' },
 
   // 설정 패널
-  panel: { marginHorizontal: 16, marginBottom: 8, borderRadius: 18, padding: 18, borderWidth: 1.5 },
-  panelTitle: { fontSize: 16, fontWeight: '800', marginBottom: 16, textAlign: 'center' },
-
-  section: { marginBottom: 14 },
-  sectionLabel: { fontSize: 12, fontWeight: '700', marginBottom: 8, letterSpacing: 0.3 },
-  inputRow: { borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8 },
-  textInput: { fontSize: 15, fontWeight: '600', borderBottomWidth: 1.5, paddingVertical: 4 },
+  panelWrap: { marginHorizontal: 16, marginBottom: 8 },
+  panelTitle: { fontSize: 16, fontWeight: '800', marginBottom: 12, textAlign: 'center' },
+  card: { borderRadius: 16, padding: 16, borderWidth: 1.5, marginBottom: 10 },
+  cardLabel: { fontSize: 11, fontWeight: '700', marginBottom: 10, letterSpacing: 0.4, textTransform: 'uppercase' },
+  cardInput: { fontSize: 16, fontWeight: '600', borderBottomWidth: 1.5, paddingVertical: 4 },
 
   codeRow: { flexDirection: 'row', alignItems: 'center', borderRadius: 12, padding: 10, marginBottom: 8, gap: 8 },
   codeLabel: { fontSize: 12 },
@@ -422,13 +413,12 @@ const styles = StyleSheet.create({
   disconnectConfirmBtn: { backgroundColor: '#e05c5c', borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
   disconnectConfirmBtnTxt: { fontSize: 13, fontWeight: '700', color: '#fff' },
 
-  pinSection: { borderTopWidth: 1, paddingTop: 14, marginTop: 4, marginBottom: 0 },
   pinRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   pinStatus: { fontSize: 14, fontWeight: '600' },
   pinBtn: { borderRadius: 10, borderWidth: 1.5, paddingHorizontal: 16, paddingVertical: 7 },
   pinBtnTxt: { fontSize: 13, fontWeight: '700' },
 
-  panelClose: { alignItems: 'center', marginTop: 16 },
+  panelClose: { alignItems: 'center', marginTop: 4, marginBottom: 4 },
   panelCloseTxt: { fontSize: 12 },
 
   // 캘린더
