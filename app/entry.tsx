@@ -164,8 +164,17 @@ export default function EntryScreen() {
             </View>
           ))}
 
+          {/* 내 일기 구분선 */}
+          {otherEntries.length > 0 && (
+            <View style={[styles.myEntryDivider, { borderColor: colors.accent }]}>
+              <Text style={[styles.myEntryDividerTxt, { color: colors.accent }]}>
+                {myEntry ? (myEntry.author || '내 일기') : '✏️ 내 일기 작성'}
+              </Text>
+            </View>
+          )}
+
           {/* 내 작성자 표시 */}
-          {!isEditing && myEntry?.author && (
+          {!isEditing && myEntry?.author && otherEntries.length === 0 && (
             <View style={[styles.authorBadge, { backgroundColor: colors.todayBg }]}>
               <Text style={[styles.authorText, { color: colors.todayText }]}>{myEntry.author}</Text>
             </View>
@@ -291,7 +300,7 @@ export default function EntryScreen() {
               placeholder="오늘은 어떤 하루였나요? ✍️"
               placeholderTextColor={colors.hint}
               value={text} onChangeText={setText}
-              textAlignVertical="top" autoFocus={!!existing}
+              textAlignVertical="top" autoFocus={!myEntry}
             />
           ) : (
             <View style={[styles.textView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
@@ -566,4 +575,7 @@ const styles = StyleSheet.create({
   deleteConfirmInlineTxt: { fontSize: 13, fontWeight: '600', textAlign: 'center', marginBottom: 12 },
   deleteConfirmInlineBtns: { flexDirection: 'row', gap: 8 },
   deleteConfirmInlineBtn: { flex: 1, paddingVertical: 8, borderRadius: 10, borderWidth: 1.5, alignItems: 'center' },
+
+  myEntryDivider: { borderTopWidth: 1.5, marginVertical: 16, paddingTop: 12, alignItems: 'center' },
+  myEntryDividerTxt: { fontSize: 12, fontWeight: '700', letterSpacing: 0.5 },
 })
