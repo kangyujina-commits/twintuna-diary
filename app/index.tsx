@@ -307,8 +307,14 @@ export default function CalendarScreen() {
             <TextInput
               style={[styles.ddayDateInput, { color: colors.text, borderBottomColor: colors.accent }]}
               value={ddayDateInput}
-              onChangeText={setDdayDateInput}
-              placeholder="YYYY-MM-DD"
+              onChangeText={(t) => {
+                const digits = t.replace(/\D/g, '').slice(0, 8)
+                let formatted = digits
+                if (digits.length > 4) formatted = digits.slice(0, 4) + '-' + digits.slice(4)
+                if (digits.length > 6) formatted = digits.slice(0, 4) + '-' + digits.slice(4, 6) + '-' + digits.slice(6)
+                setDdayDateInput(formatted)
+              }}
+              placeholder="YYYYMMDD"
               placeholderTextColor={colors.hint}
               maxLength={10}
               keyboardType="numeric"
