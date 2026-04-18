@@ -74,6 +74,15 @@ export default function EntryScreen() {
   const [showPhotoMenu, setShowPhotoMenu] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
+  const [collapsedOthers, setCollapsedOthers] = useState<Set<string>>(new Set())
+
+  function toggleCollapse(id: string) {
+    setCollapsedOthers(prev => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
+  }
 
   useEffect(() => {
     if (myEntry) {
@@ -151,32 +160,47 @@ export default function EntryScreen() {
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           {/* 상대방 일기 */}
-          {otherEntries.map((other) => (
-            <View key={other.id} style={[styles.otherEntry, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              {other.author && (
-                <Text style={[styles.otherAuthor, { color: colors.accent }]}>{other.author}</Text>
-              )}
-              <View style={styles.otherMoodRow}>
-                {other.mood && <Text style={styles.otherMoodIcon}>{other.mood}</Text>}
-                {other.weather && <Text style={styles.otherMoodIcon}>{other.weather}</Text>}
-              </View>
-              {other.schedule?.trim() ? (
-                <Text style={[styles.otherText, { color: colors.textMuted }]}>📅 {other.schedule}</Text>
-              ) : null}
-              {other.text?.trim() ? (
-                <Text style={[styles.otherText, { color: colors.text }]}>{other.text}</Text>
-              ) : null}
-              {other.photo_uris && other.photo_uris.length > 0 && (
-                <View style={[styles.photoGrid, { marginTop: 8 }]}>
-                  {other.photo_uris.map((uri, idx) => (
-                    <View key={uri + idx} style={styles.photoThumbContainer}>
-                      <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
+          {otherEntries.map((other) => {
+            const collapsed = collapsedOthers.has(other.id)
+            return (
+              <View key={other.id} style={[styles.otherEntry, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                {/* 헤더 행: 작성자 + 기분/날씨 + 토글 버튼 */}
+                <TouchableOpacity style={styles.otherHeader} onPress={() => toggleCollapse(other.id)} activeOpacity={0.7}>
+                  <View style={styles.otherHeaderLeft}>
+                    {other.author && (
+                      <Text style={[styles.otherAuthor, { color: colors.accent }]}>{other.author}</Text>
+                    )}
+                    <View style={styles.otherMoodRow}>
+                      {other.mood && <Text style={styles.otherMoodIcon}>{other.mood}</Text>}
+                      {other.weather && <Text style={styles.otherMoodIcon}>{other.weather}</Text>}
                     </View>
-                  ))}
-                </View>
-              )}
-            </View>
-          ))}
+                  </View>
+                  <Text style={[styles.otherToggleIcon, { color: colors.textMuted }]}>
+                    {collapsed ? '▾' : '▴'}
+                  </Text>
+                </TouchableOpacity>
+
+                {/* 본문 (펼쳐진 상태) */}
+                {!collapsed && (<>
+                  {other.schedule?.trim() ? (
+                    <Text style={[styles.otherText, { color: colors.textMuted }]}>📅 {other.schedule}</Text>
+                  ) : null}
+                  {other.text?.trim() ? (
+                    <Text style={[styles.otherText, { color: colors.text }]}>{other.text}</Text>
+                  ) : null}
+                  {other.photo_uris && other.photo_uris.length > 0 && (
+                    <View style={[styles.photoGrid, { marginTop: 8 }]}>
+                      {other.photo_uris.map((uri, idx) => (
+                        <View key={uri + idx} style={styles.photoThumbContainer}>
+                          <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
+                        </View>
+                      ))}
+                    </View>
+                  )}
+                </>)}
+              </View>
+            )
+          })}
 
           {/* 남의 일기만 있고 내 일기 없을 때 → 버튼을 바로 여기에 */}
           {otherEntries.length > 0 && !myEntry && !isEditing && (
@@ -548,10 +572,13 @@ const styles = StyleSheet.create({
   authorText: { fontSize: 13, color: '#a07050', fontWeight: '600' },
 
   otherEntry: { borderRadius: 16, borderWidth: 1.5, padding: 14, marginBottom: 16 },
-  otherAuthor: { fontSize: 12, fontWeight: '700', marginBottom: 6 },
-  otherMoodRow: { flexDirection: 'row', gap: 6, marginBottom: 6 },
+  otherHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  otherHeaderLeft: { flex: 1 },
+  otherToggleIcon: { fontSize: 16, paddingLeft: 8 },
+  otherAuthor: { fontSize: 12, fontWeight: '700', marginBottom: 4 },
+  otherMoodRow: { flexDirection: 'row', gap: 6 },
   otherMoodIcon: { fontSize: 20 },
-  otherText: { fontSize: 14, lineHeight: 20, marginTop: 4 },
+  otherText: { fontSize: 14, lineHeight: 20, marginTop: 8 },
 
   bottomBtnRow: { flexDirection: 'row', gap: 10, marginTop: 24, alignItems: 'center' },
   deleteBtnBottom: { width: 52, height: 52, borderRadius: 16, backgroundColor: '#fff0f0', borderWidth: 1.5, borderColor: '#f5c0c0', alignItems: 'center', justifyContent: 'center' },
