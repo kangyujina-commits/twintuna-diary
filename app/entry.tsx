@@ -68,7 +68,8 @@ export default function EntryScreen() {
   const [text, setText] = useState(myEntry?.text ?? '')
   const [photoUris, setPhotoUris] = useState<string[]>(myEntry?.photo_uris ?? [])
   const [schedule, setSchedule] = useState(myEntry?.schedule ?? '')
-  const [isEditing, setIsEditing] = useState(!myEntry)
+  // 남의 일기가 있으면 먼저 보기 모드, 아무것도 없을 때만 바로 작성 모드
+  const [isEditing, setIsEditing] = useState(!myEntry && otherEntries.length === 0)
   const [showPhotoMenu, setShowPhotoMenu] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
@@ -85,10 +86,10 @@ export default function EntryScreen() {
       setWeather(undefined)
       setText('')
       setPhotoUris([])
-      setSchedule('')
-      setIsEditing(true)
+      // 남의 일기가 있으면 보기 모드 유지, 없으면 바로 작성 모드
+      setIsEditing(allEntries.length === 0)
     }
-  }, [date, myEntry?.id])
+  }, [date, myEntry?.id, allEntries.length])
 
   async function pickPhoto() {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
@@ -147,14 +148,6 @@ export default function EntryScreen() {
 
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-          {/* 임시 디버그 */}
-          <View style={{ backgroundColor: '#eee', padding: 8, borderRadius: 8, marginBottom: 8 }}>
-            <Text style={{ fontSize: 10, color: '#555' }}>
-              📋 entries:{allEntries.length} / others:{otherEntries.length}{'\n'}
-              🔑 myDeviceId: {deviceId?.slice(-6)}{'\n'}
-              {allEntries.map(e => `  id:${e.id?.slice(-10)} dev:${(e.deviceId ?? 'none').slice(-6)}`).join('\n')}
-            </Text>
-          </View>
           {/* 상대방 일기 */}
           {otherEntries.map((other) => (
             <View key={other.id} style={[styles.otherEntry, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
@@ -392,6 +385,15 @@ export default function EntryScreen() {
                 </TouchableOpacity>
               </View>
             </View>
+          ) : (!isEditing && !myEntry && otherEntries.length > 0) ? (
+            /* 남의 일기만 있을 때 → "내 일기 작성" 버튼 */
+            <TouchableOpacity
+              style={[styles.saveBtn, { backgroundColor: colors.card, borderWidth: 1.5, borderColor: colors.accent, marginTop: 24 }]}
+              onPress={() => setIsEditing(true)}
+              activeOpacity={0.8}
+            >
+              <Text style={[styles.saveTxt, { color: colors.accent }]}>✏️ 내 일기 작성하기</Text>
+            </TouchableOpacity>
           ) : (!isEditing && !myEntry) ? null : isEditing ? (
             <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
               <Text style={styles.saveTxt}>저장하기</Text>
