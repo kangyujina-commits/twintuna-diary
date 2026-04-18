@@ -88,9 +88,15 @@ export default function CalendarScreen() {
                 </TouchableOpacity>
               </View>
             ) : (
-              <TouchableOpacity onLongPress={() => { setNameInput(appName); setEditingName(true) }} activeOpacity={0.8}>
+              <View style={styles.titleRow}>
                 <Text style={[styles.appTitle, { color: colors.text }]}>{sharedAppName}</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => { setNameInput(sharedAppName); setEditingName(true) }}
+                  style={[styles.editTitleBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}
+                >
+                  <Text style={styles.editTitleIcon}>✏️</Text>
+                </TouchableOpacity>
+              </View>
             )}
             {!editingName && (
               <TouchableOpacity onPress={toggleTheme} style={[styles.themeBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
@@ -98,10 +104,6 @@ export default function CalendarScreen() {
               </TouchableOpacity>
             )}
           </View>
-
-          {!editingName && (
-            <Text style={[styles.nameHint, { color: colors.hint }]}>길게 눌러서 이름 변경</Text>
-          )}
 
           {!editingName && (
             <View style={styles.statusRow}>
@@ -280,6 +282,9 @@ const styles = StyleSheet.create({
   themeBtn: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
   themeBtnIcon: { fontSize: 18 },
 
+  titleRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  editTitleBtn: { width: 28, height: 28, borderRadius: 10, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
+  editTitleIcon: { fontSize: 14 },
   nameEditRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   nameInput: { fontSize: 20, fontWeight: '700', borderBottomWidth: 2, paddingVertical: 2, paddingHorizontal: 4, minWidth: 120, textAlign: 'center' },
   nameConfirmBtn: { borderRadius: 10, paddingHorizontal: 12, paddingVertical: 6 },
