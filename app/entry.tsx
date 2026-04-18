@@ -323,7 +323,13 @@ export default function EntryScreen() {
           ) : null}
 
           {/* 버튼 */}
-          {!isEditing && existing && (!existing.deviceId || existing.deviceId === deviceId) ? (
+          {!isEditing && existing && (
+            existing.deviceId
+              ? existing.deviceId === deviceId
+              : existing.author
+                ? existing.author === nickname
+                : true
+          ) ? (
             <View style={{ marginTop: 24 }}>
               {showDeleteConfirm && (
                 <View style={[styles.deleteConfirmInline, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
