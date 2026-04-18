@@ -150,7 +150,7 @@ export default function CalendarScreen() {
 
             {/* ① 다이어리 이름 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📔 다이어리 이름</Text>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📔 Diary Name · 다이어리 이름</Text>
               <TextInput
                 style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent }]}
                 value={nameInput}
@@ -165,7 +165,7 @@ export default function CalendarScreen() {
 
             {/* ② 내 이름 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>👤 내 이름</Text>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>👤 My Name · 내 이름</Text>
               <TextInput
                 style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent }]}
                 value={nicknameInput}
@@ -180,7 +180,7 @@ export default function CalendarScreen() {
 
             {/* ③ 파트너 연결 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 파트너 연결</Text>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 Partner Connect · 파트너 연결</Text>
               {/* 내 코드 */}
               <View style={[styles.codeRow, { backgroundColor: colors.inputBg }]}>
                 <Text style={[styles.codeLabel, { color: colors.textMuted }]}>내 코드</Text>
@@ -252,7 +252,7 @@ export default function CalendarScreen() {
 
             {/* ④ PIN 잠금 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN 잠금</Text>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
               <View style={styles.pinRow}>
                 <Text style={[styles.pinStatus, { color: colors.text }]}>
                   {hasPin ? '설정됨' : '설정 안 됨'}
