@@ -41,7 +41,7 @@ export default function PinScreen({ mode, onSkip, onConfirm, title }: Props) {
       const ok = unlock(pin)
       if (!ok) {
         setShake(true)
-        setError('PIN이 틀렸어요')
+        setError('Wrong PIN · PIN이 틀렸어요')
         setInput('')
         setTimeout(() => setShake(false), 500)
       }
@@ -58,7 +58,7 @@ export default function PinScreen({ mode, onSkip, onConfirm, title }: Props) {
         {/* 상단 타이틀 */}
         <Text style={[styles.appName, { color: colors.accent }]}>🐟 TwinTuna</Text>
         <Text style={[styles.title, { color: colors.text }]}>
-          {title ?? (mode === 'unlock' ? 'PIN 입력' : 'PIN 설정')}
+          {title ?? (mode === 'unlock' ? 'Enter PIN · PIN 입력' : 'Set PIN · PIN 설정')}
         </Text>
 
         {/* 도트 */}
@@ -109,7 +109,7 @@ export default function PinScreen({ mode, onSkip, onConfirm, title }: Props) {
         {/* 건너뛰기 (설정 모드일 때만) */}
         {mode === 'setup' && onSkip && (
           <TouchableOpacity onPress={onSkip} style={styles.skipBtn}>
-            <Text style={[styles.skipTxt, { color: colors.textMuted }]}>건너뛰기</Text>
+            <Text style={[styles.skipTxt, { color: colors.textMuted }]}>Skip · 건너뛰기</Text>
           </TouchableOpacity>
         )}
       </View>

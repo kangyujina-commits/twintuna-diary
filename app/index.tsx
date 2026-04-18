@@ -90,12 +90,12 @@ export default function CalendarScreen() {
 
   // PIN 설정 플로우 화면 전환
   if (showPinSetup && pinStep === null) {
-    return <PinScreen mode="setup" title="새 PIN 입력 (4자리)"
+    return <PinScreen mode="setup" title={"New PIN · 새 PIN 입력"}
       onSkip={() => setShowPinSetup(false)}
       onConfirm={(p) => { setPinFirstInput(p); setPinStep('confirm') }} />
   }
   if (showPinSetup && pinStep === 'confirm') {
-    return <PinScreen mode="confirm" title="PIN 확인 (다시 입력)"
+    return <PinScreen mode="confirm" title={"Confirm PIN · PIN 확인"}
       onConfirm={async (p) => {
         if (p === pinFirstInput) { await setupPin(p); setShowPinSetup(false); setPinStep(null) }
         else { setPinStep(null) }
@@ -127,7 +127,7 @@ export default function CalendarScreen() {
           <View style={styles.statusRow}>
             {showConnected && (
               <View style={[styles.badge, { backgroundColor: colors.connectedBg }]}>
-                <Text style={[styles.badgeTxt, { color: colors.connectedText }]}>🔗 연결 중</Text>
+                <Text style={[styles.badgeTxt, { color: colors.connectedText }]}>🔗 Connected · 연결 중</Text>
               </View>
             )}
             {hasPin && (
@@ -146,7 +146,7 @@ export default function CalendarScreen() {
         {/* ── 설정 패널 ── */}
         {showSettings && (
           <View style={styles.panelWrap}>
-            <Text style={[styles.panelTitle, { color: colors.text }]}>⚙️ 설정</Text>
+            <Text style={[styles.panelTitle, { color: colors.text }]}>⚙️ Settings · 설정</Text>
 
             {/* ① 다이어리 이름 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
@@ -170,7 +170,7 @@ export default function CalendarScreen() {
                 style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent }]}
                 value={nicknameInput}
                 onChangeText={setNicknameInput}
-                placeholder="닉네임 입력"
+                placeholder="Nickname · 닉네임"
                 placeholderTextColor={colors.hint}
                 maxLength={10} returnKeyType="done"
                 onSubmitEditing={() => setNickname(nicknameInput.trim())}
@@ -183,20 +183,20 @@ export default function CalendarScreen() {
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 Partner Connect · 파트너 연결</Text>
               {/* 내 코드 */}
               <View style={[styles.codeRow, { backgroundColor: colors.inputBg }]}>
-                <Text style={[styles.codeLabel, { color: colors.textMuted }]}>내 코드</Text>
+                <Text style={[styles.codeLabel, { color: colors.textMuted }]}>My Code · 내 코드</Text>
                 <Text style={[styles.codeText, { color: colors.todayText }]}>{diaryId}</Text>
                 <TouchableOpacity
                   onPress={() => {
                     if (Platform.OS === 'web') navigator.clipboard?.writeText(diaryId)
-                    setConnectMsg('복사됐어요!')
+                    setConnectMsg('Copied! · 복사됐어요!')
                     setTimeout(() => setConnectMsg(''), 2000)
                   }}
                   style={[styles.copyBtn, { backgroundColor: colors.accent }]}
                 >
-                  <Text style={styles.copyBtnTxt}>복사</Text>
+                  <Text style={styles.copyBtnTxt}>Copy · 복사</Text>
                 </TouchableOpacity>
               </View>
-              <Text style={[styles.codeHint, { color: colors.textLight }]}>↑ 이 코드를 파트너에게 알려주거나, 파트너 코드를 아래에 입력</Text>
+              <Text style={[styles.codeHint, { color: colors.textLight }]}>↑ Share with partner, or enter their code below · 파트너에게 알려주거나 아래에 입력</Text>
               <View style={styles.connectRow}>
                 <TextInput
                   style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
@@ -208,12 +208,12 @@ export default function CalendarScreen() {
                 <TouchableOpacity
                   style={[styles.connectBtn, { backgroundColor: colors.accent }]}
                   onPress={async () => {
-                    if (connectInput.length < 6) { setConnectMsg('6자리 코드를 입력하세요'); return }
+                    if (connectInput.length < 6) { setConnectMsg('Enter 6-digit code · 6자리 코드 입력'); return }
                     await connectDiary(connectInput)
                     setConnectInput(''); closeSettings()
                   }}
                 >
-                  <Text style={styles.connectBtnTxt}>연결</Text>
+                  <Text style={styles.connectBtnTxt}>Connect · 연결</Text>
                 </TouchableOpacity>
               </View>
               {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
@@ -222,19 +222,19 @@ export default function CalendarScreen() {
                 <View style={[styles.disconnectBox, { borderTopColor: colors.cardBorder }]}>
                   {disconnectConfirm ? (
                     <View style={styles.disconnectConfirmRow}>
-                      <Text style={[styles.disconnectConfirmTxt, { color: colors.textMuted }]}>정말 연결을 끊을까요?</Text>
+                      <Text style={[styles.disconnectConfirmTxt, { color: colors.textMuted }]}>Disconnect? · 연결을 끊을까요?</Text>
                       <View style={styles.disconnectBtnRow}>
                         <TouchableOpacity
                           style={[styles.disconnectCancelBtn, { borderColor: colors.cardBorder }]}
                           onPress={() => setDisconnectConfirm(false)}
                         >
-                          <Text style={[styles.disconnectCancelTxt, { color: colors.textMuted }]}>취소</Text>
+                          <Text style={[styles.disconnectCancelTxt, { color: colors.textMuted }]}>Cancel · 취소</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                           style={styles.disconnectConfirmBtn}
                           onPress={async () => { await disconnectDiary(); closeSettings() }}
                         >
-                          <Text style={styles.disconnectConfirmBtnTxt}>끊기</Text>
+                          <Text style={styles.disconnectConfirmBtnTxt}>Disconnect · 끊기</Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -243,7 +243,7 @@ export default function CalendarScreen() {
                       style={[styles.disconnectBtn, { borderColor: '#e05c5c' }]}
                       onPress={() => setDisconnectConfirm(true)}
                     >
-                      <Text style={styles.disconnectBtnTxt}>🔌 연결 끊기</Text>
+                      <Text style={styles.disconnectBtnTxt}>🔌 Disconnect · 연결 끊기</Text>
                     </TouchableOpacity>
                   )}
                 </View>
@@ -255,7 +255,7 @@ export default function CalendarScreen() {
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
               <View style={styles.pinRow}>
                 <Text style={[styles.pinStatus, { color: colors.text }]}>
-                  {hasPin ? '설정됨' : '설정 안 됨'}
+                  {hasPin ? 'Active · 설정됨' : 'Not set · 설정 안 됨'}
                 </Text>
                 <TouchableOpacity
                   style={[styles.pinBtn, { borderColor: hasPin ? '#e05c5c' : colors.accent, backgroundColor: hasPin ? 'transparent' : colors.accent }]}
@@ -266,7 +266,7 @@ export default function CalendarScreen() {
                   }}
                 >
                   <Text style={[styles.pinBtnTxt, { color: hasPin ? '#e05c5c' : '#fff' }]}>
-                    {hasPin ? 'PIN 해제' : 'PIN 설정'}
+                    {hasPin ? 'Remove PIN · 해제' : 'Set PIN · 설정'}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -360,7 +360,7 @@ export default function CalendarScreen() {
         </View>
 
         <View style={styles.legend}>
-          <Text style={[styles.legendText, { color: colors.textLight }]}>날짜를 탭해서 일기를 써보세요 ✏️</Text>
+          <Text style={[styles.legendText, { color: colors.textLight }]}>Tap a date to write · 날짜를 탭해서 써보세요 ✏️</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

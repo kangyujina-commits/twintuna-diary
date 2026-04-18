@@ -185,7 +185,7 @@ export default function EntryScreen() {
               onPress={() => setIsEditing(true)}
               activeOpacity={0.8}
             >
-              <Text style={[styles.saveTxt, { color: colors.accent }]}>✏️ 내 일기 작성하기</Text>
+              <Text style={[styles.saveTxt, { color: colors.accent }]}>✏️ Write My Entry · 내 일기 작성하기</Text>
             </TouchableOpacity>
           )}
 
@@ -193,7 +193,7 @@ export default function EntryScreen() {
           {otherEntries.length > 0 && (myEntry || isEditing) && (
             <View style={[styles.myEntryDivider, { borderColor: colors.accent }]}>
               <Text style={[styles.myEntryDividerTxt, { color: colors.accent }]}>
-                {myEntry?.author || '내 일기'}
+                {myEntry?.author || 'My Diary · 내 일기'}
               </Text>
             </View>
           )}
@@ -307,14 +307,14 @@ export default function EntryScreen() {
           {isEditing ? (
             <TextInput
               style={[styles.scheduleInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
-              placeholder="오늘의 일정을 입력하세요 🐈‍⬛"
+              placeholder="Today's schedule · 오늘의 일정 🐈‍⬛"
               placeholderTextColor={colors.hint}
               value={schedule} onChangeText={setSchedule} returnKeyType="done"
             />
           ) : (
             <View style={[styles.scheduleView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={schedule ? [styles.scheduleContent, { color: colors.text }] : [styles.textEmpty, { color: colors.hint }]}>
-                {schedule || '일정 없음'}
+                {schedule || 'No schedule · 일정 없음'}
               </Text>
             </View>
           )}
@@ -325,7 +325,7 @@ export default function EntryScreen() {
             <TextInput
               style={[styles.textInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
               multiline
-              placeholder="오늘은 어떤 하루였나요? ✍️"
+              placeholder="How was your day? · 오늘은 어떤 하루였나요? ✍️"
               placeholderTextColor={colors.hint}
               value={text} onChangeText={setText}
               textAlignVertical="top" autoFocus={!myEntry}
@@ -333,7 +333,7 @@ export default function EntryScreen() {
           ) : (
             <View style={[styles.textView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={text ? [styles.textContent, { color: colors.text }] : [styles.textEmpty, { color: colors.hint }]}>
-                {text || '기록 없음'}
+                {text || 'No entry · 기록 없음'}
               </Text>
             </View>
           )}
@@ -345,20 +345,20 @@ export default function EntryScreen() {
             <View style={{ marginTop: 24 }}>
               {showDeleteConfirm && (
                 <View style={[styles.deleteConfirmInline, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                  <Text style={[styles.deleteConfirmInlineTxt, { color: colors.text }]}>정말 삭제할까요?</Text>
+                  <Text style={[styles.deleteConfirmInlineTxt, { color: colors.text }]}>Delete this entry? · 정말 삭제할까요?</Text>
                   <View style={styles.deleteConfirmInlineBtns}>
                     <TouchableOpacity onPress={() => setShowDeleteConfirm(false)} style={[styles.deleteConfirmInlineBtn, { borderColor: colors.cardBorder }]}>
-                      <Text style={[{ fontSize: 13, fontWeight: '600' }, { color: colors.textMuted }]}>취소</Text>
+                      <Text style={[{ fontSize: 13, fontWeight: '600' }, { color: colors.textMuted }]}>Cancel · 취소</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={handleDelete} style={[styles.deleteConfirmInlineBtn, { backgroundColor: '#e05c5c', borderColor: '#e05c5c' }]}>
-                      <Text style={{ fontSize: 13, fontWeight: '700', color: '#fff' }}>삭제</Text>
+                      <Text style={{ fontSize: 13, fontWeight: '700', color: '#fff' }}>Delete · 삭제</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
               )}
               <View style={styles.bottomBtnRow}>
                 <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent, backgroundColor: colors.card, marginTop: 0 }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
-                  <Text style={[styles.editBtnTxt, { color: colors.accent }]}>편집</Text>
+                  <Text style={[styles.editBtnTxt, { color: colors.accent }]}>Edit · 편집</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.deleteBtnBottom} onPress={() => setShowDeleteConfirm((v) => !v)} activeOpacity={0.8}>
                   <Text style={styles.deleteBtnTxt}>🗑️</Text>
@@ -367,7 +367,7 @@ export default function EntryScreen() {
             </View>
           ) : isEditing ? (
             <TouchableOpacity style={[styles.saveBtn, { backgroundColor: colors.accent }]} onPress={handleSave} activeOpacity={0.8}>
-              <Text style={styles.saveTxt}>저장하기</Text>
+              <Text style={styles.saveTxt}>Save · 저장하기</Text>
             </TouchableOpacity>
           ) : null}
 
