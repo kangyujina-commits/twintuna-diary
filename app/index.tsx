@@ -54,13 +54,13 @@ export default function CalendarScreen() {
   // 설정 패널
   const [showSettings, setShowSettings] = useState(false)
   const [nameInput, setNameInput] = useState(sharedAppName)
-  const [nicknameInput, setNicknameInput] = useState('')
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
 
-  // D-day
-  const [showDdayEdit, setShowDdayEdit] = useState(false)
+  // 인라인 편집 모드 (nickname | dday | null)
+  const [editMode, setEditMode] = useState<'nickname' | 'dday' | null>(null)
+  const [nicknameInput, setNicknameInput] = useState('')
   const [ddayLabelInput, setDdayLabelInput] = useState('')
   const [ddayDateInput, setDdayDateInput] = useState('')
 
@@ -123,11 +123,11 @@ export default function CalendarScreen() {
 
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
-      {/* D-day 편집 중 바깥 탭 시 닫기 오버레이 */}
-      {showDdayEdit && (
+      {/* 인라인 편집 중 바깥 탭 시 닫기 오버레이 */}
+      {editMode && (
         <TouchableOpacity
           style={[StyleSheet.absoluteFillObject, { zIndex: 50 }]}
-          onPress={() => setShowDdayEdit(false)}
+          onPress={() => setEditMode(null)}
           activeOpacity={1}
         />
       )}
@@ -162,13 +162,43 @@ export default function CalendarScreen() {
                 <Text style={[styles.badgeTxt, { color: colors.textMuted }]}>🔒 PIN</Text>
               </View>
             )}
-            {nickname ? (
-              <View style={[styles.badge, { backgroundColor: colors.todayBg }]}>
-                <Text style={[styles.badgeTxt, { color: colors.todayText }]}>{nickname}</Text>
-              </View>
-            ) : null}
+            <TouchableOpacity
+              onPress={() => { setNicknameInput(nickname); setEditMode('nickname') }}
+              style={[styles.badge, { backgroundColor: nickname ? colors.todayBg : colors.card, borderColor: colors.cardBorder, borderWidth: nickname ? 0 : 1 }]}
+            >
+              <Text style={[styles.badgeTxt, { color: nickname ? colors.todayText : colors.hint }]}>
+                {nickname || '👤 My Name · 이름'}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
+
+        {/* ── 닉네임 인라인 편집 ── */}
+        {editMode === 'nickname' && (
+          <Pressable style={{ zIndex: 100 }} onPress={e => e.stopPropagation?.()}>
+            <View style={[styles.ddayCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <View style={styles.ddayDateRow}>
+                <TextInput
+                  style={[styles.ddayDateInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1, fontSize: 15 }]}
+                  value={nicknameInput}
+                  onChangeText={setNicknameInput}
+                  placeholder="My Name · 내 이름"
+                  placeholderTextColor={colors.hint}
+                  maxLength={10}
+                  autoFocus
+                  returnKeyType="done"
+                  onSubmitEditing={async () => { await setNickname(nicknameInput.trim()); setEditMode(null) }}
+                />
+                <TouchableOpacity
+                  style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
+                  onPress={async () => { await setNickname(nicknameInput.trim()); setEditMode(null) }}
+                >
+                  <Text style={styles.ddaySaveTxt}>Save · 저장</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Pressable>
+        )}
 
         {/* ── 설정 패널 ── */}
         {showSettings && (
@@ -190,22 +220,7 @@ export default function CalendarScreen() {
               />
             </View>
 
-            {/* ② 내 이름 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>👤 My Name · 내 이름</Text>
-              <TextInput
-                style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent }]}
-                value={nicknameInput}
-                onChangeText={setNicknameInput}
-                placeholder="Nickname · 닉네임"
-                placeholderTextColor={colors.hint}
-                maxLength={10} returnKeyType="done"
-                onSubmitEditing={() => setNickname(nicknameInput.trim())}
-                onBlur={() => setNickname(nicknameInput.trim())}
-              />
-            </View>
-
-            {/* ③ 파트너 연결 */}
+            {/* ② 파트너 연결 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 Partner Connect · 파트너 연결</Text>
               {/* 내 코드 */}
@@ -303,7 +318,7 @@ export default function CalendarScreen() {
         )}
 
         {/* ── D-day 행 ── */}
-        {showDdayEdit ? (
+        {editMode === 'dday' ? (
           <Pressable style={{ zIndex: 100 }} onPress={e => e.stopPropagation?.()}>
             <View style={[styles.ddayCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               {/* 이름 + 날짜 한 줄씩 */}
@@ -336,7 +351,7 @@ export default function CalendarScreen() {
                 {dday && (
                   <TouchableOpacity
                     style={[styles.ddayRemoveBtn, { borderColor: '#e05c5c' }]}
-                    onPress={async () => { await setDday(null); setShowDdayEdit(false) }}
+                    onPress={async () => { await setDday(null); setEditMode(null) }}
                   >
                     <Text style={styles.ddayRemoveTxt}>✕</Text>
                   </TouchableOpacity>
@@ -348,7 +363,7 @@ export default function CalendarScreen() {
                     const l = ddayLabelInput.trim()
                     if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return
                     await setDday({ label: l || 'D-day', date: d })
-                    setShowDdayEdit(false)
+                    setEditMode(null)
                   }}
                 >
                   <Text style={styles.ddaySaveTxt}>Save · 저장</Text>
@@ -362,7 +377,7 @@ export default function CalendarScreen() {
             onPress={() => {
               setDdayLabelInput(dday?.label ?? '')
               setDdayDateInput(dday?.date ?? '')
-              setShowDdayEdit(true)
+              setEditMode('dday')
             }}
             activeOpacity={0.7}
           >
