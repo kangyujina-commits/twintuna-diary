@@ -96,17 +96,31 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     return unsub
   }, [diaryId])
 
-  // 내 entry: deviceId 일치 또는 구버전(date만 있는 doc)
+  // 내 entry: deviceId 일치 또는 구버전(date만 있는 doc), 신포맷 우선
   function getMyEntry(date: string): DiaryEntry | undefined {
     const all = Object.values(entries).filter(e => e.date === date)
     return (
-      all.find(e => e.deviceId && e.deviceId === deviceId) ||
-      all.find(e => !e.deviceId && e.id === date)  // 구버전 호환
+      all.find(e => e.deviceId && e.deviceId === deviceId && e.id !== date) || // 신포맷 우선
+      all.find(e => e.deviceId && e.deviceId === deviceId) ||                  // 구포맷(deviceId 있음)
+      all.find(e => !e.deviceId && e.id === date)                              // 구버전(deviceId 없음)
     )
   }
 
+  // 같은 deviceId에서 구/신 포맷 둘 다 있으면 신포맷만 남김 (중복 제거)
   function getEntriesForDate(date: string): DiaryEntry[] {
-    return Object.values(entries).filter(e => e.date === date)
+    const all = Object.values(entries).filter(e => e.date === date)
+    const seen = new Map<string, DiaryEntry>()
+    for (const entry of all) {
+      const key = entry.deviceId ?? entry.id
+      const existing = seen.get(key)
+      if (!existing) {
+        seen.set(key, entry)
+      } else {
+        // 신포맷(id에 deviceId 포함)이 있으면 구포맷 대체
+        if (entry.id !== entry.date) seen.set(key, entry)
+      }
+    }
+    return Array.from(seen.values())
   }
 
   async function upsertEntry(entry: Omit<DiaryEntry, 'id'>) {
