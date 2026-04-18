@@ -220,7 +220,8 @@ export default function CalendarScreen() {
             const dateStr = toDateString(year, month, day)
             const myEntry = getMyEntry(dateStr)
             const allEntries = getEntriesForDate(dateStr)
-            const otherEntry = allEntries.find(e => e.deviceId !== deviceId && e.id !== dateStr)
+            // deviceId가 있으면 deviceId로만 판별, 없으면(구버전) id로 판별
+            const otherEntry = allEntries.find(e => e.deviceId !== deviceId && (e.deviceId || e.id !== dateStr))
             const hasEntry = allEntries.length > 0
             const isToday = dateStr === todayStr
             const col = idx % 7

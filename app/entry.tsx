@@ -55,7 +55,8 @@ export default function EntryScreen() {
 
   const myEntry = date ? getMyEntry(date) : undefined
   const allEntries = date ? getEntriesForDate(date) : []
-  const otherEntries = allEntries.filter(e => e.deviceId !== deviceId && e.id !== date)
+  // deviceId가 있으면 deviceId로만 판별, 없으면(구버전) id로 판별
+  const otherEntries = allEntries.filter(e => e.deviceId !== deviceId && (e.deviceId || e.id !== date))
 
   const [mood, setMood] = useState<string | undefined>(myEntry?.mood)
   const [weather, setWeather] = useState<string | undefined>(myEntry?.weather)
