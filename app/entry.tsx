@@ -384,7 +384,7 @@ export default function EntryScreen() {
                 <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent, backgroundColor: colors.card, marginTop: 0 }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
                   <Text style={[styles.editBtnTxt, { color: colors.accent }]}>Edit · 편집</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.deleteBtnBottom} onPress={() => setShowDeleteConfirm((v) => !v)} activeOpacity={0.8}>
+                <TouchableOpacity style={[styles.deleteBtnBottom, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={() => setShowDeleteConfirm((v) => !v)} activeOpacity={0.8}>
                   <Text style={styles.deleteBtnTxt}>🗑️</Text>
                 </TouchableOpacity>
               </View>
@@ -581,7 +581,7 @@ const styles = StyleSheet.create({
   otherText: { fontSize: 14, lineHeight: 20, marginTop: 8 },
 
   bottomBtnRow: { flexDirection: 'row', gap: 10, marginTop: 24, alignItems: 'center' },
-  deleteBtnBottom: { width: 52, height: 52, borderRadius: 16, backgroundColor: '#fff0f0', borderWidth: 1.5, borderColor: '#f5c0c0', alignItems: 'center', justifyContent: 'center' },
+  deleteBtnBottom: { width: 52, height: 52, borderRadius: 16, borderWidth: 1.5, alignItems: 'center', justifyContent: 'center' },
   deleteBtnTxt: { fontSize: 20 },
   deleteConfirmInline: { borderRadius: 14, borderWidth: 1.5, padding: 14, marginBottom: 10 },
   deleteConfirmInlineTxt: { fontSize: 13, fontWeight: '600', textAlign: 'center', marginBottom: 12 },
