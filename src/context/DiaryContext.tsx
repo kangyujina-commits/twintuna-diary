@@ -38,6 +38,10 @@ interface DiaryContextValue {
   setNickname: (name: string) => Promise<void>
   appName: string
   setAppName: (name: string) => Promise<void>
+  // PIN (Firestore 공유)
+  diaryPin: string | null
+  diaryPinLoaded: boolean
+  setDiaryPin: (pin: string | null) => Promise<void>
   // 날짜별 모든 entries (docId → entry)
   entries: Record<string, DiaryEntry>
   // 내 entry 가져오기
@@ -58,6 +62,8 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   const [nickname, setNicknameState] = useState('')
   const [appName, setAppNameState] = useState('TwinTuna_Diary')
   const [entries, setEntries] = useState<Record<string, DiaryEntry>>({})
+  const [diaryPin, setDiaryPinState] = useState<string | null>(null)
+  const [diaryPinLoaded, setDiaryPinLoaded] = useState(false)
 
   useEffect(() => {
     Promise.all([
@@ -79,9 +85,12 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!diaryId) return
+    setDiaryPinLoaded(false)
     const unsubMeta = onSnapshot(doc(db, 'diaries', diaryId), (snap) => {
       const data = snap.data()
       if (data?.appName) setAppNameState(data.appName)
+      setDiaryPinState(data?.pin ?? null)
+      setDiaryPinLoaded(true)
     })
     return unsubMeta
   }, [diaryId])
@@ -156,12 +165,20 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setAppNameState(name)
   }
 
+  async function setDiaryPin(pin: string | null) {
+    if (!diaryId) return
+    await setDoc(doc(db, 'diaries', diaryId), { pin: pin ?? null }, { merge: true })
+    setDiaryPinState(pin)
+  }
+
   if (!diaryId) return null
 
   return (
     <DiaryContext.Provider value={{
       diaryId, deviceId, isConnected, nickname, setNickname,
-      appName, setAppName, entries,
+      appName, setAppName,
+      diaryPin, diaryPinLoaded, setDiaryPin,
+      entries,
       getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, connectDiary,
     }}>
       {children}

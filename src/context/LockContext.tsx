@@ -1,7 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-
-const PIN_KEY = '@twintuna_diary:pin'
+import { useDiary } from './DiaryContext'
 
 interface LockContextValue {
   isLoaded: boolean
@@ -15,42 +13,43 @@ interface LockContextValue {
 const LockContext = createContext<LockContextValue | null>(null)
 
 export function LockProvider({ children }: { children: ReactNode }) {
-  const [pin, setPin] = useState<string | null>(null)
+  const { diaryPin, diaryPinLoaded, setDiaryPin } = useDiary()
   const [isLocked, setIsLocked] = useState(false)
-  const [isLoaded, setIsLoaded] = useState(false)
 
+  // 첫 로드 시 PIN 있으면 잠금
   useEffect(() => {
-    AsyncStorage.getItem(PIN_KEY).then((saved) => {
-      if (saved) {
-        setPin(saved)
-        setIsLocked(true)
-      }
-      setIsLoaded(true)
-    })
-  }, [])
+    if (diaryPinLoaded && diaryPin) {
+      setIsLocked(true)
+    }
+  }, [diaryPinLoaded]) // intentionally only on initial load
 
   function unlock(entered: string): boolean {
-    if (entered === pin) {
+    if (entered === diaryPin) {
       setIsLocked(false)
       return true
     }
     return false
   }
 
-  async function setupPin(newPin: string) {
-    await AsyncStorage.setItem(PIN_KEY, newPin)
-    setPin(newPin)
+  async function setupPin(pin: string) {
+    await setDiaryPin(pin)
     setIsLocked(false)
   }
 
   async function removePin() {
-    await AsyncStorage.removeItem(PIN_KEY)
-    setPin(null)
+    await setDiaryPin(null)
     setIsLocked(false)
   }
 
   return (
-    <LockContext.Provider value={{ isLoaded, isLocked, hasPin: !!pin, unlock, setupPin, removePin }}>
+    <LockContext.Provider value={{
+      isLoaded: diaryPinLoaded,
+      isLocked,
+      hasPin: !!diaryPin,
+      unlock,
+      setupPin,
+      removePin,
+    }}>
       {children}
     </LockContext.Provider>
   )

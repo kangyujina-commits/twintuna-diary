@@ -63,11 +63,11 @@ function AppContent() {
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <LockProvider>
-        <DiaryProvider>
+      <DiaryProvider>
+        <LockProvider>
           <AppContent />
-        </DiaryProvider>
-      </LockProvider>
+        </LockProvider>
+      </DiaryProvider>
     </ThemeProvider>
   )
 }
