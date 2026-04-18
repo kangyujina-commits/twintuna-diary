@@ -119,9 +119,17 @@ export default function CalendarScreen() {
               </View>
             )}
             {!editingName && (
-              <TouchableOpacity onPress={toggleTheme} style={[styles.themeBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={styles.themeBtnIcon}>{isDark ? '☀️' : '🌙'}</Text>
-              </TouchableOpacity>
+              <View style={{ flexDirection: 'row', gap: 6 }}>
+                <TouchableOpacity
+                  onPress={() => hasPin ? removePin() : setShowPinSetup(true)}
+                  style={[styles.themeBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}
+                >
+                  <Text style={styles.themeBtnIcon}>{hasPin ? '🔒' : '🔓'}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={toggleTheme} style={[styles.themeBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                  <Text style={styles.themeBtnIcon}>{isDark ? '☀️' : '🌙'}</Text>
+                </TouchableOpacity>
+              </View>
             )}
           </View>
 
@@ -200,25 +208,6 @@ export default function CalendarScreen() {
               </TouchableOpacity>
             </View>
             {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
-            {/* PIN 설정/해제 */}
-            <View style={[styles.pinRow, { borderTopColor: colors.cardBorder }]}>
-              <Text style={[styles.pinLabel, { color: colors.textMuted }]}>🔒 잠금 PIN</Text>
-              {hasPin ? (
-                <TouchableOpacity
-                  onPress={() => { removePin(); setShowShare(false) }}
-                  style={[styles.pinBtn, { backgroundColor: '#fff0f0', borderColor: '#f5c0c0' }]}
-                >
-                  <Text style={{ fontSize: 12, fontWeight: '700', color: '#e05c5c' }}>해제</Text>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity
-                  onPress={() => { setShowShare(false); setShowPinSetup(true) }}
-                  style={[styles.pinBtn, { backgroundColor: colors.todayBg, borderColor: colors.accent }]}
-                >
-                  <Text style={[{ fontSize: 12, fontWeight: '700' }, { color: colors.accent }]}>설정</Text>
-                </TouchableOpacity>
-              )}
-            </View>
             <TouchableOpacity onPress={() => setShowShare(false)} style={styles.sharePanelClose}>
               <Text style={[styles.sharePanelCloseTxt, { color: colors.textMuted }]}>닫기</Text>
             </TouchableOpacity>
