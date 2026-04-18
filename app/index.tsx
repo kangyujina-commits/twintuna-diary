@@ -197,7 +197,7 @@ export default function CalendarScreen() {
                 </TouchableOpacity>
               </View>
               <Text style={[styles.codeHint, { color: colors.textLight }]}>↑ Share with partner, or enter their code below · 파트너에게 알려주거나 아래에 입력</Text>
-              <View style={styles.connectRow}>
+              <View style={styles.connectCol}>
                 <TextInput
                   style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
                   value={connectInput}
@@ -394,9 +394,9 @@ const styles = StyleSheet.create({
   copyBtn: { borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5 },
   copyBtnTxt: { fontSize: 12, color: '#fff', fontWeight: '700' },
   codeHint: { fontSize: 11, textAlign: 'center', marginBottom: 8 },
-  connectRow: { flexDirection: 'row', gap: 8, alignItems: 'stretch' },
-  connectInput: { flex: 1, borderRadius: 12, borderWidth: 1.5, paddingHorizontal: 14, paddingVertical: 10, fontSize: 18, fontWeight: '700', letterSpacing: 3, textAlign: 'center' },
-  connectBtn: { borderRadius: 12, paddingHorizontal: 18, paddingVertical: 12, justifyContent: 'center', alignItems: 'center', minWidth: 60 },
+  connectCol: { gap: 8 },
+  connectInput: { borderRadius: 12, borderWidth: 1.5, paddingHorizontal: 14, paddingVertical: 10, fontSize: 18, fontWeight: '700', letterSpacing: 3, textAlign: 'center' },
+  connectBtn: { borderRadius: 12, paddingVertical: 12, justifyContent: 'center', alignItems: 'center' },
   connectBtnTxt: { color: '#fff', fontWeight: '700', fontSize: 14 },
   connectMsg: { fontSize: 12, textAlign: 'center', marginTop: 6 },
 
