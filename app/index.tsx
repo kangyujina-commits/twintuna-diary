@@ -17,6 +17,7 @@ import { useRouter } from 'expo-router'
 import { useDiary } from '../src/context/DiaryContext'
 import { useTheme, ACCENT_PRESETS } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
+import { getDayGreeting, getStreakMessage } from '../src/utils/tunasMessages'
 import PinScreen from '../src/components/PinScreen'
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -64,6 +65,22 @@ export default function CalendarScreen() {
 
   // 인라인 편집 모드 (nickname | dday | null)
   const [editMode, setEditMode] = useState<'nickname' | 'dday' | null>(null)
+  const [showTunas, setShowTunas] = useState(true)
+
+  // 스트릭 계산 (오늘부터 연속 작성일 수)
+  const streak = (() => {
+    let count = 0
+    const check = new Date()
+    check.setHours(0, 0, 0, 0)
+    while (true) {
+      const ds = `${check.getFullYear()}-${String(check.getMonth() + 1).padStart(2, '0')}-${String(check.getDate()).padStart(2, '0')}`
+      const has = Object.values(entries).some(e => e.deviceId === deviceId && e.date === ds)
+      if (!has) break
+      count++
+      check.setDate(check.getDate() - 1)
+    }
+    return count
+  })()
   const [nicknameInput, setNicknameInput] = useState('')
   const [ddayLabelInput, setDdayLabelInput] = useState('')
   const [ddayDateInput, setDdayDateInput] = useState('')
@@ -432,6 +449,29 @@ export default function CalendarScreen() {
           </View>
         )}
 
+        {/* ── Tunas 코너 ── */}
+        {showTunas && (() => {
+          const greeting = getDayGreeting()
+          const streakMsg = getStreakMessage(streak)
+          return (
+            <View style={[styles.tunasCard, { backgroundColor: colors.todayBg, borderColor: colors.cellEntryBorder }]}>
+              <TouchableOpacity style={styles.tunasDismiss} onPress={() => setShowTunas(false)} hitSlop={{ top: 8, right: 8, bottom: 8, left: 8 }}>
+                <Text style={[styles.tunasDismissTxt, { color: colors.textMuted }]}>✕</Text>
+              </TouchableOpacity>
+              <Text style={[styles.tunasTxt, { color: colors.text }]}>🐶 {greeting.dog}</Text>
+              <Text style={[styles.tunasTxt, { color: colors.text }]}>🐱 {greeting.cat}</Text>
+              {streakMsg && (
+                <>
+                  <View style={[styles.tunasDivider, { backgroundColor: colors.cellEntryBorder }]} />
+                  <Text style={[styles.tunasTxt, { color: colors.text }]}>🔥 {streak}일 연속</Text>
+                  <Text style={[styles.tunasTxt, { color: colors.text }]}>🐶 {streakMsg.dog}</Text>
+                  <Text style={[styles.tunasTxt, { color: colors.text }]}>🐱 {streakMsg.cat}</Text>
+                </>
+              )}
+            </View>
+          )
+        })()}
+
         {/* ── D-day 행 ── */}
         <TouchableOpacity
           style={styles.ddayRow}
@@ -617,6 +657,13 @@ const styles = StyleSheet.create({
 
   paletteRow: { flexDirection: 'row', gap: 10, flexWrap: 'wrap' },
   paletteCircle: { width: 32, height: 32, borderRadius: 16 },
+
+  // Tunas 코너
+  tunasCard: { marginHorizontal: 16, marginBottom: 6, borderRadius: 16, borderWidth: 1.5, padding: 12, gap: 5 },
+  tunasTxt: { fontSize: 13, fontWeight: '600', lineHeight: 20 },
+  tunasDismiss: { position: 'absolute', top: 8, right: 10, zIndex: 1 },
+  tunasDismissTxt: { fontSize: 13, fontWeight: '700' },
+  tunasDivider: { height: 1, marginVertical: 4 },
 
   // 플로팅 편집 카드 (SafeAreaView 레벨, overlay 위)
   floatingCard: {
