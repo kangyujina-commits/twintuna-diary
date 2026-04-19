@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const THEME_KEY = '@twintuna_diary:theme'
 const ACCENT_KEY = '@twintuna_diary:accent'
+const BGIMAGE_KEY = '@twintuna_diary:bgImage'
 
 export const ACCENT_PRESETS = [
   '#c9a882', // tuna (default)
@@ -35,6 +36,37 @@ function tintBg(base: string, accent: string, amount: number): string {
   if (!base.startsWith('#') || !accent.startsWith('#')) return base
   const b = hexToRgb(base), a = hexToRgb(accent)
   return `rgb(${Math.round(b.r + (a.r - b.r) * amount)},${Math.round(b.g + (a.g - b.g) * amount)},${Math.round(b.b + (a.b - b.b) * amount)})`
+}
+
+// 이미지를 압축된 base64로 변환 (web canvas 사용)
+async function imageUriToBase64(uri: string, maxWidth = 1200, quality = 0.6): Promise<string> {
+  if (typeof document === 'undefined') {
+    // React Native native 환경 - 그냥 fetch → base64
+    const res = await fetch(uri)
+    const blob = await res.blob()
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = reject
+      reader.readAsDataURL(blob)
+    })
+  }
+  // Web 환경 - Canvas로 리사이즈 + 압축
+  return new Promise((resolve, reject) => {
+    const img = new window.Image()
+    img.crossOrigin = 'anonymous'
+    img.onload = () => {
+      let w = img.width, h = img.height
+      if (w > maxWidth) { h = Math.round(h * maxWidth / w); w = maxWidth }
+      const canvas = document.createElement('canvas')
+      canvas.width = w; canvas.height = h
+      const ctx = canvas.getContext('2d')!
+      ctx.drawImage(img, 0, 0, w, h)
+      resolve(canvas.toDataURL('image/jpeg', quality))
+    }
+    img.onerror = reject
+    img.src = uri
+  })
 }
 
 const LIGHT_BASE = {
@@ -92,6 +124,9 @@ interface ThemeContextValue {
   toggleTheme: () => void
   accentColor: string
   setAccentColor: (color: string) => void
+  bgImage: string | null
+  setBgImage: (uri: string | null) => Promise<void>
+  isBgLoading: boolean
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
@@ -99,11 +134,14 @@ const ThemeContext = createContext<ThemeContextValue | null>(null)
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [isDark, setIsDark] = useState(false)
   const [accentColor, setAccentColorState] = useState('#c9a882')
+  const [bgImage, setBgImageState] = useState<string | null>(null)
+  const [isBgLoading, setIsBgLoading] = useState(false)
 
   useEffect(() => {
-    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY]).then((results) => {
+    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY, BGIMAGE_KEY]).then((results) => {
       if (results[0][1] === 'dark') setIsDark(true)
       if (results[1][1]) setAccentColorState(results[1][1])
+      if (results[2][1]) setBgImageState(results[2][1])
     })
   }, [])
 
@@ -120,6 +158,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     AsyncStorage.setItem(ACCENT_KEY, color)
   }
 
+  async function setBgImage(uri: string | null) {
+    if (!uri) {
+      setBgImageState(null)
+      await AsyncStorage.removeItem(BGIMAGE_KEY)
+      return
+    }
+    setIsBgLoading(true)
+    try {
+      const base64 = await imageUriToBase64(uri)
+      setBgImageState(base64)
+      await AsyncStorage.setItem(BGIMAGE_KEY, base64)
+    } finally {
+      setIsBgLoading(false)
+    }
+  }
+
   return (
     <ThemeContext.Provider value={{
       isDark,
@@ -127,6 +181,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       toggleTheme,
       accentColor,
       setAccentColor,
+      bgImage,
+      setBgImage,
+      isBgLoading,
     }}>
       {children}
     </ThemeContext.Provider>

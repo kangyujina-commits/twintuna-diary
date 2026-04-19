@@ -17,7 +17,6 @@ import { useRouter } from 'expo-router'
 import { useDiary } from '../src/context/DiaryContext'
 import { useTheme, ACCENT_PRESETS } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
-import { uploadPhoto } from '../src/utils/uploadPhoto'
 import PinScreen from '../src/components/PinScreen'
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -43,9 +42,8 @@ export default function CalendarScreen() {
     appName: sharedAppName, setAppName: setSharedAppName,
     connectDiary, disconnectDiary,
     dday, setDday,
-    bgImage, setBgImage,
   } = useDiary()
-  const { isDark, colors, toggleTheme, accentColor, setAccentColor } = useTheme()
+  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
   const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
@@ -62,7 +60,6 @@ export default function CalendarScreen() {
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
-  const [isUploadingBg, setIsUploadingBg] = useState(false)
   const [uploadBgError, setUploadBgError] = useState('')
 
   // 인라인 편집 모드 (nickname | dday | null)
@@ -380,31 +377,28 @@ export default function CalendarScreen() {
               ) : (
                 <TouchableOpacity
                   style={[styles.connectBtn, { backgroundColor: colors.accent }]}
+                  disabled={isBgLoading}
                   onPress={async () => {
+                    setUploadBgError('')
                     const result = await ImagePicker.launchImageLibraryAsync({
                       mediaTypes: ImagePicker.MediaTypeOptions.Images,
                       quality: 0.7,
                     })
                     if (!result.canceled) {
-                      setIsUploadingBg(true)
-                      setUploadBgError('')
                       try {
-                        const url = await uploadPhoto(result.assets[0].uri, `diaries/${diaryId}/bg`)
-                        await setBgImage(url)
+                        await setBgImage(result.assets[0].uri)
                       } catch (e: any) {
-                        setUploadBgError(e?.message ?? 'Upload failed')
-                      } finally {
-                        setIsUploadingBg(false)
+                        setUploadBgError(e?.message ?? 'Failed · 실패')
                       }
                     }
                   }}
                 >
-                  {isUploadingBg
+                  {isBgLoading
                     ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                         <ActivityIndicator size="small" color="#fff" />
-                        <Text style={styles.connectBtnTxt}>Uploading · 업로드 중...</Text>
+                        <Text style={styles.connectBtnTxt}>Processing · 변환 중...</Text>
                       </View>
-                    : <Text style={styles.connectBtnTxt}>📷 Upload Photo · 사진 업로드</Text>
+                    : <Text style={styles.connectBtnTxt}>📷 Upload Photo · 사진 선택</Text>
                   }
                   {uploadBgError ? (
                     <Text style={{ color: '#ffcccc', fontSize: 11, marginTop: 4, textAlign: 'center' }}>{uploadBgError}</Text>

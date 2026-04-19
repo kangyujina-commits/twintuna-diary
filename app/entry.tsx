@@ -53,8 +53,8 @@ function formatDate(dateStr: string) {
 export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
-  const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId, diaryId, bgImage } = useDiary()
-  const { colors } = useTheme()
+  const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId, diaryId } = useDiary()
+  const { colors, bgImage } = useTheme()
 
   const myEntry = date ? getMyEntry(date) : undefined
   const allEntries = date ? getEntriesForDate(date) : []
