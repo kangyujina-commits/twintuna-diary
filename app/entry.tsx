@@ -416,7 +416,7 @@ export default function EntryScreen() {
                 onPress={() => setAnalysis(analyzeEntry(mood, weather, text))}
                 activeOpacity={0.7}
               >
-                <Text style={[styles.analysisBtnTxt, { color: colors.accent }]}>🤖 AI 분석 · Analyze</Text>
+                <Text style={[styles.analysisBtnTxt, { color: colors.accent }]}>🐶🐱 Tunas</Text>
               </TouchableOpacity>
 
               {analysis && (
