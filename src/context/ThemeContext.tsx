@@ -14,19 +14,27 @@ export const ACCENT_PRESETS = [
   '#7aaa7a', // sage
 ]
 
+function hexToRgb(hex: string) {
+  return {
+    r: parseInt(hex.slice(1, 3), 16),
+    g: parseInt(hex.slice(3, 5), 16),
+    b: parseInt(hex.slice(5, 7), 16),
+  }
+}
 function adjustColor(hex: string, factor: number): string {
   if (!hex.startsWith('#') || hex.length < 7) return hex
-  const r = Math.min(255, Math.round(parseInt(hex.slice(1, 3), 16) * factor))
-  const g = Math.min(255, Math.round(parseInt(hex.slice(3, 5), 16) * factor))
-  const b = Math.min(255, Math.round(parseInt(hex.slice(5, 7), 16) * factor))
-  return `rgb(${r},${g},${b})`
+  const { r, g, b } = hexToRgb(hex)
+  return `rgb(${Math.min(255, Math.round(r * factor))},${Math.min(255, Math.round(g * factor))},${Math.min(255, Math.round(b * factor))})`
 }
 function accentAlpha(hex: string, alpha: number): string {
   if (!hex.startsWith('#') || hex.length < 7) return hex
-  const r = parseInt(hex.slice(1, 3), 16)
-  const g = parseInt(hex.slice(3, 5), 16)
-  const b = parseInt(hex.slice(5, 7), 16)
+  const { r, g, b } = hexToRgb(hex)
   return `rgba(${r},${g},${b},${alpha})`
+}
+function tintBg(base: string, accent: string, amount: number): string {
+  if (!base.startsWith('#') || !accent.startsWith('#')) return base
+  const b = hexToRgb(base), a = hexToRgb(accent)
+  return `rgb(${Math.round(b.r + (a.r - b.r) * amount)},${Math.round(b.g + (a.g - b.g) * amount)},${Math.round(b.b + (a.b - b.b) * amount)})`
 }
 
 const LIGHT_BASE = {
@@ -65,6 +73,8 @@ function buildColors(isDark: boolean, accent: string) {
   const base = isDark ? DARK_BASE : LIGHT_BASE
   return {
     ...base,
+    bg: tintBg(isDark ? '#1a1210' : '#fdf6f0', accent, isDark ? 0.18 : 0.12),
+    inputBg: tintBg(isDark ? '#221810' : '#fdf6f0', accent, isDark ? 0.15 : 0.10),
     accent,
     accentText: adjustColor(accent, isDark ? 1.15 : 0.78),
     todayBg: accentAlpha(accent, isDark ? 0.28 : 0.18),
