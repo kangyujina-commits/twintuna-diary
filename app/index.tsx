@@ -122,7 +122,7 @@ export default function CalendarScreen() {
 
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
-      {/* 인라인 편집 중 바깥 탭 시 닫기 오버레이 */}
+      {/* ── 인라인 편집 오버레이 (바깥 탭 → 닫기) ── */}
       {editMode && (
         <TouchableOpacity
           style={[StyleSheet.absoluteFillObject, { zIndex: 50 }]}
@@ -130,6 +130,86 @@ export default function CalendarScreen() {
           activeOpacity={1}
         />
       )}
+
+      {/* ── 닉네임 편집 카드 (overlay 위, 절대 위치) ── */}
+      {editMode === 'nickname' && (
+        <View style={[styles.floatingCard, { zIndex: 100, backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+          <View style={styles.ddayDateRow}>
+            <TextInput
+              style={[styles.ddayDateInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1, fontSize: 15 }]}
+              value={nicknameInput}
+              onChangeText={setNicknameInput}
+              placeholder="My Name · 내 이름"
+              placeholderTextColor={colors.hint}
+              maxLength={10}
+              autoFocus
+              returnKeyType="done"
+              onSubmitEditing={async () => { await setNickname(nicknameInput.trim()); setEditMode(null) }}
+            />
+            <TouchableOpacity
+              style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
+              onPress={async () => { await setNickname(nicknameInput.trim()); setEditMode(null) }}
+            >
+              <Text style={styles.ddaySaveTxt}>✓</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
+      {/* ── D-day 편집 카드 (overlay 위, 절대 위치) ── */}
+      {editMode === 'dday' && (
+        <View style={[styles.floatingCard, { zIndex: 100, backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+          <TextInput
+            style={[styles.ddayLabelInput, { color: colors.text, borderBottomColor: colors.accent }]}
+            value={ddayLabelInput}
+            onChangeText={setDdayLabelInput}
+            placeholder="Label · 이름"
+            placeholderTextColor={colors.hint}
+            maxLength={20}
+            autoFocus
+            returnKeyType="next"
+          />
+          <View style={styles.ddayDateRow}>
+            <TextInput
+              style={[styles.ddayDateInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1 }]}
+              value={ddayDateInput}
+              onChangeText={(t) => {
+                const digits = t.replace(/\D/g, '').slice(0, 8)
+                let formatted = digits
+                if (digits.length > 4) formatted = digits.slice(0, 4) + '-' + digits.slice(4)
+                if (digits.length > 6) formatted = digits.slice(0, 4) + '-' + digits.slice(4, 6) + '-' + digits.slice(6)
+                setDdayDateInput(formatted)
+              }}
+              placeholder="YYYYMMDD"
+              placeholderTextColor={colors.hint}
+              maxLength={10}
+              keyboardType="numeric"
+              returnKeyType="done"
+            />
+            {dday && (
+              <TouchableOpacity
+                style={[styles.ddayRemoveBtn, { borderColor: '#e05c5c' }]}
+                onPress={async () => { await setDday(null); setEditMode(null) }}
+              >
+                <Text style={styles.ddayRemoveTxt}>✕</Text>
+              </TouchableOpacity>
+            )}
+            <TouchableOpacity
+              style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
+              onPress={async () => {
+                const d = ddayDateInput.trim()
+                const l = ddayLabelInput.trim()
+                if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return
+                await setDday({ label: l || 'D-day', date: d })
+                setEditMode(null)
+              }}
+            >
+              <Text style={styles.ddaySaveTxt}>✓</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
       <ScrollView contentContainerStyle={styles.scroll}>
 
         {/* ── 헤더 ── */}
@@ -171,33 +251,6 @@ export default function CalendarScreen() {
             </TouchableOpacity>
           </View>
         </View>
-
-        {/* ── 닉네임 인라인 편집 ── */}
-        {editMode === 'nickname' && (
-          <View style={{ zIndex: 100 }} onStartShouldSetResponder={() => true}>
-            <View style={[styles.ddayCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <View style={styles.ddayDateRow}>
-                <TextInput
-                  style={[styles.ddayDateInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1, fontSize: 15 }]}
-                  value={nicknameInput}
-                  onChangeText={setNicknameInput}
-                  placeholder="My Name · 내 이름"
-                  placeholderTextColor={colors.hint}
-                  maxLength={10}
-                  autoFocus
-                  returnKeyType="done"
-                  onSubmitEditing={async () => { await setNickname(nicknameInput.trim()); setEditMode(null) }}
-                />
-                <TouchableOpacity
-                  style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
-                  onPress={async () => { await setNickname(nicknameInput.trim()); setEditMode(null) }}
-                >
-                  <Text style={styles.ddaySaveTxt}>Save · 저장</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        )}
 
         {/* ── 설정 패널 ── */}
         {showSettings && (
@@ -317,79 +370,24 @@ export default function CalendarScreen() {
         )}
 
         {/* ── D-day 행 ── */}
-        {editMode === 'dday' ? (
-          <View style={{ zIndex: 100 }} onStartShouldSetResponder={() => true}>
-            <View style={[styles.ddayCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              {/* 이름 + 날짜 한 줄씩 */}
-              <TextInput
-                style={[styles.ddayLabelInput, { color: colors.text, borderBottomColor: colors.accent }]}
-                value={ddayLabelInput}
-                onChangeText={setDdayLabelInput}
-                placeholder="Label · 이름"
-                placeholderTextColor={colors.hint}
-                maxLength={20}
-                returnKeyType="next"
-              />
-              <View style={styles.ddayDateRow}>
-                <TextInput
-                  style={[styles.ddayDateInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1 }]}
-                  value={ddayDateInput}
-                  onChangeText={(t) => {
-                    const digits = t.replace(/\D/g, '').slice(0, 8)
-                    let formatted = digits
-                    if (digits.length > 4) formatted = digits.slice(0, 4) + '-' + digits.slice(4)
-                    if (digits.length > 6) formatted = digits.slice(0, 4) + '-' + digits.slice(4, 6) + '-' + digits.slice(6)
-                    setDdayDateInput(formatted)
-                  }}
-                  placeholder="YYYYMMDD"
-                  placeholderTextColor={colors.hint}
-                  maxLength={10}
-                  keyboardType="numeric"
-                  returnKeyType="done"
-                />
-                {dday && (
-                  <TouchableOpacity
-                    style={[styles.ddayRemoveBtn, { borderColor: '#e05c5c' }]}
-                    onPress={async () => { await setDday(null); setEditMode(null) }}
-                  >
-                    <Text style={styles.ddayRemoveTxt}>✕</Text>
-                  </TouchableOpacity>
-                )}
-                <TouchableOpacity
-                  style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
-                  onPress={async () => {
-                    const d = ddayDateInput.trim()
-                    const l = ddayLabelInput.trim()
-                    if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return
-                    await setDday({ label: l || 'D-day', date: d })
-                    setEditMode(null)
-                  }}
-                >
-                  <Text style={styles.ddaySaveTxt}>Save · 저장</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        ) : (
-          <TouchableOpacity
-            style={styles.ddayRow}
-            onPress={() => {
-              setDdayLabelInput(dday?.label ?? '')
-              setDdayDateInput(dday?.date ?? '')
-              setEditMode('dday')
-            }}
-            activeOpacity={0.7}
-          >
-            {dday ? (
-              <>
-                <Text style={[styles.ddayLabel, { color: colors.textMuted }]}>{dday.label}</Text>
-                <Text style={[styles.ddayCount, { color: colors.accent }]}>{calcDday(dday.date)}</Text>
-              </>
-            ) : (
-              <Text style={[styles.ddayEmpty, { color: colors.hint }]}>＋ Add D-day · 날짜 추가</Text>
-            )}
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity
+          style={styles.ddayRow}
+          onPress={() => {
+            setDdayLabelInput(dday?.label ?? '')
+            setDdayDateInput(dday?.date ?? '')
+            setEditMode('dday')
+          }}
+          activeOpacity={0.7}
+        >
+          {dday ? (
+            <>
+              <Text style={[styles.ddayLabel, { color: colors.textMuted }]}>{dday.label}</Text>
+              <Text style={[styles.ddayCount, { color: colors.accent }]}>{calcDday(dday.date)}</Text>
+            </>
+          ) : (
+            <Text style={[styles.ddayEmpty, { color: colors.hint }]}>＋ Add D-day · 날짜 추가</Text>
+          )}
+        </TouchableOpacity>
 
         {/* ── 월 네비 ── */}
         <View style={styles.monthNav}>
@@ -534,6 +532,12 @@ const styles = StyleSheet.create({
 
   panelClose: { alignItems: 'center', marginTop: 4, marginBottom: 4 },
   panelCloseTxt: { fontSize: 12 },
+
+  // 플로팅 편집 카드 (SafeAreaView 레벨, overlay 위)
+  floatingCard: {
+    position: 'absolute', left: 16, right: 16, top: 148,
+    borderRadius: 14, padding: 12, borderWidth: 1.5, gap: 8,
+  },
 
   // D-day
   ddayRow: { alignSelf: 'center', alignItems: 'center', paddingVertical: 8, paddingHorizontal: 16, flexDirection: 'row', gap: 8 },
