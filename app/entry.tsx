@@ -37,6 +37,7 @@ const WEATHERS: { emoji: Weather; label: string }[] = [
   { emoji: '🌈', label: 'Rainbow/무지개' },
 ]
 
+const MAX_TEXT = 500
 const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const EN_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const KO_DAYS = ['일', '월', '화', '수', '목', '금', '토']
@@ -346,14 +347,23 @@ export default function EntryScreen() {
           {/* Text */}
           <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Today / 오늘 하루</Text>
           {isEditing ? (
-            <TextInput
-              style={[styles.textInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
-              multiline
-              placeholder="How was your day? · 오늘은 어떤 하루였나요? ✍️"
-              placeholderTextColor={colors.hint}
-              value={text} onChangeText={setText}
-              textAlignVertical="top" autoFocus={!myEntry}
-            />
+            <View>
+              <TextInput
+                style={[styles.textInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
+                multiline
+                placeholder="How was your day? · 오늘은 어떤 하루였나요? ✍️"
+                placeholderTextColor={colors.hint}
+                value={text} onChangeText={(t) => setText(t.slice(0, MAX_TEXT))}
+                textAlignVertical="top" autoFocus={!myEntry}
+                maxLength={MAX_TEXT}
+              />
+              <Text style={[
+                styles.charCounter,
+                { color: text.length >= MAX_TEXT ? '#e05c5c' : text.length >= MAX_TEXT * 0.85 ? colors.accent : colors.textMuted }
+              ]}>
+                {text.length} / {MAX_TEXT}
+              </Text>
+            </View>
           ) : (
             <View style={[styles.textView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={text ? [styles.textContent, { color: colors.text }] : [styles.textEmpty, { color: colors.hint }]}>
@@ -492,6 +502,7 @@ const styles = StyleSheet.create({
   },
   textContent: { fontSize: 15, color: '#3d2c1e', lineHeight: 24 },
   textEmpty: { fontSize: 14, color: '#c5a890' },
+  charCounter: { fontSize: 11, fontWeight: '600', textAlign: 'right', marginTop: 5, paddingRight: 2 },
 
   photoMenuRow: { flexDirection: 'row', gap: 8 },
   photoMenuBtn: {
