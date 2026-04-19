@@ -63,6 +63,7 @@ export default function CalendarScreen() {
   const [connectMsg, setConnectMsg] = useState('')
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
   const [isUploadingBg, setIsUploadingBg] = useState(false)
+  const [uploadBgError, setUploadBgError] = useState('')
 
   // 인라인 편집 모드 (nickname | dday | null)
   const [editMode, setEditMode] = useState<'nickname' | 'dday' | null>(null)
@@ -386,9 +387,12 @@ export default function CalendarScreen() {
                     })
                     if (!result.canceled) {
                       setIsUploadingBg(true)
+                      setUploadBgError('')
                       try {
                         const url = await uploadPhoto(result.assets[0].uri, `diaries/${diaryId}/bg`)
                         await setBgImage(url)
+                      } catch (e: any) {
+                        setUploadBgError(e?.message ?? 'Upload failed')
                       } finally {
                         setIsUploadingBg(false)
                       }
@@ -402,6 +406,9 @@ export default function CalendarScreen() {
                       </View>
                     : <Text style={styles.connectBtnTxt}>📷 Upload Photo · 사진 업로드</Text>
                   }
+                  {uploadBgError ? (
+                    <Text style={{ color: '#ffcccc', fontSize: 11, marginTop: 4, textAlign: 'center' }}>{uploadBgError}</Text>
+                  ) : null}
                 </TouchableOpacity>
               )}
             </View>
