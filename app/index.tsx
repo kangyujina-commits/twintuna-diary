@@ -8,7 +8,6 @@ import {
   SafeAreaView,
   ScrollView,
   Platform,
-  Pressable,
 } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useDiary } from '../src/context/DiaryContext'
@@ -175,7 +174,7 @@ export default function CalendarScreen() {
 
         {/* ── 닉네임 인라인 편집 ── */}
         {editMode === 'nickname' && (
-          <Pressable style={{ zIndex: 100 }} onPress={e => e.stopPropagation?.()}>
+          <View style={{ zIndex: 100 }} onStartShouldSetResponder={() => true}>
             <View style={[styles.ddayCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <View style={styles.ddayDateRow}>
                 <TextInput
@@ -197,7 +196,7 @@ export default function CalendarScreen() {
                 </TouchableOpacity>
               </View>
             </View>
-          </Pressable>
+          </View>
         )}
 
         {/* ── 설정 패널 ── */}
@@ -319,7 +318,7 @@ export default function CalendarScreen() {
 
         {/* ── D-day 행 ── */}
         {editMode === 'dday' ? (
-          <Pressable style={{ zIndex: 100 }} onPress={e => e.stopPropagation?.()}>
+          <View style={{ zIndex: 100 }} onStartShouldSetResponder={() => true}>
             <View style={[styles.ddayCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               {/* 이름 + 날짜 한 줄씩 */}
               <TextInput
@@ -370,7 +369,7 @@ export default function CalendarScreen() {
                 </TouchableOpacity>
               </View>
             </View>
-          </Pressable>
+          </View>
         ) : (
           <TouchableOpacity
             style={styles.ddayRow}
