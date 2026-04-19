@@ -1,10 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Platform } from 'react-native'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { DiaryProvider } from '../src/context/DiaryContext'
 import { ThemeProvider, useTheme } from '../src/context/ThemeContext'
 import { LockProvider, useLock } from '../src/context/LockContext'
 import PinScreen from '../src/components/PinScreen'
+
+// 웹 전용: 귀여운 폰트 + 아이콘 주입
+if (Platform.OS === 'web' && typeof document !== 'undefined') {
+  // Nunito 폰트 (귀엽고 둥근 폰트)
+  const fontLink = document.createElement('link')
+  fontLink.rel = 'stylesheet'
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap'
+  document.head.appendChild(fontLink)
+
+  const fontStyle = document.createElement('style')
+  fontStyle.textContent = `* { font-family: 'Nunito', sans-serif !important; }`
+  document.head.appendChild(fontStyle)
+
+  // 🐶🐱 이모지 파비콘
+  const favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement ?? document.createElement('link')
+  favicon.rel = 'icon'
+  favicon.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='45'>🐶</text><text x='45' y='.9em' font-size='45'>🐱</text></svg>"
+  document.head.appendChild(favicon)
+
+  // 탭 제목
+  document.title = '🐶🐱 TwinTuna'
+}
 
 function AppContent() {
   const { isDark } = useTheme()

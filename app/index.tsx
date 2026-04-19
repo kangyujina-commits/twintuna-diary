@@ -457,9 +457,19 @@ export default function CalendarScreen() {
           <TouchableOpacity onPress={prevMonth} style={styles.navBtn}>
             <Text style={[styles.navArrow, { color: colors.accent }]}>‹</Text>
           </TouchableOpacity>
-          <Text style={[styles.monthLabel, { color: colors.text }]}>
-            {MONTHS_EN[month]} / {month + 1}월 {year}
-          </Text>
+          <TouchableOpacity
+            onPress={() => { setYear(today.getFullYear()); setMonth(today.getMonth()) }}
+            activeOpacity={0.7}
+          >
+            <Text style={[styles.monthLabel, { color: colors.text }]}>
+              {MONTHS_EN[month]} / {month + 1}월 {year}
+            </Text>
+            {(year !== today.getFullYear() || month !== today.getMonth()) && (
+              <Text style={[styles.todayBtn, { color: colors.accent, borderColor: colors.accent }]}>
+                Today · 오늘
+              </Text>
+            )}
+          </TouchableOpacity>
           <TouchableOpacity onPress={nextMonth} style={styles.navBtn}>
             <Text style={[styles.navArrow, { color: colors.accent }]}>›</Text>
           </TouchableOpacity>
@@ -633,6 +643,7 @@ const styles = StyleSheet.create({
   navBtn: { padding: 8 },
   navArrow: { fontSize: 28, lineHeight: 30 },
   monthLabel: { fontSize: 18, fontWeight: '600', minWidth: 160, textAlign: 'center' },
+  todayBtn: { fontSize: 11, fontWeight: '800', textAlign: 'center', borderWidth: 1.5, borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2, marginTop: 4, alignSelf: 'center' },
 
   weekRow: { flexDirection: 'row', paddingHorizontal: 8, paddingBottom: 6 },
   weekLabel: { flex: 1, textAlign: 'center', fontSize: 10, fontWeight: '600', lineHeight: 14 },
