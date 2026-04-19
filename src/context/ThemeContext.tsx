@@ -105,14 +105,25 @@ function buildColors(isDark: boolean, accent: string) {
   const base = isDark ? DARK_BASE : LIGHT_BASE
   return {
     ...base,
+    // 배경
     bg: tintBg(isDark ? '#1a1210' : '#fdf6f0', accent, isDark ? 0.18 : 0.12),
     inputBg: tintBg(isDark ? '#221810' : '#fdf6f0', accent, isDark ? 0.15 : 0.10),
+    // 텍스트 — accent 기반 파생
+    text: adjustColor(accent, isDark ? 3.2 : 0.38),
+    textMuted: adjustColor(accent, isDark ? 1.5 : 0.68),
+    textLight: adjustColor(accent, isDark ? 1.0 : 0.80),
+    sectionLabel: adjustColor(accent, isDark ? 1.4 : 0.65),
+    hint: accentAlpha(accent, isDark ? 0.4 : 0.45),
+    // 강조
     accent,
     accentText: adjustColor(accent, isDark ? 1.15 : 0.78),
     todayBg: accentAlpha(accent, isDark ? 0.28 : 0.18),
     todayText: adjustColor(accent, isDark ? 1.05 : 0.72),
     cellEntry: accentAlpha(accent, isDark ? 0.14 : 0.07),
     cellEntryBorder: accentAlpha(accent, isDark ? 0.32 : 0.22),
+    // 연결 뱃지 — accent 계열로
+    connectedBg: accentAlpha(accent, isDark ? 0.22 : 0.14),
+    connectedText: adjustColor(accent, isDark ? 1.1 : 0.70),
   }
 }
 
