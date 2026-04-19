@@ -233,7 +233,7 @@ export default function CalendarScreen() {
             </TouchableOpacity>
           </View>
           {/* 타이틀 (가운데) */}
-          <Text style={[styles.appTitle, { color: colors.text }]}>{sharedAppName}</Text>
+          <Text style={[styles.appTitle, { color: colors.accent }]}>{sharedAppName}</Text>
 
           {/* 상태 뱃지 */}
           <View style={styles.statusRow}>
