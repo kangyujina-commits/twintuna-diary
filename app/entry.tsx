@@ -17,6 +17,7 @@ import * as ImagePicker from 'expo-image-picker'
 import { useDiary, Mood, Weather } from '../src/context/DiaryContext'
 import { useTheme } from '../src/context/ThemeContext'
 import { uploadPhoto } from '../src/utils/uploadPhoto'
+import { analyzeEntry } from '../src/utils/analyzeEntry'
 
 const MOODS: { emoji: Mood; label: string }[] = [
   { emoji: '😄', label: 'Joy/신나요' },
@@ -77,6 +78,7 @@ export default function EntryScreen() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
   const [collapsedOthers, setCollapsedOthers] = useState<Set<string>>(new Set())
+  const [analysis, setAnalysis] = useState<string | null>(null)
 
   function toggleCollapse(id: string) {
     setCollapsedOthers(prev => {
@@ -406,6 +408,29 @@ export default function EntryScreen() {
             </TouchableOpacity>
           ) : null}
 
+          {/* AI 분석 버튼 — 내 일기 있고 보기 모드일 때 */}
+          {myEntry && !isEditing && (text || mood) && (
+            <View style={{ marginTop: 12 }}>
+              <TouchableOpacity
+                style={[styles.analysisBtn, { borderColor: colors.accent }]}
+                onPress={() => setAnalysis(analyzeEntry(mood, weather, text))}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.analysisBtnTxt, { color: colors.accent }]}>🤖 AI 분석 · Analyze</Text>
+              </TouchableOpacity>
+
+              {analysis && (
+                <View style={[styles.analysisCard, { backgroundColor: colors.todayBg, borderColor: colors.cellEntryBorder }]}>
+                  <Text style={[styles.analysisTxt, { color: colors.text }]}>{analysis}</Text>
+                  <TouchableOpacity onPress={() => setAnalysis(null)} style={styles.analysisDismiss}>
+                    <Text style={[styles.analysisDismissTxt, { color: colors.textMuted }]}>✕</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+          )}
+
+
           </>)}
         </ScrollView>
       </KeyboardAvoidingView>
@@ -608,6 +633,13 @@ const styles = StyleSheet.create({
   deleteConfirmInlineTxt: { fontSize: 13, fontWeight: '600', textAlign: 'center', marginBottom: 12 },
   deleteConfirmInlineBtns: { flexDirection: 'row', gap: 8 },
   deleteConfirmInlineBtn: { flex: 1, paddingVertical: 8, borderRadius: 10, borderWidth: 1.5, alignItems: 'center' },
+
+  analysisBtn: { borderWidth: 1.5, borderRadius: 14, paddingVertical: 10, alignItems: 'center', borderStyle: 'dashed' },
+  analysisBtnTxt: { fontSize: 14, fontWeight: '700' },
+  analysisCard: { marginTop: 10, borderRadius: 14, borderWidth: 1.5, padding: 14, position: 'relative' },
+  analysisTxt: { fontSize: 14, lineHeight: 24, fontWeight: '500' },
+  analysisDismiss: { position: 'absolute', top: 8, right: 10 },
+  analysisDismissTxt: { fontSize: 14, fontWeight: '700' },
 
   myEntryDivider: { borderTopWidth: 1.5, marginVertical: 16, paddingTop: 12, alignItems: 'center' },
   myEntryDividerTxt: { fontSize: 12, fontWeight: '700', letterSpacing: 0.5 },
