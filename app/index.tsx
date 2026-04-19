@@ -8,11 +8,15 @@ import {
   SafeAreaView,
   ScrollView,
   Platform,
+  ImageBackground,
+  Image,
 } from 'react-native'
+import * as ImagePicker from 'expo-image-picker'
 import { useRouter } from 'expo-router'
 import { useDiary } from '../src/context/DiaryContext'
-import { useTheme } from '../src/context/ThemeContext'
+import { useTheme, ACCENT_PRESETS } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
+import { uploadPhoto } from '../src/utils/uploadPhoto'
 import PinScreen from '../src/components/PinScreen'
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -38,8 +42,9 @@ export default function CalendarScreen() {
     appName: sharedAppName, setAppName: setSharedAppName,
     connectDiary, disconnectDiary,
     dday, setDday,
+    bgImage, setBgImage,
   } = useDiary()
-  const { isDark, colors, toggleTheme } = useTheme()
+  const { isDark, colors, toggleTheme, accentColor, setAccentColor } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
   const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
@@ -56,6 +61,7 @@ export default function CalendarScreen() {
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
+  const [isUploadingBg, setIsUploadingBg] = useState(false)
 
   // 인라인 편집 모드 (nickname | dday | null)
   const [editMode, setEditMode] = useState<'nickname' | 'dday' | null>(null)
@@ -120,8 +126,8 @@ export default function CalendarScreen() {
       }} />
   }
 
-  return (
-    <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
+  const screenContent = (
+    <SafeAreaView style={[styles.safe, { backgroundColor: bgImage ? 'transparent' : colors.bg }]}>
       {/* ── 인라인 편집 오버레이 (바깥 탭 → 닫기) ── */}
       {editMode && (
         <TouchableOpacity
@@ -344,6 +350,57 @@ export default function CalendarScreen() {
               )}
             </View>
 
+            {/* ③ 테마 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🎨 Accent Color · 강조색</Text>
+              <View style={styles.paletteRow}>
+                {ACCENT_PRESETS.map((c) => (
+                  <TouchableOpacity
+                    key={c}
+                    style={[styles.paletteCircle, { backgroundColor: c }, accentColor === c && { borderWidth: 3, borderColor: colors.text }]}
+                    onPress={() => setAccentColor(c)}
+                    activeOpacity={0.8}
+                  />
+                ))}
+              </View>
+
+              <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 14 }]}>🖼️ Background · 배경</Text>
+              {bgImage ? (
+                <View style={{ gap: 8 }}>
+                  <Image source={{ uri: bgImage }} style={{ height: 80, borderRadius: 10 }} resizeMode="cover" />
+                  <TouchableOpacity
+                    style={[styles.connectBtn, { backgroundColor: '#e05c5c' }]}
+                    onPress={async () => { await setBgImage(null) }}
+                  >
+                    <Text style={styles.connectBtnTxt}>Remove · 제거</Text>
+                  </TouchableOpacity>
+                </View>
+              ) : (
+                <TouchableOpacity
+                  style={[styles.connectBtn, { backgroundColor: colors.accent }]}
+                  onPress={async () => {
+                    const result = await ImagePicker.launchImageLibraryAsync({
+                      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                      quality: 0.7,
+                    })
+                    if (!result.canceled) {
+                      setIsUploadingBg(true)
+                      try {
+                        const url = await uploadPhoto(result.assets[0].uri, `diaries/${diaryId}/bg`)
+                        await setBgImage(url)
+                      } finally {
+                        setIsUploadingBg(false)
+                      }
+                    }
+                  }}
+                >
+                  <Text style={styles.connectBtnTxt}>
+                    {isUploadingBg ? 'Uploading · 업로드 중...' : '📷 Upload Photo · 사진 업로드'}
+                  </Text>
+                </TouchableOpacity>
+              )}
+            </View>
+
             {/* ④ PIN 잠금 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
@@ -479,6 +536,15 @@ export default function CalendarScreen() {
       </ScrollView>
     </SafeAreaView>
   )
+
+  if (bgImage) {
+    return (
+      <ImageBackground source={{ uri: bgImage }} style={{ flex: 1 }} imageStyle={{ opacity: 0.45 }}>
+        {screenContent}
+      </ImageBackground>
+    )
+  }
+  return screenContent
 }
 
 const styles = StyleSheet.create({
@@ -532,6 +598,9 @@ const styles = StyleSheet.create({
 
   panelClose: { alignItems: 'center', marginTop: 4, marginBottom: 4 },
   panelCloseTxt: { fontSize: 12 },
+
+  paletteRow: { flexDirection: 'row', gap: 10, flexWrap: 'wrap' },
+  paletteCircle: { width: 32, height: 32, borderRadius: 16 },
 
   // 플로팅 편집 카드 (SafeAreaView 레벨, overlay 위)
   floatingCard: {

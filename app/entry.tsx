@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
+  ImageBackground,
   StyleSheet,
   SafeAreaView,
   ScrollView,
@@ -52,7 +53,7 @@ function formatDate(dateStr: string) {
 export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
-  const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId, diaryId } = useDiary()
+  const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId, diaryId, bgImage } = useDiary()
   const { colors } = useTheme()
 
   const myEntry = date ? getMyEntry(date) : undefined
@@ -143,8 +144,8 @@ export default function EntryScreen() {
     router.back()
   }
 
-  return (
-    <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
+  const inner = (
+    <SafeAreaView style={[styles.safe, { backgroundColor: bgImage ? 'transparent' : colors.bg }]}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -410,6 +411,15 @@ export default function EntryScreen() {
       </KeyboardAvoidingView>
     </SafeAreaView>
   )
+
+  if (bgImage) {
+    return (
+      <ImageBackground source={{ uri: bgImage }} style={{ flex: 1 }} imageStyle={{ opacity: 0.45 }}>
+        {inner}
+      </ImageBackground>
+    )
+  }
+  return inner
 }
 
 const styles = StyleSheet.create({

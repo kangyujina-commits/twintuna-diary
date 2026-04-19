@@ -45,6 +45,9 @@ interface DiaryContextValue {
   // D-day (Firestore 공유)
   dday: { label: string; date: string } | null
   setDday: (dday: { label: string; date: string } | null) => Promise<void>
+  // 배경 이미지 (Firestore 공유)
+  bgImage: string | null
+  setBgImage: (url: string | null) => Promise<void>
   // 날짜별 모든 entries (docId → entry)
   entries: Record<string, DiaryEntry>
   // 내 entry 가져오기
@@ -69,6 +72,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   const [diaryPin, setDiaryPinState] = useState<string | null>(null)
   const [diaryPinLoaded, setDiaryPinLoaded] = useState(false)
   const [dday, setDdayState] = useState<{ label: string; date: string } | null>(null)
+  const [bgImage, setBgImageState] = useState<string | null>(null)
 
   useEffect(() => {
     Promise.all([
@@ -97,6 +101,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       setDiaryPinState(data?.pin ?? null)
       setDiaryPinLoaded(true)
       setDdayState(data?.dday ?? null)
+      setBgImageState(data?.bgImage ?? null)
     })
     return unsubMeta
   }, [diaryId])
@@ -192,6 +197,12 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setDdayState(val)
   }
 
+  async function setBgImage(url: string | null) {
+    if (!diaryId) return
+    await setDoc(doc(db, 'diaries', diaryId), { bgImage: url ?? null }, { merge: true })
+    setBgImageState(url)
+  }
+
   if (!diaryId) return null
 
   return (
@@ -201,6 +212,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       diaryPin, diaryPinLoaded, setDiaryPin,
       dday, setDday,
       entries,
+      bgImage, setBgImage,
       getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, connectDiary, disconnectDiary,
     }}>
       {children}

@@ -2,22 +2,42 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const THEME_KEY = '@twintuna_diary:theme'
+const ACCENT_KEY = '@twintuna_diary:accent'
 
-export const LIGHT = {
+export const ACCENT_PRESETS = [
+  '#c9a882', // tuna (default)
+  '#e07a8a', // rose
+  '#5ab89e', // mint
+  '#9b8ee0', // lavender
+  '#5b8ee0', // sky
+  '#e08c60', // peach
+  '#7aaa7a', // sage
+]
+
+function adjustColor(hex: string, factor: number): string {
+  if (!hex.startsWith('#') || hex.length < 7) return hex
+  const r = Math.min(255, Math.round(parseInt(hex.slice(1, 3), 16) * factor))
+  const g = Math.min(255, Math.round(parseInt(hex.slice(3, 5), 16) * factor))
+  const b = Math.min(255, Math.round(parseInt(hex.slice(5, 7), 16) * factor))
+  return `rgb(${r},${g},${b})`
+}
+function accentAlpha(hex: string, alpha: number): string {
+  if (!hex.startsWith('#') || hex.length < 7) return hex
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  return `rgba(${r},${g},${b},${alpha})`
+}
+
+const LIGHT_BASE = {
   bg: '#fdf6f0',
   card: '#ffffff',
   cardBorder: '#f0e0d0',
   text: '#3d2c1e',
   textMuted: '#a08070',
   textLight: '#b09080',
-  accent: '#c9a882',
-  accentText: '#8b5e3c',
-  todayBg: '#ffe8d2',
-  todayText: '#c96a30',
   sun: '#e05c5c',
   sat: '#5b8ee0',
-  cellEntry: '#fff8f2',
-  cellEntryBorder: '#e8d0b8',
   inputBg: '#fdf6f0',
   sectionLabel: '#a08070',
   hint: '#c9b8a8',
@@ -25,21 +45,15 @@ export const LIGHT = {
   connectedText: '#4a9e6b',
 }
 
-export const DARK = {
+const DARK_BASE = {
   bg: '#1a1210',
   card: '#2a1d16',
   cardBorder: '#3d2c20',
   text: '#f0dece',
   textMuted: '#7a6050',
   textLight: '#5a4838',
-  accent: '#c9a882',
-  accentText: '#e8c8a0',
-  todayBg: '#3a2010',
-  todayText: '#e88040',
   sun: '#e07070',
   sat: '#7090e0',
-  cellEntry: '#2a1e16',
-  cellEntryBorder: '#4a3020',
   inputBg: '#221810',
   sectionLabel: '#7a6050',
   hint: '#4a3828',
@@ -47,22 +61,39 @@ export const DARK = {
   connectedText: '#5ab87a',
 }
 
-export type Colors = typeof LIGHT
+function buildColors(isDark: boolean, accent: string) {
+  const base = isDark ? DARK_BASE : LIGHT_BASE
+  return {
+    ...base,
+    accent,
+    accentText: adjustColor(accent, isDark ? 1.15 : 0.78),
+    todayBg: accentAlpha(accent, isDark ? 0.28 : 0.18),
+    todayText: adjustColor(accent, isDark ? 1.05 : 0.72),
+    cellEntry: accentAlpha(accent, isDark ? 0.14 : 0.07),
+    cellEntryBorder: accentAlpha(accent, isDark ? 0.32 : 0.22),
+  }
+}
+
+export type Colors = ReturnType<typeof buildColors>
 
 interface ThemeContextValue {
   isDark: boolean
   colors: Colors
   toggleTheme: () => void
+  accentColor: string
+  setAccentColor: (color: string) => void
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [isDark, setIsDark] = useState(false)
+  const [accentColor, setAccentColorState] = useState('#c9a882')
 
   useEffect(() => {
-    AsyncStorage.getItem(THEME_KEY).then((v) => {
-      if (v === 'dark') setIsDark(true)
+    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY]).then((results) => {
+      if (results[0][1] === 'dark') setIsDark(true)
+      if (results[1][1]) setAccentColorState(results[1][1])
     })
   }, [])
 
@@ -74,8 +105,19 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     })
   }
 
+  function setAccentColor(color: string) {
+    setAccentColorState(color)
+    AsyncStorage.setItem(ACCENT_KEY, color)
+  }
+
   return (
-    <ThemeContext.Provider value={{ isDark, colors: isDark ? DARK : LIGHT, toggleTheme }}>
+    <ThemeContext.Provider value={{
+      isDark,
+      colors: buildColors(isDark, accentColor),
+      toggleTheme,
+      accentColor,
+      setAccentColor,
+    }}>
       {children}
     </ThemeContext.Provider>
   )
