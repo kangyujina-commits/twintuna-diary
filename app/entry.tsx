@@ -55,7 +55,7 @@ export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
   const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId, diaryId } = useDiary()
-  const { colors, bgImage } = useTheme()
+  const { colors, bgImage, bgOpacity } = useTheme()
 
   const myEntry = date ? getMyEntry(date) : undefined
   const allEntries = date ? getEntriesForDate(date) : []
@@ -472,7 +472,7 @@ export default function EntryScreen() {
 
   if (bgImage) {
     return (
-      <ImageBackground source={{ uri: bgImage }} style={{ flex: 1 }} imageStyle={{ opacity: 0.45 }}>
+      <ImageBackground source={{ uri: bgImage }} style={{ flex: 1 }} imageStyle={{ opacity: bgOpacity }}>
         {inner}
       </ImageBackground>
     )

@@ -18,6 +18,7 @@ import { useDiary } from '../src/context/DiaryContext'
 import { useTheme, ACCENT_PRESETS } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
 import { getDayGreeting, getStreakMessage } from '../src/utils/tunasMessages'
+import OpacitySlider from '../src/components/OpacitySlider'
 import PinScreen from '../src/components/PinScreen'
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -44,7 +45,7 @@ export default function CalendarScreen() {
     connectDiary, disconnectDiary,
     dday, setDday,
   } = useDiary()
-  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading } = useTheme()
+  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
   const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
@@ -384,6 +385,10 @@ export default function CalendarScreen() {
               {bgImage ? (
                 <View style={{ gap: 8 }}>
                   <Image source={{ uri: bgImage }} style={{ height: 80, borderRadius: 10 }} resizeMode="cover" />
+                  <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 4, marginBottom: 0 }]}>
+                    Opacity · 투명도
+                  </Text>
+                  <OpacitySlider value={bgOpacity} onValueChange={setBgOpacity} color={colors.accent} />
                   <TouchableOpacity
                     style={[styles.connectBtn, { backgroundColor: '#e05c5c' }]}
                     onPress={async () => { await setBgImage(null) }}
@@ -595,7 +600,7 @@ export default function CalendarScreen() {
 
   if (bgImage) {
     return (
-      <ImageBackground source={{ uri: bgImage }} style={{ flex: 1 }} imageStyle={{ opacity: 0.45 }}>
+      <ImageBackground source={{ uri: bgImage }} style={{ flex: 1 }} imageStyle={{ opacity: bgOpacity }}>
         {screenContent}
       </ImageBackground>
     )

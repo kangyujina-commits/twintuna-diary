@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 const THEME_KEY = '@twintuna_diary:theme'
 const ACCENT_KEY = '@twintuna_diary:accent'
 const BGIMAGE_KEY = '@twintuna_diary:bgImage'
+const BGOPACITY_KEY = '@twintuna_diary:bgOpacity'
 
 export const ACCENT_PRESETS = [
   '#c9a882', // tuna (default)
@@ -138,6 +139,8 @@ interface ThemeContextValue {
   bgImage: string | null
   setBgImage: (uri: string | null) => Promise<void>
   isBgLoading: boolean
+  bgOpacity: number
+  setBgOpacity: (v: number) => void
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
@@ -147,12 +150,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [accentColor, setAccentColorState] = useState('#c9a882')
   const [bgImage, setBgImageState] = useState<string | null>(null)
   const [isBgLoading, setIsBgLoading] = useState(false)
+  const [bgOpacity, setBgOpacityState] = useState(0.45)
 
   useEffect(() => {
-    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY, BGIMAGE_KEY]).then((results) => {
+    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY, BGIMAGE_KEY, BGOPACITY_KEY]).then((results) => {
       if (results[0][1] === 'dark') setIsDark(true)
       if (results[1][1]) setAccentColorState(results[1][1])
       if (results[2][1]) setBgImageState(results[2][1])
+      if (results[3][1]) setBgOpacityState(parseFloat(results[3][1]))
     })
   }, [])
 
@@ -195,6 +200,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       bgImage,
       setBgImage,
       isBgLoading,
+      bgOpacity,
+      setBgOpacity: (v: number) => {
+        setBgOpacityState(v)
+        AsyncStorage.setItem(BGOPACITY_KEY, String(v))
+      },
     }}>
       {children}
     </ThemeContext.Provider>
