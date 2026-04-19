@@ -79,6 +79,7 @@ export default function EntryScreen() {
   const [isSaving, setIsSaving] = useState(false)
   const [collapsedOthers, setCollapsedOthers] = useState<Set<string>>(new Set())
   const [analysis, setAnalysis] = useState<string | null>(null)
+  const [showBackConfirm, setShowBackConfirm] = useState(false)
 
   function toggleCollapse(id: string) {
     setCollapsedOthers(prev => {
@@ -154,13 +155,45 @@ export default function EntryScreen() {
       >
         {/* Header */}
         <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
-          <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+          <TouchableOpacity
+            onPress={() => {
+              if (isEditing && (text.trim() || mood || weather || schedule.trim())) {
+                setShowBackConfirm(true)
+              } else {
+                router.back()
+              }
+            }}
+            style={styles.backBtn}
+          >
             <Text style={[styles.backArrow, { color: colors.accent }]}>‹</Text>
           </TouchableOpacity>
           <Text style={[styles.dateLabel, { color: colors.text }]}>{date ? formatDate(date) : ''}</Text>
           <View style={{ width: 44 }} />
         </View>
 
+
+        {/* 뒤로가기 경고 */}
+        {showBackConfirm && (
+          <View style={[styles.backConfirmBox, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+            <Text style={[styles.backConfirmTxt, { color: colors.text }]}>
+              저장하지 않고 나갈까요? · Leave without saving?
+            </Text>
+            <View style={styles.backConfirmBtns}>
+              <TouchableOpacity
+                style={[styles.backConfirmBtn, { borderColor: colors.cardBorder }]}
+                onPress={() => setShowBackConfirm(false)}
+              >
+                <Text style={[styles.backConfirmBtnTxt, { color: colors.textMuted }]}>Cancel · 취소</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.backConfirmBtn, { backgroundColor: '#e05c5c', borderColor: '#e05c5c' }]}
+                onPress={() => router.back()}
+              >
+                <Text style={[styles.backConfirmBtnTxt, { color: '#fff' }]}>Leave · 나가기</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           {/* 상대방 일기 */}
@@ -640,6 +673,12 @@ const styles = StyleSheet.create({
   analysisTxt: { fontSize: 14, lineHeight: 24, fontWeight: '500' },
   analysisDismiss: { position: 'absolute', top: 8, right: 10 },
   analysisDismissTxt: { fontSize: 14, fontWeight: '700' },
+
+  backConfirmBox: { margin: 12, borderRadius: 14, borderWidth: 1.5, padding: 14, gap: 12 },
+  backConfirmTxt: { fontSize: 13, fontWeight: '600', textAlign: 'center' },
+  backConfirmBtns: { flexDirection: 'row', gap: 8 },
+  backConfirmBtn: { flex: 1, paddingVertical: 9, borderRadius: 10, borderWidth: 1.5, alignItems: 'center' },
+  backConfirmBtnTxt: { fontSize: 13, fontWeight: '700' },
 
   myEntryDivider: { borderTopWidth: 1.5, marginVertical: 16, paddingTop: 12, alignItems: 'center' },
   myEntryDividerTxt: { fontSize: 12, fontWeight: '700', letterSpacing: 0.5 },

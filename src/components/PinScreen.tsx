@@ -56,7 +56,7 @@ export default function PinScreen({ mode, onSkip, onConfirm, title }: Props) {
     <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
       <View style={styles.container}>
         {/* 상단 타이틀 */}
-        <Text style={[styles.appName, { color: colors.accent }]}>🐟 TwinTuna</Text>
+        <Text style={[styles.appName, { color: colors.accent }]}>🐶🐱 TwinTuna</Text>
         <Text style={[styles.title, { color: colors.text }]}>
           {title ?? (mode === 'unlock' ? 'Enter PIN · PIN 입력' : 'Set PIN · PIN 설정')}
         </Text>
