@@ -10,6 +10,7 @@ import {
   Platform,
   ImageBackground,
   Image,
+  ActivityIndicator,
 } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import { useRouter } from 'expo-router'
@@ -394,9 +395,13 @@ export default function CalendarScreen() {
                     }
                   }}
                 >
-                  <Text style={styles.connectBtnTxt}>
-                    {isUploadingBg ? 'Uploading · 업로드 중...' : '📷 Upload Photo · 사진 업로드'}
-                  </Text>
+                  {isUploadingBg
+                    ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                        <ActivityIndicator size="small" color="#fff" />
+                        <Text style={styles.connectBtnTxt}>Uploading · 업로드 중...</Text>
+                      </View>
+                    : <Text style={styles.connectBtnTxt}>📷 Upload Photo · 사진 업로드</Text>
+                  }
                 </TouchableOpacity>
               )}
             </View>
