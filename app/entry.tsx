@@ -438,7 +438,7 @@ export default function EntryScreen() {
                 <TouchableOpacity style={[styles.editBtnBottom, { flex: 1, borderColor: colors.accent, backgroundColor: colors.card, marginTop: 0 }]} onPress={() => setIsEditing(true)} activeOpacity={0.8}>
                   <Text style={[styles.editBtnTxt, { color: colors.accent }]}>Edit · 편집</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.deleteBtnBottom, { backgroundColor: colors.card, borderColor: colors.cardBorder }]} onPress={() => setShowDeleteConfirm((v) => !v)} activeOpacity={0.8}>
+                <TouchableOpacity style={[styles.deleteBtnBottom, { backgroundColor: colors.card, borderColor: colors.accent }]} onPress={() => setShowDeleteConfirm((v) => !v)} activeOpacity={0.8}>
                   <Text style={styles.deleteBtnTxt}>🗑️</Text>
                 </TouchableOpacity>
               </View>
