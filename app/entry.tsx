@@ -17,11 +17,19 @@ import { useDiary, Mood, Weather } from '../src/context/DiaryContext'
 
 const MOODS: { emoji: Mood; label: string }[] = [
   { emoji: '😄', label: 'Joy/신나요' },
+  { emoji: '🤩', label: 'Amazing/감탄' },
   { emoji: '🥰', label: 'Love/설레요' },
+  { emoji: '🤗', label: 'Grateful/감사' },
   { emoji: '😊', label: 'Good/좋아요' },
+  { emoji: '😌', label: 'Calm/평온' },
+  { emoji: '😏', label: 'Proud/뿌듯' },
   { emoji: '😐', label: 'Meh/그냥요' },
+  { emoji: '🤔', label: 'Pensive/생각많아요' },
+  { emoji: '😶', label: 'Blank/멍해요' },
   { emoji: '😴', label: 'Tired/피곤해요' },
+  { emoji: '🥺', label: 'Tearful/서러워요' },
   { emoji: '😢', label: 'Sad/슬퍼요' },
+  { emoji: '😤', label: 'Frustrated/답답해요' },
   { emoji: '😠', label: 'Angry/화나요' },
   { emoji: '😰', label: 'Anxious/불안해요' },
 ]
