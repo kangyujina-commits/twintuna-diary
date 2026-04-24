@@ -33,7 +33,7 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
   const pawStyle = document.createElement('style')
   const normal = `url("data:image/svg+xml,${encodeURIComponent(paw('#c9a882'))}") 14 19, auto`
   const active = `url("data:image/svg+xml,${encodeURIComponent(paw('#8b5e3c'))}") 14 19, pointer`
-  pawStyle.textContent = `* { cursor: ${normal} !important; } button, [role="button"], a, div[tabindex], input, textarea, select, label { cursor: ${active} !important; }`
+  pawStyle.textContent = `* { cursor: ${normal} !important; } button, [role="button"], a, [style*="cursor: pointer"], [style*="cursor:pointer"], input, textarea, select, label { cursor: ${active} !important; }`
   document.head.appendChild(pawStyle)
 }
 
