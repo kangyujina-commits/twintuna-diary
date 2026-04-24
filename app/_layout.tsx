@@ -29,9 +29,11 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
   document.title = '🐶🐱 TwinTuna'
 
   // 고양이 발바닥 커서
-  const pawSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="6" cy="9" r="3" fill="#c9a882"/><circle cx="12" cy="5.5" r="3" fill="#c9a882"/><circle cx="18" cy="5.5" r="3" fill="#c9a882"/><circle cx="22" cy="9" r="3" fill="#c9a882"/><ellipse cx="14" cy="19" rx="7.5" ry="6.5" fill="#c9a882"/></svg>`
+  const paw = (color: string) => `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="6" cy="9" r="3" fill="${color}"/><circle cx="12" cy="5.5" r="3" fill="${color}"/><circle cx="18" cy="5.5" r="3" fill="${color}"/><circle cx="22" cy="9" r="3" fill="${color}"/><ellipse cx="14" cy="19" rx="7.5" ry="6.5" fill="${color}"/></svg>`
   const pawStyle = document.createElement('style')
-  pawStyle.textContent = `* { cursor: url("data:image/svg+xml,${encodeURIComponent(pawSvg)}") 14 19, auto !important; }`
+  const normal = `url("data:image/svg+xml,${encodeURIComponent(paw('#c9a882'))}") 14 19, auto`
+  const active = `url("data:image/svg+xml,${encodeURIComponent(paw('#8b5e3c'))}") 14 19, pointer`
+  pawStyle.textContent = `* { cursor: ${normal} !important; } button, [role="button"], a, input, textarea, select, label { cursor: ${active} !important; }`
   document.head.appendChild(pawStyle)
 }
 
