@@ -27,6 +27,12 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
 
   // 탭 제목
   document.title = '🐶🐱 TwinTuna'
+
+  // 고양이 발바닥 커서
+  const pawSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="6" cy="9" r="3" fill="#c9a882"/><circle cx="12" cy="5.5" r="3" fill="#c9a882"/><circle cx="18" cy="5.5" r="3" fill="#c9a882"/><circle cx="22" cy="9" r="3" fill="#c9a882"/><ellipse cx="14" cy="19" rx="7.5" ry="6.5" fill="#c9a882"/></svg>`
+  const pawStyle = document.createElement('style')
+  pawStyle.textContent = `* { cursor: url("data:image/svg+xml,${encodeURIComponent(pawSvg)}") 14 19, auto !important; }`
+  document.head.appendChild(pawStyle)
 }
 
 function AppContent() {
