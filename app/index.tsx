@@ -310,16 +310,26 @@ export default function CalendarScreen() {
             {/* ① 다이어리 이름 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📔 Diary Name · 다이어리 이름</Text>
-              <TextInput
-                style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent }]}
-                value={nameInput}
-                onChangeText={setNameInput}
-                placeholder={DEFAULT_NAME}
-                placeholderTextColor={colors.hint}
-                maxLength={30} returnKeyType="done"
-                onSubmitEditing={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
-                onBlur={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
-              />
+              <View style={styles.ddayDateRow}>
+                <TextInput
+                  style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1 }]}
+                  value={nameInput}
+                  onChangeText={setNameInput}
+                  placeholder={DEFAULT_NAME}
+                  placeholderTextColor={colors.hint}
+                  maxLength={30}
+                  returnKeyType="done"
+                  onSubmitEditing={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+                />
+                {nameInput !== sharedAppName && (
+                  <TouchableOpacity
+                    style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
+                    onPress={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+                  >
+                    <Text style={styles.ddaySaveTxt}>✓</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
             </View>
 
             {/* ② 파트너 연결 */}
