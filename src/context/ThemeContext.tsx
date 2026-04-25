@@ -5,6 +5,14 @@ const THEME_KEY = '@twintuna_diary:theme'
 const ACCENT_KEY = '@twintuna_diary:accent'
 const BGIMAGE_KEY = '@twintuna_diary:bgImage'
 const BGOPACITY_KEY = '@twintuna_diary:bgOpacity'
+const FONTSIZE_KEY = '@twintuna_diary:fontSize'
+
+export type FontSizeLevel = 'small' | 'medium' | 'large'
+export const FONT_SCALES: Record<FontSizeLevel, number> = {
+  small: 0.85,
+  medium: 1.0,
+  large: 1.18,
+}
 
 export const ACCENT_PRESETS = [
   '#c9a882', // tuna (default)
@@ -141,6 +149,9 @@ interface ThemeContextValue {
   isBgLoading: boolean
   bgOpacity: number
   setBgOpacity: (v: number) => void
+  fontSizeLevel: FontSizeLevel
+  fontScale: number
+  setFontSizeLevel: (level: FontSizeLevel) => void
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
@@ -151,15 +162,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [bgImage, setBgImageState] = useState<string | null>(null)
   const [isBgLoading, setIsBgLoading] = useState(false)
   const [bgOpacity, setBgOpacityState] = useState(0.45)
+  const [fontSizeLevel, setFontSizeLevelState] = useState<FontSizeLevel>('medium')
 
   useEffect(() => {
-    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY, BGIMAGE_KEY, BGOPACITY_KEY]).then((results) => {
+    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY, BGIMAGE_KEY, BGOPACITY_KEY, FONTSIZE_KEY]).then((results) => {
       if (results[0][1] === 'dark') setIsDark(true)
       if (results[1][1]) setAccentColorState(results[1][1])
       if (results[2][1]) setBgImageState(results[2][1])
       if (results[3][1]) setBgOpacityState(parseFloat(results[3][1]))
+      if (results[4][1]) setFontSizeLevelState(results[4][1] as FontSizeLevel)
     })
   }, [])
+
+  function setFontSizeLevel(level: FontSizeLevel) {
+    setFontSizeLevelState(level)
+    AsyncStorage.setItem(FONTSIZE_KEY, level)
+  }
 
   function toggleTheme() {
     setIsDark((prev) => {
@@ -205,6 +223,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         setBgOpacityState(v)
         AsyncStorage.setItem(BGOPACITY_KEY, String(v))
       },
+      fontSizeLevel,
+      fontScale: FONT_SCALES[fontSizeLevel],
+      setFontSizeLevel,
     }}>
       {children}
     </ThemeContext.Provider>

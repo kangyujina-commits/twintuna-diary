@@ -15,7 +15,7 @@ import {
 import * as ImagePicker from 'expo-image-picker'
 import { useRouter } from 'expo-router'
 import { useDiary } from '../src/context/DiaryContext'
-import { useTheme, ACCENT_PRESETS } from '../src/context/ThemeContext'
+import { useTheme, ACCENT_PRESETS, FontSizeLevel } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
 import { getDayGreeting, getStreakMessage } from '../src/utils/tunasMessages'
 import OpacitySlider from '../src/components/OpacitySlider'
@@ -45,7 +45,7 @@ export default function CalendarScreen() {
     connectDiary, disconnectDiary,
     dday, setDday,
   } = useDiary()
-  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity } = useTheme()
+  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, setFontSizeLevel } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
   const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
@@ -381,6 +381,31 @@ export default function CalendarScreen() {
                 ))}
               </View>
 
+              <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 14 }]}>🔤 Font Size · 글자 크기</Text>
+              <View style={styles.fontSizeRow}>
+                {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
+                  <TouchableOpacity
+                    key={level}
+                    style={[
+                      styles.fontSizeBtn,
+                      { borderColor: colors.cardBorder, backgroundColor: colors.card },
+                      fontSizeLevel === level && { borderColor: colors.accent, backgroundColor: colors.todayBg },
+                    ]}
+                    onPress={() => setFontSizeLevel(level)}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={[
+                      styles.fontSizeBtnTxt,
+                      { color: fontSizeLevel === level ? colors.accent : colors.textMuted },
+                      level === 'small' && { fontSize: 12 },
+                      level === 'large' && { fontSize: 18 },
+                    ]}>
+                      {level === 'small' ? 'S 작게' : level === 'medium' ? 'M 보통' : 'L 크게'}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
               <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 14 }]}>🖼️ Background · 배경</Text>
               {bgImage ? (
                 <View style={{ gap: 8 }}>
@@ -662,6 +687,9 @@ const styles = StyleSheet.create({
 
   paletteRow: { flexDirection: 'row', gap: 10, flexWrap: 'wrap' },
   paletteCircle: { width: 32, height: 32, borderRadius: 16 },
+  fontSizeRow: { flexDirection: 'row', gap: 8 },
+  fontSizeBtn: { flex: 1, borderRadius: 12, borderWidth: 1.5, paddingVertical: 10, alignItems: 'center', justifyContent: 'center' },
+  fontSizeBtnTxt: { fontWeight: '700', fontSize: 14 },
 
   // Tunas 코너
   tunasCard: { marginHorizontal: 16, marginBottom: 6, borderRadius: 16, borderWidth: 1.5, padding: 12, gap: 5 },

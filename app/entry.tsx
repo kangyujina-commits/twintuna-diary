@@ -94,7 +94,7 @@ export default function EntryScreen() {
   const router = useRouter()
   const { date } = useLocalSearchParams<{ date: string }>()
   const { getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, nickname, deviceId, diaryId } = useDiary()
-  const { colors, bgImage, bgOpacity } = useTheme()
+  const { colors, bgImage, bgOpacity, fontScale } = useTheme()
 
   const myEntry = date ? getMyEntry(date) : undefined
   const allEntries = date ? getEntriesForDate(date) : []
@@ -202,7 +202,7 @@ export default function EntryScreen() {
           >
             <Text style={[styles.backArrow, { color: colors.accent }]}>‹</Text>
           </TouchableOpacity>
-          <Text style={[styles.dateLabel, { color: colors.text }]}>{date ? formatDate(date) : ''}</Text>
+          <Text style={[styles.dateLabel, { color: colors.text, fontSize: 15 * fontScale }]}>{date ? formatDate(date) : ''}</Text>
           <View style={{ width: 44 }} />
         </View>
 
@@ -305,7 +305,7 @@ export default function EntryScreen() {
           )}
 
           {/* Mood */}
-          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Mood / 오늘의 기분</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel, fontSize: 13 * fontScale }]}>Mood / 오늘의 기분</Text>
           <View style={styles.emojiRow}>
             {MOODS.map((m) => (
               <TouchableOpacity
@@ -352,7 +352,7 @@ export default function EntryScreen() {
           </View>
 
           {/* Weather */}
-          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Weather / 오늘의 날씨</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel, fontSize: 13 * fontScale }]}>Weather / 오늘의 날씨</Text>
           <View style={styles.emojiRow}>
             {WEATHERS.map((w) => (
               <TouchableOpacity
@@ -399,28 +399,28 @@ export default function EntryScreen() {
           </View>
 
           {/* Schedule */}
-          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Schedule / 일정</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel, fontSize: 13 * fontScale }]}>Schedule / 일정</Text>
           {isEditing ? (
             <TextInput
-              style={[styles.scheduleInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
+              style={[styles.scheduleInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text, fontSize: 15 * fontScale }]}
               placeholder="Today's schedule · 오늘의 일정 🐈‍⬛"
               placeholderTextColor={colors.hint}
               value={schedule} onChangeText={setSchedule} returnKeyType="done"
             />
           ) : (
             <View style={[styles.scheduleView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={schedule ? [styles.scheduleContent, { color: colors.text }] : [styles.textEmpty, { color: colors.hint }]}>
+              <Text style={schedule ? [styles.scheduleContent, { color: colors.text, fontSize: 15 * fontScale }] : [styles.textEmpty, { color: colors.hint, fontSize: 14 * fontScale }]}>
                 {schedule || 'No schedule · 일정 없음'}
               </Text>
             </View>
           )}
 
           {/* Text */}
-          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Today / 오늘 하루</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel, fontSize: 13 * fontScale }]}>Today / 오늘 하루</Text>
           {isEditing ? (
             <View>
               <TextInput
-                style={[styles.textInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text }]}
+                style={[styles.textInput, { backgroundColor: colors.card, borderColor: colors.cardBorder, color: colors.text, fontSize: 15 * fontScale, lineHeight: 24 * fontScale }]}
                 multiline
                 placeholder="How was your day? · 오늘은 어떤 하루였나요? ✍️"
                 placeholderTextColor={colors.hint}
@@ -437,14 +437,14 @@ export default function EntryScreen() {
             </View>
           ) : (
             <View style={[styles.textView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={text ? [styles.textContent, { color: colors.text }] : [styles.textEmpty, { color: colors.hint }]}>
+              <Text style={text ? [styles.textContent, { color: colors.text, fontSize: 15 * fontScale, lineHeight: 24 * fontScale }] : [styles.textEmpty, { color: colors.hint, fontSize: 14 * fontScale }]}>
                 {text || 'No entry · 기록 없음'}
               </Text>
             </View>
           )}
 
           {/* Photos */}
-          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Photos / 사진</Text>
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel, fontSize: 13 * fontScale }]}>Photos / 사진</Text>
           {isEditing ? (
             <View style={{ gap: 8 }}>
               {photoUris.length > 0 && (
