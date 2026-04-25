@@ -11,12 +11,13 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  Alert,
+  ActivityIndicator,
 } from 'react-native'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import * as ImagePicker from 'expo-image-picker'
 import { useDiary, Mood, Weather } from '../src/context/DiaryContext'
 import { useTheme } from '../src/context/ThemeContext'
-import { uploadPhoto } from '../src/utils/uploadPhoto'
 import { analyzeEntry } from '../src/utils/analyzeEntry'
 
 const MOODS: { emoji: Mood; label: string }[] = [
@@ -48,6 +49,36 @@ const WEATHERS: { emoji: Weather; label: string }[] = [
 ]
 
 const MAX_TEXT = 500
+const MAX_PHOTOS = 3
+
+// 사진을 압축된 base64로 변환 (web canvas 사용)
+async function photoToBase64(uri: string): Promise<string> {
+  if (typeof document === 'undefined') {
+    const res = await fetch(uri)
+    const blob = await res.blob()
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = reject
+      reader.readAsDataURL(blob)
+    })
+  }
+  return new Promise((resolve, reject) => {
+    const img = new window.Image()
+    img.crossOrigin = 'anonymous'
+    img.onload = () => {
+      const maxW = 800
+      let w = img.width, h = img.height
+      if (w > maxW) { h = Math.round(h * maxW / w); w = maxW }
+      const canvas = document.createElement('canvas')
+      canvas.width = w; canvas.height = h
+      canvas.getContext('2d')!.drawImage(img, 0, 0, w, h)
+      resolve(canvas.toDataURL('image/jpeg', 0.55))
+    }
+    img.onerror = reject
+    img.src = uri
+  })
+}
 const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const EN_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const KO_DAYS = ['일', '월', '화', '수', '목', '금', '토']
@@ -82,10 +113,9 @@ export default function EntryScreen() {
   const [schedule, setSchedule] = useState(myEntry?.schedule ?? '')
   // 남의 일기가 있으면 먼저 보기 모드, 아무것도 없을 때만 바로 작성 모드
   const [isEditing, setIsEditing] = useState(!myEntry && otherEntries.length === 0)
-  const [showPhotoMenu, setShowPhotoMenu] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
-  const [isSaving, setIsSaving] = useState(false)
   const [collapsedOthers, setCollapsedOthers] = useState<Set<string>>(new Set())
+  const [isPhotoProcessing, setIsPhotoProcessing] = useState(false)
   const [analysis, setAnalysis] = useState<string | null>(null)
   const [showBackConfirm, setShowBackConfirm] = useState(false)
 
@@ -116,36 +146,33 @@ export default function EntryScreen() {
   }, [date, myEntry?.id, allEntries.length])
 
   async function pickPhoto() {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
-    if (status !== 'granted') {
-      Alert.alert('권한 필요', '사진 접근 권한이 필요해요.')
-      return
-    }
+    if (photoUris.length >= MAX_PHOTOS) return
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsMultipleSelection: true,
       quality: 0.8,
     })
     if (!result.canceled) {
-      setPhotoUris((prev) => [...prev, ...result.assets.map((a) => a.uri)])
-    }
-  }
-
-  async function takePhoto() {
-    const { status } = await ImagePicker.requestCameraPermissionsAsync()
-    if (status !== 'granted') {
-      Alert.alert('권한 필요', '카메라 권한이 필요해요.')
-      return
-    }
-    const result = await ImagePicker.launchCameraAsync({ quality: 0.8 })
-    if (!result.canceled) {
-      setPhotoUris((prev) => [...prev, result.assets[0].uri])
+      setIsPhotoProcessing(true)
+      try {
+        const toAdd = result.assets.slice(0, MAX_PHOTOS - photoUris.length)
+        const b64s = await Promise.all(toAdd.map((a) => photoToBase64(a.uri)))
+        setPhotoUris((prev) => [...prev, ...b64s])
+      } finally {
+        setIsPhotoProcessing(false)
+      }
     }
   }
 
   async function handleSave() {
     if (!date) return
-    await upsertEntry({ date, mood, weather, text: text.trim(), schedule: schedule.trim(), author: nickname || undefined })
+    await upsertEntry({
+      date, mood, weather,
+      text: text.trim(),
+      schedule: schedule.trim(),
+      author: nickname || undefined,
+      photo_uris: photoUris.length > 0 ? photoUris : undefined,
+    })
     setIsEditing(false)
   }
 
@@ -416,7 +443,53 @@ export default function EntryScreen() {
             </View>
           )}
 
-          {/* Photo - Firebase Storage 업그레이드 후 활성화 예정 */}
+          {/* Photos */}
+          <Text style={[styles.sectionLabel, { color: colors.sectionLabel }]}>Photos / 사진</Text>
+          {isEditing ? (
+            <View style={{ gap: 8 }}>
+              {photoUris.length > 0 && (
+                <View style={styles.photoGrid}>
+                  {photoUris.map((uri, idx) => (
+                    <View key={idx} style={styles.photoThumbContainer}>
+                      <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
+                      <TouchableOpacity
+                        style={styles.photoRemoveBtn}
+                        onPress={() => setPhotoUris((prev) => prev.filter((_, i) => i !== idx))}
+                      >
+                        <Text style={styles.photoRemoveTxt}>✕</Text>
+                      </TouchableOpacity>
+                    </View>
+                  ))}
+                </View>
+              )}
+              {photoUris.length < MAX_PHOTOS && (
+                <TouchableOpacity
+                  style={[styles.photoAddBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}
+                  onPress={pickPhoto}
+                  disabled={isPhotoProcessing}
+                  activeOpacity={0.7}
+                >
+                  {isPhotoProcessing
+                    ? <ActivityIndicator size="small" color={colors.accent} />
+                    : <>
+                        <Text style={styles.photoAddIcon}>📷</Text>
+                        <Text style={[styles.photoAddTxt, { color: colors.textMuted }]}>
+                          Add Photo · 사진 추가 ({photoUris.length}/{MAX_PHOTOS})
+                        </Text>
+                      </>
+                  }
+                </TouchableOpacity>
+              )}
+            </View>
+          ) : photoUris.length > 0 ? (
+            <View style={styles.photoGrid}>
+              {photoUris.map((uri, idx) => (
+                <View key={idx} style={styles.photoThumbContainer}>
+                  <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
+                </View>
+              ))}
+            </View>
+          ) : null}
 
           {/* 버튼 */}
           {!isEditing && myEntry ? (

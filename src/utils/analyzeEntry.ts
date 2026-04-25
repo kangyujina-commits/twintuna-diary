@@ -146,7 +146,7 @@ export function analyzeEntry(mood?: string, weather?: string, text?: string): st
     else if (hasHappyKeyword) effectiveMood = '😊'
   }
 
-  const responses = (effectiveMood && MOOD_RESPONSES[effectiveMood]) ?? DEFAULT_RESPONSE
+  const responses: EntryResponse = (effectiveMood ? MOOD_RESPONSES[effectiveMood] : null) ?? DEFAULT_RESPONSE
   const empathy = pick(responses.empathy, seed)
   const analysis = pick(responses.analysis, seed + 1)
 
