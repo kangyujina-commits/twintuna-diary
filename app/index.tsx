@@ -14,7 +14,7 @@ import {
 } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import { useRouter } from 'expo-router'
-import { useDiary, DdayItem } from '../src/context/DiaryContext'
+import { useDiary, DdayItem, getEmojiForDevice } from '../src/context/DiaryContext'
 import { useTheme, ACCENT_PRESETS, FontSizeLevel, FONT_PRESETS, FontFamilyKey } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
 import { getDayGreeting, getStreakMessage } from '../src/utils/tunasMessages'
@@ -65,6 +65,9 @@ export default function CalendarScreen() {
   const [connectMsg, setConnectMsg] = useState('')
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
   const [uploadBgError, setUploadBgError] = useState('')
+  const [exportStart, setExportStart] = useState('')
+  const [exportEnd, setExportEnd] = useState('')
+  const [exportMsg, setExportMsg] = useState('')
 
   // 인라인 편집 모드
   const [editMode, setEditMode] = useState<'nickname' | null>(null)
@@ -163,6 +166,65 @@ export default function CalendarScreen() {
     setShowSettings(false)
     setDisconnectConfirm(false)
     setConnectMsg('')
+  }
+
+  function formatYearMonth(raw: string): string {
+    const digits = raw.replace(/\D/g, '').slice(0, 6)
+    if (digits.length > 4) return digits.slice(0, 4) + '-' + digits.slice(4)
+    return digits
+  }
+
+  function handleExport() {
+    if (!/^\d{4}-\d{2}$/.test(exportStart) || !/^\d{4}-\d{2}$/.test(exportEnd)) {
+      setExportMsg('형식을 확인해주세요 (YYYY-MM)')
+      return
+    }
+    const startDate = exportStart + '-01'
+    const [ey, em] = exportEnd.split('-').map(Number)
+    const endDate = `${exportEnd}-${new Date(ey, em, 0).getDate().toString().padStart(2, '0')}`
+    if (startDate > endDate) { setExportMsg('시작이 끝보다 늦어요'); return }
+
+    const filtered = Object.values(entries).filter(e => e.date >= startDate && e.date <= endDate)
+    if (filtered.length === 0) { setExportMsg('해당 기간에 기록이 없어요'); return }
+
+    const byDate: Record<string, typeof filtered> = {}
+    for (const e of filtered) {
+      if (!byDate[e.date]) byDate[e.date] = []
+      byDate[e.date].push(e)
+    }
+
+    const KO_DAYS_EX = ['일', '월', '화', '수', '목', '금', '토']
+    let content = `🐶🐱 ${sharedAppName}\n기간: ${exportStart} ~ ${exportEnd}\n`
+    content += '─'.repeat(32) + '\n\n'
+
+    for (const date of Object.keys(byDate).sort()) {
+      const [y, m, d] = date.split('-').map(Number)
+      const dow = new Date(y, m - 1, d).getDay()
+      content += `📅 ${y}년 ${m}월 ${d}일 (${KO_DAYS_EX[dow]})\n`
+      for (const entry of byDate[date].sort((a, b) => (a.deviceId ?? '').localeCompare(b.deviceId ?? ''))) {
+        const emoji = getEmojiForDevice(entry.deviceId ?? '')
+        content += `\n${emoji}${entry.author ? ' ' + entry.author : ''}`
+        if (entry.mood || entry.weather) content += `  ${[entry.mood, entry.weather].filter(Boolean).join(' ')}`
+        content += '\n'
+        if (entry.schedule?.trim()) content += `일정: ${entry.schedule.trim()}\n`
+        if (entry.text?.trim()) content += `${entry.text.trim()}\n`
+      }
+      content += '\n' + '─'.repeat(32) + '\n\n'
+    }
+
+    if (typeof document !== 'undefined') {
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `twintuna_${exportStart}_${exportEnd}.txt`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+      setExportMsg(`✅ ${filtered.length}개 기록 다운로드 완료!`)
+      setTimeout(() => setExportMsg(''), 3000)
+    }
   }
 
   // PIN 설정 플로우 화면 전환
@@ -546,6 +608,38 @@ export default function CalendarScreen() {
               </View>
 
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📤 Export · 내보내기</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                  <TextInput
+                    style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
+                    value={exportStart}
+                    onChangeText={(t) => setExportStart(formatYearMonth(t))}
+                    placeholder="2025-01"
+                    placeholderTextColor={colors.hint}
+                    maxLength={7}
+                    keyboardType="numeric"
+                  />
+                  <Text style={{ color: colors.textMuted, fontWeight: '700' }}>~</Text>
+                  <TextInput
+                    style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
+                    value={exportEnd}
+                    onChangeText={(t) => setExportEnd(formatYearMonth(t))}
+                    placeholder="2025-04"
+                    placeholderTextColor={colors.hint}
+                    maxLength={7}
+                    keyboardType="numeric"
+                  />
+                </View>
+                <TouchableOpacity
+                  style={[styles.connectBtn, { backgroundColor: colors.accent }]}
+                  onPress={handleExport}
+                >
+                  <Text style={styles.connectBtnTxt}>📥 Download · 다운로드</Text>
+                </TouchableOpacity>
+                {exportMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{exportMsg}</Text> : null}
+              </View>
+
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
                 <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
                 <View style={styles.pinRow}>
                   <Text style={[styles.pinStatus, { color: colors.text }]}>
@@ -780,6 +874,8 @@ const styles = StyleSheet.create({
   disconnectCancelTxt: { fontSize: 13, fontWeight: '600' },
   disconnectConfirmBtn: { backgroundColor: '#e05c5c', borderRadius: 10, paddingHorizontal: 20, paddingVertical: 8 },
   disconnectConfirmBtnTxt: { fontSize: 13, fontWeight: '700', color: '#fff' },
+
+  exportInput: { borderRadius: 10, borderWidth: 1.5, paddingHorizontal: 10, paddingVertical: 8, fontSize: 15, fontWeight: '700', letterSpacing: 1, textAlign: 'center' },
 
   pinRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   pinStatus: { fontSize: 14, fontWeight: '600' },
