@@ -58,6 +58,7 @@ export default function CalendarScreen() {
 
   // 설정 패널
   const [showSettings, setShowSettings] = useState(false)
+  const [settingsTab, setSettingsTab] = useState<'design' | 'connect' | 'security'>('design')
   const [nameInput, setNameInput] = useState(sharedAppName)
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
@@ -322,33 +323,171 @@ export default function CalendarScreen() {
         {/* ── 설정 패널 ── */}
         {showSettings && (
           <View ref={settingsPanelRef} style={styles.panelWrap}>
-            <Text style={[styles.panelTitle, { color: colors.text }]}>⚙️ Settings · 설정</Text>
 
-            {/* ① 다이어리 이름 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📔 Diary Name · 다이어리 이름</Text>
-              <View style={styles.ddayDateRow}>
-                <TextInput
-                  style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1 }]}
-                  value={nameInput}
-                  onChangeText={setNameInput}
-                  placeholder={DEFAULT_NAME}
-                  placeholderTextColor={colors.hint}
-                  maxLength={30}
-                />
-                {nameInput !== sharedAppName && (
+            {/* 탭 버튼 */}
+            <View style={[styles.tabRow, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
+              {([
+                { key: 'design',   label: '🎨 디자인' },
+                { key: 'connect',  label: '🔗 연결' },
+                { key: 'security', label: '🔒 보안' },
+              ] as const).map(({ key, label }) => (
+                <TouchableOpacity
+                  key={key}
+                  style={[
+                    styles.tabBtn,
+                    settingsTab === key && { backgroundColor: colors.card, borderColor: colors.accent },
+                    settingsTab === key && { shadowColor: colors.accent, shadowOpacity: 0.15, shadowRadius: 4, elevation: 2 },
+                  ]}
+                  onPress={() => setSettingsTab(key)}
+                  activeOpacity={0.7}
+                >
+                  <Text style={[styles.tabBtnTxt, { color: settingsTab === key ? colors.accent : colors.textMuted }]}>
+                    {label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            {/* 🎨 디자인 탭 */}
+            {settingsTab === 'design' && (<>
+              {/* 강조색 */}
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🎨 Accent Color · 강조색</Text>
+                <View style={styles.paletteRow}>
+                  {ACCENT_PRESETS.map((c) => (
+                    <TouchableOpacity
+                      key={c}
+                      style={[styles.paletteCircle, { backgroundColor: c }, accentColor === c && { borderWidth: 3, borderColor: colors.text }]}
+                      onPress={() => setAccentColor(c)}
+                      activeOpacity={0.8}
+                    />
+                  ))}
+                </View>
+              </View>
+
+              {/* 글자 크기 */}
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔤 Font Size · 글자 크기</Text>
+                <View style={styles.fontSizeRow}>
+                  {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
+                    <TouchableOpacity
+                      key={level}
+                      style={[
+                        styles.fontSizeBtn,
+                        { borderColor: colors.cardBorder, backgroundColor: colors.card },
+                        fontSizeLevel === level && { borderColor: colors.accent, backgroundColor: colors.todayBg },
+                      ]}
+                      onPress={() => setFontSizeLevel(level)}
+                      activeOpacity={0.7}
+                    >
+                      <Text style={[
+                        styles.fontSizeBtnTxt,
+                        { color: fontSizeLevel === level ? colors.accent : colors.textMuted },
+                        level === 'small' && { fontSize: 12 },
+                        level === 'large' && { fontSize: 18 },
+                      ]}>
+                        {level === 'small' ? 'S 작게' : level === 'medium' ? 'M 보통' : 'L 크게'}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </View>
+
+              {/* 글씨체 */}
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>✍️ Font · 글씨체</Text>
+                <View style={styles.fontFamilyList}>
+                  {FONT_PRESETS.map((f) => {
+                    const selected = fontFamilyKey === f.key
+                    return (
+                      <TouchableOpacity
+                        key={f.key}
+                        style={[
+                          styles.fontFamilyBtn,
+                          { borderColor: colors.cardBorder, backgroundColor: colors.card },
+                          selected && { borderColor: colors.accent, backgroundColor: colors.todayBg },
+                        ]}
+                        onPress={() => setFontFamilyKey(f.key as FontFamilyKey)}
+                        activeOpacity={0.7}
+                      >
+                        <Text style={[
+                          styles.fontFamilyBtnTxt,
+                          { color: selected ? colors.accent : colors.text, fontFamily: f.css.split(',')[0].replace(/'/g, '') },
+                        ]}>
+                          {f.label}
+                        </Text>
+                        {selected && <Text style={[styles.fontFamilyCheck, { color: colors.accent }]}>✓</Text>}
+                      </TouchableOpacity>
+                    )
+                  })}
+                </View>
+              </View>
+
+              {/* 배경 */}
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🖼️ Background · 배경</Text>
+                {bgImage ? (
+                  <View style={{ gap: 8 }}>
+                    <Image source={{ uri: bgImage }} style={{ height: 80, borderRadius: 10 }} resizeMode="cover" />
+                    <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 4, marginBottom: 0 }]}>Opacity · 투명도</Text>
+                    <OpacitySlider value={bgOpacity} onValueChange={setBgOpacity} color={colors.accent} />
+                    <TouchableOpacity style={[styles.connectBtn, { backgroundColor: '#e05c5c' }]} onPress={async () => { await setBgImage(null) }}>
+                      <Text style={styles.connectBtnTxt}>Remove · 제거</Text>
+                    </TouchableOpacity>
+                  </View>
+                ) : (
                   <TouchableOpacity
-                    style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
-                    onPress={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+                    style={[styles.connectBtn, { backgroundColor: colors.accent }]}
+                    disabled={isBgLoading}
+                    onPress={async () => {
+                      setUploadBgError('')
+                      const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ImagePicker.MediaTypeOptions.Images, quality: 0.7 })
+                      if (!result.canceled) {
+                        try { await setBgImage(result.assets[0].uri) }
+                        catch (e: any) { setUploadBgError(e?.message ?? 'Failed · 실패') }
+                      }
+                    }}
                   >
-                    <Text style={styles.ddaySaveTxt}>✓</Text>
+                    {isBgLoading
+                      ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                          <ActivityIndicator size="small" color="#fff" />
+                          <Text style={styles.connectBtnTxt}>Processing · 변환 중...</Text>
+                        </View>
+                      : <Text style={styles.connectBtnTxt}>📷 Upload Photo · 사진 선택</Text>
+                    }
+                    {uploadBgError ? <Text style={{ color: '#ffcccc', fontSize: 11, marginTop: 4, textAlign: 'center' }}>{uploadBgError}</Text> : null}
                   </TouchableOpacity>
                 )}
               </View>
-            </View>
+            </>)}
 
-            {/* ② 파트너 연결 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+            {/* 🔗 연결 탭 */}
+            {settingsTab === 'connect' && (<>
+              {/* 다이어리 이름 */}
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📔 Diary Name · 다이어리 이름</Text>
+                <View style={styles.ddayDateRow}>
+                  <TextInput
+                    style={[styles.cardInput, { color: colors.text, borderBottomColor: colors.accent, flex: 1 }]}
+                    value={nameInput}
+                    onChangeText={setNameInput}
+                    placeholder={DEFAULT_NAME}
+                    placeholderTextColor={colors.hint}
+                    maxLength={30}
+                  />
+                  {nameInput !== sharedAppName && (
+                    <TouchableOpacity
+                      style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
+                      onPress={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
+                    >
+                      <Text style={styles.ddaySaveTxt}>✓</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              </View>
+
+              {/* 파트너 연결 */}
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 Partner Connect · 파트너 연결</Text>
               {/* 내 코드 */}
               <View style={[styles.codeRow, { backgroundColor: colors.inputBg }]}>
@@ -418,153 +557,31 @@ export default function CalendarScreen() {
                 </View>
               )}
             </View>
+            </>)}
 
-            {/* ③ 강조색 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🎨 Accent Color · 강조색</Text>
-              <View style={styles.paletteRow}>
-                {ACCENT_PRESETS.map((c) => (
+            {/* 🔒 보안 탭 */}
+            {settingsTab === 'security' && (
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
+                <View style={styles.pinRow}>
+                  <Text style={[styles.pinStatus, { color: colors.text }]}>
+                    {hasPin ? 'Active · 설정됨' : 'Not set · 설정 안 됨'}
+                  </Text>
                   <TouchableOpacity
-                    key={c}
-                    style={[styles.paletteCircle, { backgroundColor: c }, accentColor === c && { borderWidth: 3, borderColor: colors.text }]}
-                    onPress={() => setAccentColor(c)}
-                    activeOpacity={0.8}
-                  />
-                ))}
-              </View>
-            </View>
-
-            {/* ④ 글자 크기 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔤 Font Size · 글자 크기</Text>
-              <View style={styles.fontSizeRow}>
-                {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
-                  <TouchableOpacity
-                    key={level}
-                    style={[
-                      styles.fontSizeBtn,
-                      { borderColor: colors.cardBorder, backgroundColor: colors.card },
-                      fontSizeLevel === level && { borderColor: colors.accent, backgroundColor: colors.todayBg },
-                    ]}
-                    onPress={() => setFontSizeLevel(level)}
-                    activeOpacity={0.7}
+                    style={[styles.pinBtn, { borderColor: hasPin ? '#e05c5c' : colors.accent, backgroundColor: hasPin ? 'transparent' : colors.accent }]}
+                    onPress={() => {
+                      closeSettings()
+                      if (hasPin) { removePin() }
+                      else { setShowPinSetup(true) }
+                    }}
                   >
-                    <Text style={[
-                      styles.fontSizeBtnTxt,
-                      { color: fontSizeLevel === level ? colors.accent : colors.textMuted },
-                      level === 'small' && { fontSize: 12 },
-                      level === 'large' && { fontSize: 18 },
-                    ]}>
-                      {level === 'small' ? 'S 작게' : level === 'medium' ? 'M 보통' : 'L 크게'}
+                    <Text style={[styles.pinBtnTxt, { color: hasPin ? '#e05c5c' : '#fff' }]}>
+                      {hasPin ? 'Remove PIN · 해제' : 'Set PIN · 설정'}
                     </Text>
                   </TouchableOpacity>
-                ))}
-              </View>
-            </View>
-
-            {/* ⑤ 폰트 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>✍️ Font · 글씨체</Text>
-              <View style={styles.fontFamilyList}>
-                {FONT_PRESETS.map((f) => {
-                  const selected = fontFamilyKey === f.key
-                  return (
-                    <TouchableOpacity
-                      key={f.key}
-                      style={[
-                        styles.fontFamilyBtn,
-                        { borderColor: colors.cardBorder, backgroundColor: colors.card },
-                        selected && { borderColor: colors.accent, backgroundColor: colors.todayBg },
-                      ]}
-                      onPress={() => setFontFamilyKey(f.key as FontFamilyKey)}
-                      activeOpacity={0.7}
-                    >
-                      <Text style={[
-                        styles.fontFamilyBtnTxt,
-                        { color: selected ? colors.accent : colors.text, fontFamily: f.css.split(',')[0].replace(/'/g, '') },
-                      ]}>
-                        {f.label}
-                      </Text>
-                      {selected && (
-                        <Text style={[styles.fontFamilyCheck, { color: colors.accent }]}>✓</Text>
-                      )}
-                    </TouchableOpacity>
-                  )
-                })}
-              </View>
-            </View>
-
-            {/* ⑥ 배경 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🖼️ Background · 배경</Text>
-              {bgImage ? (
-                <View style={{ gap: 8 }}>
-                  <Image source={{ uri: bgImage }} style={{ height: 80, borderRadius: 10 }} resizeMode="cover" />
-                  <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 4, marginBottom: 0 }]}>
-                    Opacity · 투명도
-                  </Text>
-                  <OpacitySlider value={bgOpacity} onValueChange={setBgOpacity} color={colors.accent} />
-                  <TouchableOpacity
-                    style={[styles.connectBtn, { backgroundColor: '#e05c5c' }]}
-                    onPress={async () => { await setBgImage(null) }}
-                  >
-                    <Text style={styles.connectBtnTxt}>Remove · 제거</Text>
-                  </TouchableOpacity>
                 </View>
-              ) : (
-                <TouchableOpacity
-                  style={[styles.connectBtn, { backgroundColor: colors.accent }]}
-                  disabled={isBgLoading}
-                  onPress={async () => {
-                    setUploadBgError('')
-                    const result = await ImagePicker.launchImageLibraryAsync({
-                      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-                      quality: 0.7,
-                    })
-                    if (!result.canceled) {
-                      try {
-                        await setBgImage(result.assets[0].uri)
-                      } catch (e: any) {
-                        setUploadBgError(e?.message ?? 'Failed · 실패')
-                      }
-                    }
-                  }}
-                >
-                  {isBgLoading
-                    ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                        <ActivityIndicator size="small" color="#fff" />
-                        <Text style={styles.connectBtnTxt}>Processing · 변환 중...</Text>
-                      </View>
-                    : <Text style={styles.connectBtnTxt}>📷 Upload Photo · 사진 선택</Text>
-                  }
-                  {uploadBgError ? (
-                    <Text style={{ color: '#ffcccc', fontSize: 11, marginTop: 4, textAlign: 'center' }}>{uploadBgError}</Text>
-                  ) : null}
-                </TouchableOpacity>
-              )}
-            </View>
-
-            {/* ⑦ PIN 잠금 */}
-            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
-              <View style={styles.pinRow}>
-                <Text style={[styles.pinStatus, { color: colors.text }]}>
-                  {hasPin ? 'Active · 설정됨' : 'Not set · 설정 안 됨'}
-                </Text>
-                <TouchableOpacity
-                  style={[styles.pinBtn, { borderColor: hasPin ? '#e05c5c' : colors.accent, backgroundColor: hasPin ? 'transparent' : colors.accent }]}
-                  onPress={() => {
-                    closeSettings()
-                    if (hasPin) { removePin() }
-                    else { setShowPinSetup(true) }
-                  }}
-                >
-                  <Text style={[styles.pinBtnTxt, { color: hasPin ? '#e05c5c' : '#fff' }]}>
-                    {hasPin ? 'Remove PIN · 해제' : 'Set PIN · 설정'}
-                  </Text>
-                </TouchableOpacity>
               </View>
-            </View>
+            )}
 
           </View>
         )}
@@ -754,6 +771,9 @@ const styles = StyleSheet.create({
   // 설정 패널
   panelWrap: { marginHorizontal: 16, marginBottom: 8 },
   panelTitle: { fontSize: 16, fontWeight: '800', marginBottom: 12, textAlign: 'center' },
+  tabRow: { flexDirection: 'row', borderRadius: 14, borderWidth: 1, padding: 4, marginBottom: 10, gap: 4 },
+  tabBtn: { flex: 1, paddingVertical: 8, borderRadius: 10, borderWidth: 1.5, borderColor: 'transparent', alignItems: 'center' },
+  tabBtnTxt: { fontSize: 13, fontWeight: '700' },
   card: { borderRadius: 16, padding: 16, borderWidth: 1.5, marginBottom: 10 },
   cardLabel: { fontSize: 11, fontWeight: '700', marginBottom: 10, letterSpacing: 0.4, textTransform: 'uppercase' },
   cardInput: { fontSize: 16, fontWeight: '600', borderBottomWidth: 1.5, paddingVertical: 4 },
