@@ -367,7 +367,7 @@ export default function CalendarScreen() {
               )}
             </View>
 
-            {/* ③ 테마 */}
+            {/* ③ 강조색 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🎨 Accent Color · 강조색</Text>
               <View style={styles.paletteRow}>
@@ -380,8 +380,11 @@ export default function CalendarScreen() {
                   />
                 ))}
               </View>
+            </View>
 
-              <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 14 }]}>🔤 Font Size · 글자 크기</Text>
+            {/* ④ 글자 크기 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔤 Font Size · 글자 크기</Text>
               <View style={styles.fontSizeRow}>
                 {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
                   <TouchableOpacity
@@ -405,8 +408,11 @@ export default function CalendarScreen() {
                   </TouchableOpacity>
                 ))}
               </View>
+            </View>
 
-              <Text style={[styles.cardLabel, { color: colors.textMuted, marginTop: 14 }]}>🖼️ Background · 배경</Text>
+            {/* ⑤ 배경 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🖼️ Background · 배경</Text>
               {bgImage ? (
                 <View style={{ gap: 8 }}>
                   <Image source={{ uri: bgImage }} style={{ height: 80, borderRadius: 10 }} resizeMode="cover" />
@@ -454,7 +460,7 @@ export default function CalendarScreen() {
               )}
             </View>
 
-            {/* ④ PIN 잠금 */}
+            {/* ⑥ PIN 잠금 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
               <View style={styles.pinRow}>
