@@ -44,6 +44,7 @@ export default function CalendarScreen() {
     appName: sharedAppName, setAppName: setSharedAppName,
     connectDiary, disconnectDiary,
     ddays, setDdays,
+    userEmoji,
   } = useDiary()
   const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, fontScale, setFontSizeLevel, fontFamilyKey, setFontFamilyKey } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
@@ -314,7 +315,7 @@ export default function CalendarScreen() {
               style={[styles.badge, { backgroundColor: nickname ? colors.todayBg : colors.card, borderColor: colors.cardBorder, borderWidth: nickname ? 0 : 1 }]}
             >
               <Text style={[styles.badgeTxt, { color: nickname ? colors.todayText : colors.hint }]}>
-                {nickname || '👤 My Name · 이름'}
+                {userEmoji} {nickname || 'My Name · 이름'}
               </Text>
             </TouchableOpacity>
           </View>

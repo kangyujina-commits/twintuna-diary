@@ -24,6 +24,21 @@ export interface DiaryEntry {
   deviceId?: string
 }
 
+const USER_EMOJIS = [
+  '🐶','🐱','🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯',
+  '🦁','🐮','🐷','🐸','🐵','🐔','🐧','🦆','🦉','🦇',
+  '🐺','🦝','🦙','🦘','🦡','🦦','🦥','🐿️','🦔','🐾',
+]
+
+export function getEmojiForDevice(deviceId: string): string {
+  if (!deviceId) return '🐾'
+  let hash = 0
+  for (let i = 0; i < deviceId.length; i++) {
+    hash = (hash * 31 + deviceId.charCodeAt(i)) | 0
+  }
+  return USER_EMOJIS[Math.abs(hash) % USER_EMOJIS.length]
+}
+
 const DIARY_ID_KEY = '@twintuna_diary:diaryId'
 const NICKNAME_KEY = '@twintuna_diary:nickname'
 const CONNECTED_KEY = '@twintuna_diary:isConnected'
@@ -52,6 +67,7 @@ interface DiaryContextValue {
   ddays: DdayItem[]
   setDdays: (items: DdayItem[]) => Promise<void>
   // 날짜별 모든 entries (docId → entry)
+  userEmoji: string
   entries: Record<string, DiaryEntry>
   // 내 entry 가져오기
   getMyEntry: (date: string) => DiaryEntry | undefined
@@ -213,6 +229,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       appName, setAppName,
       diaryPin, diaryPinLoaded, setDiaryPin,
       ddays, setDdays,
+      userEmoji: getEmojiForDevice(deviceId),
       entries,
       getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, connectDiary, disconnectDiary,
     }}>

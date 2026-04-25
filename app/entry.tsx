@@ -16,7 +16,7 @@ import {
 } from 'react-native'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import * as ImagePicker from 'expo-image-picker'
-import { useDiary, Mood, Weather } from '../src/context/DiaryContext'
+import { useDiary, Mood, Weather, getEmojiForDevice } from '../src/context/DiaryContext'
 import { useTheme } from '../src/context/ThemeContext'
 import { analyzeEntry } from '../src/utils/analyzeEntry'
 
@@ -264,7 +264,9 @@ export default function EntryScreen() {
                 <TouchableOpacity style={styles.otherHeader} onPress={() => toggleCollapse(other.id)} activeOpacity={0.7}>
                   <View style={styles.otherHeaderLeft}>
                     {other.author && (
-                      <Text style={[styles.otherAuthor, { color: colors.accent }]}>{other.author}</Text>
+                      <Text style={[styles.otherAuthor, { color: colors.accent }]}>
+                        {getEmojiForDevice(other.deviceId ?? '')} {other.author}
+                      </Text>
                     )}
                     <View style={styles.otherMoodRow}>
                       {other.mood && <Text style={styles.otherMoodIcon}>{other.mood}</Text>}
@@ -313,7 +315,7 @@ export default function EntryScreen() {
           {otherEntries.length > 0 && (myEntry || isEditing) && (
             <View style={[styles.myEntryDivider, { borderColor: colors.accent }]}>
               <Text style={[styles.myEntryDividerTxt, { color: colors.accent }]}>
-                {myEntry?.author || 'My Diary · 내 일기'}
+                {getEmojiForDevice(deviceId)} {myEntry?.author || 'My Diary · 내 일기'}
               </Text>
             </View>
           )}
@@ -324,7 +326,9 @@ export default function EntryScreen() {
           {/* 내 작성자 표시 */}
           {!isEditing && myEntry?.author && otherEntries.length === 0 && (
             <View style={[styles.authorBadge, { backgroundColor: colors.todayBg }]}>
-              <Text style={[styles.authorText, { color: colors.todayText }]}>{myEntry.author}</Text>
+              <Text style={[styles.authorText, { color: colors.todayText }]}>
+                {getEmojiForDevice(deviceId)} {myEntry.author}
+              </Text>
             </View>
           )}
 
