@@ -45,7 +45,7 @@ export default function CalendarScreen() {
     connectDiary, disconnectDiary,
     dday, setDday,
   } = useDiary()
-  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, setFontSizeLevel } = useTheme()
+  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, fontScale, setFontSizeLevel } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
   const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
@@ -250,7 +250,7 @@ export default function CalendarScreen() {
             </TouchableOpacity>
           </View>
           {/* 타이틀 (가운데) */}
-          <Text style={[styles.appTitle, { color: colors.accent }]}>{sharedAppName}</Text>
+          <Text style={[styles.appTitle, { color: colors.accent, fontSize: 24 * fontScale }]}>{sharedAppName}</Text>
 
           {/* 상태 뱃지 */}
           <View style={styles.statusRow}>
@@ -494,14 +494,14 @@ export default function CalendarScreen() {
               <TouchableOpacity style={styles.tunasDismiss} onPress={() => setShowTunas(false)} hitSlop={{ top: 8, right: 8, bottom: 8, left: 8 }}>
                 <Text style={[styles.tunasDismissTxt, { color: colors.textMuted }]}>✕</Text>
               </TouchableOpacity>
-              <Text style={[styles.tunasTxt, { color: colors.text }]}>🐶 {greeting.dog}</Text>
-              <Text style={[styles.tunasTxt, { color: colors.text }]}>🐱 {greeting.cat}</Text>
+              <Text style={[styles.tunasTxt, { color: colors.text, fontSize: 13 * fontScale }]}>🐶 {greeting.dog}</Text>
+              <Text style={[styles.tunasTxt, { color: colors.text, fontSize: 13 * fontScale }]}>🐱 {greeting.cat}</Text>
               {streakMsg && (
                 <>
                   <View style={[styles.tunasDivider, { backgroundColor: colors.cellEntryBorder }]} />
-                  <Text style={[styles.tunasTxt, { color: colors.text }]}>🔥 {streak}일 연속</Text>
-                  <Text style={[styles.tunasTxt, { color: colors.text }]}>🐶 {streakMsg.dog}</Text>
-                  <Text style={[styles.tunasTxt, { color: colors.text }]}>🐱 {streakMsg.cat}</Text>
+                  <Text style={[styles.tunasTxt, { color: colors.text, fontSize: 13 * fontScale }]}>🔥 {streak}일 연속</Text>
+                  <Text style={[styles.tunasTxt, { color: colors.text, fontSize: 13 * fontScale }]}>🐶 {streakMsg.dog}</Text>
+                  <Text style={[styles.tunasTxt, { color: colors.text, fontSize: 13 * fontScale }]}>🐱 {streakMsg.cat}</Text>
                 </>
               )}
             </View>
@@ -520,11 +520,11 @@ export default function CalendarScreen() {
         >
           {dday ? (
             <>
-              <Text style={[styles.ddayLabel, { color: colors.textMuted }]}>{dday.label}</Text>
-              <Text style={[styles.ddayCount, { color: colors.accent }]}>{calcDday(dday.date)}</Text>
+              <Text style={[styles.ddayLabel, { color: colors.textMuted, fontSize: 12 * fontScale }]}>{dday.label}</Text>
+              <Text style={[styles.ddayCount, { color: colors.accent, fontSize: 22 * fontScale }]}>{calcDday(dday.date)}</Text>
             </>
           ) : (
-            <Text style={[styles.ddayEmpty, { color: colors.hint }]}>＋ Add D-day · 날짜 추가</Text>
+            <Text style={[styles.ddayEmpty, { color: colors.hint, fontSize: 13 * fontScale }]}>＋ Add D-day · 날짜 추가</Text>
           )}
         </TouchableOpacity>
 
@@ -537,7 +537,7 @@ export default function CalendarScreen() {
             onPress={() => { setYear(today.getFullYear()); setMonth(today.getMonth()) }}
             activeOpacity={0.7}
           >
-            <Text style={[styles.monthLabel, { color: colors.text }]}>
+            <Text style={[styles.monthLabel, { color: colors.text, fontSize: 18 * fontScale }]}>
               {MONTHS_EN[month]} / {month + 1}월 {year}
             </Text>
             {(year !== today.getFullYear() || month !== today.getMonth()) && (
@@ -556,7 +556,7 @@ export default function CalendarScreen() {
           {DAYS.map((d, i) => (
             <Text key={d} style={[
               styles.weekLabel,
-              { color: colors.textMuted },
+              { color: colors.textMuted, fontSize: 10 * fontScale },
               i === 0 && { color: colors.sun },
               i === 6 && { color: colors.sat },
             ]}>
@@ -592,7 +592,7 @@ export default function CalendarScreen() {
                 <View style={[isToday && styles.todayCircle, isToday && { backgroundColor: colors.todayText }]}>
                   <Text style={[
                     styles.dayNum,
-                    { color: colors.text },
+                    { color: colors.text, fontSize: 13 * fontScale },
                     col === 0 && { color: colors.sun },
                     col === 6 && { color: colors.sat },
                     isToday && styles.todayNum,
@@ -607,7 +607,7 @@ export default function CalendarScreen() {
                 </View>
 
                 {(myEntry?.schedule || otherEntry?.schedule)
-                  ? <Text style={[styles.schedulePreview, { color: colors.textMuted }]} numberOfLines={1} ellipsizeMode="tail">
+                  ? <Text style={[styles.schedulePreview, { color: colors.textMuted, fontSize: 9 * fontScale }]} numberOfLines={1} ellipsizeMode="tail">
                       {(myEntry?.schedule || otherEntry?.schedule)!.trim()}
                     </Text>
                   : null}
