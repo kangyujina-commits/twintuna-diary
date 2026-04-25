@@ -48,7 +48,6 @@ const WEATHERS: { emoji: Weather; label: string }[] = [
   { emoji: '🌈', label: 'Rainbow/무지개' },
 ]
 
-const MAX_TEXT = 500
 const MAX_PHOTOS = 3
 
 // 사진을 압축된 base64로 변환 (web canvas 사용)
@@ -449,15 +448,11 @@ export default function EntryScreen() {
                 multiline
                 placeholder="How was your day? · 오늘은 어떤 하루였나요? ✍️"
                 placeholderTextColor={colors.hint}
-                value={text} onChangeText={(t) => setText(t.slice(0, MAX_TEXT))}
+                value={text} onChangeText={setText}
                 textAlignVertical="top" autoFocus={!myEntry}
-                maxLength={MAX_TEXT}
               />
-              <Text style={[
-                styles.charCounter,
-                { color: text.length >= MAX_TEXT ? '#e05c5c' : text.length >= MAX_TEXT * 0.85 ? colors.accent : colors.textMuted }
-              ]}>
-                {text.length} / {MAX_TEXT}
+              <Text style={[styles.charCounter, { color: colors.textMuted }]}>
+                {text.length}자
               </Text>
             </View>
           ) : (
@@ -694,7 +689,7 @@ const styles = StyleSheet.create({
   photoMenuTxt: { fontSize: 12, color: '#a08070' },
 
   photoGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 8 },
-  photoThumbContainer: { position: 'relative', width: '47%', aspectRatio: 1, borderRadius: 12, overflow: 'hidden' },
+  photoThumbContainer: { position: 'relative', width: 100, height: 100, borderRadius: 12, overflow: 'hidden' },
   photoThumb: { width: '100%', height: '100%' },
   photoRemoveBtn: {
     position: 'absolute',
