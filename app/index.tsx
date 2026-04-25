@@ -788,7 +788,7 @@ const styles = StyleSheet.create({
   },
 
   // D-day
-  ddayScrollRow: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 8, gap: 8 },
+  ddayScrollRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexGrow: 1, paddingHorizontal: 16, paddingVertical: 8, gap: 8 },
   ddayChip: { alignItems: 'center', paddingVertical: 8, paddingHorizontal: 16, borderRadius: 16, borderWidth: 1.5, minWidth: 80 },
   ddayAddBtn: { width: 40, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 14, borderWidth: 1.5, borderStyle: 'dashed' },
   ddayRow: { alignSelf: 'center', alignItems: 'center', paddingVertical: 8, paddingHorizontal: 16, flexDirection: 'row', gap: 8 },
