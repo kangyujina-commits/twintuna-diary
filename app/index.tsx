@@ -318,8 +318,6 @@ export default function CalendarScreen() {
                   placeholder={DEFAULT_NAME}
                   placeholderTextColor={colors.hint}
                   maxLength={30}
-                  returnKeyType="done"
-                  onSubmitEditing={() => { const t = nameInput.trim() || DEFAULT_NAME; setSharedAppName(t); setNameInput(t) }}
                 />
                 {nameInput !== sharedAppName && (
                   <TouchableOpacity
