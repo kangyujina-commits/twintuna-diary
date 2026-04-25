@@ -59,7 +59,7 @@ export default function CalendarScreen() {
 
   // 설정 패널
   const [showSettings, setShowSettings] = useState(false)
-  const [settingsTab, setSettingsTab] = useState<'color' | 'font' | 'connect'>('color')
+  const [settingsTab, setSettingsTab] = useState<'color' | 'font' | 'connect' | 'export'>('color')
   const [nameInput, setNameInput] = useState(sharedAppName)
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
@@ -393,6 +393,7 @@ export default function CalendarScreen() {
                 { key: 'color', label: '🎨 색상' },
                 { key: 'font',  label: '✍️ 글꼴' },
                 { key: 'connect', label: '🔗 연결' },
+                { key: 'export', label: '📤 내보내기' },
               ] as const).map(({ key, label }) => (
                 <TouchableOpacity
                   key={key}
@@ -545,6 +546,44 @@ export default function CalendarScreen() {
               </View>
             </>)}
 
+            {/* 📤 내보내기 탭 */}
+            {settingsTab === 'export' && (
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📤 Export · 내보내기</Text>
+                <Text style={[{ color: colors.textMuted, fontSize: 12, marginBottom: 10 }]}>
+                  기간을 입력하면 해당 기간의 일기를 .txt 파일로 저장해요.
+                </Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                  <TextInput
+                    style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
+                    value={exportStart}
+                    onChangeText={(t) => setExportStart(formatYearMonth(t))}
+                    placeholder="2025-01"
+                    placeholderTextColor={colors.hint}
+                    maxLength={7}
+                    keyboardType="numeric"
+                  />
+                  <Text style={{ color: colors.textMuted, fontWeight: '700' }}>~</Text>
+                  <TextInput
+                    style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
+                    value={exportEnd}
+                    onChangeText={(t) => setExportEnd(formatYearMonth(t))}
+                    placeholder="2025-04"
+                    placeholderTextColor={colors.hint}
+                    maxLength={7}
+                    keyboardType="numeric"
+                  />
+                </View>
+                <TouchableOpacity
+                  style={[styles.connectBtn, { backgroundColor: colors.accent }]}
+                  onPress={handleExport}
+                >
+                  <Text style={styles.connectBtnTxt}>📥 Download · 다운로드</Text>
+                </TouchableOpacity>
+                {exportMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{exportMsg}</Text> : null}
+              </View>
+            )}
+
             {/* 🔗 연결 탭 */}
             {settingsTab === 'connect' && (<>
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
@@ -605,38 +644,6 @@ export default function CalendarScreen() {
                     )}
                   </View>
                 )}
-              </View>
-
-              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📤 Export · 내보내기</Text>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                  <TextInput
-                    style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
-                    value={exportStart}
-                    onChangeText={(t) => setExportStart(formatYearMonth(t))}
-                    placeholder="2025-01"
-                    placeholderTextColor={colors.hint}
-                    maxLength={7}
-                    keyboardType="numeric"
-                  />
-                  <Text style={{ color: colors.textMuted, fontWeight: '700' }}>~</Text>
-                  <TextInput
-                    style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
-                    value={exportEnd}
-                    onChangeText={(t) => setExportEnd(formatYearMonth(t))}
-                    placeholder="2025-04"
-                    placeholderTextColor={colors.hint}
-                    maxLength={7}
-                    keyboardType="numeric"
-                  />
-                </View>
-                <TouchableOpacity
-                  style={[styles.connectBtn, { backgroundColor: colors.accent }]}
-                  onPress={handleExport}
-                >
-                  <Text style={styles.connectBtnTxt}>📥 Download · 다운로드</Text>
-                </TouchableOpacity>
-                {exportMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{exportMsg}</Text> : null}
               </View>
 
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
