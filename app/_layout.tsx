@@ -7,6 +7,24 @@ import { ThemeProvider, useTheme } from '../src/context/ThemeContext'
 import { LockProvider, useLock } from '../src/context/LockContext'
 import PinScreen from '../src/components/PinScreen'
 
+// accent hex를 약간 어둡게 (active 커서용)
+function darkenHex(hex: string, factor = 0.62): string {
+  if (!hex.startsWith('#') || hex.length < 7) return hex
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const to2 = (n: number) => Math.round(n * factor).toString(16).padStart(2, '0')
+  return `#${to2(r)}${to2(g)}${to2(b)}`
+}
+
+function buildPawCSS(accent: string) {
+  const paw = (color: string) =>
+    `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="6" cy="9" r="3" fill="${color}"/><circle cx="12" cy="5.5" r="3" fill="${color}"/><circle cx="18" cy="5.5" r="3" fill="${color}"/><circle cx="22" cy="9" r="3" fill="${color}"/><ellipse cx="14" cy="19" rx="7.5" ry="6.5" fill="${color}"/></svg>`
+  const normal = `url("data:image/svg+xml,${encodeURIComponent(paw(accent))}") 14 19, auto`
+  const active = `url("data:image/svg+xml,${encodeURIComponent(paw(darkenHex(accent)))}") 14 19, pointer`
+  return `* { cursor: ${normal} !important; } button, [role="button"], a, div[tabindex], [style*="cursor: pointer"], [style*="cursor:pointer"], input, textarea, select, label { cursor: ${active} !important; }`
+}
+
 // 웹 전용: 귀여운 폰트 + 아이콘 주입
 if (Platform.OS === 'web' && typeof document !== 'undefined') {
   // Nunito 폰트 (귀엽고 둥근 폰트)
@@ -28,20 +46,25 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
   // 탭 제목
   document.title = '🐶🐱 TwinTuna'
 
-  // 고양이 발바닥 커서
-  const paw = (color: string) => `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="6" cy="9" r="3" fill="${color}"/><circle cx="12" cy="5.5" r="3" fill="${color}"/><circle cx="18" cy="5.5" r="3" fill="${color}"/><circle cx="22" cy="9" r="3" fill="${color}"/><ellipse cx="14" cy="19" rx="7.5" ry="6.5" fill="${color}"/></svg>`
+  // 고양이 발바닥 커서 (초기값 — accent 기본색으로, id 부여해서 나중에 교체)
   const pawStyle = document.createElement('style')
-  const normal = `url("data:image/svg+xml,${encodeURIComponent(paw('#c9a882'))}") 14 19, auto`
-  const active = `url("data:image/svg+xml,${encodeURIComponent(paw('#8b5e3c'))}") 14 19, pointer`
-  pawStyle.textContent = `* { cursor: ${normal} !important; } button, [role="button"], a, div[tabindex], [style*="cursor: pointer"], [style*="cursor:pointer"], input, textarea, select, label { cursor: ${active} !important; }`
+  pawStyle.id = 'paw-cursor-style'
+  pawStyle.textContent = buildPawCSS('#c9a882')
   document.head.appendChild(pawStyle)
 }
 
 function AppContent() {
-  const { isDark } = useTheme()
+  const { isDark, accentColor } = useTheme()
   const { isLoaded, isLocked, setupPin } = useLock()
   const [pinStep, setPinStep] = useState<'setup' | 'confirm' | null>(null)
   const [firstPin, setFirstPin] = useState('')
+
+  // accent 바뀔 때 커서 색상 동기화
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') return
+    const el = document.getElementById('paw-cursor-style') as HTMLStyleElement | null
+    if (el) el.textContent = buildPawCSS(accentColor)
+  }, [accentColor])
 
   // 로딩 중
   if (!isLoaded) return null
