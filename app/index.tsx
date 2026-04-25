@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   View,
   Text,
@@ -89,6 +89,22 @@ export default function CalendarScreen() {
   const [ddayDateInput, setDdayDateInput] = useState('')
 
   const isAnyEditOpen = editMode !== null || editingDdayId !== null
+
+  // 설정 패널 바깥 클릭 감지 (웹)
+  const settingsGearRef = useRef<any>(null)
+  const settingsPanelRef = useRef<any>(null)
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined' || !showSettings) return
+    const handler = (e: MouseEvent) => {
+      const inside =
+        settingsPanelRef.current?.contains(e.target as Node) ||
+        settingsGearRef.current?.contains(e.target as Node)
+      if (!inside) closeSettings()
+    }
+    // 열리는 클릭이 즉시 닫지 않도록 한 틱 뒤에 등록
+    const id = setTimeout(() => document.addEventListener('mousedown', handler), 50)
+    return () => { clearTimeout(id); document.removeEventListener('mousedown', handler) }
+  }, [showSettings])
 
   // 키보드 단축키 (웹)
   useEffect(() => {
@@ -271,6 +287,7 @@ export default function CalendarScreen() {
               <Text style={styles.iconBtnTxt}>{isDark ? '☀️' : '🌙'}</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              ref={settingsGearRef}
               onPress={() => showSettings ? closeSettings() : openSettings()}
               style={[styles.iconBtn, { backgroundColor: showSettings ? colors.accent : colors.card, borderColor: colors.cardBorder }]}>
               <Text style={styles.iconBtnTxt}>⚙️</Text>
@@ -304,7 +321,7 @@ export default function CalendarScreen() {
 
         {/* ── 설정 패널 ── */}
         {showSettings && (
-          <View style={styles.panelWrap}>
+          <View ref={settingsPanelRef} style={styles.panelWrap}>
             <Text style={[styles.panelTitle, { color: colors.text }]}>⚙️ Settings · 설정</Text>
 
             {/* ① 다이어리 이름 */}
