@@ -3,7 +3,7 @@ import { Platform } from 'react-native'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { DiaryProvider } from '../src/context/DiaryContext'
-import { ThemeProvider, useTheme } from '../src/context/ThemeContext'
+import { ThemeProvider, useTheme, FONT_PRESETS } from '../src/context/ThemeContext'
 import { LockProvider, useLock } from '../src/context/LockContext'
 import PinScreen from '../src/components/PinScreen'
 
@@ -27,13 +27,23 @@ function buildPawCSS(accent: string) {
 
 // 웹 전용: 귀여운 폰트 + 아이콘 주입
 if (Platform.OS === 'web' && typeof document !== 'undefined') {
-  // Nunito 폰트 (귀엽고 둥근 폰트)
+  // 모든 선택 가능 폰트 일괄 로드
   const fontLink = document.createElement('link')
   fontLink.rel = 'stylesheet'
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap'
+  fontLink.href = [
+    'https://fonts.googleapis.com/css2?',
+    'family=Nunito:wght@400;600;700;800;900',
+    '&family=Nanum+Gothic:wght@400;700;800',
+    '&family=Gaegu:wght@300;400;700',
+    '&family=Jua',
+    '&family=Do+Hyeon',
+    '&display=swap',
+  ].join('')
   document.head.appendChild(fontLink)
 
+  // 폰트 적용 스타일 (id 붙여서 나중에 교체 가능)
   const fontStyle = document.createElement('style')
+  fontStyle.id = 'font-family-style'
   fontStyle.textContent = `* { font-family: 'Nunito', sans-serif !important; }`
   document.head.appendChild(fontStyle)
 
@@ -54,7 +64,7 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
 }
 
 function AppContent() {
-  const { isDark, accentColor } = useTheme()
+  const { isDark, accentColor, fontFamilyKey } = useTheme()
   const { isLoaded, isLocked, setupPin } = useLock()
   const [pinStep, setPinStep] = useState<'setup' | 'confirm' | null>(null)
   const [firstPin, setFirstPin] = useState('')
@@ -65,6 +75,14 @@ function AppContent() {
     const el = document.getElementById('paw-cursor-style') as HTMLStyleElement | null
     if (el) el.textContent = buildPawCSS(accentColor)
   }, [accentColor])
+
+  // 폰트 바뀔 때 font-family 동기화
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') return
+    const el = document.getElementById('font-family-style') as HTMLStyleElement | null
+    const preset = FONT_PRESETS.find(f => f.key === fontFamilyKey)
+    if (el && preset) el.textContent = `* { font-family: ${preset.css} !important; }`
+  }, [fontFamilyKey])
 
   // 로딩 중
   if (!isLoaded) return null

@@ -6,6 +6,7 @@ const ACCENT_KEY = '@twintuna_diary:accent'
 const BGIMAGE_KEY = '@twintuna_diary:bgImage'
 const BGOPACITY_KEY = '@twintuna_diary:bgOpacity'
 const FONTSIZE_KEY = '@twintuna_diary:fontSize'
+const FONTFAMILY_KEY = '@twintuna_diary:fontFamily'
 
 export type FontSizeLevel = 'small' | 'medium' | 'large'
 export const FONT_SCALES: Record<FontSizeLevel, number> = {
@@ -13,6 +14,15 @@ export const FONT_SCALES: Record<FontSizeLevel, number> = {
   medium: 1.0,
   large: 1.18,
 }
+
+export type FontFamilyKey = 'Nunito' | 'Nanum Gothic' | 'Gaegu' | 'Jua' | 'Do Hyeon'
+export const FONT_PRESETS: { key: FontFamilyKey; label: string; css: string }[] = [
+  { key: 'Nunito',       label: 'Nunito',  css: "'Nunito', sans-serif" },
+  { key: 'Nanum Gothic', label: '나눔고딕', css: "'Nanum Gothic', sans-serif" },
+  { key: 'Gaegu',        label: '개구체',  css: "'Gaegu', cursive" },
+  { key: 'Jua',          label: '주아',    css: "'Jua', sans-serif" },
+  { key: 'Do Hyeon',     label: '도현',    css: "'Do Hyeon', sans-serif" },
+]
 
 export const ACCENT_PRESETS = [
   '#c9a882', // tuna (default)
@@ -152,6 +162,8 @@ interface ThemeContextValue {
   fontSizeLevel: FontSizeLevel
   fontScale: number
   setFontSizeLevel: (level: FontSizeLevel) => void
+  fontFamilyKey: FontFamilyKey
+  setFontFamilyKey: (key: FontFamilyKey) => void
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
@@ -163,20 +175,27 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [isBgLoading, setIsBgLoading] = useState(false)
   const [bgOpacity, setBgOpacityState] = useState(0.45)
   const [fontSizeLevel, setFontSizeLevelState] = useState<FontSizeLevel>('medium')
+  const [fontFamilyKey, setFontFamilyKeyState] = useState<FontFamilyKey>('Nunito')
 
   useEffect(() => {
-    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY, BGIMAGE_KEY, BGOPACITY_KEY, FONTSIZE_KEY]).then((results) => {
+    AsyncStorage.multiGet([THEME_KEY, ACCENT_KEY, BGIMAGE_KEY, BGOPACITY_KEY, FONTSIZE_KEY, FONTFAMILY_KEY]).then((results) => {
       if (results[0][1] === 'dark') setIsDark(true)
       if (results[1][1]) setAccentColorState(results[1][1])
       if (results[2][1]) setBgImageState(results[2][1])
       if (results[3][1]) setBgOpacityState(parseFloat(results[3][1]))
       if (results[4][1]) setFontSizeLevelState(results[4][1] as FontSizeLevel)
+      if (results[5][1]) setFontFamilyKeyState(results[5][1] as FontFamilyKey)
     })
   }, [])
 
   function setFontSizeLevel(level: FontSizeLevel) {
     setFontSizeLevelState(level)
     AsyncStorage.setItem(FONTSIZE_KEY, level)
+  }
+
+  function setFontFamilyKey(key: FontFamilyKey) {
+    setFontFamilyKeyState(key)
+    AsyncStorage.setItem(FONTFAMILY_KEY, key)
   }
 
   function toggleTheme() {
@@ -226,6 +245,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       fontSizeLevel,
       fontScale: FONT_SCALES[fontSizeLevel],
       setFontSizeLevel,
+      fontFamilyKey,
+      setFontFamilyKey,
     }}>
       {children}
     </ThemeContext.Provider>

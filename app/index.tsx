@@ -15,7 +15,7 @@ import {
 import * as ImagePicker from 'expo-image-picker'
 import { useRouter } from 'expo-router'
 import { useDiary } from '../src/context/DiaryContext'
-import { useTheme, ACCENT_PRESETS, FontSizeLevel } from '../src/context/ThemeContext'
+import { useTheme, ACCENT_PRESETS, FontSizeLevel, FONT_PRESETS, FontFamilyKey } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
 import { getDayGreeting, getStreakMessage } from '../src/utils/tunasMessages'
 import OpacitySlider from '../src/components/OpacitySlider'
@@ -45,7 +45,7 @@ export default function CalendarScreen() {
     connectDiary, disconnectDiary,
     dday, setDday,
   } = useDiary()
-  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, fontScale, setFontSizeLevel } = useTheme()
+  const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, fontScale, setFontSizeLevel, fontFamilyKey, setFontFamilyKey } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
   const hasOtherDevice = Object.values(entries).some(e => e.deviceId && e.deviceId !== deviceId)
@@ -410,7 +410,39 @@ export default function CalendarScreen() {
               </View>
             </View>
 
-            {/* ⑤ 배경 */}
+            {/* ⑤ 폰트 */}
+            <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>✍️ Font · 글씨체</Text>
+              <View style={styles.fontFamilyList}>
+                {FONT_PRESETS.map((f) => {
+                  const selected = fontFamilyKey === f.key
+                  return (
+                    <TouchableOpacity
+                      key={f.key}
+                      style={[
+                        styles.fontFamilyBtn,
+                        { borderColor: colors.cardBorder, backgroundColor: colors.card },
+                        selected && { borderColor: colors.accent, backgroundColor: colors.todayBg },
+                      ]}
+                      onPress={() => setFontFamilyKey(f.key as FontFamilyKey)}
+                      activeOpacity={0.7}
+                    >
+                      <Text style={[
+                        styles.fontFamilyBtnTxt,
+                        { color: selected ? colors.accent : colors.text, fontFamily: f.css.split(',')[0].replace(/'/g, '') },
+                      ]}>
+                        {f.label}
+                      </Text>
+                      {selected && (
+                        <Text style={[styles.fontFamilyCheck, { color: colors.accent }]}>✓</Text>
+                      )}
+                    </TouchableOpacity>
+                  )
+                })}
+              </View>
+            </View>
+
+            {/* ⑥ 배경 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🖼️ Background · 배경</Text>
               {bgImage ? (
@@ -460,7 +492,7 @@ export default function CalendarScreen() {
               )}
             </View>
 
-            {/* ⑥ PIN 잠금 */}
+            {/* ⑦ PIN 잠금 */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
               <View style={styles.pinRow}>
@@ -696,6 +728,10 @@ const styles = StyleSheet.create({
   fontSizeRow: { flexDirection: 'row', gap: 8 },
   fontSizeBtn: { flex: 1, borderRadius: 12, borderWidth: 1.5, paddingVertical: 10, alignItems: 'center', justifyContent: 'center' },
   fontSizeBtnTxt: { fontWeight: '700', fontSize: 14 },
+  fontFamilyList: { gap: 8 },
+  fontFamilyBtn: { borderRadius: 12, borderWidth: 1.5, paddingVertical: 11, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  fontFamilyBtnTxt: { fontSize: 16 },
+  fontFamilyCheck: { fontSize: 14, fontWeight: '700' },
 
   // Tunas 코너
   tunasCard: { marginHorizontal: 16, marginBottom: 6, borderRadius: 16, borderWidth: 1.5, padding: 12, gap: 5 },
