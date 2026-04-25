@@ -58,7 +58,7 @@ export default function CalendarScreen() {
 
   // 설정 패널
   const [showSettings, setShowSettings] = useState(false)
-  const [settingsTab, setSettingsTab] = useState<'design' | 'connect' | 'security'>('design')
+  const [settingsTab, setSettingsTab] = useState<'color' | 'font' | 'connect'>('color')
   const [nameInput, setNameInput] = useState(sharedAppName)
   const [connectInput, setConnectInput] = useState('')
   const [connectMsg, setConnectMsg] = useState('')
@@ -327,9 +327,9 @@ export default function CalendarScreen() {
             {/* 탭 버튼 */}
             <View style={[styles.tabRow, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
               {([
-                { key: 'design',   label: '🎨 디자인' },
-                { key: 'connect',  label: '🔗 연결' },
-                { key: 'security', label: '🔒 보안' },
+                { key: 'color', label: '🎨 색상' },
+                { key: 'font',  label: '✍️ 글꼴' },
+                { key: 'connect', label: '🔗 연결' },
               ] as const).map(({ key, label }) => (
                 <TouchableOpacity
                   key={key}
@@ -348,9 +348,8 @@ export default function CalendarScreen() {
               ))}
             </View>
 
-            {/* 🎨 디자인 탭 */}
-            {settingsTab === 'design' && (<>
-              {/* 강조색 */}
+            {/* 🎨 색상 탭 */}
+            {settingsTab === 'color' && (<>
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
                 <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🎨 Accent Color · 강조색</Text>
                 <View style={styles.paletteRow}>
@@ -365,65 +364,6 @@ export default function CalendarScreen() {
                 </View>
               </View>
 
-              {/* 글자 크기 */}
-              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔤 Font Size · 글자 크기</Text>
-                <View style={styles.fontSizeRow}>
-                  {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
-                    <TouchableOpacity
-                      key={level}
-                      style={[
-                        styles.fontSizeBtn,
-                        { borderColor: colors.cardBorder, backgroundColor: colors.card },
-                        fontSizeLevel === level && { borderColor: colors.accent, backgroundColor: colors.todayBg },
-                      ]}
-                      onPress={() => setFontSizeLevel(level)}
-                      activeOpacity={0.7}
-                    >
-                      <Text style={[
-                        styles.fontSizeBtnTxt,
-                        { color: fontSizeLevel === level ? colors.accent : colors.textMuted },
-                        level === 'small' && { fontSize: 12 },
-                        level === 'large' && { fontSize: 18 },
-                      ]}>
-                        {level === 'small' ? 'S 작게' : level === 'medium' ? 'M 보통' : 'L 크게'}
-                      </Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              </View>
-
-              {/* 글씨체 */}
-              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>✍️ Font · 글씨체</Text>
-                <View style={styles.fontFamilyList}>
-                  {FONT_PRESETS.map((f) => {
-                    const selected = fontFamilyKey === f.key
-                    return (
-                      <TouchableOpacity
-                        key={f.key}
-                        style={[
-                          styles.fontFamilyBtn,
-                          { borderColor: colors.cardBorder, backgroundColor: colors.card },
-                          selected && { borderColor: colors.accent, backgroundColor: colors.todayBg },
-                        ]}
-                        onPress={() => setFontFamilyKey(f.key as FontFamilyKey)}
-                        activeOpacity={0.7}
-                      >
-                        <Text style={[
-                          styles.fontFamilyBtnTxt,
-                          { color: selected ? colors.accent : colors.text, fontFamily: f.css.split(',')[0].replace(/'/g, '') },
-                        ]}>
-                          {f.label}
-                        </Text>
-                        {selected && <Text style={[styles.fontFamilyCheck, { color: colors.accent }]}>✓</Text>}
-                      </TouchableOpacity>
-                    )
-                  })}
-                </View>
-              </View>
-
-              {/* 배경 */}
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
                 <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🖼️ Background · 배경</Text>
                 {bgImage ? (
@@ -461,9 +401,8 @@ export default function CalendarScreen() {
               </View>
             </>)}
 
-            {/* 🔗 연결 탭 */}
-            {settingsTab === 'connect' && (<>
-              {/* 다이어리 이름 */}
+            {/* ✍️ 글꼴 탭 */}
+            {settingsTab === 'font' && (<>
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
                 <Text style={[styles.cardLabel, { color: colors.textMuted }]}>📔 Diary Name · 다이어리 이름</Text>
                 <View style={styles.ddayDateRow}>
@@ -486,81 +425,125 @@ export default function CalendarScreen() {
                 </View>
               </View>
 
-              {/* 파트너 연결 */}
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-              <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 Partner Connect · 파트너 연결</Text>
-              {/* 내 코드 */}
-              <View style={[styles.codeRow, { backgroundColor: colors.inputBg }]}>
-                <Text style={[styles.codeLabel, { color: colors.textMuted }]}>My Code · 내 코드</Text>
-                <Text style={[styles.codeText, { color: colors.todayText }]}>{diaryId}</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    if (Platform.OS === 'web') navigator.clipboard?.writeText(diaryId)
-                    setConnectMsg('Copied! · 복사됐어요!')
-                    setTimeout(() => setConnectMsg(''), 2000)
-                  }}
-                  style={[styles.copyBtn, { backgroundColor: colors.accent }]}
-                >
-                  <Text style={styles.copyBtnTxt}>Copy · 복사</Text>
-                </TouchableOpacity>
-              </View>
-              <Text style={[styles.codeHint, { color: colors.textLight }]}>↑ Share with partner, or enter their code below · 파트너에게 알려주거나 아래에 입력</Text>
-              <View style={styles.connectCol}>
-                <TextInput
-                  style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
-                  value={connectInput}
-                  onChangeText={(t) => setConnectInput(t.toUpperCase())}
-                  placeholder="XXXXXX" placeholderTextColor={colors.hint}
-                  autoCapitalize="characters" maxLength={6}
-                />
-                <TouchableOpacity
-                  style={[styles.connectBtn, { backgroundColor: colors.accent }]}
-                  onPress={async () => {
-                    if (connectInput.length < 6) { setConnectMsg('Enter 6-digit code · 6자리 코드 입력'); return }
-                    await connectDiary(connectInput)
-                    setConnectInput(''); closeSettings()
-                  }}
-                >
-                  <Text style={styles.connectBtnTxt}>Connect · 연결</Text>
-                </TouchableOpacity>
-              </View>
-              {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
-
-              {showConnected && (
-                <View style={[styles.disconnectBox, { borderTopColor: colors.cardBorder }]}>
-                  {disconnectConfirm ? (
-                    <View style={styles.disconnectConfirmRow}>
-                      <Text style={[styles.disconnectConfirmTxt, { color: colors.textMuted }]}>Disconnect? · 연결을 끊을까요?</Text>
-                      <View style={styles.disconnectBtnRow}>
-                        <TouchableOpacity
-                          style={[styles.disconnectCancelBtn, { borderColor: colors.cardBorder }]}
-                          onPress={() => setDisconnectConfirm(false)}
-                        >
-                          <Text style={[styles.disconnectCancelTxt, { color: colors.textMuted }]}>Cancel · 취소</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                          style={styles.disconnectConfirmBtn}
-                          onPress={async () => { await disconnectDiary(); closeSettings() }}
-                        >
-                          <Text style={styles.disconnectConfirmBtnTxt}>Disconnect · 끊기</Text>
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  ) : (
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔤 Font Size · 글자 크기</Text>
+                <View style={styles.fontSizeRow}>
+                  {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
                     <TouchableOpacity
-                      style={[styles.disconnectBtn, { borderColor: '#e05c5c' }]}
-                      onPress={() => setDisconnectConfirm(true)}
+                      key={level}
+                      style={[
+                        styles.fontSizeBtn,
+                        { borderColor: colors.cardBorder, backgroundColor: colors.card },
+                        fontSizeLevel === level && { borderColor: colors.accent, backgroundColor: colors.todayBg },
+                      ]}
+                      onPress={() => setFontSizeLevel(level)}
+                      activeOpacity={0.7}
                     >
-                      <Text style={styles.disconnectBtnTxt}>🔌 Disconnect · 연결 끊기</Text>
+                      <Text style={[
+                        styles.fontSizeBtnTxt,
+                        { color: fontSizeLevel === level ? colors.accent : colors.textMuted },
+                        level === 'small' && { fontSize: 12 },
+                        level === 'large' && { fontSize: 18 },
+                      ]}>
+                        {level === 'small' ? 'S 작게' : level === 'medium' ? 'M 보통' : 'L 크게'}
+                      </Text>
                     </TouchableOpacity>
-                  )}
+                  ))}
                 </View>
-              )}
-            </View>
+              </View>
+
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>✍️ Font · 글씨체</Text>
+                <View style={styles.fontFamilyList}>
+                  {FONT_PRESETS.map((f) => {
+                    const selected = fontFamilyKey === f.key
+                    return (
+                      <TouchableOpacity
+                        key={f.key}
+                        style={[
+                          styles.fontFamilyBtn,
+                          { borderColor: colors.cardBorder, backgroundColor: colors.card },
+                          selected && { borderColor: colors.accent, backgroundColor: colors.todayBg },
+                        ]}
+                        onPress={() => setFontFamilyKey(f.key as FontFamilyKey)}
+                        activeOpacity={0.7}
+                      >
+                        <Text style={[
+                          styles.fontFamilyBtnTxt,
+                          { color: selected ? colors.accent : colors.text, fontFamily: f.css.split(',')[0].replace(/'/g, '') },
+                        ]}>
+                          {f.label}
+                        </Text>
+                        {selected && <Text style={[styles.fontFamilyCheck, { color: colors.accent }]}>✓</Text>}
+                      </TouchableOpacity>
+                    )
+                  })}
+                </View>
+              </View>
             </>)}
 
-            {/* 🔒 보안 탭 */}
-            {settingsTab === 'security' && (
+            {/* 🔗 연결 탭 */}
+            {settingsTab === 'connect' && (<>
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔗 Partner Connect · 파트너 연결</Text>
+                <View style={[styles.codeRow, { backgroundColor: colors.inputBg }]}>
+                  <Text style={[styles.codeLabel, { color: colors.textMuted }]}>My Code · 내 코드</Text>
+                  <Text style={[styles.codeText, { color: colors.todayText }]}>{diaryId}</Text>
+                  <TouchableOpacity
+                    onPress={() => {
+                      if (Platform.OS === 'web') navigator.clipboard?.writeText(diaryId)
+                      setConnectMsg('Copied! · 복사됐어요!')
+                      setTimeout(() => setConnectMsg(''), 2000)
+                    }}
+                    style={[styles.copyBtn, { backgroundColor: colors.accent }]}
+                  >
+                    <Text style={styles.copyBtnTxt}>Copy · 복사</Text>
+                  </TouchableOpacity>
+                </View>
+                <Text style={[styles.codeHint, { color: colors.textLight }]}>↑ Share with partner, or enter their code below · 파트너에게 알려주거나 아래에 입력</Text>
+                <View style={styles.connectCol}>
+                  <TextInput
+                    style={[styles.connectInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
+                    value={connectInput}
+                    onChangeText={(t) => setConnectInput(t.toUpperCase())}
+                    placeholder="XXXXXX" placeholderTextColor={colors.hint}
+                    autoCapitalize="characters" maxLength={6}
+                  />
+                  <TouchableOpacity
+                    style={[styles.connectBtn, { backgroundColor: colors.accent }]}
+                    onPress={async () => {
+                      if (connectInput.length < 6) { setConnectMsg('Enter 6-digit code · 6자리 코드 입력'); return }
+                      await connectDiary(connectInput)
+                      setConnectInput(''); closeSettings()
+                    }}
+                  >
+                    <Text style={styles.connectBtnTxt}>Connect · 연결</Text>
+                  </TouchableOpacity>
+                </View>
+                {connectMsg ? <Text style={[styles.connectMsg, { color: colors.todayText }]}>{connectMsg}</Text> : null}
+                {showConnected && (
+                  <View style={[styles.disconnectBox, { borderTopColor: colors.cardBorder }]}>
+                    {disconnectConfirm ? (
+                      <View style={styles.disconnectConfirmRow}>
+                        <Text style={[styles.disconnectConfirmTxt, { color: colors.textMuted }]}>Disconnect? · 연결을 끊을까요?</Text>
+                        <View style={styles.disconnectBtnRow}>
+                          <TouchableOpacity style={[styles.disconnectCancelBtn, { borderColor: colors.cardBorder }]} onPress={() => setDisconnectConfirm(false)}>
+                            <Text style={[styles.disconnectCancelTxt, { color: colors.textMuted }]}>Cancel · 취소</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.disconnectConfirmBtn} onPress={async () => { await disconnectDiary(); closeSettings() }}>
+                            <Text style={styles.disconnectConfirmBtnTxt}>Disconnect · 끊기</Text>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    ) : (
+                      <TouchableOpacity style={[styles.disconnectBtn, { borderColor: '#e05c5c' }]} onPress={() => setDisconnectConfirm(true)}>
+                        <Text style={styles.disconnectBtnTxt}>🔌 Disconnect · 연결 끊기</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                )}
+              </View>
+
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
                 <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔒 PIN Lock · PIN 잠금</Text>
                 <View style={styles.pinRow}>
@@ -569,11 +552,7 @@ export default function CalendarScreen() {
                   </Text>
                   <TouchableOpacity
                     style={[styles.pinBtn, { borderColor: hasPin ? '#e05c5c' : colors.accent, backgroundColor: hasPin ? 'transparent' : colors.accent }]}
-                    onPress={() => {
-                      closeSettings()
-                      if (hasPin) { removePin() }
-                      else { setShowPinSetup(true) }
-                    }}
+                    onPress={() => { closeSettings(); if (hasPin) { removePin() } else { setShowPinSetup(true) } }}
                   >
                     <Text style={[styles.pinBtnTxt, { color: hasPin ? '#e05c5c' : '#fff' }]}>
                       {hasPin ? 'Remove PIN · 해제' : 'Set PIN · 설정'}
@@ -581,7 +560,7 @@ export default function CalendarScreen() {
                   </TouchableOpacity>
                 </View>
               </View>
-            )}
+            </>)}
 
           </View>
         )}
