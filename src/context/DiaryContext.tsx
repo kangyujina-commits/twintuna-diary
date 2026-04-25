@@ -6,6 +6,12 @@ import { db } from '../firebase'
 export type Mood = '😊' | '😄' | '😐' | '😢' | '😠' | '😴' | '🥰' | '😰' | '🤩' | '🤗' | '😌' | '😏' | '🤔' | '😶' | '🥺' | '😤'
 export type Weather = '☀️' | '⛅' | '🌧️' | '❄️' | '🌩️' | '🌈'
 
+export interface DdayItem {
+  id: string
+  label: string
+  date: string
+}
+
 export interface DiaryEntry {
   id: string       // docId: "{date}_{deviceId}" 또는 구버전 "{date}"
   date: string
@@ -42,9 +48,9 @@ interface DiaryContextValue {
   diaryPin: string | null
   diaryPinLoaded: boolean
   setDiaryPin: (pin: string | null) => Promise<void>
-  // D-day (Firestore 공유)
-  dday: { label: string; date: string } | null
-  setDday: (dday: { label: string; date: string } | null) => Promise<void>
+  // D-days (Firestore 공유, 여러 개)
+  ddays: DdayItem[]
+  setDdays: (items: DdayItem[]) => Promise<void>
   // 날짜별 모든 entries (docId → entry)
   entries: Record<string, DiaryEntry>
   // 내 entry 가져오기
@@ -68,7 +74,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   const [entries, setEntries] = useState<Record<string, DiaryEntry>>({})
   const [diaryPin, setDiaryPinState] = useState<string | null>(null)
   const [diaryPinLoaded, setDiaryPinLoaded] = useState(false)
-  const [dday, setDdayState] = useState<{ label: string; date: string } | null>(null)
+  const [ddays, setDdaysState] = useState<DdayItem[]>([])
 
   useEffect(() => {
     Promise.all([
@@ -96,7 +102,14 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       if (data?.appName) setAppNameState(data.appName)
       setDiaryPinState(data?.pin ?? null)
       setDiaryPinLoaded(true)
-      setDdayState(data?.dday ?? null)
+      // ddays 배열 우선, 구버전 dday 단일 필드 마이그레이션
+      if (Array.isArray(data?.ddays)) {
+        setDdaysState(data.ddays)
+      } else if (data?.dday) {
+        setDdaysState([{ id: 'legacy', label: data.dday.label, date: data.dday.date }])
+      } else {
+        setDdaysState([])
+      }
     })
     return unsubMeta
   }, [diaryId])
@@ -186,10 +199,10 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setDiaryPinState(pin)
   }
 
-  async function setDday(val: { label: string; date: string } | null) {
+  async function setDdays(items: DdayItem[]) {
     if (!diaryId) return
-    await setDoc(doc(db, 'diaries', diaryId), { dday: val ?? null }, { merge: true })
-    setDdayState(val)
+    await setDoc(doc(db, 'diaries', diaryId), { ddays: items, dday: null }, { merge: true })
+    setDdaysState(items)
   }
 
   if (!diaryId) return null
@@ -199,7 +212,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       diaryId, deviceId, isConnected, nickname, setNickname,
       appName, setAppName,
       diaryPin, diaryPinLoaded, setDiaryPin,
-      dday, setDday,
+      ddays, setDdays,
       entries,
       getMyEntry, getEntriesForDate, upsertEntry, deleteEntry, connectDiary, disconnectDiary,
     }}>

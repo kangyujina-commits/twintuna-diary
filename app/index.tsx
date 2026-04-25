@@ -14,7 +14,7 @@ import {
 } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import { useRouter } from 'expo-router'
-import { useDiary } from '../src/context/DiaryContext'
+import { useDiary, DdayItem } from '../src/context/DiaryContext'
 import { useTheme, ACCENT_PRESETS, FontSizeLevel, FONT_PRESETS, FontFamilyKey } from '../src/context/ThemeContext'
 import { useLock } from '../src/context/LockContext'
 import { getDayGreeting, getStreakMessage } from '../src/utils/tunasMessages'
@@ -43,7 +43,7 @@ export default function CalendarScreen() {
     isConnected, nickname, setNickname,
     appName: sharedAppName, setAppName: setSharedAppName,
     connectDiary, disconnectDiary,
-    dday, setDday,
+    ddays, setDdays,
   } = useDiary()
   const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, fontScale, setFontSizeLevel, fontFamilyKey, setFontFamilyKey } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
@@ -64,8 +64,10 @@ export default function CalendarScreen() {
   const [disconnectConfirm, setDisconnectConfirm] = useState(false)
   const [uploadBgError, setUploadBgError] = useState('')
 
-  // 인라인 편집 모드 (nickname | dday | null)
-  const [editMode, setEditMode] = useState<'nickname' | 'dday' | null>(null)
+  // 인라인 편집 모드
+  const [editMode, setEditMode] = useState<'nickname' | null>(null)
+  // D-day 편집: null=닫힘, '__new__'=새로추가, id=기존편집
+  const [editingDdayId, setEditingDdayId] = useState<string | null>(null)
   const [showTunas, setShowTunas] = useState(true)
 
   // 스트릭 계산 (오늘부터 연속 작성일 수)
@@ -85,6 +87,22 @@ export default function CalendarScreen() {
   const [nicknameInput, setNicknameInput] = useState('')
   const [ddayLabelInput, setDdayLabelInput] = useState('')
   const [ddayDateInput, setDdayDateInput] = useState('')
+
+  const isAnyEditOpen = editMode !== null || editingDdayId !== null
+
+  // 키보드 단축키 (웹)
+  useEffect(() => {
+    if (Platform.OS !== 'web') return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setEditMode(null)
+        setEditingDdayId(null)
+        setShowSettings(false)
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [])
 
   function calcDday(dateStr: string): string {
     const [y, m, d] = dateStr.split('-').map(Number)
@@ -146,15 +164,15 @@ export default function CalendarScreen() {
   const screenContent = (
     <SafeAreaView style={[styles.safe, { backgroundColor: bgImage ? 'transparent' : colors.bg }]}>
       {/* ── 인라인 편집 오버레이 (바깥 탭 → 닫기) ── */}
-      {editMode && (
+      {isAnyEditOpen && (
         <TouchableOpacity
           style={[StyleSheet.absoluteFillObject, { zIndex: 50 }]}
-          onPress={() => setEditMode(null)}
+          onPress={() => { setEditMode(null); setEditingDdayId(null) }}
           activeOpacity={1}
         />
       )}
 
-      {/* ── 닉네임 편집 카드 (overlay 위, 절대 위치) ── */}
+      {/* ── 닉네임 편집 카드 ── */}
       {editMode === 'nickname' && (
         <View style={[styles.floatingCard, { zIndex: 100, backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
           <View style={styles.ddayDateRow}>
@@ -179,14 +197,14 @@ export default function CalendarScreen() {
         </View>
       )}
 
-      {/* ── D-day 편집 카드 (overlay 위, 절대 위치) ── */}
-      {editMode === 'dday' && (
+      {/* ── D-day 편집 카드 (신규 or 기존 수정) ── */}
+      {editingDdayId !== null && (
         <View style={[styles.floatingCard, { zIndex: 100, backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
           <TextInput
             style={[styles.ddayLabelInput, { color: colors.text, borderBottomColor: colors.accent }]}
             value={ddayLabelInput}
             onChangeText={setDdayLabelInput}
-            placeholder="Label · 이름"
+            placeholder="Label · 이름 (예: 우리 기념일)"
             placeholderTextColor={colors.hint}
             maxLength={20}
             autoFocus
@@ -209,22 +227,31 @@ export default function CalendarScreen() {
               keyboardType="numeric"
               returnKeyType="done"
             />
-            {dday && (
+            {/* 기존 항목이면 삭제 버튼 */}
+            {editingDdayId !== '__new__' && (
               <TouchableOpacity
                 style={[styles.ddayRemoveBtn, { borderColor: '#e05c5c' }]}
-                onPress={async () => { await setDday(null); setEditMode(null) }}
+                onPress={async () => {
+                  await setDdays(ddays.filter(d => d.id !== editingDdayId))
+                  setEditingDdayId(null)
+                }}
               >
-                <Text style={styles.ddayRemoveTxt}>✕</Text>
+                <Text style={styles.ddayRemoveTxt}>🗑️</Text>
               </TouchableOpacity>
             )}
             <TouchableOpacity
               style={[styles.ddaySaveBtn, { backgroundColor: colors.accent }]}
               onPress={async () => {
-                const d = ddayDateInput.trim()
-                const l = ddayLabelInput.trim()
-                if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return
-                await setDday({ label: l || 'D-day', date: d })
-                setEditMode(null)
+                const dateVal = ddayDateInput.trim()
+                const labelVal = ddayLabelInput.trim()
+                if (!/^\d{4}-\d{2}-\d{2}$/.test(dateVal)) return
+                if (editingDdayId === '__new__') {
+                  const newItem: DdayItem = { id: Date.now().toString(36), label: labelVal || 'D-day', date: dateVal }
+                  await setDdays([...ddays, newItem])
+                } else {
+                  await setDdays(ddays.map(d => d.id === editingDdayId ? { ...d, label: labelVal || 'D-day', date: dateVal } : d))
+                }
+                setEditingDdayId(null)
               }}
             >
               <Text style={styles.ddaySaveTxt}>✓</Text>
@@ -541,24 +568,38 @@ export default function CalendarScreen() {
         })()}
 
         {/* ── D-day 행 ── */}
-        <TouchableOpacity
-          style={styles.ddayRow}
-          onPress={() => {
-            setDdayLabelInput(dday?.label ?? '')
-            setDdayDateInput(dday?.date ?? '')
-            setEditMode('dday')
-          }}
-          activeOpacity={0.7}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.ddayScrollRow}
         >
-          {dday ? (
-            <>
-              <Text style={[styles.ddayLabel, { color: colors.textMuted, fontSize: 12 * fontScale }]}>{dday.label}</Text>
-              <Text style={[styles.ddayCount, { color: colors.accent, fontSize: 22 * fontScale }]}>{calcDday(dday.date)}</Text>
-            </>
-          ) : (
-            <Text style={[styles.ddayEmpty, { color: colors.hint, fontSize: 13 * fontScale }]}>＋ Add D-day · 날짜 추가</Text>
-          )}
-        </TouchableOpacity>
+          {ddays.map((item) => (
+            <TouchableOpacity
+              key={item.id}
+              style={[styles.ddayChip, { backgroundColor: colors.todayBg, borderColor: colors.cellEntryBorder }]}
+              onPress={() => {
+                setDdayLabelInput(item.label)
+                setDdayDateInput(item.date)
+                setEditingDdayId(item.id)
+              }}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.ddayLabel, { color: colors.textMuted, fontSize: 11 * fontScale }]}>{item.label}</Text>
+              <Text style={[styles.ddayCount, { color: colors.accent, fontSize: 20 * fontScale }]}>{calcDday(item.date)}</Text>
+            </TouchableOpacity>
+          ))}
+          <TouchableOpacity
+            style={[styles.ddayAddBtn, { borderColor: colors.cardBorder }]}
+            onPress={() => {
+              setDdayLabelInput('')
+              setDdayDateInput('')
+              setEditingDdayId('__new__')
+            }}
+            activeOpacity={0.7}
+          >
+            <Text style={[styles.ddayEmpty, { color: colors.hint, fontSize: 13 * fontScale }]}>＋</Text>
+          </TouchableOpacity>
+        </ScrollView>
 
         {/* ── 월 네비 ── */}
         <View style={styles.monthNav}>
@@ -747,9 +788,12 @@ const styles = StyleSheet.create({
   },
 
   // D-day
+  ddayScrollRow: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 8, gap: 8 },
+  ddayChip: { alignItems: 'center', paddingVertical: 8, paddingHorizontal: 16, borderRadius: 16, borderWidth: 1.5, minWidth: 80 },
+  ddayAddBtn: { width: 40, height: 48, alignItems: 'center', justifyContent: 'center', borderRadius: 14, borderWidth: 1.5, borderStyle: 'dashed' },
   ddayRow: { alignSelf: 'center', alignItems: 'center', paddingVertical: 8, paddingHorizontal: 16, flexDirection: 'row', gap: 8 },
-  ddayLabel: { fontSize: 12, fontWeight: '600' },
-  ddayCount: { fontSize: 22, fontWeight: '800', letterSpacing: 1 },
+  ddayLabel: { fontSize: 11, fontWeight: '600' },
+  ddayCount: { fontSize: 20, fontWeight: '800', letterSpacing: 1 },
   ddayEmpty: { fontSize: 13 },
   ddayCard: { marginHorizontal: 16, marginBottom: 4, borderRadius: 14, padding: 12, borderWidth: 1.5, gap: 8 },
   ddayLabelInput: { fontSize: 13, fontWeight: '600', borderBottomWidth: 1.5, paddingVertical: 3 },

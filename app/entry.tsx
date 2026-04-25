@@ -182,6 +182,31 @@ export default function EntryScreen() {
     router.back()
   }
 
+  // 키보드 단축키 (웹)
+  useEffect(() => {
+    if (Platform.OS !== 'web') return
+    const handler = (e: KeyboardEvent) => {
+      // Ctrl+S / Cmd+S → 저장
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault()
+        if (isEditing) handleSave()
+      }
+      // Esc → 편집 취소 or 뒤로가기
+      if (e.key === 'Escape') {
+        if (showBackConfirm) { setShowBackConfirm(false); return }
+        if (isEditing) {
+          if (text.trim() || mood || weather || schedule.trim()) {
+            setShowBackConfirm(true)
+          } else {
+            setIsEditing(false)
+          }
+        }
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [isEditing, text, mood, weather, schedule, showBackConfirm])
+
   const inner = (
     <SafeAreaView style={[styles.safe, { backgroundColor: bgImage ? 'transparent' : colors.bg }]}>
       <KeyboardAvoidingView
