@@ -66,6 +66,9 @@ interface DiaryContextValue {
   // D-days (Firestore 공유, 여러 개)
   ddays: DdayItem[]
   setDdays: (items: DdayItem[]) => Promise<void>
+  // 공유 메모
+  memo: string
+  setMemo: (text: string) => Promise<void>
   // 날짜별 모든 entries (docId → entry)
   userEmoji: string
   entries: Record<string, DiaryEntry>
@@ -91,6 +94,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   const [diaryPin, setDiaryPinState] = useState<string | null>(null)
   const [diaryPinLoaded, setDiaryPinLoaded] = useState(false)
   const [ddays, setDdaysState] = useState<DdayItem[]>([])
+  const [memo, setMemoState] = useState('')
 
   useEffect(() => {
     Promise.all([
@@ -126,6 +130,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       } else {
         setDdaysState([])
       }
+      setMemoState(data?.memo ?? '')
     })
     return unsubMeta
   }, [diaryId])
@@ -221,12 +226,19 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setDdaysState(items)
   }
 
+  async function setMemo(text: string) {
+    if (!diaryId) return
+    await setDoc(doc(db, 'diaries', diaryId), { memo: text }, { merge: true })
+    setMemoState(text)
+  }
+
   if (!diaryId) return null
 
   return (
     <DiaryContext.Provider value={{
       diaryId, deviceId, isConnected, nickname, setNickname,
       appName, setAppName,
+      memo, setMemo,
       diaryPin, diaryPinLoaded, setDiaryPin,
       ddays, setDdays,
       userEmoji: getEmojiForDevice(deviceId),

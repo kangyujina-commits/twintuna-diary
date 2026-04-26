@@ -46,6 +46,10 @@ export default function CalendarScreen() {
     ddays, setDdays,
     userEmoji,
   } = useDiary()
+
+  // 검색
+  const [showSearch, setShowSearch] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
   const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, fontScale, setFontSizeLevel, fontFamilyKey, setFontFamilyKey } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
@@ -124,6 +128,21 @@ export default function CalendarScreen() {
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [])
+
+  // 검색 결과 계산
+  const searchResults = (() => {
+    const q = searchQuery.trim().toLowerCase()
+    if (!q) return []
+    return Object.values(entries)
+      .filter(e =>
+        e.text?.toLowerCase().includes(q) ||
+        e.schedule?.toLowerCase().includes(q) ||
+        e.author?.toLowerCase().includes(q) ||
+        e.mood?.includes(q) ||
+        e.weather?.includes(q)
+      )
+      .sort((a, b) => b.date.localeCompare(a.date))
+  })()
 
   function calcDday(dateStr: string): string {
     const [y, m, d] = dateStr.split('-').map(Number)
@@ -349,6 +368,16 @@ export default function CalendarScreen() {
             <TouchableOpacity onPress={toggleTheme}
               style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={styles.iconBtnTxt}>{isDark ? '☀️' : '🌙'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => router.push('/memo')}
+              style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={styles.iconBtnTxt}>📝</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => { setShowSearch(s => !s); setSearchQuery('') }}
+              style={[styles.iconBtn, { backgroundColor: showSearch ? colors.accent : colors.card, borderColor: colors.cardBorder }]}>
+              <Text style={styles.iconBtnTxt}>🔍</Text>
             </TouchableOpacity>
             <TouchableOpacity
               ref={settingsGearRef}
@@ -667,6 +696,56 @@ export default function CalendarScreen() {
           </View>
         )}
 
+        {/* ── 검색 바 + 결과 ── */}
+        {showSearch && (
+          <View style={{ marginHorizontal: 16, marginBottom: 8 }}>
+            <TextInput
+              style={[styles.searchInput, { color: colors.text, backgroundColor: colors.card, borderColor: colors.accent }]}
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              placeholder="검색어를 입력하세요 · Search entries"
+              placeholderTextColor={colors.hint}
+              autoFocus
+              returnKeyType="search"
+            />
+            {searchQuery.trim().length > 0 && (
+              searchResults.length === 0 ? (
+                <Text style={[styles.searchEmpty, { color: colors.textMuted }]}>검색 결과가 없어요 🥲</Text>
+              ) : (
+                searchResults.map(entry => {
+                  const emoji = getEmojiForDevice(entry.deviceId ?? '')
+                  const [y, m, d] = entry.date.split('-')
+                  return (
+                    <TouchableOpacity
+                      key={entry.id}
+                      style={[styles.searchResultCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}
+                      onPress={() => { setShowSearch(false); setSearchQuery(''); router.push({ pathname: '/entry', params: { date: entry.date } }) }}
+                      activeOpacity={0.7}
+                    >
+                      <View style={styles.searchResultHeader}>
+                        <Text style={[styles.searchResultDate, { color: colors.accent }]}>{y}년 {m}월 {d}일</Text>
+                        <Text style={styles.searchResultEmoji}>
+                          {emoji}{entry.author ? ' ' + entry.author : ''}{'  '}{entry.mood ?? ''}{entry.weather ?? ''}
+                        </Text>
+                      </View>
+                      {entry.schedule?.trim() ? (
+                        <Text style={[styles.searchResultText, { color: colors.textMuted }]} numberOfLines={1}>
+                          📅 {entry.schedule.trim()}
+                        </Text>
+                      ) : null}
+                      {entry.text?.trim() ? (
+                        <Text style={[styles.searchResultText, { color: colors.text }]} numberOfLines={2}>
+                          {entry.text.trim()}
+                        </Text>
+                      ) : null}
+                    </TouchableOpacity>
+                  )
+                })
+              )
+            )}
+          </View>
+        )}
+
         {/* ── Tunas 코너 ── */}
         {showTunas && (() => {
           const greeting = getDayGreeting()
@@ -883,6 +962,14 @@ const styles = StyleSheet.create({
   disconnectConfirmBtnTxt: { fontSize: 13, fontWeight: '700', color: '#fff' },
 
   exportInput: { borderRadius: 10, borderWidth: 1.5, paddingHorizontal: 10, paddingVertical: 8, fontSize: 15, fontWeight: '700', letterSpacing: 1, textAlign: 'center' },
+
+  searchInput: { borderRadius: 14, borderWidth: 1.5, paddingHorizontal: 14, paddingVertical: 11, fontSize: 15, marginBottom: 8 },
+  searchEmpty: { textAlign: 'center', fontSize: 13, paddingVertical: 16 },
+  searchResultCard: { borderRadius: 14, borderWidth: 1.5, padding: 12, marginBottom: 8, gap: 4 },
+  searchResultHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  searchResultDate: { fontSize: 13, fontWeight: '800' },
+  searchResultEmoji: { fontSize: 13 },
+  searchResultText: { fontSize: 13, lineHeight: 19 },
 
   pinRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   pinStatus: { fontSize: 14, fontWeight: '600' },
