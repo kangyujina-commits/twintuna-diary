@@ -5,6 +5,7 @@ import {
   ScrollView, KeyboardAvoidingView,
 } from 'react-native'
 import { useRouter } from 'expo-router'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useDiary } from '../src/context/DiaryContext'
 import { useTheme } from '../src/context/ThemeContext'
 
@@ -17,8 +18,10 @@ export default function MemoScreen() {
   const [sending, setSending] = useState(false)
   const scrollRef = useRef<ScrollView>(null)
 
-  // 새 메시지 오면 스크롤 아래로
+  // 화면 열릴 때 + 메시지 바뀔 때 읽음 처리
   useEffect(() => {
+    const partnerCount = memoMessages.filter(m => m.deviceId !== deviceId).length
+    AsyncStorage.setItem('@twintuna_diary:memoLastSeen', String(partnerCount))
     setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 80)
   }, [memoMessages.length])
 

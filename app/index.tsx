@@ -13,6 +13,7 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useRouter } from 'expo-router'
 import { useDiary, DdayItem, getEmojiForDevice } from '../src/context/DiaryContext'
 import { useTheme, ACCENT_PRESETS, FontSizeLevel, FONT_PRESETS, FontFamilyKey } from '../src/context/ThemeContext'
@@ -44,12 +45,27 @@ export default function CalendarScreen() {
     appName: sharedAppName, setAppName: setSharedAppName,
     connectDiary, disconnectDiary,
     ddays, setDdays,
-    userEmoji,
+    userEmoji, memoMessages,
   } = useDiary()
 
   // 검색
   const [showSearch, setShowSearch] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+
+  // 메모 읽음 뱃지
+  const MEMO_SEEN_KEY = '@twintuna_diary:memoLastSeen'
+  const [memoLastSeen, setMemoLastSeen] = useState(0)
+  useEffect(() => {
+    AsyncStorage.getItem(MEMO_SEEN_KEY).then(v => setMemoLastSeen(v ? parseInt(v) : 0))
+  }, [])
+  const partnerMemoCount = memoMessages.filter(m => m.deviceId !== deviceId).length
+  const hasUnreadMemo = partnerMemoCount > memoLastSeen
+
+  function openMemo() {
+    AsyncStorage.setItem(MEMO_SEEN_KEY, String(partnerMemoCount))
+    setMemoLastSeen(partnerMemoCount)
+    router.push('/memo')
+  }
   const { isDark, colors, toggleTheme, accentColor, setAccentColor, bgImage, setBgImage, isBgLoading, bgOpacity, setBgOpacity, fontSizeLevel, fontScale, setFontSizeLevel, fontFamilyKey, setFontFamilyKey } = useTheme()
   const { hasPin, removePin, setupPin } = useLock()
 
@@ -370,9 +386,10 @@ export default function CalendarScreen() {
               <Text style={styles.iconBtnTxt}>{isDark ? '☀️' : '🌙'}</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => router.push('/memo')}
+              onPress={openMemo}
               style={[styles.iconBtn, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <Text style={styles.iconBtnTxt}>📝</Text>
+              {hasUnreadMemo && <View style={styles.unreadDot} />}
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => { setShowSearch(s => !s); setSearchQuery('') }}
@@ -923,6 +940,7 @@ const styles = StyleSheet.create({
   headerBtnRow: { flexDirection: 'row', gap: 6, alignSelf: 'flex-end', paddingRight: 20, marginBottom: 6 },
   appTitle: { fontSize: 24, fontWeight: '800', letterSpacing: 0.5, textAlign: 'center' },
   iconBtn: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
+  unreadDot: { position: 'absolute', top: 4, right: 4, width: 8, height: 8, borderRadius: 4, backgroundColor: '#e05c5c' },
   iconBtnTxt: { fontSize: 18 },
   statusRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 8, flexWrap: 'wrap', justifyContent: 'center' },
   badge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 10 },
