@@ -168,20 +168,20 @@ export default function CalendarScreen() {
     setConnectMsg('')
   }
 
-  function formatYearMonth(raw: string): string {
-    const digits = raw.replace(/\D/g, '').slice(0, 6)
+  function formatYearMonthDay(raw: string): string {
+    const digits = raw.replace(/\D/g, '').slice(0, 8)
+    if (digits.length > 6) return digits.slice(0, 4) + '-' + digits.slice(4, 6) + '-' + digits.slice(6)
     if (digits.length > 4) return digits.slice(0, 4) + '-' + digits.slice(4)
     return digits
   }
 
   function handleExport() {
-    if (!/^\d{4}-\d{2}$/.test(exportStart) || !/^\d{4}-\d{2}$/.test(exportEnd)) {
-      setExportMsg('형식을 확인해주세요 (YYYY-MM)')
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(exportStart) || !/^\d{4}-\d{2}-\d{2}$/.test(exportEnd)) {
+      setExportMsg('형식을 확인해주세요 (YYYY-MM-DD)')
       return
     }
-    const startDate = exportStart + '-01'
-    const [ey, em] = exportEnd.split('-').map(Number)
-    const endDate = `${exportEnd}-${new Date(ey, em, 0).getDate().toString().padStart(2, '0')}`
+    const startDate = exportStart
+    const endDate = exportEnd
     if (startDate > endDate) { setExportMsg('시작이 끝보다 늦어요'); return }
 
     const filtered = Object.values(entries).filter(e => e.date >= startDate && e.date <= endDate)
@@ -557,20 +557,20 @@ export default function CalendarScreen() {
                   <TextInput
                     style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
                     value={exportStart}
-                    onChangeText={(t) => setExportStart(formatYearMonth(t))}
-                    placeholder="2025-01"
+                    onChangeText={(t) => setExportStart(formatYearMonthDay(t))}
+                    placeholder="2025-01-01"
                     placeholderTextColor={colors.hint}
-                    maxLength={7}
+                    maxLength={10}
                     keyboardType="numeric"
                   />
                   <Text style={{ color: colors.textMuted, fontWeight: '700' }}>~</Text>
                   <TextInput
                     style={[styles.exportInput, { color: colors.text, backgroundColor: colors.inputBg, borderColor: colors.cardBorder, flex: 1 }]}
                     value={exportEnd}
-                    onChangeText={(t) => setExportEnd(formatYearMonth(t))}
-                    placeholder="2025-04"
+                    onChangeText={(t) => setExportEnd(formatYearMonthDay(t))}
+                    placeholder="2025-04-30"
                     placeholderTextColor={colors.hint}
-                    maxLength={7}
+                    maxLength={10}
                     keyboardType="numeric"
                   />
                 </View>
