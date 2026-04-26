@@ -16,10 +16,10 @@ export const FONT_SCALES: Record<FontSizeLevel, number> = {
 }
 
 export type FontFamilyKey = 'Nunito' | 'Nanum Gothic' | 'Gaegu' | 'Jua' | 'Do Hyeon'
-export const FONT_PRESETS: { key: FontFamilyKey; label: string; css: string }[] = [
+export const FONT_PRESETS: { key: FontFamilyKey; label: string; css: string; weight?: string }[] = [
   { key: 'Nunito',       label: 'Nunito',  css: "'Nunito', sans-serif" },
   { key: 'Nanum Gothic', label: '나눔고딕', css: "'Nanum Gothic', sans-serif" },
-  { key: 'Gaegu',        label: '개구체',  css: "'Gaegu', cursive" },
+  { key: 'Gaegu',        label: '개구체',  css: "'Gaegu', cursive", weight: '700' },
   { key: 'Jua',          label: '주아',    css: "'Jua', sans-serif" },
   { key: 'Do Hyeon',     label: '도현',    css: "'Do Hyeon', sans-serif" },
 ]

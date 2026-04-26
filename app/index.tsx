@@ -490,33 +490,6 @@ export default function CalendarScreen() {
               </View>
 
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔤 Font Size · 글자 크기</Text>
-                <View style={styles.fontSizeRow}>
-                  {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
-                    <TouchableOpacity
-                      key={level}
-                      style={[
-                        styles.fontSizeBtn,
-                        { borderColor: colors.cardBorder, backgroundColor: colors.card },
-                        fontSizeLevel === level && { borderColor: colors.accent, backgroundColor: colors.todayBg },
-                      ]}
-                      onPress={() => setFontSizeLevel(level)}
-                      activeOpacity={0.7}
-                    >
-                      <Text style={[
-                        styles.fontSizeBtnTxt,
-                        { color: fontSizeLevel === level ? colors.accent : colors.textMuted },
-                        level === 'small' && { fontSize: 12 },
-                        level === 'large' && { fontSize: 18 },
-                      ]}>
-                        {level === 'small' ? 'S 작게' : level === 'medium' ? 'M 보통' : 'L 크게'}
-                      </Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              </View>
-
-              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
                 <Text style={[styles.cardLabel, { color: colors.textMuted }]}>✍️ Font · 글씨체</Text>
                 <View style={styles.fontFamilyList}>
                   {FONT_PRESETS.map((f) => {
@@ -542,6 +515,33 @@ export default function CalendarScreen() {
                       </TouchableOpacity>
                     )
                   })}
+                </View>
+              </View>
+
+              <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+                <Text style={[styles.cardLabel, { color: colors.textMuted }]}>🔤 Font Size · 글자 크기</Text>
+                <View style={styles.fontSizeRow}>
+                  {(['small', 'medium', 'large'] as FontSizeLevel[]).map((level) => (
+                    <TouchableOpacity
+                      key={level}
+                      style={[
+                        styles.fontSizeBtn,
+                        { borderColor: colors.cardBorder, backgroundColor: colors.card },
+                        fontSizeLevel === level && { borderColor: colors.accent, backgroundColor: colors.todayBg },
+                      ]}
+                      onPress={() => setFontSizeLevel(level)}
+                      activeOpacity={0.7}
+                    >
+                      <Text style={[
+                        styles.fontSizeBtnTxt,
+                        { color: fontSizeLevel === level ? colors.accent : colors.textMuted },
+                        level === 'small' && { fontSize: 12 },
+                        level === 'large' && { fontSize: 18 },
+                      ]}>
+                        {level === 'small' ? 'S 작게' : level === 'medium' ? 'M 보통' : 'L 크게'}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
                 </View>
               </View>
             </>)}

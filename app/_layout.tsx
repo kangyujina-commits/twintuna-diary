@@ -81,7 +81,10 @@ function AppContent() {
     if (Platform.OS !== 'web' || typeof document === 'undefined') return
     const el = document.getElementById('font-family-style') as HTMLStyleElement | null
     const preset = FONT_PRESETS.find(f => f.key === fontFamilyKey)
-    if (el && preset) el.textContent = `* { font-family: ${preset.css} !important; }`
+    if (el && preset) {
+      const weightCss = preset.weight ? ` font-weight: ${preset.weight} !important;` : ''
+      el.textContent = `* { font-family: ${preset.css} !important;${weightCss} }`
+    }
   }, [fontFamilyKey])
 
   // 로딩 중
