@@ -6,6 +6,14 @@ import { db } from '../firebase'
 export type Mood = '😊' | '😄' | '😐' | '😢' | '😠' | '😴' | '🥰' | '😰' | '🤩' | '🤗' | '😌' | '😏' | '🤔' | '😶' | '🥺' | '😤'
 export type Weather = '☀️' | '⛅' | '🌧️' | '❄️' | '🌩️' | '🌈'
 
+export interface MemoMessage {
+  id: string
+  deviceId: string
+  author: string
+  emoji: string
+  text: string
+}
+
 export interface DdayItem {
   id: string
   label: string
@@ -66,9 +74,10 @@ interface DiaryContextValue {
   // D-days (Firestore 공유, 여러 개)
   ddays: DdayItem[]
   setDdays: (items: DdayItem[]) => Promise<void>
-  // 공유 메모
-  memo: string
-  setMemo: (text: string) => Promise<void>
+  // 공유 메모 (메시지 리스트)
+  memoMessages: MemoMessage[]
+  addMemoMessage: (text: string) => Promise<void>
+  deleteMemoMessage: (id: string) => Promise<void>
   // 날짜별 모든 entries (docId → entry)
   userEmoji: string
   entries: Record<string, DiaryEntry>
@@ -94,7 +103,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
   const [diaryPin, setDiaryPinState] = useState<string | null>(null)
   const [diaryPinLoaded, setDiaryPinLoaded] = useState(false)
   const [ddays, setDdaysState] = useState<DdayItem[]>([])
-  const [memo, setMemoState] = useState('')
+  const [memoMessages, setMemoMessages] = useState<MemoMessage[]>([])
 
   useEffect(() => {
     Promise.all([
@@ -130,7 +139,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
       } else {
         setDdaysState([])
       }
-      setMemoState(data?.memo ?? '')
+      setMemoMessages(Array.isArray(data?.memoMessages) ? data.memoMessages : [])
     })
     return unsubMeta
   }, [diaryId])
@@ -226,10 +235,25 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     setDdaysState(items)
   }
 
-  async function setMemo(text: string) {
+  async function addMemoMessage(text: string) {
+    if (!diaryId || !text.trim()) return
+    const msg: MemoMessage = {
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5),
+      deviceId,
+      author: nickname || '',
+      emoji: getEmojiForDevice(deviceId),
+      text: text.trim(),
+    }
+    const updated = [...memoMessages, msg]
+    await setDoc(doc(db, 'diaries', diaryId), { memoMessages: updated }, { merge: true })
+    setMemoMessages(updated)
+  }
+
+  async function deleteMemoMessage(id: string) {
     if (!diaryId) return
-    await setDoc(doc(db, 'diaries', diaryId), { memo: text }, { merge: true })
-    setMemoState(text)
+    const updated = memoMessages.filter(m => m.id !== id)
+    await setDoc(doc(db, 'diaries', diaryId), { memoMessages: updated }, { merge: true })
+    setMemoMessages(updated)
   }
 
   if (!diaryId) return null
@@ -238,7 +262,7 @@ export function DiaryProvider({ children }: { children: ReactNode }) {
     <DiaryContext.Provider value={{
       diaryId, deviceId, isConnected, nickname, setNickname,
       appName, setAppName,
-      memo, setMemo,
+      memoMessages, addMemoMessage, deleteMemoMessage,
       diaryPin, diaryPinLoaded, setDiaryPin,
       ddays, setDdays,
       userEmoji: getEmojiForDevice(deviceId),
