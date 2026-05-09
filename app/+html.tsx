@@ -20,7 +20,8 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="TwinTuna" />
-        <link rel="apple-touch-icon" href="/assets/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
 
         {/* 스플래시 배경색 */}
         <meta name="msapplication-TileColor" content="#c9a882" />

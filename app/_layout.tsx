@@ -50,7 +50,8 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
   // 🐶🐱 이모지 파비콘
   const favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement ?? document.createElement('link')
   favicon.rel = 'icon'
-  favicon.href = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='45'>🐶</text><text x='45' y='.9em' font-size='45'>🐱</text></svg>"
+  favicon.type = 'image/svg+xml'
+  favicon.href = '/icon.svg'
   document.head.appendChild(favicon)
 
   // 탭 제목
