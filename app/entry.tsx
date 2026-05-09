@@ -175,8 +175,9 @@ export default function EntryScreen() {
   }, [])
 
   function toggleVoice() {
-    if (isListening) {
-      recognitionRef.current?.stop()
+    // ref로 체크 (state 클로저 문제 방지)
+    if (recognitionRef.current) {
+      try { recognitionRef.current.stop() } catch (_) {}
       recognitionRef.current = null
       setIsListening(false)
     } else {
@@ -199,11 +200,18 @@ export default function EntryScreen() {
         const appended = voiceFinalRef.current + interim
         setText(base + (base && appended ? ' ' : '') + appended)
       }
-      r.onend = () => setIsListening(false)
-      r.onerror = () => setIsListening(false)
+      r.onend = () => {
+        if (recognitionRef.current === r) {
+          recognitionRef.current = null
+          setIsListening(false)
+        }
+      }
+      r.onerror = () => {
+        recognitionRef.current = null
+        setIsListening(false)
+      }
       recognitionRef.current = r
-      r.start()
-      setIsListening(true)
+      try { r.start(); setIsListening(true) } catch (_) {}
     }
   }
 
