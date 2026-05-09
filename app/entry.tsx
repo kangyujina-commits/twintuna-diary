@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   View,
   Text,
@@ -160,6 +160,50 @@ export default function EntryScreen() {
       } finally {
         setIsPhotoProcessing(false)
       }
+    }
+  }
+
+  // 음성 인식
+  const recognitionRef = useRef<any>(null)
+  const voiceBaseRef = useRef('')
+  const voiceFinalRef = useRef('')
+  const [isListening, setIsListening] = useState(false)
+
+  // 컴포넌트 언마운트 시 정리
+  useEffect(() => {
+    return () => { recognitionRef.current?.stop() }
+  }, [])
+
+  function toggleVoice() {
+    if (isListening) {
+      recognitionRef.current?.stop()
+      recognitionRef.current = null
+      setIsListening(false)
+    } else {
+      const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+      if (!SR) { alert('이 브라우저는 음성 인식을 지원하지 않아요 😢'); return }
+      const r = new SR()
+      r.lang = 'ko-KR'
+      r.continuous = true
+      r.interimResults = true
+      voiceBaseRef.current = text
+      voiceFinalRef.current = ''
+      r.onresult = (e: any) => {
+        let newFinal = '', interim = ''
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          if (e.results[i].isFinal) newFinal += e.results[i][0].transcript
+          else interim += e.results[i][0].transcript
+        }
+        voiceFinalRef.current += newFinal
+        const base = voiceBaseRef.current
+        const appended = voiceFinalRef.current + interim
+        setText(base + (base && appended ? ' ' : '') + appended)
+      }
+      r.onend = () => setIsListening(false)
+      r.onerror = () => setIsListening(false)
+      recognitionRef.current = r
+      r.start()
+      setIsListening(true)
     }
   }
 
@@ -455,9 +499,23 @@ export default function EntryScreen() {
                 value={text} onChangeText={setText}
                 textAlignVertical="top" autoFocus={!myEntry}
               />
-              <Text style={[styles.charCounter, { color: colors.textMuted }]}>
-                {text.length}자
-              </Text>
+              <View style={styles.inputFooter}>
+                {Platform.OS === 'web' && (
+                  <TouchableOpacity
+                    onPress={toggleVoice}
+                    style={[styles.micBtn, { borderColor: isListening ? '#e05c5c' : colors.cardBorder, backgroundColor: isListening ? '#fff0f0' : colors.card }]}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={styles.micIcon}>{isListening ? '⏹️' : '🎤'}</Text>
+                    <Text style={[styles.micLabel, { color: isListening ? '#e05c5c' : colors.textMuted }]}>
+                      {isListening ? '중지' : '음성'}
+                    </Text>
+                  </TouchableOpacity>
+                )}
+                <Text style={[styles.charCounter, { color: colors.textMuted, marginTop: 0 }]}>
+                  {text.length}자
+                </Text>
+              </View>
             </View>
           ) : (
             <View style={[styles.textView, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
@@ -675,7 +733,11 @@ const styles = StyleSheet.create({
   },
   textContent: { fontSize: 15, color: '#3d2c1e', lineHeight: 24 },
   textEmpty: { fontSize: 14, color: '#c5a890' },
-  charCounter: { fontSize: 11, fontWeight: '600', textAlign: 'right', marginTop: 5, paddingRight: 2 },
+  inputFooter: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 6 },
+  micBtn: { flexDirection: 'row', alignItems: 'center', gap: 4, borderRadius: 10, borderWidth: 1.5, paddingHorizontal: 10, paddingVertical: 5 },
+  micIcon: { fontSize: 14 },
+  micLabel: { fontSize: 12, fontWeight: '700' },
+  charCounter: { fontSize: 11, fontWeight: '600', textAlign: 'right', paddingRight: 2 },
 
   photoMenuRow: { flexDirection: 'row', gap: 8 },
   photoMenuBtn: {
