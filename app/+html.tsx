@@ -1,5 +1,35 @@
 import { ScrollViewStyleReset } from 'expo-router/html'
 
+// 캔버스로 PNG 아이콘 생성 후 apple-touch-icon에 주입
+const iconScript = `(function(){try{
+  var c=document.createElement('canvas');
+  c.width=c.height=512;
+  var x=c.getContext('2d');
+  // 둥근 배경
+  var r=112;
+  x.beginPath();
+  x.moveTo(r,0);x.lineTo(512-r,0);
+  x.arcTo(512,0,512,r,r);x.lineTo(512,512-r);
+  x.arcTo(512,512,512-r,512,r);x.lineTo(r,512);
+  x.arcTo(0,512,0,512-r,r);x.lineTo(0,r);
+  x.arcTo(0,0,r,0,r);x.closePath();
+  x.fillStyle='#fff4ec';x.fill();
+  x.strokeStyle='#e8d0b8';x.lineWidth=14;x.stroke();
+  // 이모지
+  x.font='196px serif';
+  x.textAlign='center';x.textBaseline='middle';
+  x.fillText('\\uD83D\\uDC36',148,268);
+  x.fillText('\\uD83D\\uDC31',364,268);
+  var d=c.toDataURL('image/png');
+  // apple-touch-icon 교체
+  var l=document.querySelector('link[rel="apple-touch-icon"]');
+  if(!l){l=document.createElement('link');l.rel='apple-touch-icon';document.head.appendChild(l);}
+  l.href=d;
+  // 파비콘도 교체
+  var f=document.querySelector('link[rel="icon"]');
+  if(f)f.href=d;
+}catch(e){}})()`
+
 export default function Root({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
@@ -10,6 +40,9 @@ export default function Root({ children }: { children: React.ReactNode }) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+
+        {/* 아이콘을 캔버스로 생성해서 주입 (iOS PNG 대응) */}
+        <script dangerouslySetInnerHTML={{ __html: iconScript }} />
 
         {/* PWA 공통 */}
         <meta name="application-name" content="TwinTuna" />
