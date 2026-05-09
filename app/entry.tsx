@@ -183,7 +183,7 @@ export default function EntryScreen() {
       const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
       if (!SR) { alert('이 브라우저는 음성 인식을 지원하지 않아요 😢'); return }
       const r = new SR()
-      r.lang = 'ko-KR'
+      r.lang = navigator.language || 'ko-KR'
       r.continuous = true
       r.interimResults = true
       voiceBaseRef.current = text
