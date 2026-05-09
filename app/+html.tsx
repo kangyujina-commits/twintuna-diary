@@ -15,17 +15,14 @@ const iconScript = `(function(){try{
   x.arcTo(0,0,r,0,r);x.closePath();
   x.fillStyle='#fff4ec';x.fill();
   x.strokeStyle='#e8d0b8';x.lineWidth=14;x.stroke();
-  // 이모지
-  x.font='196px serif';
+  // 두 이모지를 하나의 문자열로 가운데 렌더링
+  x.font='180px serif';
   x.textAlign='center';x.textBaseline='middle';
-  x.fillText('\\uD83D\\uDC36',148,268);
-  x.fillText('\\uD83D\\uDC31',364,268);
+  x.fillText('\\uD83D\\uDC36\\uD83D\\uDC31',256,272);
   var d=c.toDataURL('image/png');
-  // apple-touch-icon 교체
   var l=document.querySelector('link[rel="apple-touch-icon"]');
   if(!l){l=document.createElement('link');l.rel='apple-touch-icon';document.head.appendChild(l);}
   l.href=d;
-  // 파비콘도 교체
   var f=document.querySelector('link[rel="icon"]');
   if(f)f.href=d;
 }catch(e){}})()`
