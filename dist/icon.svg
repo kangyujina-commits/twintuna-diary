@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 크림 배경 (둥근 모서리) -->
+  <rect width="512" height="512" rx="112" ry="112" fill="#fff4ec"/>
+  <!-- 테두리 -->
+  <rect width="512" height="512" rx="112" ry="112" fill="none" stroke="#e8d0b8" stroke-width="12"/>
+  <!-- 강아지 🐶 -->
+  <text x="148" y="320" font-size="196"
+    font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif"
+    text-anchor="middle">🐶</text>
+  <!-- 고양이 🐱 -->
+  <text x="364" y="320" font-size="196"
+    font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif"
+    text-anchor="middle">🐱</text>
+</svg>
