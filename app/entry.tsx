@@ -117,6 +117,7 @@ export default function EntryScreen() {
   const [isPhotoProcessing, setIsPhotoProcessing] = useState(false)
   const [analysis, setAnalysis] = useState<string | null>(null)
   const [showBackConfirm, setShowBackConfirm] = useState(false)
+  const [fullscreenPhoto, setFullscreenPhoto] = useState<string | null>(null)
 
   function toggleCollapse(id: string) {
     setCollapsedOthers(prev => {
@@ -192,6 +193,7 @@ export default function EntryScreen() {
       }
       // Esc → 편집 취소 or 뒤로가기
       if (e.key === 'Escape') {
+        if (fullscreenPhoto) { setFullscreenPhoto(null); return }
         if (showBackConfirm) { setShowBackConfirm(false); return }
         if (isEditing) {
           if (text.trim() || mood || weather || schedule.trim()) {
@@ -204,10 +206,23 @@ export default function EntryScreen() {
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [isEditing, text, mood, weather, schedule, showBackConfirm])
+  }, [isEditing, text, mood, weather, schedule, showBackConfirm, fullscreenPhoto])
 
   const inner = (
     <SafeAreaView style={[styles.safe, { backgroundColor: bgImage ? 'transparent' : colors.bg }]}>
+      {/* 전체화면 사진 */}
+      {fullscreenPhoto && (
+        <TouchableOpacity
+          style={styles.fullscreenOverlay}
+          onPress={() => setFullscreenPhoto(null)}
+          activeOpacity={1}
+        >
+          <Image source={{ uri: fullscreenPhoto }} style={styles.fullscreenImage} resizeMode="contain" />
+          <View style={styles.fullscreenCloseBtn}>
+            <Text style={styles.fullscreenCloseTxt}>✕</Text>
+          </View>
+        </TouchableOpacity>
+      )}
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -289,9 +304,9 @@ export default function EntryScreen() {
                   {other.photo_uris && other.photo_uris.length > 0 && (
                     <View style={[styles.photoGrid, { marginTop: 8 }]}>
                       {other.photo_uris.map((uri, idx) => (
-                        <View key={uri + idx} style={styles.photoThumbContainer}>
+                        <TouchableOpacity key={uri + idx} style={styles.photoThumbContainer} onPress={() => setFullscreenPhoto(uri)} activeOpacity={0.85}>
                           <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
-                        </View>
+                        </TouchableOpacity>
                       ))}
                     </View>
                   )}
@@ -474,7 +489,7 @@ export default function EntryScreen() {
               {photoUris.length > 0 && (
                 <View style={styles.photoGrid}>
                   {photoUris.map((uri, idx) => (
-                    <View key={idx} style={styles.photoThumbContainer}>
+                    <TouchableOpacity key={idx} style={styles.photoThumbContainer} onPress={() => setFullscreenPhoto(uri)} activeOpacity={0.85}>
                       <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
                       <TouchableOpacity
                         style={styles.photoRemoveBtn}
@@ -482,7 +497,7 @@ export default function EntryScreen() {
                       >
                         <Text style={styles.photoRemoveTxt}>✕</Text>
                       </TouchableOpacity>
-                    </View>
+                    </TouchableOpacity>
                   ))}
                 </View>
               )}
@@ -508,9 +523,9 @@ export default function EntryScreen() {
           ) : photoUris.length > 0 ? (
             <View style={styles.photoGrid}>
               {photoUris.map((uri, idx) => (
-                <View key={idx} style={styles.photoThumbContainer}>
+                <TouchableOpacity key={idx} style={styles.photoThumbContainer} onPress={() => setFullscreenPhoto(uri)} activeOpacity={0.85}>
                   <Image source={{ uri }} style={styles.photoThumb} resizeMode="cover" />
-                </View>
+                </TouchableOpacity>
               ))}
             </View>
           ) : null}
@@ -784,6 +799,11 @@ const styles = StyleSheet.create({
   backConfirmBtns: { flexDirection: 'row', gap: 8 },
   backConfirmBtn: { flex: 1, paddingVertical: 9, borderRadius: 10, borderWidth: 1.5, alignItems: 'center' },
   backConfirmBtnTxt: { fontSize: 13, fontWeight: '700' },
+
+  fullscreenOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.95)', zIndex: 999, justifyContent: 'center', alignItems: 'center' },
+  fullscreenImage: { width: '100%', height: '100%' },
+  fullscreenCloseBtn: { position: 'absolute', top: 48, right: 20, backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: 20, width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
+  fullscreenCloseTxt: { color: '#fff', fontSize: 18, fontWeight: '700' },
 
   myEntryDivider: { borderTopWidth: 1.5, marginVertical: 16, paddingTop: 12, alignItems: 'center' },
   myEntryDividerTxt: { fontSize: 12, fontWeight: '700', letterSpacing: 0.5 },
