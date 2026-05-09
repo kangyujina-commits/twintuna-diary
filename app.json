@@ -26,7 +26,15 @@
     },
     "web": {
       "bundler": "metro",
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "TwinTuna Diary",
+      "shortName": "TwinTuna",
+      "description": "커플 공유 일기장 🐶🐱",
+      "themeColor": "#c9a882",
+      "backgroundColor": "#fdf6f0",
+      "display": "standalone",
+      "orientation": "portrait",
+      "lang": "ko"
     },
     "plugins": [
       "expo-router"
